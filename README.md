@@ -43,8 +43,8 @@ A modern, responsive portfolio website built with Next.js, TypeScript, Tailwind 
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd suhayl-portfolio
+   git clone https://github.com/MSD786c/Suhayl-Dastager.git
+   cd Suhayl-Dastager
    ```
 
 2. Install dependencies:
