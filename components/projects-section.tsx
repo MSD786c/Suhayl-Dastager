@@ -6,18 +6,25 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/lib/data';
-import { ExternalLink, Github, Image as ImageIcon, Code2, Brain, TrendingUp, BarChart3, Coffee } from 'lucide-react';
+import { ExternalLink, Github, Image as ImageIcon, Code2, Brain, TrendingUp, BarChart3, Coffee, Car, Utensils, MapPin, BookOpen } from 'lucide-react';
 import Image from 'next/image';
 
 const ProjectsSection = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const projectIcons = {
-    'MoneyMentor — AI Finance Advisor': <TrendingUp className="h-6 w-6" />,
+    'DPH Classifieds – UAE Car Marketplace': <Car className="h-6 w-6" />,
+    'Olist E-Commerce Analytics Dashboard': <BarChart3 className="h-6 w-6" />,
+    'Coffee Ratings EDA – Consumer Trend Analysis': <Coffee className="h-6 w-6" />,
+    'Workora – Manpower Website': <Code2 className="h-6 w-6" />,
     'Document-Flow Automator': <Brain className="h-6 w-6" />,
-    'Olist Commerce Intelligence': <BarChart3 className="h-6 w-6" />,
-    'Coffee Ratings EDA': <Coffee className="h-6 w-6" />,
-    'Semantic Embedding NLP Lab': <Code2 className="h-6 w-6" />
+    'Semantic Embedding NLP Lab': <Brain className="h-6 w-6" />,
+    '🍽️ Mini Project: Nutritional Insights from 500+ Foods': <Utensils className="h-6 w-6" />,
+    'MoneyMentor — AI Finance Advisor': <TrendingUp className="h-6 w-6" />,
+    'Web Stock Predictor – Forecasting': <TrendingUp className="h-6 w-6" />,
+    'Data Science Capstone Project': <Code2 className="h-6 w-6" />,
+    'FemmeVenture – Womens Travel Platform': <MapPin className="h-6 w-6" />,
+    'University Research Project – AI Ethics Framework': <BookOpen className="h-6 w-6" />
   } as const;
 
   const projectColors = [
@@ -25,7 +32,14 @@ const ProjectsSection = () => {
     'from-purple-500 to-pink-500', 
     'from-green-500 to-emerald-500',
     'from-orange-500 to-red-500',
-    'from-yellow-500 to-orange-500'
+    'from-yellow-500 to-orange-500',
+    'from-indigo-500 to-blue-500',
+    'from-teal-500 to-green-500',
+    'from-cyan-500 to-blue-500',
+    'from-lime-500 to-green-500',
+    'from-amber-500 to-orange-500',
+    'from-fuchsia-500 to-pink-500',
+    'from-violet-500 to-purple-500'
   ];
 
   const containerVariants = {
@@ -50,7 +64,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50">
+    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -60,7 +74,7 @@ const ProjectsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Featured <span className="gradient-text">Projects</span>
+            Selected <span className="gradient-text">Projects</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -146,7 +160,7 @@ const ProjectsSection = () => {
                             size="sm" 
                             variant="secondary" 
                             className="bg-white/90 text-gray-900 hover:bg-white"
-                            onClick={() => window.open(project.demo as string, '_blank')}
+                            onClick={() => window.open(project.demo!, '_blank')}
                           >
                             <ExternalLink className="h-4 w-4 mr-1" />
                             Demo

@@ -30,7 +30,7 @@ const ExperienceSection = () => {
   };
 
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-slate-900">
+    <section id="experience" className="py-20 bg-white dark:bg-slate-900 scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -194,7 +194,7 @@ const ExperienceSection = () => {
                               </span>
                             </div>
                             <p className="text-sm text-slate-700 dark:text-slate-300">
-                              Turned creative instincts + data science dashboards into 7 viral wins >1M views.
+                              Turned creative instincts + data science dashboards into 7 viral wins {'>'}1M views.
                             </p>
                           </motion.div>
                         )}

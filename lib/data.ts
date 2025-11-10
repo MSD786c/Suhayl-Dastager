@@ -140,10 +140,40 @@ export const experiences = [
 
 export const projects = [
   {
-    name: "MoneyMentor — AI Finance Advisor",
-    description: "Acted as data science + automation consultant to build a full-stack AI finance app that forecasts spend, parses SMS alerts, and flags anomalies; improved prediction accuracy by 30% and keeps budgets on track in real time.",
-    technologies: ["Flutter", "Flask", "Firebase", "LSTM", "XGBoost", "Gemini API"],
-    impact: "30% more accurate forecasting + real-time anomaly detection",
+    name: "DPH Classifieds – UAE Car Marketplace",
+    description: "Built a full-stack UAE car marketplace with real-time analytics and ad management. Designed dynamic search and filtering, automated data sync, and integrated dashboards to track user funnels and performance metrics.",
+    technologies: ["React", "Flask", "REST APIs", "Python", "Supabase", "GitHub", "Vercel", "Railway"],
+    impact: "Improved inquiry conversion rate by 16% through behavioral analytics optimization",
+    year: "2025",
+    github: "https://github.com/MSD786c",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "Olist E-Commerce Analytics Dashboard",
+    description: "Interactive Tableau dashboard analyzing 100,000+ Brazilian e-commerce orders (2016–2018) from the Olist Public Dataset. Cleaned and modeled data in Python (Pandas) using Google Colab, creating business-ready metrics such as GMV, AOV, Delivery Days, and Review Score.",
+    technologies: ["Python", "Pandas", "Tableau", "Data Cleaning", "Data Analysis", "Data Visualization"],
+    impact: "Executive-style dashboard enabling data-driven decision-making around customer experience, logistics efficiency, and revenue optimization",
+    year: "2025",
+    github: "https://github.com/MSD786c/Olist-Ecommerce-Analytics-Dashboard",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "Coffee Ratings EDA – Consumer Trend Analysis",
+    description: "Exploratory data analysis of the Coffee Quality Database from the Coffee Quality Institute (CQI). Analyzed expert reviews of Arabica coffee beans from around the world, scored across multiple categories such as Aroma, Flavor, Acidity, Body, and Overall Quality.",
+    technologies: ["Python", "Pandas", "Seaborn", "Matplotlib", "Data Analysis", "Data Visualization"],
+    impact: "Uncovered global coffee trends, correlations, and insights to guide go-to-market strategies",
+    year: "2025",
+    github: "https://github.com/MSD786c/Coffee-Ratings-Mini-Project",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "Workora – Manpower Website",
+    description: "Clean, mobile-first React frontend with a bold full-width hero, service tiles for industries like Construction, Hospitality and Cleaning, and clear CTAs. Includes contact area and newsletter signup for demand validation.",
+    technologies: ["React.js", "Full-Stack Development", "Vercel", "GitHub"],
+    impact: "Production-ready website deployed at www.workora.ae for validating manpower service demand",
     year: "2025",
     github: "https://github.com/MSD786c",
     demo: null,
@@ -151,30 +181,10 @@ export const projects = [
   },
   {
     name: "Document-Flow Automator",
-    description: "Consulted onboarding and ops leads to ship a React + Supabase system using GPT validation + summarization that cut document review time by 40% and eliminated QA backlogs.",
+    description: "React + Supabase system using GPT validation + summarization that cut document review time by 40% and eliminated QA backlogs. AI-powered onboarding platform that validates and summarizes documentation.",
     technologies: ["React", "Supabase", "Flask", "GPT-4", "PostgreSQL"],
-    impact: "40% faster doc QA, 25% less manual review",
+    impact: "40% faster document QA, 25% less manual review, eliminated QA backlogs",
     year: "2025",
-    github: "https://github.com/MSD786c",
-    demo: null,
-    image: "/project-placeholder.jpg"
-  },
-  {
-    name: "Olist Commerce Intelligence",
-    description: "Analytics consulting project blending Tableau + Python to deliver cohort, churn, and profitability dashboards for marketplace stakeholders.",
-    technologies: ["Python", "Tableau", "SQL", "Power BI"],
-    impact: "Self-serve dashboards + actionable retention levers",
-    year: "2024",
-    github: null,
-    demo: null,
-    image: "/project-placeholder.jpg"
-  },
-  {
-    name: "Coffee Ratings EDA",
-    description: "Exploratory data analysis + storytelling engagement covering global coffee reviews to spot consumer trends and flavor drivers for go-to-market teams.",
-    technologies: ["Python", "Pandas", "Seaborn", "Matplotlib"],
-    impact: "Translates noisy tasting data into market insights",
-    year: "2024",
     github: "https://github.com/MSD786c",
     demo: null,
     image: "/project-placeholder.jpg"
@@ -184,6 +194,66 @@ export const projects = [
     description: "Developed custom embedding pipelines and retrieval workflows to power semantic search + RAG prototypes for AI consulting pilots.",
     technologies: ["Python", "TensorFlow", "OpenAI", "Vector DB"],
     impact: "High-recall knowledge retrieval for enterprise FAQs",
+    year: "2024",
+    github: null,
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "🍽️ Mini Project: Nutritional Insights from 500+ Foods",
+    description: "Explored a dataset of 551 foods with 35+ nutrients, including calories, macros, vitamins, and minerals. Practiced data cleaning, exploratory data analysis (EDA), and visualization using Python (Pandas, Seaborn, Matplotlib).",
+    technologies: ["Python", "Pandas", "Seaborn", "Matplotlib", "Data Analysis", "Data Cleaning", "Data Visualization"],
+    impact: "Discovered key nutritional insights including calorie ranges, protein density, sugar ratios, and nutrient density patterns across different food categories",
+    year: "2025",
+    github: "https://github.com/MSD786c/Mini-Project-Nutrition-Analysis",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "MoneyMentor — AI Finance Advisor",
+    description: "Integrated AI personal finance platform that unites budgeting, financial learning, and predictive analytics into one mobile application. Developed a cross-platform Flutter–Flask app offering real-time budgeting, expense tracking, and financial insights.",
+    technologies: ["Flutter", "Flask", "Firebase", "Python", "TensorFlow", "Prophet", "Gemini 1.5", "RAG", "LSTM"],
+    impact: "Personal finance assistant with predictive analytics and AI-powered financial advice",
+    year: "2025",
+    github: "https://github.com/MSD786c",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "Web Stock Predictor – Forecasting",
+    description: "Full-stack web application for stock price prediction using machine learning models. Features real-time data fetching, interactive visualizations, and predictive analytics for financial decision making.",
+    technologies: ["Python", "TensorFlow", "React", "Flask", "Pandas", "Scikit-learn", "Plotly"],
+    impact: "Accurate stock price forecasting with interactive dashboards for financial insights",
+    year: "2025",
+    github: "https://github.com/MSD786c",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "Data Science Capstone Project",
+    description: "Comprehensive data science project demonstrating end-to-end machine learning pipeline from data collection to deployment.",
+    technologies: ["Python", "Scikit-learn", "Pandas", "Flask", "Docker", "AWS"],
+    impact: "Complete ML solution deployed to cloud with monitoring and evaluation metrics",
+    year: "2025",
+    github: "https://github.com/MSD786c",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "FemmeVenture – Women's Travel Platform",
+    description: "Pioneering travel platform designed specifically for women, offering safety features and community connections. Includes detailed safety index and community features for solo female travelers.",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Google Maps API"],
+    impact: "Safe travel platform with community features for female travelers",
+    year: "2024",
+    github: "https://github.com/MSD786c",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
+    name: "University Research Project – AI Ethics Framework",
+    description: "Academic research project exploring ethical implications of AI deployment in enterprise settings. Developed framework for responsible AI implementation with bias detection mechanisms.",
+    technologies: ["Python", "Ethics Framework", "Bias Detection", "Research Methodology"],
+    impact: "Comprehensive AI ethics framework adopted by university research lab",
     year: "2024",
     github: null,
     demo: null,
