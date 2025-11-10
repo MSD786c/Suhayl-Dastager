@@ -1,0 +1,58 @@
+# Dependencies
+node_modules
+/.pnp
+.pnp.js
+.npminstall
+
+# Production builds
+/build
+/out
+/.next
+.next/
+
+# Testing
+/coverage
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local development files
+*.local
+
+# Typescript cache
+*.tsbuildinfo
+
+# Package manager
+yarn.lock
+pnpm-lock.yaml
+
+# Build artifacts
+dist/
+build/
+
+# Temporary folders
+tmp/
+temp/
+
+# macOS
+.DS_Store
