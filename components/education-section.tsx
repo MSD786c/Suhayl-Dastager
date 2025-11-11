@@ -17,6 +17,9 @@ import {
 } from 'lucide-react';
 
 const EducationSection = () => {
+  const [showAllCerts, setShowAllCerts] = React.useState(false);
+  const displayedCertifications = showAllCerts ? certifications : certifications.slice(0, 2);
+  const hasMoreCerts = certifications.length > 2;
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -108,7 +111,7 @@ const EducationSection = () => {
                           >
                             {edu.degree}
                           </CardTitle>
-                          <div className="flex items-center gap-2 text-lg text-[#A63E1B] font-semibold mb-2">
+                          <div className="flex items-center gap-2 text-lg text-[#A63E1B] dark:text-[#F7B08A] font-semibold mb-2">
                             <Building className="h-5 w-5" />
                             {edu.institution}
                           </div>
@@ -138,7 +141,7 @@ const EducationSection = () => {
                         </div>
                         <Badge 
                           variant="secondary"
-                          className={edu.status === 'Completed' ? 'bg-[#E95D2C]/15 text-[#E95D2C] border-0' : 'bg-[#B0CEE2]/30 text-[#1A2730] dark:text-[#B0CEE2] border-0'}
+                          className={edu.status === 'Completed' ? 'bg-[#E95D2C]/15 text-[#E95D2C] border-0' : 'bg-[#B0CEE2]/30 text-[#1A2730] dark:text-[#B0CEE2] dark:bg-[#23313F]/70 border-0'}
                         >
                           {edu.status}
                         </Badge>
@@ -172,7 +175,7 @@ const EducationSection = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              {certifications.map((cert, index) => (
+              {displayedCertifications.map((cert, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
@@ -193,7 +196,7 @@ const EducationSection = () => {
                           <CardTitle className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-[#E95D2C] transition-colors">
                             {cert.name}
                           </CardTitle>
-                          <div className="flex items-center gap-2 text-[#A63E1B] font-semibold mb-1">
+                          <div className="flex items-center gap-2 text-[#A63E1B] dark:text-[#F7B08A] font-semibold mb-1">
                             <Building className="h-4 w-4" />
                             {cert.issuer}
                           </div>
@@ -220,6 +223,19 @@ const EducationSection = () => {
                 </motion.div>
               ))}
             </motion.div>
+
+            {hasMoreCerts && (
+              <div className="text-center mt-4">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setShowAllCerts((prev) => !prev)}
+                  className="border-[#E95D2C] text-[#E95D2C] dark:text-[#F7B08A] dark:border-[#F7B08A] bg-transparent hover:bg-[#E95D2C]/10 dark:hover:bg-[#F7B08A]/10"
+                >
+                  {showAllCerts ? 'Show Fewer Certifications' : 'View More Certifications'}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
 
@@ -279,7 +295,7 @@ const EducationSection = () => {
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-16"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+          <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
             Key Skills Developed
           </h3>
           
@@ -300,7 +316,7 @@ const EducationSection = () => {
               >
                 <Badge 
                   variant="outline" 
-                  className="text-sm font-medium hover:bg-[#B0CEE2]/30 hover:border-[#B0CEE2]/60 transition-all duration-200 cursor-default"
+                  className="text-sm font-medium text-[#1A2730] dark:text-[#B0CEE2] border-[#B0CEE2]/60 dark:border-[#45586C] bg-white/70 dark:bg-transparent hover:bg-[#B0CEE2]/30 dark:hover:bg-[#45586C]/50 transition-all duration-200 cursor-default"
                 >
                   <Star className="h-3 w-3 mr-1 text-yellow-500" />
                   {skill}
