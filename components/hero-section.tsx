@@ -241,7 +241,7 @@ const HeroSection = () => {
           <p className="text-center text-slate-600 dark:text-slate-300 mb-6 md:mb-8 text-lg">
             Technologies I work with
           </p>
-          <div className="overflow-hidden whitespace-nowrap rounded-3xl border-2 border-[#E95D2C] dark:border-[#E95D2C] bg-white/80 dark:bg-[#0F1B23]/80 px-4 sm:px-6 py-4 shadow-xl backdrop-blur-md">
+          <div className="overflow-hidden whitespace-nowrap px-1 sm:px-2 py-1">
             <motion.div
               animate={{ x: [0, -1000] }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -250,7 +250,7 @@ const HeroSection = () => {
               {[...techStack, ...techStack].map((tech, index) => (
                 <span
                   key={index}
-                  className="inline-flex items-center px-4 py-2 rounded-full border border-[#E95D2C]/60 bg-white/90 text-[#1A2730] dark:bg-transparent dark:text-[#B0CEE2] dark:border-[#E95D2C]/70 font-medium shadow-sm"
+                  className="inline-flex items-center px-4 py-2 rounded-full border-2 border-[#E95D2C]/70 bg-white/90 text-[#1A2730] dark:border-[#E95D2C]/80 dark:bg-slate-900/40 dark:text-[#FCE3D6] font-medium shadow-sm"
                 >
                   {tech}
                 </span>
