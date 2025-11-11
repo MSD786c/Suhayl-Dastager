@@ -200,6 +200,16 @@ export const projects = [
     image: "/project-placeholder.jpg"
   },
   {
+    name: "Crypto Analysis Dashboard",
+    description: "Real-time market health, sentiment analysis, and data quality monitoring for digital asset portfolios. Answers how price volatility, trading volume, and social sentiment correlate with investor confidence across major cryptocurrencies. Features robust ETL pipeline, ACL-style audit checks, and executive dashboard with portfolio health scoring. Perfect for crypto funds and quantitative analysts.",
+    technologies: ["Python", "React", "TensorFlow", "Data Visualization", "ETL Pipeline", "Sentiment Analysis"],
+    impact: "Provided institutional crypto investors with real-time portfolio health scoring and predictive analytics for data-driven decision making.",
+    year: "2025",
+    github: "https://github.com/MSD786c/Crypto-Analysis-Dashboard.git",
+    demo: null,
+    image: "/project-placeholder.jpg"
+  },
+  {
     name: "FemmeVenture",
     description: "Women-focused travel platform featuring destination safety indices, solo traveler community tooling, and itinerary helpers to make trips safer and more social.",
     technologies: ["Django REST Framework", "React", "Azure SQL", "GitLab", "AI Services"],

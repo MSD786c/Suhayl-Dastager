@@ -23,7 +23,8 @@ const ProjectsSection = () => {
     'VirtualED': <BookOpen className="h-6 w-6" />,
     'Semantic Embedding': <Brain className="h-6 w-6" />,
     'Web Stock Predictor': <TrendingUp className="h-6 w-6" />,
-    'Penguin Attribute Analysis': <BarChart3 className="h-6 w-6" />
+    'Penguin Attribute Analysis': <BarChart3 className="h-6 w-6" />,
+    'Crypto Analysis Dashboard': <TrendingUp className="h-6 w-6" />
   } as const;
 
   const projectColors = Array(projects.length).fill('from-[#e95d2c] to-[#e95d2c]');
