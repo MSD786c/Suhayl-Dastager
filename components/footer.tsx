@@ -48,9 +48,9 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-[#E95D2C] rounded-full hover:bg-[#A63E1B] transition-colors duration-300"
+                  className="p-3 bg-[#0077b5] rounded-full hover:bg-[#005885] transition-colors duration-300"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Linkedin className="h-5 w-5 text-white" />
                 </motion.a>
                 <motion.a
                   href={personalInfo.github}
@@ -58,9 +58,9 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-[#424048] rounded-full hover:bg-[#1A2730] transition-colors duration-300"
+                  className="p-3 bg-[#333333] rounded-full hover:bg-[#1a1a1a] dark:bg-[#6e6e6e] dark:hover:bg-[#555555] transition-colors duration-300"
                 >
-                  <Github className="h-5 w-5" />
+                  <Github className="h-5 w-5 text-white" />
                 </motion.a>
                 <motion.a
                   href={`mailto:${personalInfo.email}`}

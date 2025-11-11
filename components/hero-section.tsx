@@ -113,7 +113,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 onClick={() => window.open(personalInfo.linkedin, '_blank')}
-                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-[#45586C] text-[#1A2730] hover:bg-[#B0CEE2]/30"
+                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-[#0077b5] text-[#0077b5] hover:bg-[#0077b5] hover:text-white dark:border-[#0077b5] dark:text-[#0077b5] dark:hover:bg-[#0077b5]"
               >
                 <Linkedin className="h-5 w-5 mr-2" />
                 LinkedIn
@@ -122,7 +122,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 onClick={() => window.open(personalInfo.github, '_blank')}
-                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-[#45586C] text-[#1A2730] hover:bg-[#B0CEE2]/30"
+                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-white dark:border-[#6e6e6e] dark:text-[#6e6e6e] dark:hover:bg-[#6e6e6e]"
               >
                 <Github className="h-5 w-5 mr-2" />
                 GitHub
