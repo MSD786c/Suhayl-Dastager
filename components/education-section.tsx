@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { education, certifications } from '@/lib/data';
@@ -173,19 +173,27 @@ const EducationSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="space-y-6"
+              className="flex flex-col gap-6"
+              id="certification-list"
+              layout
             >
-              {displayedCertifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ 
-                    scale: 1.02,
-                    transition: { duration: 0.2 }
-                  }}
-                >
-                  <Card className="bg-white/90 dark:bg-[#1A2730]/85 border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300 group">
-                    <CardHeader className="pb-4">
+              <AnimatePresence initial={false}>
+                {displayedCertifications.map((cert) => (
+                  <motion.div
+                    key={cert.name}
+                    layout
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.35, ease: 'easeInOut' }}
+                    style={{ overflow: 'hidden' }}
+                    whileHover={{ 
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    <Card className="bg-white/90 dark:bg-[#1A2730]/85 border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300 group">
+                      <CardHeader className="pb-4">
                       <div className="flex items-start gap-4">
                         {/* Certificate Icon Placeholder */}
                         <div className="flex-shrink-0 w-16 h-16 bg-[#e95d2c]/15 dark:bg-[#E95D2C]/25 rounded-lg flex items-center justify-center">
@@ -221,7 +229,8 @@ const EducationSection = () => {
                     </CardHeader>
                   </Card>
                 </motion.div>
-              ))}
+                ))}
+              </AnimatePresence>
             </motion.div>
 
             {hasMoreCerts && (
@@ -231,6 +240,8 @@ const EducationSection = () => {
                   variant="outline"
                   onClick={() => setShowAllCerts((prev) => !prev)}
                   className="border-[#E95D2C] text-[#E95D2C] dark:text-[#F7B08A] dark:border-[#F7B08A] bg-transparent hover:bg-[#E95D2C]/10 dark:hover:bg-[#F7B08A]/10"
+                  aria-expanded={showAllCerts}
+                  aria-controls="certification-list"
                 >
                   {showAllCerts ? 'Show Fewer Certifications' : 'View More Certifications'}
                 </Button>

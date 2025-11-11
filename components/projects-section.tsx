@@ -29,6 +29,22 @@ const ProjectsSection = () => {
 
   const projectColors = Array(projects.length).fill('from-[#e95d2c] to-[#e95d2c]');
 
+  const categoryOrder = ['AI & Automation', 'Analytics & BI', 'Product & Platforms'] as const;
+  const categoryIcons: Record<string, JSX.Element> = {
+    'AI & Automation': <Brain className="h-6 w-6" />,
+    'Analytics & BI': <BarChart3 className="h-6 w-6" />,
+    'Product & Platforms': <Code2 className="h-6 w-6" />
+  };
+
+  const categorySummary = categoryOrder
+    .map((category) => ({
+      category,
+      count: projects.filter((project) => project.category === category).length,
+      icon: categoryIcons[category],
+      color: 'from-[#e95d2c] to-[#e95d2c]'
+    }))
+    .filter((entry) => entry.count > 0);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -243,26 +259,7 @@ const ProjectsSection = () => {
           </h3>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { 
-                category: 'AI & Automation', 
-                count: 2, 
-                icon: <Brain className="h-6 w-6" />,
-                color: 'from-[#e95d2c] to-[#e95d2c]'
-              },
-              { 
-                category: 'Analytics & BI', 
-                count: 2, 
-                icon: <BarChart3 className="h-6 w-6" />,
-                color: 'from-[#e95d2c] to-[#e95d2c]'
-              },
-              { 
-                category: 'NLP & Data Apps', 
-                count: 1, 
-                icon: <Code2 className="h-6 w-6" />,
-                color: 'from-[#e95d2c] to-[#e95d2c]'
-              }
-            ].map((category, index) => (
+            {categorySummary.map((category, index) => (
               <motion.div
                 key={category.category}
                 initial={{ opacity: 0, y: 30 }}
