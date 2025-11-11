@@ -14,33 +14,19 @@ const ProjectsSection = () => {
 
   const projectIcons = {
     'DPH Classifieds – UAE Car Marketplace': <Car className="h-6 w-6" />,
-    'Olist E-Commerce Analytics Dashboard': <BarChart3 className="h-6 w-6" />,
-    'Coffee Ratings EDA – Consumer Trend Analysis': <Coffee className="h-6 w-6" />,
-    'Workora – Manpower Website': <Code2 className="h-6 w-6" />,
-    'Document-Flow Automator': <Brain className="h-6 w-6" />,
-    'Semantic Embedding NLP Lab': <Brain className="h-6 w-6" />,
-    '🍽️ Mini Project: Nutritional Insights from 500+ Foods': <Utensils className="h-6 w-6" />,
-    'MoneyMentor — AI Finance Advisor': <TrendingUp className="h-6 w-6" />,
-    'Web Stock Predictor – Forecasting': <TrendingUp className="h-6 w-6" />,
-    'Data Science Capstone Project': <Code2 className="h-6 w-6" />,
-    'FemmeVenture – Womens Travel Platform': <MapPin className="h-6 w-6" />,
-    'University Research Project – AI Ethics Framework': <BookOpen className="h-6 w-6" />
+    'Olist E-Commerce Analytics Dashboard | Tableau + Python': <BarChart3 className="h-6 w-6" />,
+    '📊 Mini Project: Nutrition Analysis': <Utensils className="h-6 w-6" />,
+    '☕ Coffee Ratings EDA Project': <Coffee className="h-6 w-6" />,
+    'Workora': <Code2 className="h-6 w-6" />,
+    'MoneyMentor': <TrendingUp className="h-6 w-6" />,
+    'FemmeVenture': <MapPin className="h-6 w-6" />,
+    'VirtualED': <BookOpen className="h-6 w-6" />,
+    'Semantic Embedding': <Brain className="h-6 w-6" />,
+    'Web Stock Predictor': <TrendingUp className="h-6 w-6" />,
+    'Penguin Attribute Analysis': <BarChart3 className="h-6 w-6" />
   } as const;
 
-  const projectColors = [
-    'from-blue-500 to-cyan-500',
-    'from-purple-500 to-pink-500', 
-    'from-green-500 to-emerald-500',
-    'from-orange-500 to-red-500',
-    'from-yellow-500 to-orange-500',
-    'from-indigo-500 to-blue-500',
-    'from-teal-500 to-green-500',
-    'from-cyan-500 to-blue-500',
-    'from-lime-500 to-green-500',
-    'from-amber-500 to-orange-500',
-    'from-fuchsia-500 to-pink-500',
-    'from-violet-500 to-purple-500'
-  ];
+  const projectColors = Array(projects.length).fill('from-[#e95d2c] to-[#e95d2c]');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,7 +50,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 scroll-mt-24">
+    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 via-white to-[#e95d2c]/10 dark:from-[#1A2730] dark:via-[#424048] dark:to-[#1A2730] scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -73,11 +59,11 @@ const ProjectsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Selected <span className="gradient-text">Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-[#e95d2c] mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-600 dark:text-[#B0CEE2]/80 max-w-3xl mx-auto">
             Advisory-grade builds across data science, analytics consulting, AI automation, and decision intelligence
           </p>
         </motion.div>
@@ -101,7 +87,7 @@ const ProjectsSection = () => {
               }}
               className="group"
             >
-              <Card className="h-full bg-white/70 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+              <Card className="h-full bg-white/80 dark:bg-[#1A2730]/80 backdrop-blur-sm border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 {/* Project Image/Icon Area */}
                 <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   <motion.div
@@ -171,7 +157,7 @@ const ProjectsSection = () => {
                       <Button 
                         size="sm" 
                         variant="secondary" 
-                        className="bg-white/90 text-gray-900 hover:bg-white"
+                        className="bg-white/90 text-gray-900 hover:bg-white dark:bg-[#1A2730] dark:text-[#B0CEE2] dark:hover:bg-[#1A2730]/80"
                         onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                       >
                         <ExternalLink className="h-4 w-4 mr-1" />
@@ -184,17 +170,17 @@ const ProjectsSection = () => {
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <CardTitle className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-[#E95D2C] transition-colors">
                         {project.name}
                       </CardTitle>
                       {project.impact && (
-                        <p className="text-sm text-gray-500 mt-1">
+                        <p className="text-sm text-gray-500 dark:text-[#B0CEE2]/70 mt-1">
                           {project.impact}
                         </p>
                       )}
                     </div>
                     {project.year && (
-                      <Badge className="bg-blue-50 text-blue-600 border-0">
+                      <Badge className="bg-[#B0CEE2]/30 text-[#1A2730] dark:bg-[#424048] dark:text-[#B0CEE2] border-0">
                         {project.year}
                       </Badge>
                     )}
@@ -202,7 +188,7 @@ const ProjectsSection = () => {
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  <p className="text-gray-600 leading-relaxed line-clamp-3">
+                    <p className="text-gray-600 dark:text-[#B0CEE2]/80 leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
 
@@ -219,10 +205,10 @@ const ProjectsSection = () => {
                         }}
                         whileHover={{ scale: 1.1 }}
                       >
-                        <Badge 
-                          variant="outline" 
-                          className="text-xs font-medium hover:bg-blue-50 hover:border-blue-200 transition-colors"
-                        >
+                          <Badge
+                            variant="outline"
+                            className="text-xs font-medium hover:bg-[#B0CEE2]/30 hover:border-[#B0CEE2]/60 transition-colors dark:text-[#B0CEE2]"
+                          >
                           {tech}
                         </Badge>
                       </motion.div>
@@ -235,7 +221,7 @@ const ProjectsSection = () => {
                     whileInView={{ width: '100%' }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.2, duration: 0.8 }}
-                    className="h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                    className="h-1 bg-[#e95d2c] rounded-full"
                   />
                 </CardContent>
               </Card>
@@ -251,7 +237,7 @@ const ProjectsSection = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-20"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-12">
+          <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-12">
             Project Categories
           </h3>
           
@@ -261,19 +247,19 @@ const ProjectsSection = () => {
                 category: 'AI & Automation', 
                 count: 2, 
                 icon: <Brain className="h-6 w-6" />,
-                color: 'from-purple-500 to-pink-500'
+                color: 'from-[#e95d2c] to-[#e95d2c]'
               },
               { 
                 category: 'Analytics & BI', 
                 count: 2, 
                 icon: <BarChart3 className="h-6 w-6" />,
-                color: 'from-blue-500 to-cyan-500'
+                color: 'from-[#e95d2c] to-[#e95d2c]'
               },
               { 
                 category: 'NLP & Data Apps', 
                 count: 1, 
                 icon: <Code2 className="h-6 w-6" />,
-                color: 'from-green-500 to-emerald-500'
+                color: 'from-[#e95d2c] to-[#e95d2c]'
               }
             ].map((category, index) => (
               <motion.div
@@ -283,18 +269,18 @@ const ProjectsSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 whileHover={{ scale: 1.05 }}
-                className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-xl border border-gray-100 hover:shadow-lg transition-all duration-300"
+                className="text-center p-6 bg-white/70 dark:bg-[#1A2730]/80 backdrop-blur-sm rounded-xl border border-gray-100 dark:border-[#45586C] hover:shadow-lg transition-all duration-300"
               >
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${category.color} text-white mb-4`}>
                   {category.icon}
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   {category.category}
                 </h4>
                 <p className="text-3xl font-bold gradient-text mb-1">
                   {category.count}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-[#B0CEE2]/80">
                   Projects
                 </p>
               </motion.div>
@@ -310,13 +296,13 @@ const ProjectsSection = () => {
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-16 text-center"
         >
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-gray-600 dark:text-[#B0CEE2]/80 mb-6">
             Interested in collaborating on innovative projects?
           </p>
           <Button 
             size="lg"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 text-lg hover:shadow-lg transition-all duration-300"
+            className="bg-[#e95d2c] text-white px-8 py-3 text-lg hover:shadow-lg transition-all duration-300"
           >
             Let's Work Together
           </Button>

@@ -62,33 +62,33 @@ const ContactSection = () => {
       title: 'Email',
       value: personalInfo.email,
       action: () => window.open(`mailto:${personalInfo.email}`, '_blank'),
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-[#e95d2c] to-[#e95d2c]'
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: 'Phone',
       value: personalInfo.phone,
       action: () => window.open(`tel:${personalInfo.phone}`, '_blank'),
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-[#e95d2c] to-[#e95d2c]'
     },
     {
       icon: <Linkedin className="h-6 w-6" />,
       title: 'LinkedIn',
       value: 'Connect with me',
       action: () => window.open(personalInfo.linkedin, '_blank'),
-      color: 'from-blue-600 to-blue-700'
+      color: 'from-[#e95d2c] to-[#e95d2c]'
     },
     {
       icon: <Github className="h-6 w-6" />,
       title: 'GitHub',
       value: 'View my code',
       action: () => window.open(personalInfo.github, '_blank'),
-      color: 'from-gray-700 to-gray-900'
+      color: 'from-[#1A2730] to-[#424048]'
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 scroll-mt-24">
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 via-white to-[#e95d2c]/10 dark:from-[#1A2730] dark:via-[#424048] dark:to-[#1A2730] scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -97,11 +97,11 @@ const ContactSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-[#e95d2c] mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-600 dark:text-[#B0CEE2]/80 max-w-3xl mx-auto">
             I collaborate with founders, marketing teams, and data leaders who care about measurable outcomes. If you need AI copilots, automation, or analytics that ship fast, let's build it.
           </p>
         </motion.div>
@@ -116,10 +116,10 @@ const ContactSection = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Let's Start a Conversation
               </h3>
-              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              <p className="text-lg text-gray-600 dark:text-[#B0CEE2]/80 leading-relaxed mb-8">
                 Open to opportunities in data science, data analysis, AI consulting, strategy consulting, data automation, 
                 and data engineering across EMEA. Share the problem, the KPI, and the constraints—I’ll map the right stack, 
                 facilitate the stakeholders, and own delivery end-to-end.
@@ -139,17 +139,17 @@ const ContactSection = () => {
                   onClick={method.action}
                   className="cursor-pointer"
                 >
-                  <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <Card className="bg-white/80 dark:bg-[#1A2730]/80 backdrop-blur-sm border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300 group">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
                         <div className={`p-4 rounded-full bg-gradient-to-r ${method.color} text-white group-hover:scale-110 transition-transform duration-300`}>
                           {method.icon}
                         </div>
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-[#E95D2C] transition-colors">
                             {method.title}
                           </h4>
-                          <p className="text-gray-600 group-hover:text-gray-700 transition-colors">
+                          <p className="text-gray-600 dark:text-[#B0CEE2]/80 group-hover:text-gray-700 transition-colors">
                             {method.value}
                           </p>
                         </div>
@@ -166,7 +166,7 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white"
+              className="p-8 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] rounded-2xl text-white"
             >
               <div className="text-center">
                 <motion.div
@@ -179,13 +179,13 @@ const ContactSection = () => {
                   <Download className="h-8 w-8" />
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-4">Download My CV</h3>
-                <p className="text-blue-100 mb-6 leading-relaxed">
+                <p className="text-[#B0CEE2] mb-6 leading-relaxed">
                   Get a comprehensive overview of my experience, skills, and achievements.
                 </p>
                 <Button
                   onClick={downloadCV}
                   size="lg"
-                  className="bg-white text-blue-600 hover:bg-gray-50 hover:shadow-lg transition-all duration-300 font-semibold"
+                  className="bg-white text-[#1A2730] hover:bg-[#B0CEE2]/20 hover:shadow-lg transition-all duration-300 font-semibold"
                 >
                   <Download className="h-5 w-5 mr-2" />
                   Download CV (PDF)
@@ -201,10 +201,10 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
+            <Card className="bg-white/80 dark:bg-[#1A2730]/85 backdrop-blur-sm border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-xl">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3">
-                  <MessageCircle className="h-7 w-7 text-blue-600" />
+                <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                  <MessageCircle className="h-7 w-7 text-[#E95D2C]" />
                   Send Message
                 </CardTitle>
               </CardHeader>
@@ -222,7 +222,7 @@ const ContactSection = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E95D2C] focus:border-transparent transition-all duration-300"
                         placeholder="Your name"
                       />
                     </div>
@@ -237,7 +237,7 @@ const ContactSection = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E95D2C] focus:border-transparent transition-all duration-300"
                         placeholder="your.email@example.com"
                       />
                     </div>
@@ -254,7 +254,7 @@ const ContactSection = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E95D2C] focus:border-transparent transition-all duration-300"
                       placeholder="What would you like to discuss?"
                     />
                   </div>
@@ -270,7 +270,7 @@ const ContactSection = () => {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E95D2C] focus:border-transparent transition-all duration-300 resize-none"
                       placeholder="Tell me about your project, ideas, or how we can work together..."
                     />
                   </div>
@@ -278,7 +278,7 @@ const ContactSection = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 text-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+                    className="w-full bg-[#e95d2c] text-white py-3 text-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center gap-2">

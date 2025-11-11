@@ -60,22 +60,22 @@
 
 /* Custom styles */
 .gradient-bg {
-  background: linear-gradient(135deg, #475569 0%, #334155 100%);
+  background: linear-gradient(135deg, #1A2730 0%, #45586C 100%);
 }
 
 .dark .gradient-bg {
-  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  background: linear-gradient(135deg, #424048 0%, #1A2730 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #475569 0%, #334155 100%);
+  background: linear-gradient(135deg, #e95d2c 0%, #e95d2c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .dark .gradient-text {
-  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  background: linear-gradient(135deg, #e95d2c 0%, #e95d2c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

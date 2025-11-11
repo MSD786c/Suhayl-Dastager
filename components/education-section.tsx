@@ -47,7 +47,7 @@ const EducationSection = () => {
   };
 
   return (
-    <section id="education" className="py-20 bg-white scroll-mt-24">
+    <section id="education" className="py-20 bg-white dark:bg-[#1A2730] scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -56,11 +56,11 @@ const EducationSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Education & <span className="gradient-text">Certifications</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-[#e95d2c] mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-600 dark:text-[#B0CEE2]/80 max-w-3xl mx-auto">
             Academic foundation and professional certifications driving continuous learning
           </p>
         </motion.div>
@@ -75,8 +75,8 @@ const EducationSection = () => {
               transition={{ duration: 0.8 }}
               className="mb-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <GraduationCap className="h-8 w-8 text-blue-600" />
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+                <GraduationCap className="h-8 w-8 text-[#E95D2C]" />
                 Education
               </h3>
             </motion.div>
@@ -98,26 +98,26 @@ const EducationSection = () => {
                   }}
                 >
                   <Card
-                    className={`bg-gradient-to-br from-white to-blue-50/30 border-0 shadow-lg hover:shadow-xl transition-all duration-300 ${edu.status === 'Completed' ? 'ring-2 ring-green-200' : ''}`}
+                    className={`bg-white/90 dark:bg-[#1A2730]/85 border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300 ${edu.status === 'Completed' ? 'ring-2 ring-[#E95D2C]/40 dark:ring-[#E95D2C]/50' : ''}`}
                   >
                     <CardHeader className="pb-4">
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <CardTitle
-                            className={`text-xl font-bold mb-2 ${edu.status === 'Completed' ? 'text-green-700' : 'text-gray-900'}`}
+                            className={`text-xl font-bold mb-2 ${edu.status === 'Completed' ? 'text-[#E95D2C]' : 'text-gray-900 dark:text-white'}`}
                           >
                             {edu.degree}
                           </CardTitle>
-                          <div className="flex items-center gap-2 text-lg text-blue-600 font-semibold mb-2">
+                          <div className="flex items-center gap-2 text-lg text-[#A63E1B] font-semibold mb-2">
                             <Building className="h-5 w-5" />
                             {edu.institution}
                           </div>
-                          <div className="flex items-center gap-2 text-gray-600 mb-2">
+                          <div className="flex items-center gap-2 text-gray-600 dark:text-[#B0CEE2]/80 mb-2">
                             <Calendar className="h-4 w-4" />
                             {edu.duration}
                           </div>
                           {edu.major && (
-                            <div className="flex items-center gap-2 text-gray-600">
+                            <div className="flex items-center gap-2 text-gray-600 dark:text-[#B0CEE2]/80">
                               <BookOpen className="h-4 w-4" />
                               Major: {edu.major}
                             </div>
@@ -128,7 +128,7 @@ const EducationSection = () => {
                                 <Badge
                                   key={highlight}
                                   variant="secondary"
-                                  className="text-xs bg-white/70"
+                                  className="text-xs bg-white/70 text-[#1A2730] dark:bg-[#424048] dark:text-[#B0CEE2]"
                                 >
                                   {highlight}
                                 </Badge>
@@ -137,8 +137,8 @@ const EducationSection = () => {
                           )}
                         </div>
                         <Badge 
-                          variant={edu.status === 'Completed' ? 'default' : 'secondary'}
-                          className={edu.status === 'Completed' ? 'bg-green-100 text-green-700 border-0' : ''}
+                          variant="secondary"
+                          className={edu.status === 'Completed' ? 'bg-[#E95D2C]/15 text-[#E95D2C] border-0' : 'bg-[#B0CEE2]/30 text-[#1A2730] dark:text-[#B0CEE2] border-0'}
                         >
                           {edu.status}
                         </Badge>
@@ -159,8 +159,8 @@ const EducationSection = () => {
               transition={{ duration: 0.8 }}
               className="mb-8"
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <Award className="h-8 w-8 text-purple-600" />
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+                  <Award className="h-8 w-8 text-[#E95D2C]" />
                 Certifications
               </h3>
             </motion.div>
@@ -181,23 +181,23 @@ const EducationSection = () => {
                     transition: { duration: 0.2 }
                   }}
                 >
-                  <Card className="bg-gradient-to-br from-white to-purple-50/30 border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <Card className="bg-white/90 dark:bg-[#1A2730]/85 border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300 group">
                     <CardHeader className="pb-4">
                       <div className="flex items-start gap-4">
                         {/* Certificate Icon Placeholder */}
-                        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg flex items-center justify-center">
-                          <Award className="h-8 w-8 text-purple-600" />
+                        <div className="flex-shrink-0 w-16 h-16 bg-[#e95d2c]/15 dark:bg-[#E95D2C]/25 rounded-lg flex items-center justify-center">
+                          <Award className="h-8 w-8 text-[#E95D2C]" />
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <CardTitle className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                          <CardTitle className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-[#E95D2C] transition-colors">
                             {cert.name}
                           </CardTitle>
-                          <div className="flex items-center gap-2 text-blue-600 font-semibold mb-1">
+                          <div className="flex items-center gap-2 text-[#A63E1B] font-semibold mb-1">
                             <Building className="h-4 w-4" />
                             {cert.issuer}
                           </div>
-                          <div className="flex items-center gap-2 text-gray-600 mb-3">
+                          <div className="flex items-center gap-2 text-gray-600 dark:text-[#B0CEE2]/80 mb-3">
                             <Calendar className="h-4 w-4" />
                             {cert.date}
                           </div>
@@ -207,7 +207,7 @@ const EducationSection = () => {
                             <Button
                               size="sm"
                               onClick={() => handleCertificateClick(cert.link)}
-                              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:shadow-lg transition-all duration-300"
+                              className="bg-[#e95d2c] text-white hover:shadow-lg transition-all duration-300"
                             >
                               <ExternalLink className="h-4 w-4 mr-1" />
                               View Credential
@@ -224,13 +224,13 @@ const EducationSection = () => {
         </div>
 
         {/* Achievement Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-20 p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white"
-        >
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="mt-20 p-8 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] rounded-2xl text-white"
+            >
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <motion.div
               initial={{ scale: 0 }}
@@ -239,7 +239,7 @@ const EducationSection = () => {
               transition={{ delay: 1, duration: 0.5 }}
             >
               <div className="text-3xl font-bold mb-2">2+</div>
-              <div className="text-blue-100">Universities</div>
+              <div className="text-[#B0CEE2]">Universities</div>
             </motion.div>
             <motion.div
               initial={{ scale: 0 }}
@@ -248,7 +248,7 @@ const EducationSection = () => {
               transition={{ delay: 1.1, duration: 0.5 }}
             >
               <div className="text-3xl font-bold mb-2">{certifications.length}</div>
-              <div className="text-blue-100">Certifications</div>
+              <div className="text-[#B0CEE2]">Certifications</div>
             </motion.div>
             <motion.div
               initial={{ scale: 0 }}
@@ -257,7 +257,7 @@ const EducationSection = () => {
               transition={{ delay: 1.2, duration: 0.5 }}
             >
               <div className="text-3xl font-bold mb-2">AI</div>
-              <div className="text-blue-100">Specialization</div>
+              <div className="text-[#B0CEE2]">Specialization</div>
             </motion.div>
             <motion.div
               initial={{ scale: 0 }}
@@ -266,7 +266,7 @@ const EducationSection = () => {
               transition={{ delay: 1.3, duration: 0.5 }}
             >
               <div className="text-3xl font-bold mb-2">2025</div>
-              <div className="text-blue-100">Graduation</div>
+              <div className="text-[#B0CEE2]">Graduation</div>
             </motion.div>
           </div>
         </motion.div>
@@ -300,7 +300,7 @@ const EducationSection = () => {
               >
                 <Badge 
                   variant="outline" 
-                  className="text-sm font-medium hover:bg-blue-50 hover:border-blue-200 transition-all duration-200 cursor-default"
+                  className="text-sm font-medium hover:bg-[#B0CEE2]/30 hover:border-[#B0CEE2]/60 transition-all duration-200 cursor-default"
                 >
                   <Star className="h-3 w-3 mr-1 text-yellow-500" />
                   {skill}

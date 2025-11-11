@@ -20,37 +20,37 @@ const SkillsSection = () => {
       title: "Data Science & Analytics",
       icon: <Brain className="h-6 w-6" />,
       skills: skills["Data Science & Analytics"],
-      color: "from-slate-500 to-slate-600"
+      color: "from-[#1A2730] to-[#45586C]"
     },
     {
       title: "Data Engineering & Automation",
       icon: <Server className="h-6 w-6" />,
       skills: skills["Data Engineering & Automation"],
-      color: "from-stone-500 to-stone-600"
+      color: "from-[#424048] to-[#1A2730]"
     },
     {
       title: "Business Intelligence & Storytelling",
       icon: <BarChart3 className="h-6 w-6" />,
       skills: skills["Business Intelligence & Storytelling"],
-      color: "from-zinc-500 to-zinc-600"
+      color: "from-[#B0CEE2] to-[#45586C]"
     },
     {
       title: "Programming & Product Engineering",
       icon: <Code className="h-6 w-6" />,
       skills: skills["Programming & Product Engineering"],
-      color: "from-gray-500 to-gray-600"
+      color: "from-[#A63E1B] to-[#E95D2C]"
     },
     {
       title: "Cloud & Platforms",
       icon: <Shield className="h-6 w-6" />,
       skills: skills["Cloud & Platforms"],
-      color: "from-slate-600 to-slate-700"
+      color: "from-[#1A2730] to-[#424048]"
     },
     {
       title: "Consulting & Strategy",
       icon: <Users className="h-6 w-6" />,
       skills: skills["Consulting & Strategy"],
-      color: "from-stone-600 to-stone-700"
+      color: "from-[#45586C] to-[#B0CEE2]"
     }
   ];
 
@@ -87,7 +87,7 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-stone-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 scroll-mt-24">
+    <section id="skills" className="py-20 bg-gradient-to-br from-[#B0CEE2]/20 via-white to-[#E95D2C]/10 dark:from-[#1A2730] dark:via-[#424048] dark:to-[#1A2730] scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -96,11 +96,11 @@ const SkillsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1A2730] dark:text-[#B0CEE2] mb-4">
             My <span className="gradient-text">Skills</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-slate-600 to-slate-800 dark:from-slate-400 dark:to-slate-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-[#E95D2C] mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-[#424048] dark:text-[#B0CEE2]/80 max-w-3xl mx-auto">
             A comprehensive skill set spanning multiple domains of technology and business
           </p>
         </motion.div>
@@ -121,12 +121,12 @@ const SkillsSection = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              <Card className="h-full bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card className="h-full bg-white/80 dark:bg-[#1A2730]/80 backdrop-blur-sm border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader className="text-center pb-4">
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${category.color} text-white mb-4 mx-auto`}>
                     {category.icon}
                   </div>
-                  <CardTitle className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                  <CardTitle className="text-xl font-bold text-[#1A2730] dark:text-[#B0CEE2]">
                     {category.title}
                   </CardTitle>
                 </CardHeader>
@@ -149,7 +149,7 @@ const SkillsSection = () => {
                       >
                         <Badge 
                           variant="secondary" 
-                          className="text-sm font-medium hover:shadow-md transition-all duration-200 cursor-default"
+                          className="text-sm font-medium bg-[#B0CEE2]/40 text-[#1A2730] dark:bg-[#424048] dark:text-[#B0CEE2] hover:shadow-md transition-all duration-200 cursor-default border-0"
                         >
                           {skill}
                         </Badge>
@@ -170,16 +170,16 @@ const SkillsSection = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="mt-20"
         >
-          <h3 className="text-2xl font-bold text-center text-slate-900 dark:text-slate-100 mb-12">
+          <h3 className="text-2xl font-bold text-center text-[#1A2730] dark:text-[#B0CEE2] mb-12">
             Core Competencies
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { skill: "Data Science Leadership", level: 92, color: "slate" },
-              { skill: "Data Engineering & Automation", level: 89, color: "stone" },
-              { skill: "AI/ML Experimentation", level: 87, color: "zinc" },
-              { skill: "Consulting & Strategy", level: 90, color: "gray" }
+              { skill: "Data Science Leadership", level: 92, color: "#E95D2C" },
+              { skill: "Data Engineering & Automation", level: 89, color: "#A63E1B" },
+              { skill: "AI/ML Experimentation", level: 87, color: "#45586C" },
+              { skill: "Consulting & Strategy", level: 90, color: "#1A2730" }
             ].map((item, index) => (
               <motion.div
                 key={item.skill}
@@ -196,7 +196,7 @@ const SkillsSection = () => {
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
-                      stroke="#e5e7eb"
+                      stroke="#B0CEE2"
                       strokeWidth="2"
                     />
                     <motion.path
@@ -204,7 +204,7 @@ const SkillsSection = () => {
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
-                      stroke={`rgb(${item.color === 'slate' ? '100 116 139' : item.color === 'stone' ? '120 113 108' : item.color === 'zinc' ? '113 113 122' : '107 114 128'})`}
+                      stroke={item.color}
                       strokeWidth="2"
                       strokeDasharray={`${item.level}, 100`}
                       initial={{ strokeDasharray: "0, 100" }}
@@ -214,10 +214,10 @@ const SkillsSection = () => {
                     />
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-xl font-bold text-slate-900 dark:text-slate-100">{item.level}%</span>
+                    <span className="text-xl font-bold text-[#1A2730] dark:text-[#B0CEE2]">{item.level}%</span>
                   </div>
                 </div>
-                <h4 className="font-semibold text-slate-900 dark:text-slate-100">{item.skill}</h4>
+                <h4 className="font-semibold text-[#1A2730] dark:text-[#B0CEE2]">{item.skill}</h4>
               </motion.div>
             ))}
           </div>

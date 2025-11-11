@@ -16,11 +16,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gray-900 text-white overflow-hidden">
+    <footer className="relative bg-[#1A2730] text-white overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#E95D2C]/20 rounded-full mix-blend-multiply filter blur-xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#B0CEE2]/20 rounded-full mix-blend-multiply filter blur-xl"></div>
       </div>
 
       <div className="relative z-10">
@@ -48,7 +48,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-300"
+                  className="p-3 bg-[#E95D2C] rounded-full hover:bg-[#A63E1B] transition-colors duration-300"
                 >
                   <Linkedin className="h-5 w-5" />
                 </motion.a>
@@ -58,7 +58,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-gray-700 rounded-full hover:bg-gray-600 transition-colors duration-300"
+                  className="p-3 bg-[#424048] rounded-full hover:bg-[#1A2730] transition-colors duration-300"
                 >
                   <Github className="h-5 w-5" />
                 </motion.a>
@@ -66,7 +66,7 @@ const Footer = () => {
                   href={`mailto:${personalInfo.email}`}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300"
+                  className="p-3 bg-[#B0CEE2]/30 rounded-full hover:bg-[#B0CEE2]/50 transition-colors duration-300"
                 >
                   <Mail className="h-5 w-5" />
                 </motion.a>
@@ -98,7 +98,7 @@ const Footer = () => {
                           element.scrollIntoView({ behavior: 'smooth' });
                         }
                       }}
-                      className="text-gray-300 hover:text-blue-400 transition-colors duration-300 hover:underline"
+                      className="text-gray-300 hover:text-[#E95D2C] transition-colors duration-300 hover:underline"
                     >
                       {link.name}
                     </button>
@@ -117,15 +117,15 @@ const Footer = () => {
               <h4 className="text-xl font-semibold mb-4">Get In Touch</h4>
               <div className="space-y-3 text-gray-300">
                 <p className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-blue-400" />
+                  <Mail className="h-4 w-4 text-[#E95D2C]" />
                   {personalInfo.email}
                 </p>
                 <p className="flex items-center gap-2">
-                  <span className="w-4 h-4 text-blue-400">📱</span>
+                  <span className="w-4 h-4 text-[#E95D2C]">📱</span>
                   {personalInfo.phone}
                 </p>
                 <p className="flex items-center gap-2">
-                  <span className="w-4 h-4 text-blue-400">📍</span>
+                  <span className="w-4 h-4 text-[#E95D2C]">📍</span>
                   {personalInfo.location}
                 </p>
               </div>
@@ -141,7 +141,7 @@ const Footer = () => {
                 <Button
                   onClick={scrollToTop}
                   variant="outline"
-                  className="bg-transparent border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white transition-all duration-300"
+                  className="bg-transparent border-[#E95D2C] text-[#E95D2C] hover:bg-[#E95D2C] hover:text-white transition-all duration-300"
                 >
                   <ArrowUp className="h-4 w-4 mr-2" />
                   Back to Top
@@ -174,7 +174,7 @@ const Footer = () => {
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
                 >
-                  <Code className="h-4 w-4 text-blue-400" />
+                  <Code className="h-4 w-4 text-[#B0CEE2]" />
                 </motion.div>
               </div>
               
@@ -184,7 +184,7 @@ const Footer = () => {
                   animate={{ y: [0, -2, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
                 >
-                  <Coffee className="h-4 w-4 text-yellow-600" />
+                  <Coffee className="h-4 w-4 text-[#E95D2C]" />
                 </motion.div>
                 <span>& passion</span>
               </div>

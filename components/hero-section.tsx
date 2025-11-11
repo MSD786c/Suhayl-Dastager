@@ -19,12 +19,12 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-stone-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden pt-24">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#B0CEE2] via-white to-[#E95D2C]/10 dark:from-[#1A2730] dark:via-[#424048] dark:to-[#1A2730] relative overflow-hidden pt-24">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-slate-300 dark:bg-slate-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-stone-300 dark:bg-slate-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-40 left-40 w-80 h-80 bg-gray-300 dark:bg-slate-600 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#B0CEE2]/60 dark:bg-[#45586C] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#E95D2C]/30 dark:bg-[#1A2730] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-[#A63E1B]/20 dark:bg-[#424048] rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -41,7 +41,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
-                className="uppercase tracking-[0.3em] text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-4"
+                className="uppercase tracking-[0.3em] text-xs md:text-sm text-[#45586C] dark:text-[#B0CEE2] mb-4"
               >
                 {personalInfo.headline}
               </motion.p>
@@ -49,7 +49,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-100 leading-tight"
+                className="text-4xl md:text-6xl font-bold text-[#1A2730] dark:text-[#B0CEE2] leading-tight"
               >
                 Hello, I'm{' '}
                 <span className="gradient-text">
@@ -61,7 +61,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mt-4"
+                className="text-xl md:text-2xl text-[#45586C] dark:text-[#B0CEE2]/80 mt-4"
               >
                 {personalInfo.title}
               </motion.p>
@@ -71,7 +71,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl"
+              className="text-lg text-[#424048] dark:text-[#B0CEE2]/80 leading-relaxed max-w-2xl"
             >
               I operate across data science, analytics consulting, and automation engineering—sizing problems with stakeholders, 
               running the models/experiments that matter, then building the cloud + AI products that make insights stick. 
@@ -83,7 +83,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400"
+              className="flex flex-wrap gap-4 text-sm text-[#45586C] dark:text-[#B0CEE2]/80"
             >
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
@@ -104,7 +104,7 @@ const HeroSection = () => {
             >
               <Button 
                 onClick={downloadCV}
-                className="bg-gradient-to-r from-slate-700 to-slate-800 dark:from-slate-600 dark:to-slate-700 text-white px-8 py-3 text-lg hover:shadow-lg transition-all duration-300"
+                className="bg-gradient-to-r from-[#1A2730] to-[#45586C] text-white px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-0"
               >
                 <Download className="h-5 w-5 mr-2" />
                 Download CV
@@ -113,7 +113,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 onClick={() => window.open(personalInfo.linkedin, '_blank')}
-                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300"
+                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-[#45586C] text-[#1A2730] hover:bg-[#B0CEE2]/30"
               >
                 <Linkedin className="h-5 w-5 mr-2" />
                 LinkedIn
@@ -122,7 +122,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 onClick={() => window.open(personalInfo.github, '_blank')}
-                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300"
+                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-[#45586C] text-[#1A2730] hover:bg-[#B0CEE2]/30"
               >
                 <Github className="h-5 w-5 mr-2" />
                 GitHub
@@ -149,7 +149,7 @@ const HeroSection = () => {
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="absolute inset-0 bg-gradient-to-r from-slate-400 to-slate-600 dark:from-slate-500 dark:to-slate-700 rounded-3xl blur-2xl opacity-20 dark:opacity-30"
+                className="absolute inset-0 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] dark:from-[#A63E1B] dark:to-[#E95D2C] rounded-3xl blur-2xl opacity-20 dark:opacity-30"
               />
               
               {/* Secondary glow layer */}
@@ -163,7 +163,7 @@ const HeroSection = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute inset-0 bg-gradient-to-r from-stone-300 to-zinc-400 dark:from-slate-600 dark:to-slate-800 rounded-3xl blur-xl"
+                className="absolute inset-0 bg-gradient-to-r from-[#B0CEE2] to-white dark:from-[#1A2730] dark:to-[#45586C] rounded-3xl blur-xl"
               />
               
               {/* Main image container with enhanced styling */}
@@ -185,12 +185,12 @@ const HeroSection = () => {
                   rotate: [0, 10, 0]
                 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 -right-6 bg-white dark:bg-slate-800 rounded-full p-4 shadow-xl border border-slate-200 dark:border-slate-600"
+                className="absolute -top-6 -right-6 bg-white dark:bg-[#1A2730] rounded-full p-4 shadow-xl border border-[#B0CEE2]/40 dark:border-[#45586C]"
               >
                 <motion.div 
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  className="w-8 h-8 bg-gradient-to-r from-slate-500 to-stone-600 dark:from-slate-400 dark:to-slate-500 rounded-full"
+                  className="w-8 h-8 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] dark:from-[#A63E1B] dark:to-[#E95D2C] rounded-full"
                 />
               </motion.div>
               
@@ -200,12 +200,12 @@ const HeroSection = () => {
                   rotate: [0, -15, 0]
                 }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 rounded-full p-3 shadow-xl border border-slate-200 dark:border-slate-600"
+                className="absolute -bottom-6 -left-6 bg-white dark:bg-[#1A2730] rounded-full p-3 shadow-xl border border-[#B0CEE2]/40 dark:border-[#45586C]"
               >
                 <motion.div 
                   animate={{ rotate: [0, -360] }}
                   transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                  className="w-6 h-6 bg-gradient-to-r from-zinc-500 to-slate-600 dark:from-zinc-400 dark:to-slate-500 rounded-full"
+                  className="w-6 h-6 bg-gradient-to-r from-[#1A2730] to-[#45586C] dark:from-[#B0CEE2] dark:to-[#45586C] rounded-full"
                 />
               </motion.div>
               
@@ -216,7 +216,7 @@ const HeroSection = () => {
                   opacity: [0.6, 1, 0.6]
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-8 -left-2 w-3 h-3 bg-gradient-to-r from-stone-400 to-slate-500 dark:from-stone-500 dark:to-slate-600 rounded-full blur-sm"
+                className="absolute top-8 -left-2 w-3 h-3 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] dark:from-[#A63E1B] dark:to-[#E95D2C] rounded-full blur-sm"
               />
               
               <motion.div
@@ -225,7 +225,7 @@ const HeroSection = () => {
                   opacity: [0.5, 0.9, 0.5]
                 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-12 -right-3 w-2 h-2 bg-gradient-to-r from-gray-400 to-zinc-500 dark:from-gray-500 dark:to-zinc-600 rounded-full blur-sm"
+                className="absolute bottom-12 -right-3 w-2 h-2 bg-gradient-to-r from-[#45586C] to-[#1A2730] dark:from-[#B0CEE2] dark:to-[#45586C] rounded-full blur-sm"
               />
             </div>
           </motion.div>

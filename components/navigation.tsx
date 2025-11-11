@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useTheme } from '@/lib/theme-context';
 
 const Navigation = () => {
@@ -92,35 +93,13 @@ const Navigation = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 }}
             >
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleTheme}
-                className="rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
-              >
-                {theme === 'light' ? (
-                  <Moon className="h-5 w-5 text-slate-600 dark:text-slate-400" />
-                ) : (
-                  <Sun className="h-5 w-5 text-slate-600 dark:text-slate-400" />
-                )}
-              </Button>
+              <ThemeToggle />
             </motion.div>
           </div>
 
           {/* Mobile menu button and dark mode toggle */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
-            >
-              {theme === 'light' ? (
-                <Moon className="h-5 w-5 text-slate-600 dark:text-slate-400" />
-              ) : (
-                <Sun className="h-5 w-5 text-slate-600 dark:text-slate-400" />
-              )}
-            </Button>
+            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
