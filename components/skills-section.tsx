@@ -87,7 +87,7 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-[#B0CEE2]/20 via-white to-[#E95D2C]/10 dark:from-[#1A2730] dark:via-[#424048] dark:to-[#1A2730] scroll-mt-24">
+    <section id="skills" className="py-20 bg-gradient-to-br from-[#F1FAF9] via-white to-[#FFF5EF] dark:from-[#0B141D] dark:via-[#0F1F2B] dark:to-[#152633] scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -100,7 +100,7 @@ const SkillsSection = () => {
             My <span className="gradient-text">Skills</span>
           </h2>
           <div className="w-24 h-1 bg-[#E95D2C] mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-[#424048] dark:text-[#B0CEE2]/80 max-w-3xl mx-auto">
+          <p className="text-xl md:text-[1.2rem] text-[#2F3C4A] dark:text-[#C4E3F7]/80 max-w-3xl mx-auto font-light">
             A comprehensive skill set spanning multiple domains of technology and business
           </p>
         </motion.div>
@@ -121,7 +121,7 @@ const SkillsSection = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              <Card className="h-full bg-white/80 dark:bg-[#1A2730]/80 backdrop-blur-sm border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card className="h-full rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/85 dark:bg-[#0F1B23]/85 backdrop-blur shadow-[0_18px_45px_rgba(15,23,42,0.08)] hover:shadow-[0_25px_55px_rgba(15,23,42,0.12)] transition-all duration-300">
                 <CardHeader className="text-center pb-4">
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${category.color} text-white mb-4 mx-auto`}>
                     {category.icon}

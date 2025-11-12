@@ -30,7 +30,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-[#1A2730] scroll-mt-24">
+    <section id="about" className="py-20 bg-gradient-to-b from-white via-[#F4FBFB] to-[#EAF3F7] dark:from-[#0B131B] dark:via-[#101E28] dark:to-[#142635] scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -42,7 +42,7 @@ const AboutSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             About <span className="gradient-text">Me</span>
           </h2>
-          <div className="w-24 h-1 bg-[#e95d2c] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#0FA5A2] to-[#E95D2C] mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -54,8 +54,8 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <div className="prose prose-lg text-gray-700 dark:text-[#B0CEE2]/80 leading-relaxed">
-              <p className="text-xl leading-relaxed">{aboutMe}</p>
+            <div className="prose prose-lg text-[#253544] dark:text-[#C4E3F7]/80 leading-relaxed">
+              <p className="text-xl md:text-[1.3rem] leading-relaxed font-light">{aboutMe}</p>
             </div>
 
             {/* Key Stats */}
@@ -100,18 +100,16 @@ const AboutSection = () => {
                   scale: 1.05,
                   transition: { duration: 0.2 }
                 }}
-                className="flex items-start space-x-4 p-6 bg-[#e95d2c]/10 dark:bg-[#E95D2C]/20 rounded-xl border border-gray-100 dark:border-[#45586C] hover:shadow-lg transition-all duration-300"
+                className="flex items-start gap-4 p-6 rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/80 dark:bg-[#0F1B23]/80 shadow-[0_18px_45px_rgba(15,23,42,0.08)] hover:shadow-[0_25px_55px_rgba(15,23,42,0.12)] transition-all duration-300 backdrop-blur"
               >
-                <div className="flex-shrink-0 p-3 bg-white rounded-lg shadow-sm">
-                  <div className="text-[#E95D2C]">
-                    {highlight.icon}
-                  </div>
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0FA5A2] to-[#E95D2C] flex items-center justify-center text-white shadow-lg">
+                  {highlight.icon}
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {highlight.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-[#B0CEE2]/80 leading-relaxed">
+                  <p className="text-gray-600 dark:text-[#B0CEE2]/80 leading-relaxed text-lg">
                     {highlight.description}
                   </p>
                 </div>
@@ -126,7 +124,7 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-20 p-8 bg-[#e95d2c] rounded-2xl text-white text-center"
+          className="mt-20 p-8 bg-gradient-to-r from-[#0F9DA2] via-[#1E6F8C] to-[#E95D2C] dark:from-[#0B2835] dark:via-[#104154] dark:to-[#233E4C] rounded-3xl text-white text-center shadow-[0_25px_60px_rgba(12,23,34,0.45)]"
         >
           <div className="max-w-4xl mx-auto">
             <motion.div

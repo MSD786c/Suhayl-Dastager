@@ -101,7 +101,7 @@ const EducationSection = () => {
                   }}
                 >
                   <Card
-                    className={`bg-white/90 dark:bg-[#1A2730]/85 border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300 ${edu.status === 'Completed' ? 'ring-2 ring-[#E95D2C]/40 dark:ring-[#E95D2C]/50' : ''}`}
+                    className={`rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/90 dark:bg-[#0F1B23]/85 backdrop-blur shadow-[0_18px_45px_rgba(15,23,42,0.08)] hover:shadow-[0_25px_55px_rgba(15,23,42,0.12)] transition-all duration-300 ${edu.status === 'Completed' ? 'ring-2 ring-[#0FA5A2]/30 dark:ring-[#0FA5A2]/40' : ''}`}
                   >
                     <CardHeader className="pb-4">
                       <div className="flex items-start justify-between">
@@ -192,7 +192,7 @@ const EducationSection = () => {
                       transition: { duration: 0.2 }
                     }}
                   >
-                    <Card className="bg-white/90 dark:bg-[#1A2730]/85 border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <Card className="rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/90 dark:bg-[#0F1B23]/85 backdrop-blur shadow-[0_18px_45px_rgba(15,23,42,0.08)] hover:shadow-[0_25px_55px_rgba(15,23,42,0.12)] transition-all duration-300 group">
                       <CardHeader className="pb-4">
                       <div className="flex items-start gap-4">
                         {/* Certificate Icon Placeholder */}
@@ -256,7 +256,7 @@ const EducationSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="mt-20 p-8 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] rounded-2xl text-white"
+              className="mt-20 p-8 bg-gradient-to-r from-[#E26842] via-[#E95D2C] to-[#F5B98A] dark:from-[#0B2631] dark:via-[#12394B] dark:to-[#1E4B5E] rounded-3xl text-white shadow-[0_25px_60px_rgba(12,23,34,0.45)]"
             >
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <motion.div

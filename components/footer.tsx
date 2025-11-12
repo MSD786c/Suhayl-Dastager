@@ -105,6 +105,21 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button
+                  onClick={() => window.open(`mailto:${personalInfo.email}`)}
+                  className="bg-[#0FA5A2] hover:bg-[#0c7c7a] text-white font-semibold"
+                >
+                  Email Me
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="border-white/40 text-white hover:bg-white/10"
+                >
+                  View Contact
+                </Button>
+              </div>
             </motion.div>
 
             {/* Right Column - Contact Info */}

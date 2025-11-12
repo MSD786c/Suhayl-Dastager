@@ -94,7 +94,7 @@
 }
 
 .tech-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 32s linear infinite;
 }
 
 /* Smooth scrolling */
@@ -136,7 +136,7 @@ html {
 }
 
 .animate-blob {
-  animation: blob 7s infinite;
+  animation: blob 16s ease-in-out infinite;
 }
 
 .animation-delay-2000 {

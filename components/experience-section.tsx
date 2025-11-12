@@ -30,7 +30,7 @@ const ExperienceSection = () => {
   };
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-white to-[#B0CEE2]/15 dark:from-[#1A2730] dark:to-[#424048] scroll-mt-24">
+    <section id="experience" className="py-20 bg-gradient-to-b from-white via-[#F3FAF9] to-[#EAF1F6] dark:from-[#09121A] dark:via-[#0F1F2C] dark:to-[#132736] scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -43,7 +43,7 @@ const ExperienceSection = () => {
             Professional <span className="gradient-text">Experience</span>
           </h2>
           <div className="w-24 h-1 bg-[#E95D2C] mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-[#424048] dark:text-[#B0CEE2]/80 max-w-3xl mx-auto">
+          <p className="text-xl md:text-[1.2rem] text-[#2F3C4A] dark:text-[#C4E3F7]/80 max-w-3xl mx-auto font-light">
             Impact-focused roles across automation, analytics, and growth where every project shipped measurable gains.
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ const ExperienceSection = () => {
                       transition: { duration: 0.3 }
                     }}
                   >
-                    <Card className="bg-gradient-to-br from-white to-[#B0CEE2]/20 dark:from-[#1A2730] dark:to-[#424048] border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <Card className="rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/90 dark:bg-[#0F1B23]/85 backdrop-blur shadow-[0_18px_45px_rgba(15,23,42,0.08)] hover:shadow-[0_25px_55px_rgba(15,23,42,0.12)] transition-all duration-300">
                       <CardHeader className="pb-4">
                         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                           <div className="flex-1">
@@ -215,15 +215,15 @@ const ExperienceSection = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-20 grid md:grid-cols-3 gap-8"
         >
-          <div className="text-center p-6 bg-gradient-to-br from-white to-[#B0CEE2]/30 dark:from-[#1A2730] dark:to-[#424048] rounded-xl">
+          <div className="text-center p-6 rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/85 dark:bg-[#0F1B23]/80 shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
             <div className="text-3xl font-bold gradient-text mb-2">35%+</div>
             <div className="text-[#424048] dark:text-[#B0CEE2]/80">Process acceleration</div>
           </div>
-          <div className="text-center p-6 bg-gradient-to-br from-white to-[#B0CEE2]/30 dark:from-[#1A2730] dark:to-[#424048] rounded-xl">
+          <div className="text-center p-6 rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/85 dark:bg-[#0F1B23]/80 shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
             <div className="text-3xl font-bold gradient-text mb-2">7</div>
             <div className="text-[#424048] dark:text-[#B0CEE2]/80">Client automation & analytics launches</div>
           </div>
-          <div className="text-center p-6 bg-gradient-to-br from-white to-[#B0CEE2]/30 dark:from-[#1A2730] dark:to-[#424048] rounded-xl">
+          <div className="text-center p-6 rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/85 dark:bg-[#0F1B23]/80 shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
             <div className="text-3xl font-bold gradient-text mb-2">5</div>
             <div className="text-[#424048] dark:text-[#B0CEE2]/80">Industries advised</div>
           </div>

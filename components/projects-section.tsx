@@ -82,7 +82,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 via-white to-[#e95d2c]/10 dark:from-[#1A2730] dark:via-[#424048] dark:to-[#1A2730] scroll-mt-24">
+    <section id="projects" className="py-20 bg-gradient-to-br from-[#F5FBFA] via-white to-[#FFF3EB] dark:from-[#081019] dark:via-[#0F1F2B] dark:to-[#152736] scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -158,7 +158,7 @@ const ProjectsSection = () => {
               }}
               className="group"
             >
-              <Card className="h-full bg-white/80 dark:bg-[#1A2730]/80 backdrop-blur-sm border border-[#B0CEE2]/40 dark:border-[#45586C] shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+              <Card className="h-full rounded-2xl border border-white/60 dark:border-[#1F2F3E] bg-white/85 dark:bg-[#0F1B23]/85 backdrop-blur shadow-[0_18px_45px_rgba(15,23,42,0.08)] hover:shadow-[0_28px_65px_rgba(15,23,42,0.16)] transition-all duration-500 overflow-hidden">
                 {/* Project Image/Icon Area */}
                 <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   <motion.div

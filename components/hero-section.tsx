@@ -41,7 +41,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.6 }}
-                className="uppercase tracking-[0.3em] text-xs md:text-sm text-[#45586C] dark:text-[#B0CEE2] mb-4"
+                className="uppercase tracking-[0.35em] text-sm md:text-base text-[#2B4454] dark:text-[#8FB8D9] mb-4 font-medium"
               >
                 {personalInfo.headline}
               </motion.p>
@@ -71,7 +71,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-lg text-[#424048] dark:text-[#B0CEE2]/80 leading-relaxed max-w-2xl"
+                className="text-xl md:text-[1.35rem] text-[#2F3946] dark:text-[#C9E3F5]/85 leading-relaxed max-w-2xl font-light"
               >
                 I'm Suhayl Dastager, a data scientist, automation engineer, and AI builder who turns raw information into real outcomes. From leading analytics at media and fintech teams to building AI copilots, onboarding systems, and end-to-end data pipelines, I connect technical depth with business clarity. My work lives at the crossroads of data, product, and strategy so complexity stays simple, intelligence scales, and results stay measurable.
               </motion.p>
@@ -98,7 +98,7 @@ const HeroSection = () => {
             >
               <Button 
                 onClick={downloadCV}
-                className="bg-gradient-to-r from-[#1A2730] to-[#45586C] text-white px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-0"
+                className="bg-gradient-to-r from-[#0F1B23] via-[#1B2C3A] to-[#2E4656] text-white px-8 py-3 text-lg font-semibold hover:shadow-xl transition-all duration-300 border-0"
               >
                 <Download className="h-5 w-5 mr-2" />
                 Download CV
@@ -107,7 +107,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 onClick={() => window.open(personalInfo.linkedin, '_blank')}
-                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-[#0077b5] text-[#0077b5] hover:bg-[#0077b5] hover:text-white dark:border-[#0077b5] dark:text-[#0077b5] dark:hover:bg-[#0077b5]"
+                className="px-8 py-3 text-lg font-semibold hover:shadow-lg transition-all duration-300 border-[#0077b5] text-[#0077b5] hover:bg-[#0077b5] hover:text-white dark:border-[#66B4FF] dark:text-[#66B4FF] dark:hover:bg-[#1D4F73]"
               >
                 <Linkedin className="h-5 w-5 mr-2" />
                 LinkedIn
@@ -116,7 +116,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 onClick={() => window.open(personalInfo.github, '_blank')}
-                className="px-8 py-3 text-lg hover:shadow-lg transition-all duration-300 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-white dark:border-[#6e6e6e] dark:text-[#6e6e6e] dark:hover:bg-[#6e6e6e]"
+                className="px-8 py-3 text-lg font-semibold hover:shadow-lg transition-all duration-300 border-[#333333] text-[#333333] hover:bg-[#333333] hover:text-white dark:border-[#8D96A8] dark:text-[#D8E4F3] dark:hover:bg-[#222C36]"
               >
                 <Github className="h-5 w-5 mr-2" />
                 GitHub
@@ -139,9 +139,10 @@ const HeroSection = () => {
                   scale: [1, 1.08, 1]
                 }}
                 transition={{ 
-                  duration: 25,
+                  duration: 38,
                   repeat: Infinity,
-                  ease: "linear"
+                  ease: "linear",
+                  delay: 0.5
                 }}
                 className="absolute inset-0 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] dark:from-[#A63E1B] dark:to-[#E95D2C] rounded-3xl blur-2xl opacity-20 dark:opacity-30"
               />
@@ -153,9 +154,10 @@ const HeroSection = () => {
                   opacity: [0.1, 0.2, 0.1]
                 }}
                 transition={{ 
-                  duration: 4,
+                  duration: 10,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
+                  delay: 1.4
                 }}
                 className="absolute inset-0 bg-gradient-to-r from-[#B0CEE2] to-white dark:from-[#1A2730] dark:to-[#45586C] rounded-3xl blur-xl"
               />
@@ -178,12 +180,12 @@ const HeroSection = () => {
                   y: [-12, 12, -12],
                   rotate: [0, 10, 0]
                 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-6 -right-6 bg-white dark:bg-[#1A2730] rounded-full p-4 shadow-xl border border-[#B0CEE2]/40 dark:border-[#45586C]"
               >
                 <motion.div 
                   animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
                   className="w-8 h-8 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] dark:from-[#A63E1B] dark:to-[#E95D2C] rounded-full"
                 />
               </motion.div>
@@ -193,12 +195,12 @@ const HeroSection = () => {
                   y: [15, -15, 15],
                   rotate: [0, -15, 0]
                 }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
                 className="absolute -bottom-6 -left-6 bg-white dark:bg-[#1A2730] rounded-full p-3 shadow-xl border border-[#B0CEE2]/40 dark:border-[#45586C]"
               >
                 <motion.div 
                   animate={{ rotate: [0, -360] }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
                   className="w-6 h-6 bg-gradient-to-r from-[#1A2730] to-[#45586C] dark:from-[#B0CEE2] dark:to-[#45586C] rounded-full"
                 />
               </motion.div>
@@ -209,7 +211,7 @@ const HeroSection = () => {
                   scale: [1, 1.2, 1],
                   opacity: [0.6, 1, 0.6]
                 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
                 className="absolute top-8 -left-2 w-3 h-3 bg-gradient-to-r from-[#A63E1B] to-[#E95D2C] dark:from-[#A63E1B] dark:to-[#E95D2C] rounded-full blur-sm"
               />
               
@@ -218,7 +220,7 @@ const HeroSection = () => {
                   scale: [1, 1.3, 1],
                   opacity: [0.5, 0.9, 0.5]
                 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
                 className="absolute bottom-12 -right-3 w-2 h-2 bg-gradient-to-r from-[#45586C] to-[#1A2730] dark:from-[#B0CEE2] dark:to-[#45586C] rounded-full blur-sm"
               />
             </div>
@@ -238,7 +240,7 @@ const HeroSection = () => {
           <div className="overflow-hidden whitespace-nowrap px-1 sm:px-2 py-1">
             <motion.div
               animate={{ x: [0, -1000] }}
-              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
               className="inline-flex space-x-6 sm:space-x-8"
             >
               {[...techStack, ...techStack].map((tech, index) => (

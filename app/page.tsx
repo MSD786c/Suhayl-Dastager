@@ -10,6 +10,8 @@ import ProjectsSection from '@/components/projects-section';
 import EducationSection from '@/components/education-section';
 import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
+import SectionDivider from '@/components/section-divider';
+import FloatingCTA from '@/components/floating-cta';
 
 export default function HomePage() {
   return (
@@ -19,10 +21,13 @@ export default function HomePage() {
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />
+      <SectionDivider variant="teal" />
       <ProjectsSection />
+      <SectionDivider variant="coral" flip />
       <EducationSection />
       <ContactSection />
       <Footer />
+      <FloatingCTA />
     </main>
   );
 }
