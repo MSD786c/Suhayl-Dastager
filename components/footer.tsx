@@ -115,7 +115,7 @@ const Footer = () => {
                 <Button
                   variant="outline"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="border-white/40 text-white hover:bg-white/10"
+                  className="border-[#1A2730] text-[#1A2730] hover:bg-[#1A2730]/10 dark:border-white/40 dark:text-white dark:hover:bg-white/10"
                 >
                   View Contact
                 </Button>

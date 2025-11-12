@@ -176,9 +176,9 @@ const SkillsSection = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { skill: "Data Science Leadership", level: 92, color: "#E95D2C" },
-              { skill: "Data Engineering & Automation", level: 89, color: "#A63E1B" },
-              { skill: "AI/ML Experimentation", level: 87, color: "#45586C" },
+              { skill: "Data Science Leadership", level: 92, color: "#0FA5A2" },
+              { skill: "Data Engineering & Automation", level: 89, color: "#E95D2C" },
+              { skill: "AI/ML Experimentation", level: 87, color: "#5E6DF2" },
               { skill: "Consulting & Strategy", level: 90, color: "#1A2730" }
             ].map((item, index) => (
               <motion.div
@@ -196,8 +196,9 @@ const SkillsSection = () => {
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
-                      stroke="#B0CEE2"
-                      strokeWidth="2"
+                      stroke="currentColor"
+                      strokeWidth="2.6"
+                      className="text-[#dfe9f3] dark:text-[#101d29]"
                     />
                     <motion.path
                       d="M18 2.0845
@@ -205,7 +206,7 @@ const SkillsSection = () => {
                         a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
                       stroke={item.color}
-                      strokeWidth="2"
+                      strokeWidth="2.6"
                       strokeDasharray={`${item.level}, 100`}
                       initial={{ strokeDasharray: "0, 100" }}
                       whileInView={{ strokeDasharray: `${item.level}, 100` }}

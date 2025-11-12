@@ -5,13 +5,11 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
-import { useTheme } from '@/lib/theme-context';
+import { AdaptiveNavPill } from '@/components/ui/3d-adaptive-navigation-bar';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const { theme, toggleTheme } = useTheme();
-
   const navItems = [
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
@@ -45,16 +43,22 @@ const Navigation = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const targetY = element.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
     }
     setIsOpen(false);
   };
 
+  const handlePillNavigate = (sectionId: string) => {
+    scrollToSection(`#${sectionId}`);
+  };
+
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700"
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="fixed top-0 left-0 right-0 z-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -63,42 +67,28 @@ const Navigation = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="font-bold text-xl gradient-text"
+            className="font-bold text-xl gradient-text md:hidden"
           >
             Suhayl Dastager
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={item.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.1 }}
-                onClick={() => scrollToSection(item.href)}
-                className={`text-sm font-medium transition-colors hover:text-slate-600 dark:hover:text-slate-300 ${
-                  activeSection === item.href.slice(1)
-                    ? 'text-slate-800 dark:text-slate-200'
-                    : 'text-slate-600 dark:text-slate-400'
-                }`}
-              >
-                {item.name}
-              </motion.button>
-            ))}
-            
-            {/* Dark Mode Toggle */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 }}
-            >
-              <ThemeToggle />
-            </motion.div>
+          <div className="hidden md:flex items-center justify-between gap-4 w-full">
+            <div className="flex-1" />
+            <div className="flex justify-center w-full">
+              <div className="scale-[0.8] origin-center">
+                <AdaptiveNavPill
+                  items={navItems.map((item) => ({ label: item.name, id: item.href.slice(1) }))}
+                  activeSection={activeSection}
+                  onNavigate={handlePillNavigate}
+                />
+              </div>
+            </div>
+            <ThemeToggle />
           </div>
 
           {/* Mobile menu button and dark mode toggle */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-2 pointer-events-auto">
             <ThemeToggle />
             <Button
               variant="ghost"
@@ -116,7 +106,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden"
+            className="md:hidden pointer-events-auto"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg rounded-lg mt-2">
               {navItems.map((item) => (

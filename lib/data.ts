@@ -139,6 +139,17 @@ export const experiences = [
 
 export const projects = [
   {
+    name: "Crypto Market Health & Sentiment Command Center",
+    description: "Full crypto intelligence workspace combining a concurrent ETL pipeline, ACL-grade audit layer, and Streamlit dashboard so risk and trading teams can see how volatility, liquidity, and sentiment shape investor confidence in real time.",
+    technologies: ["Python", "Streamlit", "SQLite", "yfinance", "Alt.me API", "ETL", "Data Quality"],
+    impact: "Automates data refresh + governance and ships an executive dashboard that surfaces market health, momentum radar, and audit alerts from a single control room.",
+    category: "AI & Automation",
+    year: "2025",
+    github: "https://github.com/MSD786c/Crypto-Analysis-Dashboard",
+    demo: null,
+    image: "/project-pictures/Crypto-ETL.png"
+  },
+  {
     name: "DPH Classifieds – UAE Car Marketplace",
     description: "Built a full-stack UAE car marketplace with dynamic search, automated data sync, and dashboards that monitor funnels, ad performance, and user behavior in real time.",
     technologies: ["React", "Flask", "REST APIs", "Python", "Supabase", "Vercel", "Railway"],
@@ -147,7 +158,7 @@ export const projects = [
     year: "2025",
     github: "https://github.com/MSD786c",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/DPH-Classifieds.png"
   },
   {
     name: "Olist E-Commerce Analytics Dashboard | Tableau + Python",
@@ -158,7 +169,7 @@ export const projects = [
     year: "2025",
     github: "https://github.com/MSD786c/Olist-Ecommerce-Analytics-Dashboard",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/Olist-ecom-dash.png"
   },
   {
     name: "📊 Mini Project: Nutrition Analysis",
@@ -169,7 +180,7 @@ export const projects = [
     year: "2025",
     github: "https://github.com/MSD786c/Mini-Project-Nutrition-Analysis",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/Nutrition-EDA.png"
   },
   {
     name: "☕ Coffee Ratings EDA Project",
@@ -180,7 +191,7 @@ export const projects = [
     year: "2025",
     github: "https://github.com/MSD786c/Coffee-Ratings-Mini-Project",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/Coffee-EDA.png"
   },
   {
     name: "Workora",
@@ -191,7 +202,7 @@ export const projects = [
     year: "2025",
     github: "https://github.com/MSD786c",
     demo: "https://www.workora.ae",
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/Workora.png"
   },
   {
     name: "MoneyMentor",
@@ -202,18 +213,7 @@ export const projects = [
     year: "2025",
     github: "https://github.com/MSD786c/MoneyMentor",
     demo: null,
-    image: "/project-placeholder.jpg"
-  },
-  {
-    name: "Crypto Analysis Dashboard",
-    description: "Real-time market health, sentiment analysis, and data quality monitoring for digital asset portfolios. Answers how price volatility, trading volume, and social sentiment correlate with investor confidence across major cryptocurrencies. Features robust ETL pipeline, ACL-style audit checks, and executive dashboard with portfolio health scoring. Perfect for crypto funds and quantitative analysts.",
-    technologies: ["Python", "React", "TensorFlow", "Data Visualization", "ETL Pipeline", "Sentiment Analysis"],
-    impact: "Provided institutional crypto investors with real-time portfolio health scoring and predictive analytics for data-driven decision making.",
-    category: "AI & Automation",
-    year: "2025",
-    github: "https://github.com/MSD786c/Crypto-Analysis-Dashboard.git",
-    demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/MoneyMentor.png"
   },
   {
     name: "FemmeVenture",
@@ -224,7 +224,7 @@ export const projects = [
     year: "2024",
     github: "https://github.com/MSD786c",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/FemmeVenture.png"
   },
   {
     name: "VirtualED",
@@ -235,7 +235,7 @@ export const projects = [
     year: "2023",
     github: "https://github.com/MSD786c",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/Virtual-ED.png"
   },
   {
     name: "Semantic Embedding",
@@ -246,7 +246,7 @@ export const projects = [
     year: "2022",
     github: "https://github.com/MSD786c",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/semantic.png"
   },
   {
     name: "Web Stock Predictor",
@@ -257,7 +257,7 @@ export const projects = [
     year: "2022",
     github: "https://github.com/MSD786c",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/Web-Stock-Predictor.png"
   },
   {
     name: "Penguin Attribute Analysis",
@@ -268,7 +268,7 @@ export const projects = [
     year: "2021",
     github: "https://github.com/MSD786c",
     demo: null,
-    image: "/project-placeholder.jpg"
+    image: "/project-pictures/Penguin.png"
   }
 ];
 

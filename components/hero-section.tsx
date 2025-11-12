@@ -52,9 +52,7 @@ const HeroSection = () => {
                 className="text-4xl md:text-6xl font-bold text-[#1A2730] dark:text-[#B0CEE2] leading-tight"
               >
                 Hello, I'm{' '}
-                <span className="gradient-text">
-                  {highlightName}
-                </span>
+                <span className="gradient-text">Suhayl Dastager</span>
               </motion.h1>
               
               <motion.p

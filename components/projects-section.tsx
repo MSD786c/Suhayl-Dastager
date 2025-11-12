@@ -16,6 +16,7 @@ const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryType>('All');
 
   const projectIcons = {
+    'Crypto Market Health & Sentiment Command Center': <Brain className="h-6 w-6" />,
     'DPH Classifieds – UAE Car Marketplace': <Car className="h-6 w-6" />,
     'Olist E-Commerce Analytics Dashboard | Tableau + Python': <BarChart3 className="h-6 w-6" />,
     '📊 Mini Project: Nutrition Analysis': <Utensils className="h-6 w-6" />,
