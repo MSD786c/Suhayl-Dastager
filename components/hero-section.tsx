@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { personalInfo, techStack } from '@/lib/data';
 import Image from 'next/image';
@@ -67,16 +67,14 @@ const HeroSection = () => {
               </motion.p>
             </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-lg text-[#424048] dark:text-[#B0CEE2]/80 leading-relaxed max-w-2xl"
-            >
-              I operate across data science, analytics consulting, and automation engineering—sizing problems with stakeholders, 
-              running the models/experiments that matter, then building the cloud + AI products that make insights stick. 
-              Whether it’s standing up a finance copilot, architecting data pipelines, or advising on strategy decks, I always tie the story back to KPIs.
-            </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="text-lg text-[#424048] dark:text-[#B0CEE2]/80 leading-relaxed max-w-2xl"
+              >
+                I'm Suhayl Dastager, a data scientist, automation engineer, and AI builder who turns raw information into real outcomes. From leading analytics at media and fintech teams to building AI copilots, onboarding systems, and end-to-end data pipelines, I connect technical depth with business clarity. My work lives at the crossroads of data, product, and strategy so complexity stays simple, intelligence scales, and results stay measurable.
+              </motion.p>
 
             {/* Contact Info */}
             <motion.div
@@ -88,10 +86,6 @@ const HeroSection = () => {
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
                 <span>{personalInfo.email}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>{personalInfo.phone}</span>
               </div>
             </motion.div>
 

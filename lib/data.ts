@@ -2,8 +2,7 @@ export const personalInfo = {
   name: "Suhayl Dastager",
   preferredName: "Suhayl",
   title: "Data Science & AI Consultant • Analytics, Strategy & Automation",
-  headline: "Data Science | Strategy Consulting | AI Automation | Data Engineering",
-  phone: "+971 56 765 4384",
+  headline: "Turning complex data into intelligent systems that think, automate, and deliver impact.",
   email: "dastagersuhayl@gmail.com",
   linkedin: "https://www.linkedin.com/in/suhayl-dastager/",
   github: "https://github.com/MSD786c",
@@ -12,7 +11,7 @@ export const personalInfo = {
   resume: "/Suhayl_Dastager_Resume.pdf"
 };
 
-export const aboutMe = `Analytical AI graduate acting as the bridge between business strategy and technical delivery. I scope ambiguous data problems, design measurable experiments, then ship the automation, models, and dashboards that let leaders act with confidence. Whether it is advising on AI onboarding flows, architecting analytics stacks, or coaching teams on KPI storytelling, I bring a consultant's mindset with an engineer's toolkit (Python, SQL, React/Next.js, Flask, Supabase, Power BI, GPT-4, Gemini) to move from whiteboard to adoption fast. Focus areas: data science, data analysis, AI consulting, strategy consulting, data automation, and data engineering.`;
+export const aboutMe = `I'm an analytical AI graduate who bridges business strategy and technical execution. I thrive on turning ambiguity into structure by scoping data problems, designing measurable experiments, and deploying automation, models, and dashboards that empower leaders to act with clarity. Whether it's architecting analytics stacks, advising on AI onboarding flows, or coaching teams on KPI storytelling, I combine a consultant's mindset with an engineer's toolkit (Python, SQL, React/Next.js, Flask, Supabase, Power BI, GPT-4, Gemini) to move ideas from whiteboard to adoption fast. My work centers on data science, AI consulting, data automation, and strategy-driven analytics where insight meets impact.`;
 
 export const skills = {
   "Data Science & Analytics": [

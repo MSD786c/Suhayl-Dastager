@@ -121,10 +121,6 @@ const Footer = () => {
                   {personalInfo.email}
                 </p>
                 <p className="flex items-center gap-2">
-                  <span className="w-4 h-4 text-[#E95D2C]">📱</span>
-                  {personalInfo.phone}
-                </p>
-                <p className="flex items-center gap-2">
                   <span className="w-4 h-4 text-[#E95D2C]">📍</span>
                   {personalInfo.location}
                 </p>

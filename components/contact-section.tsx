@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { personalInfo } from '@/lib/data';
 import { 
   Mail, 
-  Phone, 
   Download, 
   Linkedin, 
   Github,
@@ -43,13 +42,6 @@ const ContactSection = () => {
       title: 'Email',
       value: personalInfo.email,
       action: () => window.open(`mailto:${personalInfo.email}`, '_blank'),
-      color: 'from-[#e95d2c] to-[#e95d2c]'
-    },
-    {
-      icon: <Phone className="h-6 w-6" />,
-      title: 'Phone',
-      value: personalInfo.phone,
-      action: () => window.open(`tel:${personalInfo.phone}`, '_blank'),
       color: 'from-[#e95d2c] to-[#e95d2c]'
     },
     {

@@ -1,16 +1,19 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/lib/data';
-import { ExternalLink, Github, Image as ImageIcon, Code2, Brain, TrendingUp, BarChart3, Coffee, Car, Utensils, MapPin, BookOpen } from 'lucide-react';
+import { ExternalLink, Github, Image as ImageIcon, Code2, Brain, TrendingUp, BarChart3, Coffee, Car, Utensils, MapPin, BookOpen, Filter } from 'lucide-react';
 import Image from 'next/image';
+
+type CategoryType = 'All' | 'AI & Automation' | 'Analytics & BI' | 'Product & Platforms';
 
 const ProjectsSection = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState<CategoryType>('All');
 
   const projectIcons = {
     'DPH Classifieds – UAE Car Marketplace': <Car className="h-6 w-6" />,
@@ -29,17 +32,29 @@ const ProjectsSection = () => {
 
   const projectColors = Array(projects.length).fill('from-[#e95d2c] to-[#e95d2c]');
 
-  const categoryOrder = ['AI & Automation', 'Analytics & BI', 'Product & Platforms'] as const;
+  const categoryOrder: CategoryType[] = ['All', 'AI & Automation', 'Analytics & BI', 'Product & Platforms'];
   const categoryIcons: Record<string, JSX.Element> = {
+    'All': <Filter className="h-6 w-6" />,
     'AI & Automation': <Brain className="h-6 w-6" />,
     'Analytics & BI': <BarChart3 className="h-6 w-6" />,
     'Product & Platforms': <Code2 className="h-6 w-6" />
   };
 
+  // Filter projects based on active category
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter(project => project.category === activeCategory);
+
+  const handleCategoryClick = (category: CategoryType) => {
+    setActiveCategory((prev) => (prev === category ? 'All' : category));
+  };
+
   const categorySummary = categoryOrder
     .map((category) => ({
       category,
-      count: projects.filter((project) => project.category === category).length,
+      count: category === 'All' 
+        ? projects.length 
+        : projects.filter((project) => project.category === category).length,
       icon: categoryIcons[category],
       color: 'from-[#e95d2c] to-[#e95d2c]'
     }))
@@ -85,6 +100,40 @@ const ProjectsSection = () => {
           </p>
         </motion.div>
 
+        {/* Category Filters */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
+          {categorySummary.map((category) => (
+            <button
+              key={category.category}
+              onClick={() => handleCategoryClick(category.category)}
+              aria-pressed={activeCategory === category.category}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                activeCategory === category.category
+                  ? 'bg-[#e95d2c] text-white shadow-lg'
+                  : 'bg-white/70 dark:bg-[#1A2730]/80 text-gray-700 dark:text-[#B0CEE2] hover:bg-[#e95d2c]/10 dark:hover:bg-[#424048]'
+              }`}
+            >
+              {category.icon}
+              <span className="font-medium">{category.category}</span>
+              <Badge 
+                className={
+                  activeCategory === category.category
+                    ? 'bg-white/20 text-white'
+                    : 'bg-[#B0CEE2]/30 text-[#1A2730] dark:bg-[#424048] dark:text-[#B0CEE2]'
+                }
+              >
+                {category.count}
+              </Badge>
+            </button>
+          ))}
+        </motion.div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -92,13 +141,18 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.name}
-              variants={itemVariants}
-              onHoverStart={() => setHoveredProject(index)}
-              onHoverEnd={() => setHoveredProject(null)}
-              whileHover={{ 
+          <AnimatePresence>
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.name}
+                variants={itemVariants}
+                layout
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                onHoverStart={() => setHoveredProject(index)}
+                onHoverEnd={() => setHoveredProject(null)}
+                whileHover={{ 
                 y: -10,
                 transition: { duration: 0.3 }
               }}
@@ -244,9 +298,20 @@ const ProjectsSection = () => {
               </Card>
             </motion.div>
           ))}
+          </AnimatePresence>
         </motion.div>
 
-        {/* Project Categories */}
+        {filteredProjects.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-12 text-center text-gray-500 dark:text-[#B0CEE2]/70"
+          >
+            <p>No projects match this focus area yet. Try another filter or reach out for tailored case studies.</p>
+          </motion.div>
+        )}
+
+        {/* Project Categories Summary */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -259,7 +324,7 @@ const ProjectsSection = () => {
           </h3>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {categorySummary.map((category, index) => (
+            {categorySummary.filter(cat => cat.category !== 'All').map((category, index) => (
               <motion.div
                 key={category.category}
                 initial={{ opacity: 0, y: 30 }}
