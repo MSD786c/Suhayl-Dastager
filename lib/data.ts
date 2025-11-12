@@ -81,10 +81,10 @@ export const skills = {
 export const experiences = [
   {
     company: "Halliday Forfaiting Services",
-    position: "Data Automation & Analytics Lead",
+    position: "Data Automation & Analytics Associate",
     duration: "Oct 2024 – Sep 2025",
     location: "Dubai, UAE",
-    tag: "Automation Lead",
+    tag: "Automation Associate",
     description: [
       "Partnered with COO/CFO stakeholders to translate onboarding pain points into a roadmap for AI + automation fixes and measurable KPIs.",
       "Automated Zoho–Twilio reporting via n8n + Flask, reducing turnaround time by 35% and improving cross-team visibility.",

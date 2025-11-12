@@ -179,7 +179,7 @@ const SkillsSection = () => {
               { skill: "Data Science Leadership", level: 92, color: "#0FA5A2" },
               { skill: "Data Engineering & Automation", level: 89, color: "#E95D2C" },
               { skill: "AI/ML Experimentation", level: 87, color: "#5E6DF2" },
-              { skill: "Consulting & Strategy", level: 90, color: "#1A2730" }
+              { skill: "Consulting & Strategy", level: 90, color: "#F7B733" }
             ].map((item, index) => (
               <motion.div
                 key={item.skill}

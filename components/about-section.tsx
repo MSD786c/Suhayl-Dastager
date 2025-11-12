@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Brain, Code, Users } from 'lucide-react';
 import { aboutMe } from '@/lib/data';
+import { StarsCanvas } from '@/components/ui/stars-canvas';
 
 const AboutSection = () => {
   const highlights = [
@@ -124,9 +125,19 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-20 p-8 bg-gradient-to-r from-[#0F9DA2] via-[#1E6F8C] to-[#E95D2C] dark:from-[#0B2835] dark:via-[#104154] dark:to-[#233E4C] rounded-3xl text-white text-center shadow-[0_25px_60px_rgba(12,23,34,0.45)]"
+          className="mt-20 relative overflow-hidden p-8 bg-gradient-to-r from-[#0F9DA2] via-[#1E6F8C] to-[#E95D2C] dark:from-[#0B2835] dark:via-[#104154] dark:to-[#233E4C] rounded-3xl text-white text-center shadow-[0_25px_60px_rgba(12,23,34,0.45)]"
         >
-          <div className="max-w-4xl mx-auto">
+          <StarsCanvas
+            transparent
+            maxStars={320}
+            hue={205}
+            brightness={0.8}
+            speedMultiplier={0.4}
+            twinkleIntensity={18}
+            className="!absolute !inset-0 pointer-events-none mix-blend-screen opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0f9da2]/60 via-transparent to-[#e95d2c]/40 pointer-events-none" />
+          <div className="relative z-10 max-w-4xl mx-auto">
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
@@ -136,10 +147,10 @@ const AboutSection = () => {
             >
               <Award className="h-8 w-8" />
             </motion.div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 drop-shadow-[0_5px_20px_rgba(11,25,35,0.6)]">
               Special Recognition
             </h3>
-            <p className="text-lg md:text-xl opacity-90 leading-relaxed">
+            <p className="text-lg md:text-xl leading-relaxed text-white/95 drop-shadow-[0_4px_18px_rgba(11,25,35,0.65)]">
               Chancellor’s Academic Merit Scholar, The Birmingham Award recipient, and nationally recognized by 
               HH Sheikh Hamdan Bin Mohammed Bin Rashid Al Maktoum & HE Mattar Al Tayer for solving advanced mathematics challenges.
             </p>
