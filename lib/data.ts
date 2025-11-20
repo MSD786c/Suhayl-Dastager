@@ -82,7 +82,7 @@ export const experiences = [
   {
     company: "Halliday Forfaiting Services",
     position: "Data Automation & Analytics Associate",
-    duration: "Oct 2024 – Sep 2025",
+    duration: "Oct 2024 – Nov 2025",
     location: "Dubai, UAE",
     tag: "Automation Associate",
     description: [
