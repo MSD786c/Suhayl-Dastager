@@ -139,6 +139,17 @@ export const experiences = [
 
 export const projects = [
   {
+    name: "Reliyant Consulting Website",
+    description: "Modern consulting site with glassmorphism hero, services grid, industries marquee, dark mode, SEO, and deploy-ready Next.js architecture tailored for a strategy and operations firm.",
+    technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "React Three Fiber", "Lucide", "Vercel"],
+    impact: "Shipped a production-grade digital presence with lead-ready CTAs, responsive UX, and brand-consistent visuals to showcase Reliyant's consulting offerings.",
+    category: "Product & Platforms",
+    year: "2025",
+    github: "https://github.com/MSD786c/Reliyant",
+    demo: "https://reliyant.vercel.app/",
+    image: "/project-pictures/reliyant.png"
+  },
+  {
     name: "Crypto Market Health & Sentiment Command Center",
     description: "Full crypto intelligence workspace combining a concurrent ETL pipeline, ACL-grade audit layer, and Streamlit dashboard so risk and trading teams can see how volatility, liquidity, and sentiment shape investor confidence in real time.",
     technologies: ["Python", "Streamlit", "SQLite", "yfinance", "Alt.me API", "ETL", "Data Quality"],
