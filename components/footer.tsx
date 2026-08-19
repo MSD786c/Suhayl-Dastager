@@ -10,6 +10,7 @@ import {
   TextHoverEffect,
   FooterBackgroundGradient,
 } from "@/components/ui/hover-footer";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 const CYCLING_VERBS = [
   "FOUNDS.",
@@ -103,67 +104,69 @@ const Footer = () => {
           }}
         />
 
-        {/* Content — anchored to bottom-left, overlaying the image */}
+        {/* Content — anchored to bottom, overlaying the image */}
         <div className="absolute inset-0 flex items-end">
           <div className="relative w-full mx-auto max-w-[1440px] px-6 sm:px-8 pb-10 md:pb-16">
-            <div className="max-w-4xl">
-              {/* Pre-title */}
-              <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted mb-4 md:mb-5 flex items-center gap-3">
-                <span className="h-1 w-1 rounded-full bg-coral" aria-hidden />
-                <span>The reel</span>
-                <span className="text-text-inverseMuted/30">/</span>
-                <span>Dubai · 2026</span>
+            {/* Top row: title block (left) + cycling verb HUGE (right) */}
+            <div className="grid grid-cols-12 gap-x-6 md:gap-x-8 items-end">
+              {/* Left: pre-title + SUHAYL/DASTAGER + role line */}
+              <div className="col-span-12 md:col-span-5 lg:col-span-5">
+                {/* Pre-title */}
+                <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted mb-4 flex items-center gap-3">
+                  <span className="h-1 w-1 rounded-full bg-coral" aria-hidden />
+                  <span>The reel</span>
+                  <span className="text-text-inverseMuted/30">/</span>
+                  <span>Dubai · 2026</span>
+                </div>
+
+                {/* SUHAYL */}
+                <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
+                  <span className="block text-[clamp(2.5rem,6.5vw,5.5rem)] font-black transition-all duration-300 group-hover:text-coral group-hover:translate-y-0.5">
+                    SUHAYL
+                  </span>
+                  <span className="block text-[clamp(1.5rem,3.8vw,3rem)] font-bold text-text-inverse/80 mt-1">
+                    DASTAGER
+                  </span>
+                </h2>
+
+                {/* Role line */}
+                <div className="mt-4 md:mt-5 font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span>Founder</span>
+                  <span className="text-text-inverseMuted/30">·</span>
+                  <span>Engineer</span>
+                  <span className="text-text-inverseMuted/30">·</span>
+                  <span>Creator</span>
+                  <span className="text-text-inverseMuted/30">·</span>
+                  <span className="text-coral">Now</span>
+                </div>
               </div>
 
-              {/* SUHAYL — group-hover turns it coral + 2px drop; pushed lower (mt-10 → mb tight) */}
-              <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
-                <span className="block text-[clamp(2.75rem,7.5vw,6.5rem)] font-black transition-all duration-300 group-hover:text-coral group-hover:translate-y-0.5">
-                  SUHAYL
-                </span>
-                <span className="block text-[clamp(1.75rem,4.5vw,3.5rem)] font-bold text-text-inverse/80 mt-1">
-                  DASTAGER
-                </span>
-              </h2>
-
-              {/* Role line */}
-              <div className="mt-5 md:mt-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span>Founder</span>
-                <span className="text-text-inverseMuted/30">·</span>
-                <span>Engineer</span>
-                <span className="text-text-inverseMuted/30">·</span>
-                <span>Creator</span>
-                <span className="text-text-inverseMuted/30">·</span>
-                <span className="text-coral">Now</span>
+              {/* Right: cycling verb — extremely big, fills the right half */}
+              <div className="col-span-12 md:col-span-7 lg:col-span-7 flex items-end justify-start md:justify-end mt-6 md:mt-0">
+                <div className="font-display font-black leading-[0.9] tracking-tighter text-coral">
+                  <div className="text-[clamp(3.5rem,10.5vw,9rem)]">
+                    <CyclingVerb />
+                  </div>
+                </div>
               </div>
+            </div>
 
-              {/* Cycling verb — coral */}
-              <div className="mt-6 md:mt-8 font-display font-bold text-[clamp(1.5rem,3.5vw,2.5rem)] tracking-tighter leading-none">
-                <CyclingVerb />
-              </div>
+            {/* Statement */}
+            <p className="mt-6 md:mt-8 max-w-xl text-sm md:text-base text-text-inverse/70 leading-relaxed text-pretty">
+              Building technology, companies &amp; content.
+            </p>
 
-              {/* Statement */}
-              <p className="mt-4 md:mt-5 max-w-xl text-sm md:text-base text-text-inverse/70 leading-relaxed text-pretty">
-                Building technology, companies &amp; content.
-              </p>
-
-              {/* CTAs */}
-              <div className="mt-7 md:mt-9 flex flex-wrap items-center gap-3">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 rounded-full bg-text-inverse text-ink font-medium px-5 py-2.5 text-sm hover:bg-coral hover:text-text-inverse transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950"
-                >
-                  Let&apos;s work together
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
-                <Link
-                  href="/resume"
-                  download
-                  className="group inline-flex items-center gap-2 rounded-full border border-text-inverse/25 text-text-inverse font-medium px-5 py-2.5 text-sm hover:border-text-inverse hover:bg-text-inverse/10 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950"
-                >
-                  Résumé
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
-              </div>
+            {/* CTAs — centered, with animated coral border on hover */}
+            <div className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-3 md:gap-4">
+              <InteractiveHoverButton
+                text="Let’s work together"
+                href="/contact"
+              />
+              <InteractiveHoverButton
+                text="Résumé"
+                href="/resume"
+                download
+              />
             </div>
           </div>
         </div>
