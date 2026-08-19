@@ -12,7 +12,7 @@ const WorkPage = () => {
   return (
     <>
       {/* Hero — full-bleed dark with blue glow */}
-      <section className="relative pt-20 md:pt-24 pb-6 md:pb-8 bg-ink-950 text-text-inverse overflow-hidden">
+      <section className="relative pt-8 md:pt-10 pb-2 md:pb-2 bg-ink-950 text-text-inverse overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
         <div
           className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -24,7 +24,7 @@ const WorkPage = () => {
         />
         <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 md:gap-8 items-start">
-            <div className="col-span-12 md:col-span-5">
+            <div className="col-span-12 md:col-span-7">
               <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-text-inverse text-balance">
                 I scope, design, build,
                 <br />
@@ -52,20 +52,20 @@ const WorkPage = () => {
                 </Link>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-7">
+            <div className="col-span-12 md:col-span-5">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ink-700"
+                className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-ink-700"
               >
                 <Image
                   src={suhayl.files.hero.work}
                   alt="Suhayl Dastager in a black suit, full-length studio portrait"
                   fill
                   priority
-                  sizes="(max-width: 768px) 100vw, 60vw"
-                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-top"
                 />
               </motion.div>
               <div className="mt-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">

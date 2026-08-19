@@ -10,18 +10,29 @@ import { suhayl } from "@/lib/personal-brand";
 import { ReelCard, VideoLightbox } from "@/components/reel-card";
 import { cn } from "@/lib/utils";
 
+// Brands that appear in the marquee below the reel rail. The order is the
+// display order in the scrolling strip. SM Stratagem is the user's own
+// studio — included so the strip reads as "brands I've shipped for" rather
+// than "brands I've only edited for".
+const marqueeBrands: { name: string; logo: string }[] = [
+  { name: "Parfumix", logo: "/ugc/parfumix-logo.webp" },
+  { name: "Al Amoudi", logo: "/ugc/alamoudi-logo.png" },
+  { name: "Wrapsters", logo: "/ugc/wrapsters-logo.jpeg" },
+  { name: "Milano", logo: "/ugc/milano-logo.jpeg" },
+  { name: "VoxxHire", logo: "/ugc/voxxhire-logo.png" },
+  { name: "SM Stratagem", logo: "/portfolio/sm-stratagem-logo.png" },
+];
+
 const UGCDetail = () => {
   const [openPackage, setOpenPackage] = React.useState<string | null>(
     ugcPackages[0]?.id ?? null
   );
   const [openReel, setOpenReel] = React.useState<(typeof ugcReels)[number] | null>(null);
-  const [showAllReels, setShowAllReels] = React.useState(false);
 
   const sortedReels = React.useMemo(
     () => [...ugcReels].sort((a, b) => b.views - a.views),
     []
   );
-  const visibleReels = showAllReels ? sortedReels : sortedReels.slice(0, 6);
 
   return (
     <>
@@ -76,38 +87,71 @@ const UGCDetail = () => {
 
       <section className="border-b border-border bg-canvas py-8 md:py-10">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
-          <div className="grid gap-6 lg:grid-cols-[1.4fr_0.6fr] lg:items-start">
-            <div>
-              <div className="flex items-end justify-between gap-4">
-                <h2 className="font-display text-display-md font-bold tracking-tighter text-ink text-balance">
-                  Examples, not placeholders.
-                </h2>
-                <button
-                  type="button"
-                  onClick={() => setShowAllReels((s) => !s)}
-                  className="font-mono text-[11px] uppercase tracking-monoWide text-text-secondary hover:text-ink transition-colors shrink-0"
+          <h2 className="font-display text-display-md font-bold tracking-tighter text-ink text-balance">
+            Examples, not placeholders.
+          </h2>
+
+          {/* Horizontal snap rail — reels scroll horizontally instead of
+              collapsing into a 6-up grid. The wrapper is negative-margined
+              to the section's edge so the first card aligns to the page
+              gutter while still allowing full-bleed scroll. */}
+          <div className="relative mt-5">
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-20 bg-gradient-to-r from-canvas to-transparent"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-20 bg-gradient-to-l from-canvas to-transparent"
+              aria-hidden
+            />
+            <div className="h-snap-rail no-scrollbar flex gap-3 overflow-x-auto pb-2 -mx-6 px-6 sm:gap-4 sm:-mx-8 sm:px-8">
+              {sortedReels.map((reel, i) => (
+                <div
+                  key={reel.id}
+                  className="h-snap shrink-0 w-[68vw] sm:w-[260px] md:w-[300px] lg:w-[320px] max-w-[340px]"
                 >
-                  {showAllReels ? "Show fewer" : `Show all ${sortedReels.length}`}
-                </button>
-              </div>
-              <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
-                {visibleReels.map((reel, i) => (
-                  <ReelCard key={reel.id} reel={reel} index={i} onOpen={setOpenReel} />
-                ))}
-              </div>
+                  <ReelCard reel={reel} index={i} onOpen={setOpenReel} />
+                </div>
+              ))}
             </div>
-            <div>
-              <p className="text-sm font-medium text-ink">Brands I&apos;ve worked with</p>
-              <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-5 border-t border-border pt-5 sm:grid-cols-2">
-                {[
-                  ["Parfumix", "/ugc/parfumix-logo.webp"],
-                  ["Al Amoudi", "/ugc/alamoudi-logo.png"],
-                  ["Milano", "/ugc/milano-logo.jpeg"],
-                  ["Wrapsters", "/ugc/wrapsters-logo.jpeg"],
-                  ["VoxxHire", "/ugc/voxxhire-logo.png"],
-                ].map(([name, src]) => (
-                  <div key={name} className="flex h-12 items-center">
-                    <Image src={src} alt={`${name} logo`} width={112} height={48} className="max-h-10 w-auto object-contain object-left" />
+          </div>
+
+          {/* Brands marquee — pure CSS, scrolls continuously and never
+              pauses on hover. The two-strip duplication makes the -50%
+              keyframe loop seamlessly. The decorative track is
+              aria-hidden; the names are exposed to screen readers in a
+              visually-hidden list above it. */}
+          <div className="mt-10 md:mt-12">
+            <p className="text-sm font-medium text-ink">
+              Brands I&apos;ve worked with
+            </p>
+            <ul className="sr-only">
+              {marqueeBrands.map((b) => (
+                <li key={b.name}>{b.name}</li>
+              ))}
+            </ul>
+            <div className="marquee-viewport mt-5">
+              <div className="marquee-track" aria-hidden="true">
+                {[0, 1].map((dupIdx) => (
+                  <div
+                    key={dupIdx}
+                    className="marquee-strip gap-6"
+                    aria-hidden="true"
+                  >
+                    {marqueeBrands.map((brand) => (
+                      <div
+                        key={`${dupIdx}-${brand.name}`}
+                        className="flex h-[100px] w-[200px] shrink-0 items-center justify-center rounded-xl border border-border bg-canvas-muted px-4"
+                      >
+                        <Image
+                          src={brand.logo}
+                          alt=""
+                          width={160}
+                          height={80}
+                          className="max-h-12 w-auto object-contain"
+                        />
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>

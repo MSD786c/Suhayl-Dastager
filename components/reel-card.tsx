@@ -147,10 +147,10 @@ export const ReelCard = ({
 
         <div className="flex flex-col items-end leading-none">
           <span
-            className="flex items-center gap-1 font-display font-bold text-2xl md:text-3xl tracking-tighter text-text-inverse"
+            className="flex items-center gap-1 font-display font-bold text-2xl md:text-3xl tracking-tighter text-coral"
             style={{
               fontVariantNumeric: "tabular-nums",
-              textShadow: "0 1px 6px rgba(0,0,0,0.55)",
+              textShadow: "0 1px 6px rgba(0,0,0,0.65)",
             }}
           >
             <Eye className="h-3.5 w-3.5 md:h-4 md:w-4 -mt-0.5" />

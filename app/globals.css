@@ -204,6 +204,58 @@
     will-change: transform, opacity;
     transform: translateZ(0);
   }
+
+  /* Horizontal snap rail — used for the UGC reel rail.
+     Container is overflow-x-auto; each child uses .h-snap.
+     Scrollbar is hidden via the .no-scrollbar component class. */
+  .h-snap-rail {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-left: 0;
+  }
+  .h-snap {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* Continuous left-to-right logo marquee.
+     Two identical strips are rendered inside the wrapper; the track
+     animates translateX from 0 to -50% so the second strip slides into
+     the first's position and the loop reads as seamless. The motion
+     runs unconditionally — it must NOT pause on hover (decorative
+     loop, no interactive state). */
+  @keyframes marquee {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+  .marquee-viewport {
+    /* Masks the strip ends + enforces horizontal clipping */
+    overflow: hidden;
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+  }
+  .marquee-strip {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+  }
+}
+
+/* Motion safety: the marquee is decorative. Honour the user's
+   reduced-motion preference by halting the animation. This is the
+   ONLY pause condition — hover does NOT pause the marquee. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-play-state: paused;
+  }
 }
 
 /* Reduced motion: per-component useReducedMotion() handles Framer Motion

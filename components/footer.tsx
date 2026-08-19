@@ -50,8 +50,38 @@ const CyclingVerb = () => {
 
 const Footer = () => {
   return (
-    <footer className="relative bg-ink-950 text-text-inverse">
-      <div>
+    <footer className="relative bg-ink-950 text-text-inverse overflow-hidden">
+      {/* Cinematic video background — loops muted, plays inline, hidden on reduce-motion + small viewports */}
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
+        <video
+          src="/footer/footer-hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/portfolio/work-hero.png"
+          className="absolute inset-0 h-full w-full object-cover opacity-60 hidden md:block motion-reduce:hidden"
+        />
+        {/* Cinematic dark gradient — keeps the editorial text legible over the footage */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(9,11,15,0.55) 0%, rgba(9,11,15,0.65) 35%, rgba(9,11,15,0.85) 100%)",
+          }}
+        />
+        {/* Subtle film grain via SVG turbulence — depth on the dark surface */}
+        <div
+          className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10">
         {/* Mega editorial line */}
         <div className="mx-auto max-w-[1440px] px-6 sm:px-8 pt-24 md:pt-32 pb-6 md:pb-8">
           <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-text-inverse text-balance">
