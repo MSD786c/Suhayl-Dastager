@@ -8,9 +8,9 @@ type ButtonVariant = "primary" | "secondary";
 interface InteractiveHoverButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
-  /** Visual variant — primary (coral) or secondary (white). */
+  /** Visual variant - primary (coral) or secondary (white). */
   variant?: ButtonVariant;
-  /** Optional href — when set, renders as an <a> instead of a <button>. */
+  /** Optional href - when set, renders as an <a> instead of a <button>. */
   href?: string;
   /** Optional download attribute for the <a> variant. */
   download?: boolean | string;
@@ -63,7 +63,7 @@ const InteractiveHoverButton = React.forwardRef<
   );
 
   const shared = cn(
-    "group relative min-w-[12rem] cursor-pointer overflow-hidden rounded-full border bg-transparent px-5 py-2.5 text-center font-medium text-sm text-text-inverse",
+    "group relative min-w-[12rem] cursor-pointer overflow-hidden rounded-full border bg-transparent px-5 py-2.5 text-center font-medium text-sm text-text-inverse transition-transform duration-300 will-change-transform group-hover:-translate-x-2",
     v.border,
     className,
   );

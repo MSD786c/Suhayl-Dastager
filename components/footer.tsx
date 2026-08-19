@@ -57,7 +57,7 @@ const CyclingVerb = () => {
 const Footer = () => {
   return (
     <footer className="relative bg-ink-950 text-text-inverse overflow-hidden">
-      {/* ── DUBAI HERO — FULL-WIDTH ─────────────────────────────────────
+      {/* ── DUBAI HERO - FULL-WIDTH ─────────────────────────────────────
           Full-width background image spanning the entire component.
           Burj Khalifa + Dubai skyline dominates the frame. Dark cinematic
           gradients ensure all text reads cleanly on top.
@@ -74,7 +74,7 @@ const Footer = () => {
           className="object-cover"
         />
 
-        {/* Cinematic dark gradient — bottom-weighted for text legibility */}
+        {/* Cinematic dark gradient - bottom-weighted for text legibility */}
         <div
           aria-hidden
           className="absolute inset-0"
@@ -84,7 +84,7 @@ const Footer = () => {
           }}
         />
 
-        {/* Edge accent glows — blue left, coral right */}
+        {/* Edge accent glows - blue left, coral right */}
         <div
           aria-hidden
           className="absolute inset-0 pointer-events-none"
@@ -94,7 +94,7 @@ const Footer = () => {
           }}
         />
 
-        {/* Film grain — cinema feel */}
+        {/* Film grain - cinema feel */}
         <div
           aria-hidden
           className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none"
@@ -104,7 +104,7 @@ const Footer = () => {
           }}
         />
 
-        {/* Content — anchored to bottom, overlaying the image */}
+        {/* Content - anchored to bottom, overlaying the image */}
         <div className="absolute inset-0 flex items-end">
           <div className="relative w-full mx-auto max-w-[1440px] px-6 sm:px-8 pb-10 md:pb-16">
             {/* Top row: title block (left) + cycling verb HUGE (right) */}
@@ -119,7 +119,7 @@ const Footer = () => {
                   <span>Dubai · 2026</span>
                 </div>
 
-                {/* SUHAYL — per-letter blue hover */}
+                {/* SUHAYL - per-letter blue hover */}
                 <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
                   <span className="block text-[clamp(2.5rem,6.5vw,5.5rem)] font-black">
                     {Array.from("SUHAYL").map((char, i) => (
@@ -155,9 +155,9 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Right: cycling verb — same size family as the name, aligned with the name (top-aligned + top padding to clear the pre-title row, moved 10px higher) */}
-              <div className="col-span-12 md:col-span-7 lg:col-span-7 flex items-start justify-start md:justify-end mt-6 md:mt-0 md:pt-[18px]">
-                <div className="font-display font-black leading-[0.92] tracking-tighter text-coral text-right">
+              {/* Right: cycling verb - same size family as the name, aligned with the top of SUHAYL */}
+              <div className="col-span-12 md:col-span-7 lg:col-span-7 self-end relative mt-6 md:mt-0 min-h-[1px]">
+                <div className="font-display font-black leading-[0.92] tracking-tighter text-coral text-right md:absolute md:bottom-[8rem] lg:bottom-[10rem] md:right-0">
                   <div className="text-[clamp(2.25rem,5.5vw,4.5rem)]">
                     <CyclingVerb />
                   </div>
@@ -170,7 +170,7 @@ const Footer = () => {
               Building technology, companies &amp; content.
             </p>
 
-            {/* CTAs — centered, each with its own independent hover treatment */}
+            {/* CTAs - centered, each with its own independent hover treatment */}
             <div className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-3 md:gap-4">
               <InteractiveHoverButton
                 text="Let’s work together"
@@ -187,7 +187,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Top-right — SD monogram badge */}
+        {/* Top-right - SD monogram badge */}
         <div className="absolute top-6 right-6 sm:top-8 sm:right-8 hidden md:flex items-center gap-2.5">
           <div className="grid place-items-center h-10 w-10 rounded-full bg-text-inverse/8 ring-1 ring-text-inverse/20 backdrop-blur-sm">
             <span className="font-display font-bold text-text-inverse text-sm leading-none">SD</span>
