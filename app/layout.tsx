@@ -87,10 +87,10 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-64.png", sizes: "64x64", type: "image/png" },
-      { url: "/portrait/face-square.jpg", sizes: "any", type: "image/jpeg" },
+      { url: "/favicon.svg", sizes: "any", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/portrait/face-square.jpg", sizes: "any", type: "image/jpeg" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
 };
