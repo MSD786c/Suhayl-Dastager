@@ -137,7 +137,7 @@ const Nav = () => {
             <Link
               href="/contact"
               className={cn(
-                "group hidden md:inline-flex items-center gap-2.5 rounded-lg bg-ink text-text-inverse font-medium ring-1 ring-inset ring-white/10 transition-all duration-300 hover:bg-blue hover:ring-blue/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-canvas active:scale-[0.98]",
+                "group hidden md:inline-flex items-center gap-2 rounded-lg bg-ink text-text-inverse font-medium ring-1 ring-inset ring-white/10 transition-all duration-300 hover:bg-blue hover:ring-blue/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-canvas active:scale-[0.98]",
                 scrolled ? "px-4 py-2 text-xs" : "px-5 py-2.5 text-sm"
               )}
             >

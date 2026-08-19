@@ -107,61 +107,58 @@ const Footer = () => {
         {/* Content - anchored to bottom, overlaying the image */}
         <div className="absolute inset-0 flex items-end">
           <div className="relative w-full mx-auto max-w-[1440px] px-6 sm:px-8 pb-10 md:pb-16">
-            {/* Top row: title block (left) + cycling verb HUGE (right) */}
-            <div className="grid grid-cols-12 gap-x-6 md:gap-x-8 items-end">
-              {/* Left: pre-title + SUHAYL/DASTAGER + role line */}
-              <div className="col-span-12 md:col-span-5 lg:col-span-5">
-                {/* Pre-title */}
-                <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted mb-4 flex items-center gap-3">
-                  <span className="h-1 w-1 rounded-full bg-coral" aria-hidden />
-                  <span>The reel</span>
-                  <span className="text-text-inverseMuted/30">/</span>
-                  <span>Dubai · 2026</span>
-                </div>
-
-                {/* SUHAYL - per-letter blue hover */}
-                <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
-                  <span className="block text-[clamp(2.5rem,6.5vw,5.5rem)] font-black">
-                    {Array.from("SUHAYL").map((char, i) => (
-                      <span
-                        key={`s-${i}`}
-                        className="inline-block transition-colors duration-200 hover:text-blue cursor-default"
-                      >
-                        {char}
-                      </span>
-                    ))}
-                  </span>
-                  <span className="block text-[clamp(1.5rem,3.8vw,3rem)] font-bold text-text-inverse/80 mt-1">
-                    {Array.from("DASTAGER").map((char, i) => (
-                      <span
-                        key={`d-${i}`}
-                        className="inline-block transition-colors duration-200 hover:text-blue cursor-default"
-                      >
-                        {char}
-                      </span>
-                    ))}
-                  </span>
-                </h2>
-
-                {/* Role line */}
-                <div className="mt-4 md:mt-5 font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <span>Founder</span>
-                  <span className="text-text-inverseMuted/30">·</span>
-                  <span>Engineer</span>
-                  <span className="text-text-inverseMuted/30">·</span>
-                  <span>Creator</span>
-                  <span className="text-text-inverseMuted/30">·</span>
-                  <span className="text-coral">Now</span>
-                </div>
+            {/* Title block: pre-title + name + inline cycling verb + role line */}
+            <div>
+              {/* Pre-title */}
+              <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted mb-4 flex items-center gap-3">
+                <span className="h-1 w-1 rounded-full bg-coral" aria-hidden />
+                <span>The reel</span>
+                <span className="text-text-inverseMuted/30">/</span>
+                <span>Dubai · 2026</span>
               </div>
 
-              {/* Right: cycling verb - same size family as the name, aligned with the top of SUHAYL */}
-              <div className="col-span-12 md:col-span-7 lg:col-span-7 self-end relative mt-6 md:mt-0 min-h-[1px]">
-                <div className="font-display font-black leading-[0.92] tracking-tighter text-coral text-right md:absolute md:bottom-[8rem] lg:bottom-[10rem] md:right-0">
-                  <div className="text-[clamp(2.25rem,5.5vw,4.5rem)]">
+              {/* SUHAYL DASTAGER + cycling verb inline on the same row */}
+              <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.9] text-text-inverse">
+                <span className="flex flex-wrap items-baseline gap-x-4 gap-y-0">
+                  {/* Name block */}
+                  <span className="inline-flex flex-col">
+                    <span className="text-[clamp(2.5rem,6.5vw,5.5rem)] font-black leading-[0.9]">
+                      {Array.from("SUHAYL").map((char, i) => (
+                        <span
+                          key={`s-${i}`}
+                          className="inline-block transition-colors duration-200 hover:text-coral cursor-default"
+                        >
+                          {char}
+                        </span>
+                      ))}
+                    </span>
+                    <span className="text-[clamp(1.5rem,3.8vw,3rem)] font-bold text-text-inverse/80 leading-[0.9]">
+                      {Array.from("DASTAGER").map((char, i) => (
+                        <span
+                          key={`d-${i}`}
+                          className="inline-block transition-colors duration-200 hover:text-coral cursor-default"
+                        >
+                          {char}
+                        </span>
+                      ))}
+                    </span>
+                  </span>
+                  {/* Cycling verb — same baseline as SUHAYL */}
+                  <span className="font-black leading-[0.9] tracking-tighter text-coral text-[clamp(2.25rem,5.5vw,4.5rem)] self-end">
                     <CyclingVerb />
-                  </div>
-                </div>
+                  </span>
+                </span>
+              </h2>
+
+              {/* Role line */}
+              <div className="mt-4 md:mt-5 font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span>Founder</span>
+                <span className="text-text-inverseMuted/30">·</span>
+                <span>Engineer</span>
+                <span className="text-text-inverseMuted/30">·</span>
+                <span>Creator</span>
+                <span className="text-text-inverseMuted/30">·</span>
+                <span className="text-coral">Now</span>
               </div>
             </div>
 
