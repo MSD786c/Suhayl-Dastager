@@ -93,10 +93,8 @@ const Nav = () => {
           >
             <span
               className={cn(
-                "transition-colors duration-300",
-                isDarkPage
-                  ? "text-coral hover:text-text-inverse"
-                  : "text-ink hover:text-coral",
+                "inline-block transition-all duration-300 group-hover:translate-y-1 group-hover:text-coral",
+                isDarkPage ? "text-coral" : "text-ink",
                 scrolled ? "text-base" : "text-lg"
               )}
             >
@@ -104,10 +102,8 @@ const Nav = () => {
             </span>
             <span
               className={cn(
-                "transition-colors duration-300",
-                isDarkPage
-                  ? "text-coral hover:text-text-inverse"
-                  : "text-ink hover:text-coral",
+                "inline-block transition-all duration-300 group-hover:translate-y-1 group-hover:text-coral",
+                isDarkPage ? "text-coral" : "text-ink",
                 scrolled ? "text-[10px]" : "text-[11px]"
               )}
               style={{ fontFamily: "var(--font-mono)" }}
