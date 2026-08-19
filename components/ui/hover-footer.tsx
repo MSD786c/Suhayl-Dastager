@@ -106,8 +106,8 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="fill-transparent stroke-coral/30 font-[helvetica] text-7xl font-bold 
-        dark:stroke-coral/25"
+        className="fill-transparent stroke-blue/30 font-[helvetica] text-7xl font-bold 
+        dark:stroke-blue/25"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
