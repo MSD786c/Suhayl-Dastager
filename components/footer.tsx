@@ -56,26 +56,21 @@ const CyclingVerb = () => {
 const Footer = () => {
   return (
     <footer className="relative bg-ink-950 text-text-inverse overflow-hidden">
-      {/* ── FILM HERO ────────────────────────────────────────────────────
-          Curated personal-brand film. 9:16 source video, displayed
-          inside a 16:9 editorial frame. Only the center vertical slice
-          of the source is visible — which is exactly where the face lives.
+      {/* ── DUBAI HERO ───────────────────────────────────────────────────
+          Cinematic Burj Khalifa + Dubai skyline at dusk. The orange-to-blue
+          gradient sky sits behind the editorial typography; the city lights
+          anchor the bottom-left third of the frame.
       ─────────────────────────────────────────────────────────────── */}
       <section className="relative w-full aspect-[16/9] max-h-[78vh] overflow-hidden bg-ink-950">
-        {/* Video layer */}
-        <video
-          src="/footer/footer-hero.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/portfolio/work-hero.png"
-          aria-hidden
-          className="absolute inset-0 h-full w-full object-cover object-top motion-reduce:hidden"
+        {/* Image layer */}
+        <Image
+          src="/footer/footer-hero.jpg"
+          alt="Dubai skyline at dusk with Burj Khalifa and Downtown Dubai"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
-        {/* Image fallback for prefers-reduced-motion or autoplay-blocked contexts */}
-        <ImageFallback />
 
         {/* Cinematic dark gradient — bottom-weighted so the typography at the
             bottom reads cleanly, top stays closer to the source lighting */}
@@ -309,21 +304,6 @@ const Footer = () => {
     </footer>
   );
 };
-
-const ImageFallback = () => (
-  // Shown when prefers-reduced-motion or autoplay is blocked. The poster
-  // already handles the still case; this just ensures the layered look stays.
-  <div aria-hidden className="absolute inset-0 motion-safe:hidden">
-    <Image
-      src="/portfolio/work-hero.png"
-      alt=""
-      fill
-      priority={false}
-      sizes="100vw"
-      className="object-cover object-top"
-    />
-  </div>
-);
 
 const FooterCol = ({
   title,
