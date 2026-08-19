@@ -211,7 +211,7 @@ const Footer = () => {
         >
           <TextHoverEffect
             text="SUHAYL"
-            className="h-full w-full opacity-90 translate-y-[5px]"
+            className="h-full w-full opacity-90 translate-y-[10px]"
           />
         </div>
         <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-8 py-12 md:py-14 grid grid-cols-2 md:grid-cols-12 gap-8">
