@@ -63,7 +63,7 @@ const Footer = () => {
           gradients ensure all text reads cleanly on top.
           SUHAYL title drops lower and turns coral on hover.
       ─────────────────────────────────────────────────────────────── */}
-      <section className="group relative w-full aspect-[16/9] max-h-[78vh] overflow-hidden bg-ink-950">
+      <section className="group/footer relative w-full aspect-[16/9] max-h-[78vh] overflow-hidden bg-ink-950">
         {/* Full-width background image */}
         <Image
           src="/footer/footer-hero.jpg"
@@ -121,7 +121,7 @@ const Footer = () => {
 
                 {/* SUHAYL */}
                 <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
-                  <span className="block text-[clamp(2.5rem,6.5vw,5.5rem)] font-black transition-all duration-300 group-hover:text-coral group-hover:translate-y-0.5">
+                  <span className="block text-[clamp(2.5rem,6.5vw,5.5rem)] font-black transition-all duration-300 group-hover/footer:text-coral group-hover/footer:translate-y-0.5">
                     SUHAYL
                   </span>
                   <span className="block text-[clamp(1.5rem,3.8vw,3rem)] font-bold text-text-inverse/80 mt-1">
@@ -141,10 +141,10 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Right: cycling verb — extremely big, fills the right half */}
+              {/* Right: cycling verb — same size family as the name, aligned right */}
               <div className="col-span-12 md:col-span-7 lg:col-span-7 flex items-end justify-start md:justify-end mt-6 md:mt-0">
-                <div className="font-display font-black leading-[0.9] tracking-tighter text-coral">
-                  <div className="text-[clamp(3.5rem,10.5vw,9rem)]">
+                <div className="font-display font-black leading-[0.92] tracking-tighter text-coral text-right">
+                  <div className="text-[clamp(2.25rem,5.5vw,4.5rem)]">
                     <CyclingVerb />
                   </div>
                 </div>
@@ -156,16 +156,18 @@ const Footer = () => {
               Building technology, companies &amp; content.
             </p>
 
-            {/* CTAs — centered, with animated coral border on hover */}
+            {/* CTAs — centered, each with its own independent hover treatment */}
             <div className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-3 md:gap-4">
               <InteractiveHoverButton
                 text="Let’s work together"
                 href="/contact"
+                variant="primary"
               />
               <InteractiveHoverButton
                 text="Résumé"
                 href="/resume"
                 download
+                variant="secondary"
               />
             </div>
           </div>
