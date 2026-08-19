@@ -105,7 +105,7 @@ const HireSection = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 border-t border-border">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-t border-border">
             {careerProgression.map((c, i) => (
               <motion.div
                 key={c.label}
@@ -116,7 +116,9 @@ const HireSection = () => {
                 className={cn(
                   "py-8 md:py-12 px-4 md:px-5",
                   "border-b border-border last:border-b-0",
-                  "md:border-b-0 md:border-r md:last:border-r-0 md:border-border"
+                  "lg:border-b-0 lg:border-r lg:last:border-r-0 lg:border-border",
+                  "sm:[&:nth-child(2n)]:border-r-0 sm:[&:nth-child(2n+1)]:border-r",
+                  "md:[&:nth-child(3n)]:border-r-0 md:[&:nth-child(3n+1)]:border-r md:[&:nth-child(3n+2)]:border-r"
                 )}
               >
                 <div

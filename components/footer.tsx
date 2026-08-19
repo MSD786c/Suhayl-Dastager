@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { suhayl } from "@/lib/personal-brand";
 
 const CYCLING_VERBS = [
@@ -17,6 +17,7 @@ const CYCLING_VERBS = [
 
 const CyclingVerb = () => {
   const [index, setIndex] = React.useState(0);
+  const reduceMotion = useReducedMotion();
 
   React.useEffect(() => {
     const id = setInterval(() => {
@@ -37,7 +38,7 @@ const CyclingVerb = () => {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
-          transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.4, 0, 0.2, 1] }}
           className="col-start-1 row-start-1 text-coral"
         >
           {CYCLING_VERBS[index]}

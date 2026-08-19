@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { suhayl } from "@/lib/personal-brand";
@@ -45,9 +45,14 @@ const metricItems = [
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const Hero = () => {
+  const reduceMotion = useReducedMotion();
+  // When reduced motion is on, snap decorative motion to instant.
+  // State-change visuals (opacity ending at 1) still resolve correctly.
+  const mDur = reduceMotion ? 0 : undefined;
+
   return (
     <section
-      className="relative overflow-hidden bg-[#f6f6f4] pt-20 md:pt-24 pb-8 md:pb-10"
+      className="relative overflow-hidden bg-canvas-hero pt-20 md:pt-24 pb-8 md:pb-10"
       aria-label="Suhayl Dastager — personal brand introduction"
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
@@ -55,11 +60,11 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: EASE }}
+          transition={{ duration: mDur ?? 0.6, ease: EASE }}
           className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10.5px] uppercase tracking-monoWide text-text-muted"
         >
           <span>Dubai · UAE</span>
-          <span aria-hidden className="text-text-muted/50 select-none">
+          <span aria-hidden className="text-text-muted/70 select-none">
             ─────
           </span>
           <span>Available for select 2026 engagements</span>
@@ -74,7 +79,7 @@ const Hero = () => {
                 <motion.span
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease: EASE }}
+                  transition={{ duration: mDur ?? 0.9, ease: EASE }}
                   className="block text-display-xl"
                 >
                   One person.
@@ -84,7 +89,7 @@ const Hero = () => {
                 <motion.span
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease: EASE, delay: 0.08 }}
+                  transition={{ duration: mDur ?? 0.9, ease: EASE, delay: reduceMotion ? 0 : 0.08 }}
                   className="block text-display-xl"
                 >
                   Three practices.
@@ -95,7 +100,7 @@ const Hero = () => {
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4, ease: EASE }}
+              transition={{ duration: mDur ?? 0.7, delay: reduceMotion ? 0 : 0.4, ease: EASE }}
               className="mt-5 md:mt-6 max-w-md text-base md:text-lg text-text-secondary leading-snug text-balance"
             >
               I build technology, companies &amp; content around both.
@@ -104,7 +109,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
+              transition={{ duration: mDur ?? 0.6, delay: reduceMotion ? 0 : 0.55, ease: EASE }}
               className="mt-2 font-mono text-[10.5px] uppercase tracking-monoWide text-text-muted"
             >
               Founder · AI Product Engineer · Tech Creator — Dubai
@@ -113,7 +118,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7, ease: EASE }}
+              transition={{ duration: mDur ?? 0.7, delay: reduceMotion ? 0 : 0.7, ease: EASE }}
               className="mt-5 md:mt-6 flex flex-wrap items-center gap-3"
             >
               <Link href="#three-doors" className="btn-primary">
@@ -134,7 +139,7 @@ const Hero = () => {
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.0, delay: 0.3, ease: EASE }}
+                transition={{ duration: mDur ?? 1.0, delay: reduceMotion ? 0 : 0.3, ease: EASE }}
                 className={cn(
                   "col-span-3 relative aspect-[4/5] rounded-2xl overflow-hidden bg-ink"
                 )}
@@ -164,7 +169,7 @@ const Hero = () => {
                     key={p.id}
                     initial={{ opacity: 0, x: 16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.45 + i * 0.1, ease: EASE }}
+                    transition={{ duration: mDur ?? 0.8, delay: reduceMotion ? 0 : 0.45 + i * 0.1, ease: EASE }}
                     className="relative aspect-square rounded-xl overflow-hidden"
                   >
                     <Image
@@ -198,7 +203,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.9 }}
+          transition={{ duration: mDur ?? 0.7, delay: reduceMotion ? 0 : 0.9 }}
           className="mt-8 md:mt-10 grid grid-cols-1 gap-4 border-t border-border pt-4 sm:grid-cols-3"
         >
           {metricItems.map((m) => (

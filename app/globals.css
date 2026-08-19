@@ -206,14 +206,13 @@
   }
 }
 
-/* Reduced motion override */
+/* Reduced motion: per-component useReducedMotion() handles Framer Motion
+   animations. We don't nuke Tailwind transitions globally because state
+   changes (hover, focus, color shifts) still need to be communicated —
+   only the decorative motion is removed. Scroll-behavior is the exception:
+   smooth scrolling is purely cosmetic, so we opt out. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  html {
     scroll-behavior: auto !important;
   }
 }

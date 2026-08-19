@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +17,7 @@ const Nav = () => {
   const [open, setOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -53,7 +54,7 @@ const Nav = () => {
       <motion.header
         initial={{ y: -16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: reduceMotion ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
@@ -140,6 +141,7 @@ const Nav = () => {
               className="md:hidden grid place-items-center h-10 w-10 rounded-lg border border-border text-ink"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
+              aria-controls="mobile-menu"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -154,8 +156,9 @@ const Nav = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: reduceMotion ? 0 : 0.3 }}
             className="fixed inset-0 z-40 md:hidden"
+            id="mobile-menu"
           >
             <div
               className="absolute inset-0 bg-canvas"
@@ -165,7 +168,7 @@ const Nav = () => {
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
               exit={{ y: "-100%" }}
-              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: reduceMotion ? 0 : 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="absolute top-0 inset-x-0 bg-canvas"
             >
               <div className="flex flex-col h-screen pt-24 pb-8 px-6">
@@ -177,7 +180,7 @@ const Nav = () => {
                         key={item.label}
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.15 + i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ delay: reduceMotion ? 0 : 0.15 + i * 0.06, ease: [0.16, 1, 0.3, 1] }}
                         className="border-b border-border"
                       >
                         <Link
@@ -203,7 +206,7 @@ const Nav = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.55 }}
+                  transition={{ delay: reduceMotion ? 0 : 0.55 }}
                   className="pt-8"
                 >
                   <Link

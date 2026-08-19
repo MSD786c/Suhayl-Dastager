@@ -30,6 +30,8 @@ module.exports = {
           DEFAULT: "#FFFFFF",
           muted: "#F6F7F9",
           warm: "#FAFAFA",
+          // Off-white hero surface (was previously hard-coded #F6F6F4)
+          hero: "#F6F6F4",
         },
         // Dark surface stack
         ink: {
