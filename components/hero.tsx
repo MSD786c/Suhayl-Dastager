@@ -64,10 +64,6 @@ const Hero = () => {
           className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10.5px] uppercase tracking-monoWide text-text-muted"
         >
           <span>Dubai · UAE</span>
-          <span aria-hidden className="text-text-muted/70 select-none">
-            ─────
-          </span>
-          <span>Available for select 2026 engagements</span>
         </motion.div>
 
         {/* Main row: type on the left, photo + 2 practice cards on the right */}
