@@ -25,22 +25,22 @@ const FounderDeepDive = () => {
         />
         <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
-            <div className="col-span-12 md:col-span-8">
-              <div className="font-mono text-[10px] uppercase tracking-monoWide text-blue mb-5">
-                Founder · 02 / Build
-              </div>
+            <div className="col-span-12 md:col-span-7">
               <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl md:text-display-2xl text-text-inverse text-balance">
                 Two companies.
                 <br />
                 <span className="text-blue">One studio, one product.</span>
               </h1>
             </div>
-            <div className="col-span-12 md:col-span-4 self-end">
+            <div className="col-span-12 md:col-span-2 self-end">
               <p className="text-lg text-text-inverseMuted max-w-md text-pretty">
                 Both built from Dubai. Both solving real problems I&apos;ve
                 personally seen fail. Neither is a side project.
               </p>
             </div>
+            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="col-span-12 md:col-span-3 relative min-h-[260px] md:min-h-[360px] overflow-hidden rounded-t-[18px]">
+              <Image src={suhayl.files.portraits.suvSeated} alt="Suhayl Dastager seated on an SUV in Dubai" fill priority sizes="(max-width: 768px) 100vw, 25vw" className="object-cover object-center" />
+            </motion.div>
           </div>
         </div>
       </section>

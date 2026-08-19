@@ -1,10 +1,12 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowLeft, Plus } from "lucide-react";
-import { ugcPackages, ugcCaseStudies } from "@/lib/data";
+import { ugcPackages, ugcCaseStudies, ugcReels } from "@/lib/data";
+import { suhayl } from "@/lib/personal-brand";
 import { cn } from "@/lib/utils";
 
 const UGCDetail = () => {
@@ -26,30 +28,57 @@ const UGCDetail = () => {
           aria-hidden
         />
         <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-monoWide text-text-inverseMuted hover:text-text-inverse transition-colors mb-6"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            Suhayl Dastager
-          </Link>
           <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
-            <div className="col-span-12 md:col-span-8">
-              <div className="font-mono text-[10px] uppercase tracking-monoWide text-coral mb-5">
-                Creator · 01 / Create
-              </div>
+            <div className="col-span-12 md:col-span-7">
               <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl md:text-display-2xl text-text-inverse text-balance">
                 Tech content that
                 <br />
                 <span className="text-coral">doesn&apos;t feel like an ad.</span>
               </h1>
             </div>
-            <div className="col-span-12 md:col-span-4 self-end">
+            <div className="col-span-12 md:col-span-2 self-end">
               <p className="text-lg text-text-inverseMuted max-w-md text-pretty">
                 I create at the intersection of cars, technology, and founder
                 life. The differentiator is simple: I don&apos;t just talk about
                 software — I build it.
               </p>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="col-span-12 md:col-span-3 relative min-h-[260px] md:min-h-[360px] overflow-hidden rounded-t-[18px]">
+              <Image src={suhayl.files.portraits.face} alt="Close portrait of Suhayl Dastager" fill priority sizes="(max-width: 768px) 100vw, 25vw" className="scale-[1.6] object-cover object-[50%_30%]" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border bg-canvas py-8 md:py-10">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
+          <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+            <div>
+              <h2 className="font-display text-display-md font-bold tracking-tighter text-ink">Examples, not placeholders.</h2>
+              <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+                {ugcReels.filter((reel) => reel.featured).slice(0, 4).map((reel) => (
+                  <Link key={reel.id} href={reel.url} target="_blank" rel="noopener noreferrer" className="group relative aspect-[4/5] overflow-hidden rounded-[14px] bg-ink">
+                    <Image src={reel.posterSrc} alt={`${reel.client} UGC example`} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+                    <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-3 pb-3 pt-12 text-xs font-medium text-white">{reel.client}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-ink">Brands I&apos;ve worked with</p>
+              <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-5 border-t border-border pt-5 sm:grid-cols-3">
+                {[
+                  ["Parfumix", "/ugc/parfumix-logo.png"],
+                  ["Milano Italy", "/ugc/milano-logo.png"],
+                  ["Wrapsters", "/ugc/wrapsters-logo.png"],
+                  ["Al Amoudi", "/ugc/alamoudi-logo.png"],
+                  ["VoxxHire", "/ugc/voxxhire-logo.png"],
+                ].map(([name, src]) => (
+                  <div key={name} className="flex h-12 items-center">
+                    <Image src={src} alt={`${name} logo`} width={112} height={48} className="max-h-10 w-auto object-contain object-left" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
