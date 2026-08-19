@@ -7,17 +7,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowLeft, Plus } from "lucide-react";
 import { ugcPackages, ugcCaseStudies, ugcReels } from "@/lib/data";
 import { suhayl } from "@/lib/personal-brand";
+import { ReelCard, VideoLightbox } from "@/components/reel-card";
 import { cn } from "@/lib/utils";
 
 const UGCDetail = () => {
   const [openPackage, setOpenPackage] = React.useState<string | null>(
     ugcPackages[0]?.id ?? null
   );
+  const [openReel, setOpenReel] = React.useState<(typeof ugcReels)[number] | null>(null);
+  const [showAllReels, setShowAllReels] = React.useState(false);
+
+  const sortedReels = React.useMemo(
+    () => [...ugcReels].sort((a, b) => b.views - a.views),
+    []
+  );
+  const visibleReels = showAllReels ? sortedReels : sortedReels.slice(0, 6);
 
   return (
     <>
       {/* Hero — full-bleed dark with coral glow */}
-      <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 bg-ink-950 text-text-inverse overflow-hidden">
+      <section className="relative pt-20 md:pt-24 pb-6 md:pb-8 bg-ink-950 text-text-inverse overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
         <div
           className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -29,31 +38,31 @@ const UGCDetail = () => {
         />
         <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 md:gap-8 items-start">
-            <div className="col-span-12 md:col-span-6">
+            <div className="col-span-12 md:col-span-5">
               <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-text-inverse text-balance">
                 Tech content that
                 <br />
                 <span className="text-coral">doesn&apos;t feel like an ad.</span>
               </h1>
-              <p className="mt-6 md:mt-8 text-lg text-text-inverseMuted max-w-md text-pretty">
+              <p className="mt-4 md:mt-5 text-base text-text-inverseMuted max-w-md text-pretty">
                 I create at the intersection of cars, technology, and founder
                 life. The differentiator is simple: I don&apos;t just talk about
                 software — I build it.
               </p>
             </div>
-            <div className="col-span-12 md:col-span-6">
+            <div className="col-span-12 md:col-span-7">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-square overflow-hidden rounded-2xl border border-ink-700"
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ink-700"
               >
                 <Image
-                  src={suhayl.files.brands.ugcHero}
+                  src={suhayl.files.hero.ugc}
                   alt="UGC hero — phones and sunglasses marketing shot"
                   fill
                   priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 60vw"
                   className="object-cover"
                 />
               </motion.div>
@@ -67,26 +76,34 @@ const UGCDetail = () => {
 
       <section className="border-b border-border bg-canvas py-8 md:py-10">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
-          <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+          <div className="grid gap-6 lg:grid-cols-[1.4fr_0.6fr] lg:items-start">
             <div>
-              <h2 className="font-display text-display-md font-bold tracking-tighter text-ink">Examples, not placeholders.</h2>
-              <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
-                {ugcReels.filter((reel) => reel.featured).slice(0, 4).map((reel) => (
-                  <Link key={reel.id} href={reel.url} target="_blank" rel="noopener noreferrer" className="group relative aspect-[4/5] overflow-hidden rounded-[14px] bg-ink">
-                    <Image src={reel.posterSrc} alt={`${reel.client} UGC example`} fill sizes="(max-width: 768px) 50vw, 20vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
-                    <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-3 pb-3 pt-12 text-xs font-medium text-white">{reel.client}</span>
-                  </Link>
+              <div className="flex items-end justify-between gap-4">
+                <h2 className="font-display text-display-md font-bold tracking-tighter text-ink text-balance">
+                  Examples, not placeholders.
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => setShowAllReels((s) => !s)}
+                  className="font-mono text-[11px] uppercase tracking-monoWide text-text-secondary hover:text-ink transition-colors shrink-0"
+                >
+                  {showAllReels ? "Show fewer" : `Show all ${sortedReels.length}`}
+                </button>
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+                {visibleReels.map((reel, i) => (
+                  <ReelCard key={reel.id} reel={reel} index={i} onOpen={setOpenReel} />
                 ))}
               </div>
             </div>
             <div>
               <p className="text-sm font-medium text-ink">Brands I&apos;ve worked with</p>
-              <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-5 border-t border-border pt-5 sm:grid-cols-3">
+              <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-5 border-t border-border pt-5 sm:grid-cols-2">
                 {[
-                  ["Parfumix", "/ugc/parfumix-logo.png"],
-                  ["Milano Italy", "/ugc/milano-logo.png"],
-                  ["Wrapsters", "/ugc/wrapsters-logo.png"],
+                  ["Parfumix", "/ugc/parfumix-logo.webp"],
                   ["Al Amoudi", "/ugc/alamoudi-logo.png"],
+                  ["Milano", "/ugc/milano-logo.jpeg"],
+                  ["Wrapsters", "/ugc/wrapsters-logo.jpeg"],
                   ["VoxxHire", "/ugc/voxxhire-logo.png"],
                 ].map(([name, src]) => (
                   <div key={name} className="flex h-12 items-center">
@@ -97,6 +114,7 @@ const UGCDetail = () => {
             </div>
           </div>
         </div>
+        <VideoLightbox reel={openReel} onClose={() => setOpenReel(null)} />
       </section>
 
       {/* Categories — clean editorial row, not card grid */}

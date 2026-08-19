@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, ArrowDown, MapPin, FileDown } from "lucide-react";
 import { experiences, flagshipProjects } from "@/lib/data";
 import { suhayl } from "@/lib/personal-brand";
 
@@ -12,7 +12,7 @@ const WorkPage = () => {
   return (
     <>
       {/* Hero — full-bleed dark with blue glow */}
-      <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 bg-ink-950 text-text-inverse overflow-hidden">
+      <section className="relative pt-20 md:pt-24 pb-6 md:pb-8 bg-ink-950 text-text-inverse overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
         <div
           className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -24,35 +24,52 @@ const WorkPage = () => {
         />
         <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 md:gap-8 items-start">
-            <div className="col-span-12 md:col-span-6">
+            <div className="col-span-12 md:col-span-5">
               <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-text-inverse text-balance">
                 I scope, design, build,
                 <br />
                 <span className="text-blue">and ship.</span>
               </h1>
-              <p className="mt-6 md:mt-8 text-lg text-text-inverseMuted max-w-md text-pretty">
+              <p className="mt-4 md:mt-5 text-base text-text-inverseMuted max-w-md text-pretty">
                 Two sides of the same work: the professional roles that built
                 the foundation, and the products that came from it.
               </p>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <a
+                  href={suhayl.files.resume}
+                  download
+                  className="inline-flex items-center gap-2 rounded-lg bg-text-inverse text-ink font-medium px-5 py-2.5 text-sm hover:bg-blue hover:text-text-inverse transition-colors duration-300"
+                >
+                  <FileDown className="h-4 w-4" />
+                  Download résumé
+                </a>
+                <Link
+                  href="#experience"
+                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-monoWide text-text-inverseMuted hover:text-text-inverse transition-colors"
+                >
+                  <ArrowDown className="h-3.5 w-3.5" />
+                  See experience
+                </Link>
+              </div>
             </div>
-            <div className="col-span-12 md:col-span-6">
+            <div className="col-span-12 md:col-span-7">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-ink-700"
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ink-700"
               >
                 <Image
-                  src={suhayl.files.portraits.workspace}
-                  alt="Suhayl Dastager at the workspace"
+                  src={suhayl.files.hero.work}
+                  alt="Suhayl Dastager in a black suit, full-length studio portrait"
                   fill
                   priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                  className="object-cover"
                 />
               </motion.div>
               <div className="mt-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
-                Image — Suhayl · Workspace · Dubai · 2026
+                Image — Suhayl · Studio · Dubai · 2026
               </div>
             </div>
           </div>
@@ -60,7 +77,7 @@ const WorkPage = () => {
       </section>
 
       {/* Experience — editorial rows */}
-      <section className="py-8 md:py-12 bg-canvas border-t border-border">
+      <section id="experience" className="py-8 md:py-12 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">
             <div className="col-span-12 md:col-span-7">

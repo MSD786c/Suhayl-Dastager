@@ -13,7 +13,7 @@ const FounderDeepDive = () => {
   return (
     <>
       {/* Hero — full-bleed dark with blue glow */}
-      <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 bg-ink-950 text-text-inverse overflow-hidden">
+      <section className="relative pt-20 md:pt-24 pb-6 md:pb-8 bg-ink-950 text-text-inverse overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
         <div
           className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -25,35 +25,35 @@ const FounderDeepDive = () => {
         />
         <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 md:gap-8 items-start">
-            <div className="col-span-12 md:col-span-6">
+            <div className="col-span-12 md:col-span-5">
               <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-text-inverse text-balance">
                 Two companies.
                 <br />
                 <span className="text-blue">One studio, one product.</span>
               </h1>
-              <p className="mt-6 md:mt-8 text-lg text-text-inverseMuted max-w-md text-pretty">
+              <p className="mt-4 md:mt-5 text-base text-text-inverseMuted max-w-md text-pretty">
                 Both built from Dubai. Both solving real problems I&apos;ve
                 personally seen fail. Neither is a side project.
               </p>
             </div>
-            <div className="col-span-12 md:col-span-6">
+            <div className="col-span-12 md:col-span-7">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-square overflow-hidden rounded-2xl border border-ink-700 bg-ink-900"
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-ink-700 bg-ink-900"
               >
                 <Image
-                  src={suhayl.files.brands.smStratagem}
-                  alt="SM Stratagem logo"
+                  src={suhayl.files.hero.founder}
+                  alt="Suhayl seated on an SUV with the Dubai skyline at golden hour"
                   fill
                   priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-contain p-10 md:p-14"
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                  className="object-cover"
                 />
               </motion.div>
               <div className="mt-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
-                Logo — SM Stratagem · Dubai · 2025
+                Image — Suhayl · Dubai · 2026
               </div>
             </div>
           </div>

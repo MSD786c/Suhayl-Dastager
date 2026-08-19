@@ -48,6 +48,12 @@ export const suhayl = {
       suvSeated: "/portrait/suv-seated.jpg",
       workspace: "/portrait/workspace.jpg",
     },
+    // Page hero imagery (supplied)
+    hero: {
+      founder: "/portfolio/founder-hero.png", // man on SUV, city skyline
+      work: "/portfolio/work-hero.png", // full-body suit, studio
+      ugc: "/portfolio/ugc-hero.png", // phones + sunglasses
+    },
     // Brand logos (premium, used in editorial contexts)
     brands: {
       smStratagem: "/portfolio/sm-stratagem-logo.png",

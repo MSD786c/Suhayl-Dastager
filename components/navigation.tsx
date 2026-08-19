@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,24 @@ const Nav = () => {
   const [open, setOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const reduceMotion = useReducedMotion();
+
+  // Click on the wordmark: navigate home, then scroll to top of the page.
+  const goHomeTop = React.useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (pathname === "/") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        e.preventDefault();
+        router.push("/");
+        // Scroll on next tick after the new page mounts.
+        requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
+      }
+    },
+    [pathname, router]
+  );
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -71,6 +88,7 @@ const Nav = () => {
           {/* Wordmark */}
           <Link
             href="/"
+            onClick={goHomeTop}
             className="group flex items-baseline gap-2 font-display font-bold tracking-tighter"
           >
             <span
