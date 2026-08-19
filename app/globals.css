@@ -5,17 +5,17 @@
 @layer base {
   :root {
     /* Light surface tokens */
-    --canvas: 0 0% 100%;
-    --canvas-muted: 220 14% 97%;
-    --ink: 222 17% 7%;
+    --canvas: 45 14% 97%;
+    --canvas-muted: 36 14% 93%;
+    --ink: 222 34% 8%;
     --ink-secondary: 220 9% 35%;
     --ink-muted: 220 8% 50%;
-    --border: 220 13% 91%;
+    --border: 220 12% 86%;
 
     /* Brand accents */
-    --blue: 220 100% 58%;        /* #276BFF */
+    --blue: 218 92% 54%;         /* #1b68f8 */
     --blue-deep: 220 67% 14%;    /* #0B1D3A */
-    --coral: 11 100% 65%;        /* #FF6B4A */
+    --coral: 10 93% 60%;         /* #f85b3c */
     --coral-deep: 11 75% 56%;    /* #E84F35 */
   }
 
@@ -169,7 +169,7 @@
 
   /* Signature gradient — used VERY rarely (logo, active indicator, one CTA) */
   .signature-gradient {
-    background: linear-gradient(135deg, #276bff 0%, #5a68f5 45%, #ff6b4a 100%);
+    background: linear-gradient(135deg, #1b68f8 0%, #4258c9 45%, #f85b3c 100%);
   }
 
   /* Editorial pull-quote italic */

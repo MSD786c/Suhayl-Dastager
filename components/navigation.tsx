@@ -5,8 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { primaryNav } from "@/lib/data";
 import { cn } from "@/lib/utils";
+
+const identityRoutes = [
+  { label: "Founder", href: "/founder", accent: "bg-blue" },
+  { label: "UGC", href: "/ugc", accent: "bg-coral" },
+  { label: "Work", href: "/work", accent: "bg-ink" },
+];
 
 const Nav = () => {
   const [open, setOpen] = React.useState(false);
@@ -80,28 +85,21 @@ const Nav = () => {
             </span>
           </Link>
 
-          {/* Center nav (desktop) */}
-          <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
-            {primaryNav.map((item) => {
+          <nav className="hidden md:flex items-center rounded-full border border-border bg-canvas/80 p-1 shadow-[0_10px_30px_rgba(11,29,58,0.06)] absolute left-1/2 -translate-x-1/2">
+            {identityRoutes.map((item) => {
               const active = isActive(item.href);
               return (
                 <Link
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "group relative px-3.5 py-2 text-sm font-medium transition-colors",
-                    active ? "text-ink" : "text-text-secondary hover:text-ink"
+                    "group relative inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-semibold transition-colors",
+                    active ? "bg-ink text-text-inverse" : "text-text-secondary hover:bg-canvas-muted hover:text-ink"
                   )}
                   aria-current={active ? "page" : undefined}
                 >
+                  <span className={cn("h-1.5 w-1.5 rounded-full", active ? "bg-coral" : item.accent)} aria-hidden />
                   {item.label}
-                  {/* Small dot indicator for active state — brief rule */}
-                  {active && (
-                    <span
-                      className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-1 w-1 rounded-full bg-coral"
-                      aria-hidden
-                    />
-                  )}
                 </Link>
               );
             })}
@@ -160,7 +158,7 @@ const Nav = () => {
             >
               <div className="flex flex-col h-screen pt-24 pb-8 px-6">
                 <nav className="flex-1 flex flex-col">
-                  {primaryNav.map((item, i) => {
+                  {identityRoutes.map((item, i) => {
                     const active = isActive(item.href);
                     return (
                       <motion.div
@@ -178,14 +176,12 @@ const Nav = () => {
                           <span
                             className={cn(
                               "font-display font-bold text-4xl tracking-tighter leading-none",
-                              active ? "text-coral" : "text-ink"
+                              active ? "text-blue" : "text-ink"
                             )}
                           >
                             {item.label}
                           </span>
-                          <span className="font-mono text-[10px] tracking-mono text-text-muted">
-                            0{i + 1}
-                          </span>
+                    <span className={cn("h-2 w-2 rounded-full", item.accent)} aria-hidden />
                         </Link>
                       </motion.div>
                     );

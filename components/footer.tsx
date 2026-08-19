@@ -15,8 +15,7 @@ const Footer = () => {
             Suhayl Dastager.
           </h2>
           <p className="mt-6 max-w-md text-text-inverseMuted text-lg text-pretty">
-            Products. Companies. Systems. Content. Pick the side that brought
-            you in.
+            Founder, creator, engineer. Three equal ways to understand the work.
           </p>
           <Link
             href="/contact"
@@ -79,7 +78,7 @@ const Footer = () => {
               ]}
             />
             <FooterCol
-              title="Build"
+              title="Founder"
               items={[
                 { label: "Founder", href: "/founder" },
                 { label: "Work", href: "/work" },
@@ -87,12 +86,20 @@ const Footer = () => {
               ]}
             />
             <FooterCol
-              title="Create"
+              title="UGC"
               items={[
                 { label: "UGC", href: "/ugc" },
                 { label: "Contact", href: "/contact" },
                 { label: "SM Stratagem", href: suhayl.social.smStratagem, external: true },
                 { label: "VoxxHire", href: suhayl.social.voxxhire, external: true },
+              ]}
+            />
+            <FooterCol
+              title="Work"
+              items={[
+                { label: "Experience", href: "/work" },
+                { label: "Projects", href: "/archive" },
+                { label: "Resume", href: "/resume" },
               ]}
             />
             <FooterCol

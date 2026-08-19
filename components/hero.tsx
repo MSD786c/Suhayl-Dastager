@@ -12,26 +12,12 @@ const Hero = () => {
 
   return (
     <section
-      className="relative bg-canvas pt-28 md:pt-36 pb-10 md:pb-12"
+      className="relative overflow-hidden bg-[#f6f6f4] pt-28 md:pt-36 pb-10 md:pb-12"
       aria-label="Suhayl Dastager — personal brand introduction"
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
-        {/* Top eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-3 mb-8 md:mb-12 font-mono text-[11px] uppercase tracking-monoWide text-text-muted"
-        >
-          <span>Dubai · UAE</span>
-          <span className="h-px w-8 bg-border" />
-          <span>Available for select 2026 engagements</span>
-        </motion.div>
-
-        {/* Hero grid: large type left, large photo right */}
         <div className="grid grid-cols-12 gap-4 md:gap-6 items-end">
-          {/* LEFT — editorial type (8 cols) */}
-          <div className="col-span-12 md:col-span-8">
+          <div className="col-span-12 lg:col-span-7">
             <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-ink text-balance">
               <span className="block overflow-hidden">
                 <motion.span
@@ -40,7 +26,7 @@ const Hero = () => {
                   transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                   className="block text-display-2xl"
                 >
-                  Suhayl
+                  One person.
                 </motion.span>
               </span>
               <span className="block overflow-hidden">
@@ -54,13 +40,7 @@ const Hero = () => {
                   }}
                   className="block text-display-2xl"
                 >
-                  <span
-                    className="inline-block align-baseline text-coral mr-3 font-display"
-                    style={{ transform: "translateY(-0.06em)" }}
-                  >
-                    /
-                  </span>
-                  Dastager
+                  Three practices.
                 </motion.span>
               </span>
             </h1>
@@ -71,7 +51,7 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="mt-8 md:mt-10 max-w-2xl text-xl md:text-2xl text-text-secondary leading-snug text-balance"
             >
-              I build technology, companies &amp; content around both.
+              I build companies, ship intelligent products, and create the stories that make people care.
             </motion.p>
 
             <motion.div
@@ -80,7 +60,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="mt-3 font-mono text-xs md:text-sm uppercase tracking-monoWide text-text-muted"
             >
-              Founder · AI Product Engineer · Tech Creator — Dubai
+              Suhayl Dastager · Dubai, UAE
             </motion.div>
 
             <motion.div
@@ -90,7 +70,7 @@ const Hero = () => {
               className="mt-8 md:mt-10 flex flex-wrap items-center gap-3"
             >
               <Link href="#three-doors" className="btn-primary">
-                Explore My Work
+                Enter the story
                 <ArrowDown className="h-4 w-4" />
               </Link>
               <Link href="/contact" className="btn-ghost">
@@ -100,29 +80,37 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* RIGHT — single editorial portrait (4 cols on desktop) */}
-          <motion.div
+          <div className="col-span-12 lg:col-span-5 grid grid-cols-3 gap-2 sm:gap-3">
+            <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.0, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-12 md:col-span-4 relative"
+            className="relative col-span-2 row-span-2 min-h-[370px] sm:min-h-[500px]"
           >
-            <div className="relative aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-2xl">
+            <div className="absolute inset-0 overflow-hidden rounded-[18px] bg-ink">
               <Image
                 src={suhayl.files.portraits.headshot}
                 alt="Suhayl Dastager"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
+                className="object-cover object-[55%_center]"
               />
             </div>
-            {/* Editorial caption pinned under the photo */}
-            <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-monoWide text-text-muted">
-              <span>Suhayl · Dubai · 2026</span>
-              <span>01 / 01</span>
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-5 pb-5 pt-16 text-white">
+              <p className="text-sm font-medium">Founder</p>
+              <p className="mt-1 text-xs text-white/70">SM Stratagem · VoxxHire</p>
             </div>
           </motion.div>
+          <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.45 }} className="relative min-h-[180px] overflow-hidden rounded-[18px] bg-coral">
+            <Image src={suhayl.files.portraits.driver} alt="Suhayl creating automotive content" fill sizes="(max-width: 1024px) 33vw, 17vw" className="object-cover" />
+            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-12 text-xs font-medium text-white">UGC</span>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.55 }} className="relative min-h-[180px] overflow-hidden rounded-[18px] bg-blue">
+            <Image src={suhayl.files.portraits.workspace} alt="Suhayl at work" fill sizes="(max-width: 1024px) 33vw, 17vw" className="object-cover" />
+            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-12 text-xs font-medium text-white">Work</span>
+          </motion.div>
+          </div>
         </div>
 
         {/* Bottom strip — restrained meta, no ticker */}
@@ -130,21 +118,18 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="mt-6 md:mt-10 border-t border-border pt-6 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="mt-8 md:mt-12 border-t border-border pt-5 grid grid-cols-3 gap-4"
         >
           {[
-            { k: "02", v: "Companies" },
-            { k: "06", v: "Products shipped" },
-            { k: "03", v: "Identities" },
-            { k: "01", v: "Person" },
+            { k: "Founder", v: "Companies, products & decisions" },
+            { k: "UGC", v: "Content with real signal" },
+            { k: "Work", v: "Systems that get shipped" },
           ].map((m) => (
             <div key={m.v}>
-              <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-muted">
-                {m.v}
-              </div>
-              <div className="mt-2 font-display font-bold text-3xl tracking-tighter text-ink">
+              <div className="font-display font-bold text-xl tracking-tight text-ink">
                 {m.k}
               </div>
+              <div className="mt-1 text-sm text-text-secondary">{m.v}</div>
             </div>
           ))}
         </motion.div>
