@@ -26,11 +26,11 @@ const VARIANT_STYLES: Record<
     dot: "bg-coral",
     dotHover: "group-hover:bg-coral",
   },
-  // Secondary: white border, white dot that fills the button on hover
+  // Secondary: SM-Stratagem blue border, blue dot that fills the button on hover
   secondary: {
-    border: "border-text-inverse",
-    dot: "bg-text-inverse",
-    dotHover: "group-hover:bg-text-inverse",
+    border: "border-blue",
+    dot: "bg-blue",
+    dotHover: "group-hover:bg-blue",
   },
 };
 
@@ -54,7 +54,7 @@ const InteractiveHoverButton = React.forwardRef<
       </div>
       <div
         className={cn(
-          "pointer-events-none absolute left-[20%] top-[40%] h-2 w-2 scale-[1] rounded-full transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8]",
+          "pointer-events-none absolute left-[6%] top-[40%] h-2 w-2 scale-[1] rounded-full transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8]",
           v.dot,
           v.dotHover,
         )}

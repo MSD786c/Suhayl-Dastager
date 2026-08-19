@@ -119,13 +119,27 @@ const Footer = () => {
                   <span>Dubai · 2026</span>
                 </div>
 
-                {/* SUHAYL */}
+                {/* SUHAYL — per-letter blue hover */}
                 <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
-                  <span className="block text-[clamp(2.5rem,6.5vw,5.5rem)] font-black transition-all duration-300 group-hover/footer:text-coral group-hover/footer:translate-y-0.5">
-                    SUHAYL
+                  <span className="block text-[clamp(2.5rem,6.5vw,5.5rem)] font-black">
+                    {Array.from("SUHAYL").map((char, i) => (
+                      <span
+                        key={`s-${i}`}
+                        className="inline-block transition-colors duration-200 hover:text-blue cursor-default"
+                      >
+                        {char}
+                      </span>
+                    ))}
                   </span>
                   <span className="block text-[clamp(1.5rem,3.8vw,3rem)] font-bold text-text-inverse/80 mt-1">
-                    DASTAGER
+                    {Array.from("DASTAGER").map((char, i) => (
+                      <span
+                        key={`d-${i}`}
+                        className="inline-block transition-colors duration-200 hover:text-blue cursor-default"
+                      >
+                        {char}
+                      </span>
+                    ))}
                   </span>
                 </h2>
 
@@ -141,8 +155,8 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Right: cycling verb — same size family as the name, aligned right */}
-              <div className="col-span-12 md:col-span-7 lg:col-span-7 flex items-end justify-start md:justify-end mt-6 md:mt-0">
+              {/* Right: cycling verb — same size family as the name, aligned with the name (top-aligned + top padding to clear the pre-title row) */}
+              <div className="col-span-12 md:col-span-7 lg:col-span-7 flex items-start justify-start md:justify-end mt-6 md:mt-0 md:pt-7">
                 <div className="font-display font-black leading-[0.92] tracking-tighter text-coral text-right">
                   <div className="text-[clamp(2.25rem,5.5vw,4.5rem)]">
                     <CyclingVerb />
