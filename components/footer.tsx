@@ -56,62 +56,58 @@ const CyclingVerb = () => {
 const Footer = () => {
   return (
     <footer className="relative bg-ink-950 text-text-inverse overflow-hidden">
-      {/* ── DUBAI HERO — LANDSCAPE ───────────────────────────────────────
-          Horizontal split: image panel on the LEFT (6/12) + content on the
-          RIGHT (6/12). Much shorter than the previous 78vh background
-          frame — saves ~150px of vertical space while keeping the same
-          editorial weight.
+      {/* ── DUBAI HERO — FULL-WIDTH ─────────────────────────────────────
+          Full-width background image spanning the entire component.
+          Burj Khalifa + Dubai skyline dominates the frame. Dark cinematic
+          gradients ensure all text reads cleanly on top.
+          SUHAYL title drops lower and turns coral on hover.
       ─────────────────────────────────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden bg-ink-950 min-h-[58vh] md:min-h-[60vh] md:max-h-[68vh]">
-        <div className="grid grid-cols-1 md:grid-cols-12 h-full">
-          {/* Image panel — left, 6/12. Burj Khalifa + Dubai skyline at dusk,
-              cropped via object-cover to fit the panel's natural ratio. */}
-          <div className="relative md:col-span-6 h-[40vh] md:h-full overflow-hidden">
-            <Image
-              src="/footer/footer-hero.jpg"
-              alt="Dubai skyline at dusk with Burj Khalifa and Downtown Dubai"
-              fill
-              priority
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
-            {/* Soft right-edge blend into the dark content area so the
-                seam between image and text disappears */}
-            <div
-              aria-hidden
-              className="absolute inset-y-0 right-0 w-20 md:w-32 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(9,11,15,0) 0%, rgba(9,11,15,0.55) 70%, rgba(9,11,15,1) 100%)",
-              }}
-            />
-            {/* Subtle film grain on the image — true cinema feel */}
-            <div
-              aria-hidden
-              className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none"
-              style={{
-                backgroundImage:
-                  "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
-              }}
-            />
-          </div>
+      <section className="group relative w-full aspect-[16/9] max-h-[78vh] overflow-hidden bg-ink-950">
+        {/* Full-width background image */}
+        <Image
+          src="/footer/footer-hero.jpg"
+          alt="Dubai skyline at dusk with Burj Khalifa and Downtown Dubai"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
 
-          {/* Content panel — right, 6/12. Vertical stack anchored to the
-              bottom, sitting on a dark ink-950 stage with subtle accent
-              glows in the corners. */}
-          <div className="relative md:col-span-6 flex flex-col justify-end p-6 md:p-10 lg:p-12">
-            {/* Soft accent glows — blue top-left, coral right edge */}
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse 45% 50% at 100% 50%, rgba(255,107,74,0.10) 0%, transparent 70%), radial-gradient(ellipse 45% 50% at 0% 0%, rgba(39,107,255,0.08) 0%, transparent 70%)",
-              }}
-            />
+        {/* Cinematic dark gradient — bottom-weighted for text legibility */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(9,11,15,0.30) 0%, rgba(9,11,15,0.35) 40%, rgba(9,11,15,0.78) 80%, rgba(9,11,15,0.92) 100%)",
+          }}
+        />
 
-            <div className="relative max-w-xl">
-              {/* Pre-title — tiny mono, the meta line */}
+        {/* Edge accent glows — blue left, coral right */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 50% at 0% 50%, rgba(39,107,255,0.18) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 100% 50%, rgba(255,107,74,0.15) 0%, transparent 70%)",
+          }}
+        />
+
+        {/* Film grain — cinema feel */}
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+          }}
+        />
+
+        {/* Content — anchored to bottom-left, overlaying the image */}
+        <div className="absolute inset-0 flex items-end">
+          <div className="relative w-full mx-auto max-w-[1440px] px-6 sm:px-8 pb-10 md:pb-16">
+            <div className="max-w-4xl">
+              {/* Pre-title */}
               <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted mb-4 md:mb-5 flex items-center gap-3">
                 <span className="h-1 w-1 rounded-full bg-coral" aria-hidden />
                 <span>The reel</span>
@@ -119,17 +115,17 @@ const Footer = () => {
                 <span>Dubai · 2026</span>
               </div>
 
-              {/* SUHAYL — moved down 10px (mt-2.5) from its previous position */}
-              <h2 className="mt-2.5 font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
-                <span className="block text-[clamp(2.25rem,5vw,4rem)] font-display font-black">
+              {/* SUHAYL — group-hover turns it coral + 2px drop; pushed lower (mt-10 → mb tight) */}
+              <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
+                <span className="block text-[clamp(2.75rem,7.5vw,6.5rem)] font-black transition-all duration-300 group-hover:text-coral group-hover:translate-y-0.5">
                   SUHAYL
                 </span>
-                <span className="block text-[clamp(1.375rem,3vw,2.25rem)] font-display font-bold text-text-inverse/80 mt-1">
+                <span className="block text-[clamp(1.75rem,4.5vw,3.5rem)] font-bold text-text-inverse/80 mt-1">
                   DASTAGER
                 </span>
               </h2>
 
-              {/* Role line — small mono, the engineering signature */}
+              {/* Role line */}
               <div className="mt-5 md:mt-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span>Founder</span>
                 <span className="text-text-inverseMuted/30">·</span>
@@ -140,18 +136,18 @@ const Footer = () => {
                 <span className="text-coral">Now</span>
               </div>
 
-              {/* Cycling verb — coral, the heartbeat */}
-              <div className="mt-5 md:mt-6 font-display font-bold text-[clamp(1.25rem,2.5vw,1.875rem)] tracking-tighter leading-none">
+              {/* Cycling verb — coral */}
+              <div className="mt-6 md:mt-8 font-display font-bold text-[clamp(1.5rem,3.5vw,2.5rem)] tracking-tighter leading-none">
                 <CyclingVerb />
               </div>
 
-              {/* Final line — quiet, the long-form statement */}
-              <p className="mt-3 md:mt-4 max-w-md text-sm md:text-base text-text-inverse/70 leading-relaxed text-pretty">
+              {/* Statement */}
+              <p className="mt-4 md:mt-5 max-w-xl text-sm md:text-base text-text-inverse/70 leading-relaxed text-pretty">
                 Building technology, companies &amp; content.
               </p>
 
-              {/* CTA — single, restrained, white pill on the dark stage */}
-              <div className="mt-6 md:mt-7 flex flex-wrap items-center gap-3">
+              {/* CTAs */}
+              <div className="mt-7 md:mt-9 flex flex-wrap items-center gap-3">
                 <Link
                   href="/contact"
                   className="group inline-flex items-center gap-2 rounded-full bg-text-inverse text-ink font-medium px-5 py-2.5 text-sm hover:bg-coral hover:text-text-inverse transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950"
@@ -172,8 +168,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Top-right — the monogram badge, the mark */}
-        <div className="absolute top-5 right-5 sm:top-6 sm:right-6 hidden md:flex items-center gap-2.5 z-10">
+        {/* Top-right — SD monogram badge */}
+        <div className="absolute top-6 right-6 sm:top-8 sm:right-8 hidden md:flex items-center gap-2.5">
           <div className="grid place-items-center h-10 w-10 rounded-full bg-text-inverse/8 ring-1 ring-text-inverse/20 backdrop-blur-sm">
             <span className="font-display font-bold text-text-inverse text-sm leading-none">SD</span>
           </div>
