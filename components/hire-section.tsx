@@ -26,9 +26,9 @@ const HireSection = () => {
       className="relative bg-canvas border-t border-border"
       aria-label="Why hire me"
     >
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-24 md:py-36">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-10 md:py-14">
         {/* Heading */}
-        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-20">
+        <div className="grid grid-cols-12 gap-4 md:gap-6 mb-8 md:mb-10">
           <div className="col-span-12 md:col-span-7">
             <div className="eyebrow mb-5">03 / Work</div>
             <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-lg text-ink text-balance">
@@ -73,7 +73,7 @@ const HireSection = () => {
         </div>
 
         {/* Why hire — large editorial reveal */}
-        <div className="mt-24 md:mt-32 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+        <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
           <div className="md:col-span-5">
             <div className="eyebrow mb-5">Why hire me</div>
             <h3 className="font-display font-bold text-3xl md:text-5xl tracking-tighter leading-[1.02] text-ink text-balance">
@@ -95,8 +95,8 @@ const HireSection = () => {
         </div>
 
         {/* Career arc — large editorial text, per brief */}
-        <div className="mt-24 md:mt-32">
-          <div className="grid grid-cols-12 gap-6 md:gap-10 mb-12 md:mb-16">
+        <div className="mt-10 md:mt-14">
+          <div className="grid grid-cols-12 gap-4 md:gap-6 mb-6 md:mb-8">
             <div className="md:col-span-4">
               <div className="eyebrow mb-5">The arc</div>
               <h3 className="font-display font-bold text-3xl md:text-4xl tracking-tighter leading-[1.02] text-ink text-balance">
@@ -135,8 +135,8 @@ const HireSection = () => {
         </div>
 
         {/* Skills — grouped, no percentages, no pill cloud */}
-        <div className="mt-24 md:mt-32">
-          <div className="grid grid-cols-12 gap-6 md:gap-10 mb-12">
+        <div className="mt-10 md:mt-14">
+          <div className="grid grid-cols-12 gap-4 md:gap-6 mb-12">
             <div className="md:col-span-4">
               <div className="eyebrow mb-5">Capabilities</div>
               <h3 className="font-display font-bold text-3xl md:text-4xl tracking-tighter leading-[1.02] text-ink text-balance">
@@ -185,7 +185,7 @@ const HireSection = () => {
         </div>
 
         {/* CTAs */}
-        <div className="mt-24 md:mt-32 grid grid-cols-12 gap-6 items-center border-t border-border pt-12">
+        <div className="mt-10 md:mt-14 grid grid-cols-12 gap-6 items-center border-t border-border pt-12">
           <div className="col-span-12 md:col-span-7">
             <p className="font-display text-2xl md:text-4xl tracking-tighter leading-[1.05] text-ink max-w-xl text-balance">
               See the full picture on the résumé page.

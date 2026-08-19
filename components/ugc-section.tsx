@@ -4,15 +4,8 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Play,
-  ArrowUpRight,
-  Eye,
-  X,
-  ExternalLink,
-  Plus,
-} from "lucide-react";
-import { ugcPackages, ugcReels } from "@/lib/data";
+import { Play, ArrowUpRight, Eye, X, ExternalLink, Plus } from "lucide-react";
+import { ugcReels } from "@/lib/data";
 import { CountUp, formatViews } from "@/components/motion-graphics";
 import { cn } from "@/lib/utils";
 
@@ -56,20 +49,25 @@ const brandCount = new Set(
 ).size;
 
 const ugcMetrics = [
-  { label: "Total views", value: totalViews, format: (n: number) => n.toLocaleString(), color: "coral" as const },
-  { label: "Live reels", value: liveCount, format: (n: number) => `${n}`, color: "blue" as const },
-  { label: "Brands", value: brandCount, format: (n: number) => `${n}`, color: "coral" as const },
-  { label: "Platforms", value: 3, format: (n: number) => `${n}`, color: "blue" as const },
+  { label: "Total views", value: totalViews, color: "coral" as const },
+  { label: "Live reels", value: liveCount, color: "blue" as const },
+  { label: "Brands", value: brandCount, color: "coral" as const },
+  { label: "Platforms", value: 3, color: "blue" as const },
+];
+
+// Brands I've worked with — logo strip
+const workedWithBrands = [
+  { name: "Parfumix", logo: "/ugc/parfumix-logo.png" },
+  { name: "Al Amoudi", logo: "/ugc/alamoudi-logo.png" },
+  { name: "Wrapsters", logo: "/ugc/wrapsters-logo.png" },
+  { name: "Milano", logo: "/ugc/milano-logo.png" },
+  { name: "VoxxHire", logo: "/ugc/voxxhire-logo.png" },
 ];
 
 const UGCSection = () => {
   const [openReel, setOpenReel] = React.useState<(typeof ugcReels)[number] | null>(null);
   const [showAll, setShowAll] = React.useState(false);
-  const [openPackage, setOpenPackage] = React.useState<string | null>(
-    ugcPackages[0]?.id ?? null
-  );
 
-  // Sort reels by views once
   const sortedReels = React.useMemo(
     () => [...ugcReels].sort((a, b) => b.views - a.views),
     []
@@ -82,35 +80,60 @@ const UGCSection = () => {
       className="relative bg-canvas border-t border-border"
       aria-label="UGC / Creator portfolio"
     >
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-24 md:py-36">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-10 md:py-14">
         {/* Heading */}
-        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-20">
+        <div className="grid grid-cols-12 gap-4 md:gap-6 mb-8 md:mb-10">
           <div className="col-span-12 md:col-span-7">
-            <div className="eyebrow mb-5">01 / Create</div>
-            <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-lg text-ink text-balance">
-              Tech content that
-              <br />
+            <div className="eyebrow mb-3">01 / Create</div>
+            <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-md md:text-display-lg text-ink text-balance">
+              Tech content that{" "}
               <span className="text-coral">doesn&apos;t feel like an ad.</span>
             </h2>
           </div>
           <div className="col-span-12 md:col-span-4 md:col-start-9 self-end">
-            <p className="text-lg text-text-secondary text-pretty">
+            <p className="text-base text-text-secondary text-pretty">
               Real campaigns for real brands. Cars × Technology × Founder life.
-              I don&apos;t just talk about software — I build it.
             </p>
           </div>
         </div>
 
+        {/* Brands I've worked with — logo strip */}
+        <div className="mb-6 md:mb-8">
+          <div className="eyebrow mb-3">Brands I&apos;ve worked with</div>
+          <div className="grid grid-cols-5 gap-2 md:gap-3">
+            {workedWithBrands.map((brand) => (
+              <div
+                key={brand.name}
+                className="group flex flex-col items-center justify-center gap-2 rounded-xl border border-border bg-canvas p-3 md:p-4 hover:border-coral/40 transition-colors duration-300"
+                title={brand.name}
+              >
+                <div className="relative h-10 md:h-14 w-full">
+                  <Image
+                    src={brand.logo}
+                    alt={`${brand.name} logo`}
+                    fill
+                    sizes="(max-width: 768px) 20vw, 10vw"
+                    className="object-contain"
+                  />
+                </div>
+                <span className="font-mono text-[9px] uppercase tracking-monoWide text-text-muted">
+                  {brand.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Metrics — typography row, not card grid */}
-        <div className="border-y border-border mb-16 md:mb-20">
+        <div className="border-y border-border mb-6 md:mb-8">
           {ugcMetrics.map((m, i) => (
             <motion.div
               key={m.label}
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 6 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-12 gap-4 items-baseline py-6 border-b border-border last:border-b-0 md:py-8"
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.4, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+              className="grid grid-cols-12 gap-3 items-baseline py-3 border-b border-border last:border-b-0 md:py-4"
             >
               <div
                 className="col-span-2 md:col-span-1 font-mono text-[10px] uppercase tracking-monoWide text-text-muted"
@@ -118,17 +141,19 @@ const UGCSection = () => {
               >
                 0{i + 1}
               </div>
-              <div className="col-span-7 md:col-span-7 font-display font-semibold text-lg md:text-xl text-ink">
+              <div className="col-span-7 md:col-span-7 font-display font-semibold text-base md:text-lg text-ink">
                 {m.label}
               </div>
               <div
                 className={cn(
-                  "col-span-3 md:col-span-2 font-display font-bold text-2xl md:text-3xl tracking-tighter text-right",
+                  "col-span-3 md:col-span-2 font-display font-bold text-xl md:text-2xl tracking-tighter text-right",
                   m.color === "coral" ? "text-coral" : "text-blue"
                 )}
                 style={{ fontVariantNumeric: "tabular-nums" }}
               >
-                <CountUp to={m.value} format={m.format} />
+                {m.value >= 1_000_000
+                  ? `${(m.value / 1_000_000).toFixed(1)}M+`
+                  : m.value.toLocaleString()}
               </div>
               <div className="hidden md:block md:col-span-2 font-mono text-[10px] uppercase tracking-monoWide text-text-muted text-right">
                 Live · 2026
@@ -138,30 +163,20 @@ const UGCSection = () => {
         </div>
 
         {/* Top reels — 3 horizontal 9:16 frames */}
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <div className="eyebrow mb-3">Featured reels</div>
-            <h3 className="font-display font-bold text-2xl md:text-3xl tracking-tighter text-ink text-balance">
-              Top performers, 2026.
-            </h3>
-          </div>
-          <button
-            type="button"
-            onClick={() => setShowAll((v) => !v)}
+        <div className="mb-4 flex items-end justify-between gap-3">
+          <h3 className="font-display font-bold text-xl md:text-2xl tracking-tighter text-ink text-balance">
+            Top performers
+          </h3>
+          <Link
+            href="/ugc"
             className="arrow-link"
-            aria-expanded={showAll}
           >
-            {showAll ? "Show less" : `Show all ${sortedReels.length}`}
-            <Plus
-              className={cn(
-                "h-3.5 w-3.5 transition-transform",
-                showAll && "rotate-45"
-              )}
-            />
-          </button>
+            See all
+            <ArrowUpRight className="h-3.5 w-3.5 arrow" />
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-3 gap-2 md:gap-3">
           {topReels.map((reel, i) => (
             <ReelCard
               key={reel.id}
@@ -172,84 +187,35 @@ const UGCSection = () => {
           ))}
         </div>
 
-        <AnimatePresence initial={false}>
-          {showAll && (
-            <motion.div
-              key="view-all"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="overflow-hidden"
-            >
-              <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-                {sortedReels.slice(3).map((reel, i) => (
-                  <ReelCard
-                    key={reel.id}
-                    reel={reel}
-                    index={i + 3}
-                    onOpen={setOpenReel}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Packages — editorial rows, no public pricing */}
-        <div className="mt-24 md:mt-32">
-          <div className="grid grid-cols-12 gap-6 md:gap-10 mb-12">
+        {/* Work With Me — flow state CTA, replaces the packages section */}
+        <div className="mt-8 md:mt-10 relative overflow-hidden rounded-2xl border border-border bg-ink-950 text-text-inverse">
+          <div className="relative grid grid-cols-12 gap-4 md:gap-6 p-6 md:p-8">
             <div className="col-span-12 md:col-span-7">
-              <div className="eyebrow mb-5">Ways to work together</div>
-              <h3 className="font-display font-bold tracking-tighter leading-[0.98] text-display-md text-ink text-balance">
-                Packages, not pricing cards.
+              <div className="font-mono text-[10px] uppercase tracking-monoWide text-coral mb-3">
+                Ready when you are
+              </div>
+              <h3 className="font-display font-bold text-2xl md:text-3xl tracking-tighter leading-[1.05] text-text-inverse text-balance">
+                Want me on your next campaign?
               </h3>
-            </div>
-            <div className="col-span-12 md:col-span-4 md:col-start-9 self-end">
-              <p className="text-text-secondary text-pretty">
-                Scope, usage, and rights vary per campaign. Pick a starting
-                shape — we&apos;ll quote against your brief.
+              <p className="mt-2 text-sm text-text-inverseMuted max-w-md text-pretty">
+                Brief, deliverables, usage, dates — share what you have, get a tight quote.
               </p>
             </div>
-          </div>
-
-          <div className="border-t border-border">
-            {ugcPackages.map((pkg, i) => (
-              <PackageRow
-                key={pkg.id}
-                pkg={pkg}
-                index={i}
-                isOpen={openPackage === pkg.id}
-                onToggle={() =>
-                  setOpenPackage((cur) => (cur === pkg.id ? null : pkg.id))
-                }
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Licensing */}
-        <Licensing />
-
-        {/* CTA */}
-        <div className="mt-20 md:mt-28 grid grid-cols-12 gap-6 items-center border-t border-border pt-12">
-          <div className="col-span-12 md:col-span-7">
-            <h3 className="font-display font-bold text-3xl md:text-5xl tracking-tighter leading-[1.02] text-ink max-w-2xl text-balance">
-              Ready to plan a campaign?
-            </h3>
-            <p className="mt-4 text-text-secondary max-w-xl text-pretty">
-              Brief, deliverables, usage, dates — the more you share, the
-              tighter the quote.
-            </p>
-          </div>
-          <div className="col-span-12 md:col-span-5 md:flex md:justify-end">
-            <Link
-              href="/contact?type=ugc"
-              className="inline-flex items-center gap-2 self-start md:self-auto rounded-lg bg-coral text-white font-medium px-6 py-3.5 text-sm hover:bg-coral-deep transition-colors duration-300"
-            >
-              Request a UGC Quote
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            <div className="col-span-12 md:col-span-5 flex md:items-center md:justify-end">
+              <Link
+                href="/ugc"
+                className="group relative inline-flex items-center gap-3 self-start md:self-auto rounded-full bg-coral text-white font-medium pl-5 pr-2 py-2 text-sm overflow-hidden hover:bg-coral-deep transition-colors duration-500"
+              >
+                <span className="relative z-10">Work With Me</span>
+                <span className="relative z-10 grid place-items-center h-8 w-8 rounded-full bg-white text-coral transition-transform duration-500 group-hover:rotate-45">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+                <span
+                  className="absolute inset-0 -z-0 signature-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  aria-hidden
+                />
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -297,10 +263,10 @@ const ReelCard = ({
       type="button"
       layout
       onClick={() => onOpen(reel)}
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative aspect-[9/16] overflow-hidden rounded-xl bg-ink-900 ring-1 ring-border hover:ring-coral/50 block text-left w-full cursor-pointer transition-all duration-500"
+      transition={{ duration: 0.4, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-ink-900 ring-1 ring-border hover:ring-coral/50 block text-left w-full cursor-pointer transition-all duration-500"
       aria-label={`Open ${reel.client} reel — ${reel.title}`}
     >
       {inView && embedUrl && !iframeFailed && (
@@ -322,7 +288,7 @@ const ReelCard = ({
             src={reel.posterSrc}
             alt={`${reel.client} brand`}
             fill
-            sizes="(max-width: 768px) 50vw, 33vw"
+            sizes="(max-width: 768px) 33vw, 20vw"
             className="object-cover"
           />
         </div>
@@ -333,188 +299,30 @@ const ReelCard = ({
         aria-hidden
       />
 
-      <div className="absolute top-3 left-3 right-3 z-[3] flex items-center justify-between pointer-events-none">
-        <span className="font-mono text-[9px] uppercase tracking-monoWide px-2 py-1 rounded-full bg-black/65 text-text-inverse backdrop-blur-md font-bold">
+      <div className="absolute top-2 left-2 right-2 z-[3] flex items-center justify-between pointer-events-none">
+        <span className="font-mono text-[8px] uppercase tracking-monoWide px-1.5 py-0.5 rounded-full bg-black/65 text-text-inverse backdrop-blur-md font-bold">
           {reel.client}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-monoWide rounded-full px-2.5 py-1 bg-black/65 text-text-inverse backdrop-blur-md flex items-center gap-1">
-          <Eye className="h-3 w-3" />
+        <span className="font-mono text-[9px] uppercase tracking-monoWide rounded-full px-1.5 py-0.5 bg-black/65 text-text-inverse backdrop-blur-md flex items-center gap-0.5">
+          <Eye className="h-2.5 w-2.5" />
           {formatViews(reel.views)}
         </span>
       </div>
 
       {!inView && (
         <div className="absolute inset-0 z-[3] grid place-items-center pointer-events-none">
-          <span className="grid place-items-center h-14 w-14 rounded-full bg-canvas text-ink group-hover:scale-110 transition-transform duration-500">
-            <Play className="h-5 w-5 ml-0.5" />
+          <span className="grid place-items-center h-10 w-10 rounded-full bg-canvas text-ink group-hover:scale-110 transition-transform duration-500">
+            <Play className="h-4 w-4 ml-0.5" />
           </span>
         </div>
       )}
 
-      <div className="absolute bottom-3 right-3 z-[3] pointer-events-none">
-        <span className="font-mono text-[10px] uppercase tracking-monoWide rounded-full px-2.5 py-1 bg-black/65 text-text-inverse backdrop-blur-md">
+      <div className="absolute bottom-2 right-2 z-[3] pointer-events-none">
+        <span className="font-mono text-[9px] uppercase tracking-monoWide rounded-full px-1.5 py-0.5 bg-black/65 text-text-inverse backdrop-blur-md">
           {formatDuration(reel.durationSec)}
         </span>
       </div>
     </motion.button>
-  );
-};
-
-const PackageRow = ({
-  pkg,
-  index,
-  isOpen,
-  onToggle,
-}: {
-  pkg: (typeof ugcPackages)[number];
-  index: number;
-  isOpen: boolean;
-  onToggle: () => void;
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.5, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
-      className="border-b border-border"
-    >
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-        className="w-full text-left py-6 md:py-8 group"
-      >
-        <div className="grid grid-cols-12 gap-4 items-baseline">
-          <div
-            className="col-span-2 md:col-span-1 font-mono text-[10px] uppercase tracking-monoWide text-coral"
-            style={{ fontVariantNumeric: "tabular-nums" }}
-          >
-            0{index + 1}
-          </div>
-          <div className="col-span-10 md:col-span-5">
-            <h4 className="font-display font-bold text-2xl md:text-3xl tracking-tighter leading-[1.05] text-ink group-hover:translate-x-1 transition-transform duration-500 ease-editorial">
-              {pkg.name}
-            </h4>
-            <div className="mt-1 font-mono text-[10px] uppercase tracking-monoWide text-text-muted">
-              {pkg.best}
-            </div>
-          </div>
-          <div className="hidden md:block md:col-span-4 text-text-secondary text-pretty">
-            {pkg.tagline}
-          </div>
-          <div className="col-span-12 md:col-span-2 flex md:justify-end items-center gap-2 font-mono text-[11px] uppercase tracking-monoWide">
-            <span className="text-ink">{pkg.deliverables.length} deliverables</span>
-            <Plus
-              className={cn(
-                "h-3.5 w-3.5 transition-transform duration-300",
-                isOpen ? "rotate-45" : ""
-              )}
-            />
-          </div>
-        </div>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="grid grid-cols-12 gap-4 pb-6 md:pb-8">
-              <div className="col-span-12 md:col-span-6 md:col-start-3">
-                <ul className="space-y-2">
-                  {pkg.deliverables.map((d) => (
-                    <li
-                      key={d}
-                      className="text-text-secondary text-pretty flex gap-3 leading-relaxed"
-                    >
-                      <span className="font-mono text-[10px] text-coral mt-1.5 shrink-0" style={{ fontVariantNumeric: "tabular-nums" }}>
-                        ·
-                      </span>
-                      <span>{d}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="col-span-12 md:col-span-3 md:col-start-9 flex md:justify-end">
-                <Link
-                  href={`/contact?type=ugc&package=${pkg.id}`}
-                  className="inline-flex items-center gap-2 self-start md:self-end rounded-lg bg-ink text-text-inverse font-medium px-5 py-3 text-sm hover:bg-coral transition-colors duration-300"
-                >
-                  {pkg.cta}
-                  <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-};
-
-const Licensing = () => {
-  const rows = [
-    { label: "Organic usage", body: "Brand-owned social channels." },
-    {
-      label: "Paid media",
-      body: "Meta, TikTok, YouTube and other advertising.",
-    },
-    {
-      label: "Creator / partnership ads",
-      body: "Campaigns using my creator identity or handle.",
-    },
-    {
-      label: "Raw footage",
-      body: "Available as an additional deliverable.",
-    },
-    {
-      label: "Exclusivity",
-      body: "Available where required and scoped by category / period.",
-    },
-    {
-      label: "Extended licensing",
-      body: "Available for longer campaign periods.",
-    },
-    {
-      label: "AI / Likeness",
-      body: "My image, voice and likeness may not be cloned, synthetically generated or used for AI training without separate written permission.",
-    },
-  ];
-  return (
-    <div className="mt-24 md:mt-32 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-      <div className="md:col-span-4">
-        <div className="eyebrow mb-5">Content licensing</div>
-        <h3 className="font-display font-bold tracking-tighter text-3xl md:text-4xl text-ink text-balance">
-          Clear rights, scoped per campaign.
-        </h3>
-      </div>
-      <div className="md:col-span-7 md:col-start-6">
-        <ul className="border-t border-border">
-          {rows.map((r) => (
-            <li
-              key={r.label}
-              className="grid grid-cols-12 gap-4 py-4 border-b border-border"
-            >
-              <div className="col-span-4 font-mono text-[10px] uppercase tracking-monoWide text-text-muted">
-                {r.label}
-              </div>
-              <div className="col-span-8 text-text-secondary text-pretty">
-                {r.body}
-              </div>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4 font-mono text-[10px] uppercase tracking-monoWide text-text-muted">
-          Usage, territory, duration and exclusivity are scoped per campaign.
-        </p>
-      </div>
-    </div>
   );
 };
 

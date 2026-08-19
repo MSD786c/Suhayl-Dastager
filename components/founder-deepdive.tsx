@@ -12,19 +12,36 @@ import { cn } from "@/lib/utils";
 const FounderDeepDive = () => {
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-36 md:pt-44 pb-16 md:pb-24 bg-canvas">
-        <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
-          <div className="chapter mb-6">Founder · 02 / Build</div>
-          <h1 className="font-display font-bold tracking-tightest leading-[0.94] text-display-xl text-ink text-balance">
-            Two companies.
-            <br />
-            <span className="text-blue">One studio, one product.</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-xl text-ink/70 text-pretty">
-            Both built from Dubai. Both solving real problems I&apos;ve
-            personally seen fail. Neither is a side project.
-          </p>
+      {/* Hero — full-bleed dark with blue glow */}
+      <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 bg-ink-950 text-text-inverse overflow-hidden">
+        <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
+        <div
+          className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(39,107,255,0.20) 0%, rgba(39,107,255,0) 70%)",
+          }}
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
+            <div className="col-span-12 md:col-span-8">
+              <div className="font-mono text-[10px] uppercase tracking-monoWide text-blue mb-5">
+                Founder · 02 / Build
+              </div>
+              <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl md:text-display-2xl text-text-inverse text-balance">
+                Two companies.
+                <br />
+                <span className="text-blue">One studio, one product.</span>
+              </h1>
+            </div>
+            <div className="col-span-12 md:col-span-4 self-end">
+              <p className="text-lg text-text-inverseMuted max-w-md text-pretty">
+                Both built from Dubai. Both solving real problems I&apos;ve
+                personally seen fail. Neither is a side project.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -34,7 +51,7 @@ const FounderDeepDive = () => {
       ))}
 
       {/* Timeline */}
-      <section className="relative py-24 md:py-32 bg-ink-950 text-text-inverse">
+      <section className="relative py-8 md:py-12 bg-ink-950 text-text-inverse">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted mb-5">
             Founder story
@@ -97,12 +114,12 @@ const CompanyFeature = ({
   return (
     <section
       className={cn(
-        "relative py-20 md:py-32",
+        "relative py-8 md:py-12",
         index % 2 === 0 ? "bg-canvas" : "bg-white"
       )}
     >
       <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
-        <div className="grid grid-cols-12 gap-6 md:gap-10 items-start">
+        <div className="grid grid-cols-12 gap-4 md:gap-6 items-start">
           <div className="col-span-12 md:col-span-5">
             <div className="chapter mb-4">
               <span>0{index + 1}</span>

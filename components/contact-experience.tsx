@@ -150,7 +150,7 @@ const ContactExperience = () => {
   return (
     <section
       id="contact"
-      className="relative py-28 md:py-40 bg-canvas"
+      className="relative py-10 md:py-14 bg-canvas"
       aria-label="Get in touch"
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
@@ -664,7 +664,7 @@ const SuccessState = () => {
   return (
     <section
       id="contact"
-      className="relative py-28 md:py-40 bg-canvas"
+      className="relative py-10 md:py-14 bg-canvas"
       aria-label="Message received"
     >
       <div className="mx-auto max-w-3xl px-6 sm:px-8 text-center">

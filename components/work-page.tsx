@@ -9,24 +9,41 @@ import { experiences, flagshipProjects } from "@/lib/data";
 const WorkPage = () => {
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-36 md:pt-44 pb-16 md:pb-24 bg-canvas">
-        <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
-          <div className="eyebrow mb-6">03 / Work</div>
-          <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-ink text-balance">
-            I scope, design, build,
-            <br />
-            <span className="text-blue">and ship.</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-xl text-text-secondary text-pretty">
-            Two sides of the same work: the professional roles that built the
-            foundation, and the products that came from it.
-          </p>
+      {/* Hero — full-bleed dark with blue glow */}
+      <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 bg-ink-950 text-text-inverse overflow-hidden">
+        <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
+        <div
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(39,107,255,0.20) 0%, rgba(39,107,255,0) 70%)",
+          }}
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
+            <div className="col-span-12 md:col-span-8">
+              <div className="font-mono text-[10px] uppercase tracking-monoWide text-blue mb-5">
+                03 / Work
+              </div>
+              <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl md:text-display-2xl text-text-inverse text-balance">
+                I scope, design, build,
+                <br />
+                <span className="text-blue">and ship.</span>
+              </h1>
+            </div>
+            <div className="col-span-12 md:col-span-4 self-end">
+              <p className="text-lg text-text-inverseMuted max-w-md text-pretty">
+                Two sides of the same work: the professional roles that built
+                the foundation, and the products that came from it.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Experience — editorial rows */}
-      <section className="py-24 md:py-32 bg-canvas border-t border-border">
+      <section className="py-8 md:py-12 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">
             <div className="col-span-12 md:col-span-7">
@@ -98,7 +115,7 @@ const WorkPage = () => {
       </section>
 
       {/* Selected projects — editorial rows */}
-      <section className="py-24 md:py-32 bg-canvas border-t border-border">
+      <section className="py-8 md:py-12 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">
             <div className="col-span-12 md:col-span-7">

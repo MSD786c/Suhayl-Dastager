@@ -14,9 +14,9 @@ const ThreeDoors = () => {
       className="relative bg-canvas border-t border-border"
       aria-label="Choose your path"
     >
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-24 md:py-36">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-10 md:py-14">
         {/* Heading */}
-        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-14 md:mb-20">
+        <div className="grid grid-cols-12 gap-4 md:gap-6 mb-14 md:mb-20">
           <div className="col-span-12 md:col-span-6">
             <div className="eyebrow mb-5">The three doors</div>
             <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-lg text-ink text-balance">

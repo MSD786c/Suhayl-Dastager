@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="relative bg-ink-950 text-text-inverse">
       <div>
         {/* Mega editorial line */}
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 pt-24 md:pt-32 pb-12 md:pb-16">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 pt-24 md:pt-32 pb-6 md:pb-8">
           <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-text-inverse text-balance">
             Suhayl Dastager.
           </h2>

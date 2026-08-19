@@ -45,7 +45,7 @@ const QuickAnswers = () => {
       className="relative bg-canvas border-t border-border"
       aria-label="Quick answers about Suhayl Dastager"
     >
-      <div className="mx-auto max-w-[1100px] px-6 sm:px-8 py-24 md:py-32">
+      <div className="mx-auto max-w-[1100px] px-6 sm:px-8 py-8 md:py-12">
         <div className="grid grid-cols-12 gap-6 mb-12">
           <div className="col-span-12 md:col-span-7">
             <div className="eyebrow mb-3">Quick answers</div>

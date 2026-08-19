@@ -10,7 +10,7 @@ import { archivedProjects } from "@/lib/data";
 const ArchivePage = () => {
   return (
     <>
-      <section className="relative pt-36 md:pt-44 pb-16 md:pb-24 bg-canvas">
+      <section className="relative pt-24 md:pt-28 pb-10 md:pb-12 bg-canvas">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="chapter mb-6">Archive</div>
           <h1 className="font-display font-bold tracking-tightest leading-[0.94] text-display-xl text-ink text-balance">

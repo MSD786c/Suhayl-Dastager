@@ -12,7 +12,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative bg-canvas pt-28 md:pt-36 pb-16 md:pb-24"
+      className="relative bg-canvas pt-28 md:pt-36 pb-10 md:pb-12"
       aria-label="Suhayl Dastager — personal brand introduction"
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
@@ -29,7 +29,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Hero grid: large type left, large photo right */}
-        <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
+        <div className="grid grid-cols-12 gap-4 md:gap-6 items-end">
           {/* LEFT — editorial type (8 cols) */}
           <div className="col-span-12 md:col-span-8">
             <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-ink text-balance">
@@ -130,7 +130,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="mt-16 md:mt-24 border-t border-border pt-6 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="mt-6 md:mt-10 border-t border-border pt-6 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
             { k: "02", v: "Companies" },

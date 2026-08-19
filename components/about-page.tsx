@@ -11,31 +11,67 @@ import { brandVisuals } from "@/lib/data";
 const AboutPage = () => {
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-36 md:pt-44 pb-16 md:pb-24 bg-canvas">
-        <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
-          <div className="eyebrow mb-6">About</div>
-          <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-ink text-balance">
-            Dubai, cars, technology,
-            <br />
-            <span className="text-blue">building companies.</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-xl text-text-secondary text-pretty">
-            The founder who documents the journey. The creator who ships. The
-            builder who drives fast and thinks faster.
-          </p>
+      {/* Hero — striking, full-bleed dark */}
+      <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 bg-ink-950 text-text-inverse overflow-hidden">
+        <div className="absolute inset-0 grid-overlay opacity-50" aria-hidden />
+        <div
+          className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(39,107,255,0.18) 0%, rgba(39,107,255,0) 70%)",
+          }}
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
+          <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
+            <div className="col-span-12 md:col-span-8">
+              <div className="eyebrow-light mb-5">About</div>
+              <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl md:text-display-2xl text-text-inverse text-balance">
+                I like building
+                <br />
+                <span className="text-blue">things.</span>
+              </h1>
+            </div>
+            <div className="col-span-12 md:col-span-4 self-end">
+              <p className="text-lg text-text-inverseMuted max-w-md text-pretty">
+                Most of my work starts with wondering why something is
+                unnecessarily difficult. Then I try to fix it.
+              </p>
+              <div className="mt-4 flex gap-3">
+                <Link
+                  href={suhayl.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="arrow-link-light"
+                >
+                  Instagram
+                  <ArrowUpRight className="h-3.5 w-3.5 arrow" />
+                </Link>
+                <span className="text-text-inverseMuted/30">/</span>
+                <Link
+                  href={suhayl.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="arrow-link-light"
+                >
+                  LinkedIn
+                  <ArrowUpRight className="h-3.5 w-3.5 arrow" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Editorial photo feature — wide hero shot + secondary photos */}
-      <section className="py-12 md:py-20 bg-canvas">
+      {/* Editorial photo feature — single tall hero shot */}
+      <section className="py-6 md:py-10 bg-canvas">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-3 md:gap-4">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="col-span-12 md:col-span-8 relative aspect-[16/10] rounded-2xl overflow-hidden"
             >
               <Image
@@ -51,7 +87,7 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="col-span-6 md:col-span-4 relative aspect-[3/4] rounded-2xl overflow-hidden"
             >
               <Image
@@ -66,7 +102,7 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
               className="col-span-6 md:col-span-3 relative aspect-square rounded-2xl overflow-hidden"
             >
               <Image
@@ -81,7 +117,7 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
               className="col-span-12 md:col-span-5 relative aspect-[5/3] rounded-2xl overflow-hidden"
             >
               <Image
@@ -96,7 +132,7 @@ const AboutPage = () => {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
               className="col-span-12 md:col-span-4 relative aspect-[4/3] rounded-2xl overflow-hidden"
             >
               <Image
@@ -111,19 +147,19 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* The story */}
-      <section className="py-20 md:py-32 bg-canvas border-t border-border">
+      {/* The story — compact */}
+      <section className="py-10 md:py-14 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-4">
-              <div className="eyebrow mb-5">The story</div>
-              <h2 className="font-display font-bold tracking-tighter text-display-md text-ink text-balance">
+              <div className="eyebrow mb-3">The story</div>
+              <h2 className="font-display font-bold tracking-tighter text-display-sm text-ink text-balance">
                 From content to code, in a single arc.
               </h2>
             </div>
-            <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-6 text-lg text-text-secondary leading-relaxed text-pretty">
+            <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-4 text-base text-text-secondary leading-relaxed text-pretty">
               <p>
-                I started in content — Reels, TikToks, community management,
+                I started in content — Reels, TikToks, community management —
                 the short-form muscle that teaches you what attention actually
                 looks like in 2026. Then I went to study AI &amp; Computer
                 Science because the content I wanted to make required me to
@@ -148,17 +184,17 @@ const AboutPage = () => {
       </section>
 
       {/* Off-screen — life outside the laptop */}
-      <section className="py-20 md:py-32 bg-canvas border-t border-border">
+      <section className="py-10 md:py-14 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
-          <div className="grid grid-cols-12 gap-6 mb-12">
+          <div className="grid grid-cols-12 gap-6 mb-6">
             <div className="col-span-12 md:col-span-7">
-              <div className="eyebrow mb-5">Off-screen</div>
-              <h2 className="font-display font-bold tracking-tighter text-display-md text-ink text-balance">
-                Cars, fitness, events, learning, documenting the journey.
+              <div className="eyebrow mb-3">Off-screen</div>
+              <h2 className="font-display font-bold tracking-tighter text-display-sm text-ink text-balance">
+                Cars, fitness, events, learning, documenting.
               </h2>
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {[
               suhayl.files.portraits.suitFull,
               suhayl.files.portraits.headshot,
@@ -169,10 +205,10 @@ const AboutPage = () => {
             ].map((src, i) => (
               <motion.div
                 key={src + i}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.4, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 className="relative aspect-[3/4] rounded-xl overflow-hidden"
               >
                 <Image
@@ -184,39 +220,6 @@ const AboutPage = () => {
                 />
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTAs */}
-      <section className="py-20 md:py-32 bg-ink text-text-inverse border-t border-ink-500">
-        <div className="mx-auto max-w-[1100px] px-6 sm:px-8 text-center">
-          <h2 className="font-display font-bold tracking-tighter text-display-md text-text-inverse text-balance">
-            Follow along.
-          </h2>
-          <p className="mt-4 text-text-inverseMuted max-w-md mx-auto">
-            LinkedIn for the professional arc. Instagram for everything in
-            between.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href={suhayl.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-text-inverse text-ink font-medium px-5 py-3 text-sm hover:bg-coral hover:text-white transition-colors duration-300"
-            >
-              Instagram
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href={suhayl.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-ink-500 text-text-inverse font-medium px-5 py-3 text-sm hover:bg-ink-700 transition-colors duration-300"
-            >
-              LinkedIn
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>

@@ -138,9 +138,18 @@ export default async function ProjectCaseStudy({
         </div>
 
         {/* Visual */}
-        {project.image && (
-          <div className="mt-12 md:mt-20 mx-auto max-w-[1280px] px-6 sm:px-8">
-            <div className="relative aspect-[16/9] rounded-3xl overflow-hidden soft-glow">
+        <div className="mt-12 md:mt-20 mx-auto max-w-[1280px] px-6 sm:px-8">
+          <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-canvas-muted">
+            {project.slug === "document-flow-automator" ? (
+              <Image
+                src={suhayl.files.brands.documentFlowAutomator}
+                alt={project.name}
+                fill
+                priority
+                sizes="100vw"
+                className="object-contain p-4 md:p-8"
+              />
+            ) : project.image ? (
               <Image
                 src={project.image}
                 alt={project.name}
@@ -149,9 +158,9 @@ export default async function ProjectCaseStudy({
                 sizes="100vw"
                 className="object-cover"
               />
-            </div>
+            ) : null}
           </div>
-        )}
+        </div>
 
         {/* Body */}
         <div className="mt-20 md:mt-32 mx-auto max-w-[1100px] px-6 sm:px-8">

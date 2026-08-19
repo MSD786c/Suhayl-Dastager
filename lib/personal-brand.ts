@@ -36,17 +36,22 @@ export const suhayl = {
   // Files served from /public
   files: {
     resume: "/Suhayl_Dastager_Resume.pdf",
-    // The supplied portrait set
+    // The supplied portrait set (headshot has a 2x version for hero use)
     portraits: {
       face: "/portrait/face-square.jpg",
       suitFull: "/portrait/suit-full.jpg",
-      headshot: "/portrait/headshot.jpg",
+      headshot: "/portrait/headshot-2x.jpg",
       aerial: "/portrait/aerial.jpg",
       vSign: "/portrait/v-sign.jpg",
       driver: "/portrait/driver.jpg",
       suv: "/portrait/suv.jpg",
       suvSeated: "/portrait/suv-seated.jpg",
       workspace: "/portrait/workspace.jpg",
+    },
+    // Brand logos (premium, used in editorial contexts)
+    brands: {
+      smStratagem: "/brand/sm-stratagem-logo.svg",
+      documentFlowAutomator: "/brand/document-flow-automator.svg",
     },
   },
 

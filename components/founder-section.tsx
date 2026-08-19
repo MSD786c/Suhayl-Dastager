@@ -15,9 +15,9 @@ const FounderSection = () => {
       className="relative bg-ink-950 text-text-inverse"
       aria-label="Founder — what am I building?"
     >
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-24 md:py-36">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-10 md:py-14">
         {/* Top eyebrow + headline */}
-        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24">
+        <div className="grid grid-cols-12 gap-4 md:gap-6 mb-8 md:mb-10">
           <div className="col-span-12 md:col-span-6">
             <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted mb-5">
               02 / Build
@@ -53,7 +53,7 @@ const FounderSection = () => {
                 }}
                 className="border-b border-ink-500"
               >
-                <div className="grid grid-cols-12 gap-6 md:gap-10 py-12 md:py-16">
+                <div className="grid grid-cols-12 gap-4 md:gap-6 py-12 md:py-16">
                   {/* Left — meta + visual */}
                   <div className="col-span-12 md:col-span-5">
                     <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
@@ -74,18 +74,18 @@ const FounderSection = () => {
                       {c.summary}
                     </p>
 
-                    {/* Inline image of the product if we have one */}
-                    <div className="mt-8 relative aspect-[4/3] rounded-xl overflow-hidden bg-ink-800">
+                    {/* Inline image of the product if we have one — logo for SM Stratagem, portrait for VoxxHire */}
+                    <div className="mt-6 relative aspect-[4/3] rounded-xl overflow-hidden bg-ink-800">
                       <Image
                         src={
                           isVoxx
                             ? suhayl.files.portraits.workspace
-                            : suhayl.files.portraits.suitFull
+                            : suhayl.files.brands.smStratagem
                         }
                         alt={c.name}
                         fill
                         sizes="(max-width: 768px) 100vw, 40vw"
-                        className="object-cover opacity-90"
+                        className={isVoxx ? "object-cover opacity-90" : "object-contain p-6 md:p-8"}
                       />
                     </div>
                   </div>
@@ -152,7 +152,7 @@ const FounderSection = () => {
         </div>
 
         {/* Bottom — short founder commentary */}
-        <div className="mt-20 md:mt-28 grid grid-cols-12 gap-6 md:gap-10">
+        <div className="mt-8 md:mt-12 grid grid-cols-12 gap-4 md:gap-6">
           <div className="col-span-12 md:col-span-5">
             <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted mb-4">
               The arc
@@ -238,7 +238,7 @@ const FounderSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-20 md:mt-28 flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-ink-500 pt-10">
+        <div className="mt-8 md:mt-12 flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-ink-500 pt-10">
           <p className="font-display text-2xl md:text-3xl tracking-tight text-text-inverse max-w-xl text-balance">
             Want the long-form version? It lives on the founder page.
           </p>
