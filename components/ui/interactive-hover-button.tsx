@@ -63,7 +63,7 @@ const InteractiveHoverButton = React.forwardRef<
   );
 
   const shared = cn(
-    "group relative w-44 cursor-pointer overflow-hidden rounded-full border bg-transparent px-5 py-2.5 text-center font-medium text-sm text-text-inverse",
+    "group relative min-w-[12rem] cursor-pointer overflow-hidden rounded-full border bg-transparent px-5 py-2.5 text-center font-medium text-sm text-text-inverse",
     v.border,
     className,
   );

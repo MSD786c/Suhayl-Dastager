@@ -155,8 +155,8 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Right: cycling verb — same size family as the name, aligned with the name (top-aligned + top padding to clear the pre-title row) */}
-              <div className="col-span-12 md:col-span-7 lg:col-span-7 flex items-start justify-start md:justify-end mt-6 md:mt-0 md:pt-7">
+              {/* Right: cycling verb — same size family as the name, aligned with the name (top-aligned + top padding to clear the pre-title row, moved 10px higher) */}
+              <div className="col-span-12 md:col-span-7 lg:col-span-7 flex items-start justify-start md:justify-end mt-6 md:mt-0 md:pt-[18px]">
                 <div className="font-display font-black leading-[0.92] tracking-tighter text-coral text-right">
                   <div className="text-[clamp(2.25rem,5.5vw,4.5rem)]">
                     <CyclingVerb />
