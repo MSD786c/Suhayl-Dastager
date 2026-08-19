@@ -202,17 +202,21 @@ const Footer = () => {
       {/* ── FOOTER GRID ────────────────────────────────────────────────── */}
       <div className="relative border-t border-ink-500/60 overflow-hidden isolate">
         <FooterBackgroundGradient />
-        {/* Big editorial "SUHAYL" hover-effect watermark on the right,
-            sitting behind the grid content. Same 16:9 viewBox as the source
-            component, scaled to ~40% of the section's right side. */}
+        {/* Big editorial "SUHAYL" hover-effect watermark on the right.
+            Anchored to the BOTTOM of the section so it sits well below the
+            grid content instead of overlapping the Founder/UGC/Work labels.
+            Pointer events are still enabled on the SVG itself so the
+            cursor-tracked mask can still track the mouse. */}
         <div
           aria-hidden
-          className="pointer-events-auto absolute inset-y-0 right-0 hidden lg:flex items-center justify-end w-[58%]"
+          className="pointer-events-none absolute inset-x-0 bottom-0 hidden lg:flex items-end justify-end"
         >
-          <TextHoverEffect
-            text="SUHAYL"
-            className="h-full w-full opacity-90 translate-y-[10px]"
-          />
+          <div className="relative w-full h-[280px] -mb-6">
+            <TextHoverEffect
+              text="SUHAYL"
+              className="absolute inset-x-0 bottom-0 h-full w-full opacity-95"
+            />
+          </div>
         </div>
         <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-8 py-12 md:py-14 grid grid-cols-2 md:grid-cols-12 gap-8">
           <div className="col-span-2 md:col-span-4">

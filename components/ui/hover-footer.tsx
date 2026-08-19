@@ -6,9 +6,14 @@ import { cn } from "@/lib/utils";
 
 /**
  * TextHoverEffect
- * A cursor-tracked mask reveals a multi-stop gradient stroke through the text.
- * Default text in the SHADCN reference is "Nurui"; here we keep it as a generic
- * prop and pass "SUHAYL" from the caller.
+ * A cursor-tracked mask reveals a coral "heat touch" stroke through the
+ * text. The text starts as a muted dark hairline (the watermark you see
+ * in the footer behind the link columns) and, on hover, a wide coral
+ * radial gradient follows the cursor with a soft outer glow — the
+ * "heat touch" feel.
+ *
+ * The base layer is intentionally faint so the watermark doesn't fight
+ * the link grid above it; the hover state is bold and unmistakable.
  */
 export const TextHoverEffect = ({
   text,
@@ -43,6 +48,7 @@ export const TextHoverEffect = ({
       width="100%"
       height="100%"
       viewBox="0 0 300 100"
+      preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -50,32 +56,39 @@ export const TextHoverEffect = ({
       className={cn("select-none uppercase cursor-pointer", className)}
     >
       <defs>
-        <linearGradient
+        {/* Coral reveal gradient — wider falloff for the "heat touch" */}
+        <radialGradient
           id="textGradient"
           gradientUnits="userSpaceOnUse"
           cx="50%"
           cy="50%"
-          r="25%"
+          r="60%"
         >
-          {hovered && (
+          {hovered ? (
             <>
-              <stop offset="0%" stopColor="#FF6B4A" />
-              <stop offset="40%" stopColor="#FF6B4A" />
+              <stop offset="0%" stopColor="#FF8A6F" />
+              <stop offset="35%" stopColor="#FF6B4A" />
+              <stop offset="70%" stopColor="#FF6B4A" stopOpacity="0.85" />
               <stop offset="100%" stopColor="#FF6B4A" stopOpacity="0" />
             </>
+          ) : (
+            <stop offset="100%" stopColor="#FF6B4A" stopOpacity="0" />
           )}
-        </linearGradient>
+        </radialGradient>
 
+        {/* Cursor-tracked mask. Larger radius (45%) gives a softer,
+            warmer falloff that reads as a heat field rather than a
+            hard spotlight. */}
         <motion.radialGradient
           id="revealMask"
           gradientUnits="userSpaceOnUse"
-          r="35%"
+          r="45%"
           initial={{ cx: "50%", cy: "50%" }}
           animate={maskPosition}
           transition={{ duration: duration ?? 0, ease: "easeOut" }}
         >
           <stop offset="0%" stopColor="white" />
-          <stop offset="60%" stopColor="white" />
+          <stop offset="55%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
         </motion.radialGradient>
         <mask id="textMask">
@@ -87,47 +100,59 @@ export const TextHoverEffect = ({
             fill="url(#revealMask)"
           />
         </mask>
+
+        {/* Soft outer glow filter for the coral heat touch. Blurs
+            the stroke so the hovered letters radiate warmth instead
+            of just turning orange. */}
+        <filter
+          id="coralGlow"
+          x="-20%"
+          y="-20%"
+          width="140%"
+          height="140%"
+        >
+          <feGaussianBlur
+            stdDeviation="2.2"
+            result="coloredBlur"
+          />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
       </defs>
+
+      {/* 1. MUTED BASE LAYER — always-on, very faint dark hairline
+             so the watermark is present in the composition without
+             competing with the link grid above it. */}
       <text
         x="50%"
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        strokeWidth="0.3"
-        className="fill-transparent stroke-neutral-200 font-[helvetica] text-7xl font-bold dark:stroke-neutral-800"
-        style={{ opacity: hovered ? 0.7 : 0 }}
+        strokeWidth="0.35"
+        className="fill-transparent stroke-text-inverse/15 font-[helvetica] text-7xl font-bold"
+        style={{ opacity: 0.55 }}
       >
         {text}
       </text>
-      <motion.text
-        x="50%"
-        y="50%"
-        textAnchor="middle"
-        dominantBaseline="middle"
-        strokeWidth="0.3"
-        className="fill-transparent stroke-blue/30 font-[helvetica] text-7xl font-bold 
-        dark:stroke-blue/25"
-        initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
-        animate={{
-          strokeDashoffset: 0,
-          strokeDasharray: 1000,
-        }}
-        transition={{
-          duration: 4,
-          ease: "easeInOut",
-        }}
-      >
-        {text}
-      </motion.text>
+
+      {/* 2. HOVER-REVEALED CORAL LAYER — driven by the cursor mask.
+             Thicker stroke + outer glow = the "heat touch" outline. */}
       <text
         x="50%"
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
         stroke="url(#textGradient)"
-        strokeWidth="0.3"
+        strokeWidth="0.55"
         mask="url(#textMask)"
+        filter="url(#coralGlow)"
         className="fill-transparent font-[helvetica] text-7xl font-bold"
+        style={{
+          opacity: hovered ? 1 : 0,
+          transition: "opacity 220ms ease-out",
+        }}
       >
         {text}
       </text>
