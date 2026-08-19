@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function UGCPage() {
   return (
-    <main className="min-h-screen bg-canvas-warm text-ink-900">
+    <main className="min-h-screen bg-canvas text-ink">
       <Nav />
       <UGCDetail />
       <Footer />

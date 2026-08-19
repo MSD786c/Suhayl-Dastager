@@ -65,7 +65,7 @@ export default async function ProjectCaseStudy({
   return (
     <main
       className={`min-h-screen ${
-        dark ? "bg-ink-900 text-cream" : "bg-canvas-warm text-ink-900"
+        dark ? "bg-ink text-text-inverse" : "bg-canvas text-ink"
       }`}
     >
       <Nav />
@@ -74,20 +74,20 @@ export default async function ProjectCaseStudy({
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <Link
             href="/work"
-            className={`inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] mb-6 ${
-              dark ? "text-cream/55 hover:text-cream" : "text-navy-500 hover:text-ink-900"
+            className={`inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] mb-6 ${
+              dark ? "text-text-inverse/55 hover:text-text-inverse" : "text-text-muted hover:text-ink"
             } transition-colors`}
           >
             <ArrowLeft className="h-3 w-3" />
             Work
           </Link>
 
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] mb-4">
-            <span className={dark ? "text-cream/55" : "text-navy-500"}>
+          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] mb-4">
+            <span className={dark ? "text-text-inverse/55" : "text-text-muted"}>
               {project.category}
             </span>
-            <span className={dark ? "text-cream/30" : "text-navy-500/30"}>·</span>
-            <span className={dark ? "text-cream/55" : "text-navy-500"}>
+            <span className={dark ? "text-text-inverse/30" : "text-text-muted/30"}>·</span>
+            <span className={dark ? "text-text-inverse/55" : "text-text-muted"}>
               {project.year}
             </span>
           </div>
@@ -97,7 +97,7 @@ export default async function ProjectCaseStudy({
           </h1>
           <p
             className={`mt-6 max-w-2xl text-xl ${
-              dark ? "text-cream/70" : "text-ink-900/70"
+              dark ? "text-text-inverse/70" : "text-ink/70"
             } text-pretty`}
           >
             {project.description}
@@ -111,7 +111,7 @@ export default async function ProjectCaseStudy({
                 rel="noopener noreferrer"
                 className={
                   dark
-                    ? "inline-flex items-center justify-center gap-2 rounded-full bg-cream text-ink-900 px-6 py-3.5 text-sm font-medium hover:bg-electric-bright transition-colors"
+                    ? "inline-flex items-center justify-center gap-2 rounded-full bg-canvas text-ink px-6 py-3.5 text-sm font-medium hover:bg-blue transition-colors"
                     : "btn-primary"
                 }
               >
@@ -126,7 +126,7 @@ export default async function ProjectCaseStudy({
                 rel="noopener noreferrer"
                 className={
                   dark
-                    ? "inline-flex items-center justify-center gap-2 rounded-full border border-cream-100/30 bg-transparent text-cream px-6 py-3.5 text-sm font-medium hover:bg-cream/10 transition-colors"
+                    ? "inline-flex items-center justify-center gap-2 rounded-full border border-ink-500 bg-transparent text-text-inverse px-6 py-3.5 text-sm font-medium hover:bg-canvas-muted transition-colors"
                     : "btn-ghost"
                 }
               >
@@ -179,7 +179,7 @@ export default async function ProjectCaseStudy({
                     <li key={i} className="flex gap-3">
                       <span
                         className={`mt-2 h-1 w-1 rounded-full flex-shrink-0 ${
-                          dark ? "bg-electric-bright" : "bg-electric"
+                          dark ? "bg-blue" : "bg-blue"
                         }`}
                       />
                       <span>{d}</span>
@@ -204,13 +204,13 @@ export default async function ProjectCaseStudy({
         <div className="mt-32 mx-auto max-w-[1100px] px-6 sm:px-8">
           <div
             className={`border-t pt-10 flex flex-col md:flex-row md:items-center justify-between gap-4 ${
-              dark ? "border-cream-100/10" : "border-navy-900/10"
+              dark ? "border-ink-500/10" : "border-border"
             }`}
           >
             <div>
               <div
-                className={`font-mono text-[10px] uppercase tracking-[0.22em] ${
-                  dark ? "text-cream/55" : "text-navy-500"
+                className={`font-mono text-[10px] uppercase tracking-[0.18em] ${
+                  dark ? "text-text-inverse/55" : "text-text-muted"
                 }`}
               >
                 Next
@@ -248,8 +248,8 @@ const Meta = ({
 }) => (
   <div>
     <div
-      className={`font-mono text-[10px] uppercase tracking-[0.22em] ${
-        dark ? "text-cream/55" : "text-navy-500"
+      className={`font-mono text-[10px] uppercase tracking-[0.18em] ${
+        dark ? "text-text-inverse/55" : "text-text-muted"
       }`}
     >
       {label}
@@ -257,7 +257,7 @@ const Meta = ({
     {body && (
       <div
         className={`mt-2 text-base ${
-          dark ? "text-cream" : "text-ink-900"
+          dark ? "text-text-inverse" : "text-ink"
         }`}
       >
         {body}
@@ -270,8 +270,8 @@ const Meta = ({
             key={it}
             className={`font-mono text-[10px] uppercase tracking-[0.16em] px-2 py-1 rounded-full border ${
               dark
-                ? "border-cream-100/15 text-cream/65"
-                : "border-navy-900/15 text-navy-500"
+                ? "border-ink-500/15 text-text-inverse/65"
+                : "border-border text-text-muted"
             }`}
           >
             {it}
@@ -293,15 +293,15 @@ const Section = ({
 }) => (
   <section>
     <h2
-      className={`font-mono text-[10px] uppercase tracking-[0.22em] mb-3 ${
-        dark ? "text-cream/55" : "text-navy-500"
+      className={`font-mono text-[10px] uppercase tracking-[0.18em] mb-3 ${
+        dark ? "text-text-inverse/55" : "text-text-muted"
       }`}
     >
       {title}
     </h2>
     <div
       className={`text-lg leading-relaxed text-pretty ${
-        dark ? "text-cream/80" : "text-ink-900/80"
+        dark ? "text-text-inverse/80" : "text-ink/80"
       }`}
     >
       {children}

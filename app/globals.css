@@ -4,54 +4,28 @@
 
 @layer base {
   :root {
-    --background: 47 38% 96%;
-    --foreground: 240 6% 4%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 6% 4%;
-    --popover: 47 38% 96%;
-    --popover-foreground: 240 6% 4%;
-    --primary: 217 64% 14%;
-    --primary-foreground: 47 38% 96%;
-    --secondary: 47 38% 96%;
-    --secondary-foreground: 217 64% 14%;
-    --muted: 40 25% 92%;
-    --muted-foreground: 218 18% 47%;
-    --accent: 221 93% 57%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 217 30% 88%;
-    --input: 217 30% 88%;
-    --ring: 221 93% 57%;
-    --radius: 0.625rem;
+    /* Light surface tokens */
+    --canvas: 0 0% 100%;
+    --canvas-muted: 220 14% 97%;
+    --ink: 222 17% 7%;
+    --ink-secondary: 220 9% 35%;
+    --ink-muted: 220 8% 50%;
+    --border: 220 13% 91%;
 
-    --navy: 217 64% 14%;
-    --indigo: 229 53% 23%;
-    --electric: 221 93% 57%;
-    --coral: 6 100% 68%;
-    --cream: 38 53% 95%;
+    /* Brand accents */
+    --blue: 220 100% 58%;        /* #276BFF */
+    --blue-deep: 220 67% 14%;    /* #0B1D3A */
+    --coral: 11 100% 65%;        /* #FF6B4A */
+    --coral-deep: 11 75% 56%;    /* #E84F35 */
   }
 
   .dark {
-    --background: 240 6% 4%;
-    --foreground: 47 38% 96%;
-    --card: 240 5% 7%;
-    --card-foreground: 47 38% 96%;
-    --popover: 240 5% 7%;
-    --popover-foreground: 47 38% 96%;
-    --primary: 47 38% 96%;
-    --primary-foreground: 240 6% 4%;
-    --secondary: 240 4% 12%;
-    --secondary-foreground: 47 38% 96%;
-    --muted: 240 4% 12%;
-    --muted-foreground: 218 12% 64%;
-    --accent: 221 93% 57%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 47 38% 96%;
-    --border: 240 4% 14%;
-    --input: 240 4% 14%;
-    --ring: 221 93% 57%;
+    --canvas: 222 33% 5%;
+    --canvas-muted: 220 24% 9%;
+    --ink: 220 14% 97%;
+    --ink-secondary: 220 9% 67%;
+    --ink-muted: 218 9% 54%;
+    --border: 220 14% 16%;
   }
 
   * {
@@ -66,15 +40,16 @@
   }
 
   body {
-    @apply bg-canvas-warm text-ink-900 antialiased font-sans;
+    @apply bg-canvas text-ink antialiased font-sans;
     font-feature-settings: "ss01", "ss02", "cv11";
   }
 
   ::selection {
-    background: hsl(var(--electric) / 0.18);
-    color: hsl(var(--primary));
+    background: hsl(var(--blue) / 0.18);
+    color: hsl(var(--ink));
   }
 
+  /* Scrollbar — minimal */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -83,15 +58,23 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-navy-200 rounded-full;
+    @apply bg-[#E5E7EB] rounded-full;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-navy-300;
+    @apply bg-[#D1D5DB];
+  }
+
+  /* In dark contexts */
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-[#252B35];
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#3A4252];
   }
 }
 
 @layer components {
-  /* Editorial display utilities */
+  /* Editorial display helper */
   .text-display {
     font-family: var(--font-display, "Plus Jakarta Sans"), system-ui, sans-serif;
     font-weight: 700;
@@ -99,139 +82,127 @@
     line-height: 0.95;
   }
 
-  /* Editorial eyebrow — small mono label used above section titles */
+  /* Editorial eyebrow — small mono label, used sparingly */
   .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-navy-500;
+    @apply font-mono text-[11px] uppercase tracking-monoWide text-text-muted;
   }
 
   .eyebrow-light {
-    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-cream-100/70;
+    @apply font-mono text-[11px] uppercase tracking-monoWide text-text-inverseMuted;
   }
 
-  /* The hairline rule used everywhere as a divider */
+  /* Hairline divider — the only separator we use between sections */
   .hairline {
-    @apply h-px w-full bg-navy-900/10;
+    @apply h-px w-full bg-border;
   }
 
   .hairline-dark {
-    @apply h-px w-full bg-cream-100/10;
+    @apply h-px w-full bg-ink-500;
   }
 
-  /* The signature pill button */
+  /* Primary button — minimal, tactile */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 text-sm font-medium text-cream transition-all duration-300 hover:bg-electric hover:text-white hover:shadow-[0_18px_40px_-12px_rgba(45,108,246,0.55)] active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-ink px-6 py-3.5 text-sm font-medium text-text-inverse transition-colors duration-300 hover:bg-blue active:scale-[0.99];
+  }
+
+  .btn-primary-coral {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-coral px-6 py-3.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-coral-deep active:scale-[0.99];
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy-900/15 bg-transparent px-6 py-3.5 text-sm font-medium text-ink-900 transition-all duration-300 hover:border-electric hover:text-electric;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3.5 text-sm font-medium text-ink transition-colors duration-300 hover:border-ink hover:bg-canvas-muted;
   }
 
-  .btn-coral {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-coral px-6 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-coral-deep hover:shadow-[0_18px_40px_-12px_rgba(255,107,91,0.55)] active:scale-[0.98];
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-ink-500 bg-transparent px-6 py-3.5 text-sm font-medium text-text-inverse transition-colors duration-300 hover:border-text-inverse hover:bg-ink-700;
   }
 
-  /* Card surfaces */
-  .surface-card {
-    @apply rounded-2xl border border-navy-900/8 bg-white shadow-[0_2px_0_rgba(11,31,58,0.04),0_30px_60px_-30px_rgba(11,31,58,0.18)];
+  /* Arrow link — text + arrow that nudges right on hover */
+  .arrow-link {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-monoWide text-ink transition-all duration-300;
+  }
+  .arrow-link .arrow {
+    @apply transition-transform duration-300;
+  }
+  .arrow-link:hover .arrow {
+    transform: translateX(3px);
+  }
+  .arrow-link:hover {
+    @apply text-blue;
+  }
+  .arrow-link-light {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-monoWide text-text-inverseMuted transition-all duration-300 hover:text-text-inverse;
+  }
+  .arrow-link-light .arrow {
+    @apply transition-transform duration-300;
+  }
+  .arrow-link-light:hover .arrow {
+    transform: translateX(3px);
   }
 
-  .surface-ink {
-    @apply rounded-2xl border border-cream-100/10 bg-ink-900 text-cream-100;
-  }
-
-  /* The sm-mono eyebrow used on dark surfaces */
+  /* Mono accent label used on dark surfaces */
   .mono-eyebrow {
-    @apply font-mono text-[10px] uppercase tracking-[0.28em] text-cream-100/55;
+    @apply font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted;
   }
 
-  /* Magnetic CTA wrapper */
-  .magnetic {
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Numbered marker (used sparingly) */
+  .marker {
+    @apply font-mono text-[11px] tracking-mono text-blue;
   }
 
-  /* Numbered section title */
-  .section-number {
-    @apply font-mono text-[11px] tracking-[0.22em] text-electric;
-  }
-
-  /* The grid texture used on dark surfaces */
-  .grid-overlay {
-    background-image:
-      linear-gradient(rgba(169, 199, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(169, 199, 255, 0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .grid-overlay-light {
-    background-image:
-      linear-gradient(rgba(11, 31, 58, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(11, 31, 58, 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  /* Editorial pull-quote */
-  .quote-mark {
-    font-family: var(--font-editorial, "Fraunces"), Georgia, serif;
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  /* Soft glow for hero/feature imagery */
-  .soft-glow {
-    box-shadow: 0 30px 80px -20px rgba(11, 31, 58, 0.35), 0 0 0 1px rgba(11, 31, 58, 0.04);
-  }
-
-  /* The horizontal section label, used as a chapter marker */
+  /* Section chapter marker */
   .chapter {
-    @apply flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-navy-500;
+    @apply flex items-center gap-3 font-mono text-[10px] uppercase tracking-monoWide text-text-muted;
   }
   .chapter::before {
     content: "";
-    @apply h-px w-8 bg-navy-500/40;
+    @apply h-px w-8 bg-border;
   }
 
-  /* Reusable border for video cards */
-  .video-frame {
-    @apply relative overflow-hidden rounded-2xl bg-ink-900 ring-1 ring-white/10;
+  /* Reusable card — only when a card is actually needed */
+  .surface-card {
+    @apply rounded-2xl border border-border bg-canvas;
+  }
+  .surface-card-dark {
+    @apply rounded-2xl border border-ink-500 bg-ink-900 text-text-inverse;
+  }
+
+  /* Signature gradient — used VERY rarely (logo, active indicator, one CTA) */
+  .signature-gradient {
+    background: linear-gradient(135deg, #276bff 0%, #5a68f5 45%, #ff6b4a 100%);
+  }
+
+  /* Editorial pull-quote italic */
+  .quote-mark {
+    font-family: var(--font-display, "Plus Jakarta Sans"), system-ui, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* Hide scrollbar (used for horizontal scroll strips) */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
 @layer utilities {
-  .perspective-1000 {
-    perspective: 1000px;
-  }
-
-  .preserve-3d {
-    transform-style: preserve-3d;
-  }
-
   .text-balance {
     text-wrap: balance;
   }
-
   .text-pretty {
     text-wrap: pretty;
   }
-
-  /* Disable text selection on hero photo frames */
   .no-select {
     user-select: none;
     -webkit-user-drag: none;
   }
-
-  /* GPU-friendly will-change helper */
   .gpu {
     will-change: transform, opacity;
     transform: translateZ(0);
-  }
-
-  /* The "rule below" used on editorial titles */
-  .rule-line {
-    @apply relative inline-block;
-  }
-  .rule-line::after {
-    content: "";
-    @apply absolute -bottom-2 left-0 h-px w-12 bg-electric;
   }
 }
 

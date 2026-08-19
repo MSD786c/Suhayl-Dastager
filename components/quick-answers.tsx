@@ -24,7 +24,7 @@ const qas = [
   },
   {
     q: "How can brands work with Suhayl as a UGC creator?",
-    a: "Suhayl offers six UGC packages: UGC Core, Performance Creative, Content Sprint, Monthly Tech Partner, Automotive Hero, and Automotive Content Day. All use rights-based licensing with explicit AI/likeness terms. Live showreel includes a 3.3M-view perfume brand piece, a 21.5K personal AI piece, and brand work for a Milano wholesale supplier and a spare parts company.",
+    a: "Suhayl offers four UGC starting packages: UGC Starter, UGC Performance, Content Sprint, and Monthly Creator. All use rights-based licensing with explicit AI/likeness terms. Live showreel includes a 3.3M-view perfume brand piece, automotive brand work, and a software founder walkthrough.",
   },
   {
     q: "What are Suhayl's technical capabilities?",
@@ -42,21 +42,23 @@ const QuickAnswers = () => {
   return (
     <section
       id="quick-answers"
-      className="relative py-24 md:py-32 bg-canvas-warm border-t border-navy-900/8"
+      className="relative bg-canvas border-t border-border"
       aria-label="Quick answers about Suhayl Dastager"
     >
-      <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
+      <div className="mx-auto max-w-[1100px] px-6 sm:px-8 py-24 md:py-32">
         <div className="grid grid-cols-12 gap-6 mb-12">
-          <div className="col-span-12 md:col-span-5">
+          <div className="col-span-12 md:col-span-7">
             <div className="eyebrow mb-3">Quick answers</div>
-            <h2 className="font-display font-bold tracking-tighter text-display-sm md:text-display-md text-ink-900 text-balance">
+            <h2 className="font-display font-bold tracking-tighter text-display-md text-ink text-balance">
               The short version, for AI engines and the impatient.
             </h2>
-            <p className="mt-3 text-xs font-mono uppercase tracking-[0.18em] text-navy-500/70">
+          </div>
+          <div className="col-span-12 md:col-span-4 md:col-start-9 self-end">
+            <p className="text-xs font-mono uppercase tracking-monoWide text-text-muted">
               Also published at{" "}
               <a
                 href="/llms.txt"
-                className="text-ink-900 hover:text-electric"
+                className="text-ink hover:text-blue"
               >
                 /llms.txt
               </a>
@@ -64,11 +66,11 @@ const QuickAnswers = () => {
           </div>
         </div>
 
-        <ul className="border-t border-navy-900/10">
+        <ul className="border-t border-border">
           {qas.map((qa, i) => {
             const isOpen = openIndex === i;
             return (
-              <li key={qa.q} className="border-b border-navy-900/10">
+              <li key={qa.q} className="border-b border-border">
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="w-full flex items-start justify-between gap-6 py-5 md:py-6 text-left group"
@@ -78,17 +80,19 @@ const QuickAnswers = () => {
                   <span
                     className={cn(
                       "font-display font-semibold text-lg md:text-2xl tracking-tight leading-snug transition-colors",
-                      isOpen ? "text-electric" : "text-ink-900 group-hover:text-electric"
+                      isOpen
+                        ? "text-blue"
+                        : "text-ink group-hover:text-blue"
                     )}
                   >
                     {qa.q}
                   </span>
                   <span
                     className={cn(
-                      "flex-shrink-0 grid place-items-center h-9 w-9 rounded-full border transition-all duration-300",
+                      "shrink-0 grid place-items-center h-9 w-9 rounded-lg border transition-colors duration-300",
                       isOpen
-                        ? "bg-electric border-electric text-white"
-                        : "border-navy-900/15 text-navy-500 group-hover:border-electric group-hover:text-electric"
+                        ? "bg-blue border-blue text-white"
+                        : "border-border text-text-muted group-hover:border-blue group-hover:text-blue"
                     )}
                   >
                     {isOpen ? (
@@ -109,7 +113,7 @@ const QuickAnswers = () => {
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-5 md:pb-6 pr-12 text-ink-900/75 text-pretty leading-relaxed max-w-3xl">
+                      <p className="pb-5 md:pb-6 pr-12 text-text-secondary text-pretty leading-relaxed max-w-3xl">
                         {qa.a}
                       </p>
                     </motion.div>

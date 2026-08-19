@@ -166,7 +166,7 @@ export const formatViewsLong = (n: number) => {
 export const ViralBadge = ({ className }: { className?: string }) => (
   <span
     className={cn(
-      "inline-flex items-center gap-2 rounded-full bg-coral text-white font-mono text-[10px] uppercase tracking-[0.22em] px-3 py-1.5 shadow-[0_8px_24px_-6px_rgba(255,107,91,0.55)]",
+      "inline-flex items-center gap-2 rounded-full bg-coral text-white font-mono text-[10px] uppercase tracking-[0.18em] px-3 py-1.5 shadow-[0_8px_24px_-6px_rgba(255,107,91,0.55)]",
       className
     )}
   >
@@ -316,10 +316,10 @@ export const Marquee = ({
       {[...items, ...items, ...items, ...items].map((it, i) => (
         <span
           key={i}
-          className="font-mono text-[11px] uppercase tracking-[0.28em] text-navy-500/70"
+          className="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted/70"
         >
           {it}
-          <span className="ml-12 text-navy-500/30">◆</span>
+          <span className="ml-12 text-text-muted/30">◆</span>
         </span>
       ))}
     </div>

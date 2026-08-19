@@ -3,102 +3,231 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { founderCompanies } from "@/lib/data";
-import { founderTimeline, suhayl } from "@/lib/personal-brand";
+import { founderCompanies, suhayl } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 const FounderSection = () => {
-  const ref = React.useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y1 = useTransform(scrollYProgress, [0, 1], [40, -40]);
-
   return (
     <section
-      ref={ref}
       id="founder"
-      className="relative py-28 md:py-40 bg-ink-900 text-cream overflow-hidden"
+      className="relative bg-ink-950 text-text-inverse"
       aria-label="Founder — what am I building?"
     >
-      {/* Background grid */}
-      <div className="absolute inset-0 grid-overlay opacity-100" aria-hidden />
-      {/* Subtle blue glow */}
-      <div
-        className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(45,108,246,0.18) 0%, rgba(45,108,246,0) 70%)",
-        }}
-        aria-hidden
-      />
-
-      <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-24 md:py-36">
         {/* Top eyebrow + headline */}
-        <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
-          <div className="col-span-12 md:col-span-5">
-            <div className="mono-eyebrow mb-4">Section · 02 / Build</div>
-            <h2 className="font-display font-bold tracking-tightest leading-[0.95] text-display-lg text-cream text-balance">
+        <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24">
+          <div className="col-span-12 md:col-span-6">
+            <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted mb-5">
+              02 / Build
+            </div>
+            <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-lg text-text-inverse text-balance">
               What am I
               <br />
-              <span className="text-electric-bright">building?</span>
+              building?
             </h2>
           </div>
-          <div className="col-span-12 md:col-span-6 md:col-start-7 self-end">
-            <p className="text-lg text-cream/70 max-w-md text-pretty">
+          <div className="col-span-12 md:col-span-5 md:col-start-8 self-end">
+            <p className="text-lg text-text-inverseMuted max-w-md text-pretty">
               Two companies. One studio, one product. Both built from Dubai, both
               solving real problems I&apos;ve personally seen fail.
             </p>
           </div>
         </div>
 
-        {/* Company feature grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-stretch">
-          {founderCompanies.map((c, i) => (
-            <CompanyCard key={c.id} company={c} index={i} />
-          ))}
-        </div>
+        {/* Companies — editorial split layout, no decorative SVGs, no fake metrics */}
+        <div className="border-t border-ink-500">
+          {founderCompanies.map((c, i) => {
+            const isVoxx = c.id === "voxxhire";
+            return (
+              <motion.div
+                key={c.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: i * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="border-b border-ink-500"
+              >
+                <div className="grid grid-cols-12 gap-6 md:gap-10 py-12 md:py-16">
+                  {/* Left — meta + visual */}
+                  <div className="col-span-12 md:col-span-5">
+                    <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
+                      <span style={{ fontVariantNumeric: "tabular-nums" }}>
+                        0{i + 1}
+                      </span>
+                      <span className="h-px w-8 bg-ink-500" />
+                      <span style={{ fontVariantNumeric: "tabular-nums" }}>
+                        {c.year}
+                      </span>
+                    </div>
 
-        {/* Timeline */}
-        <div className="mt-28 md:mt-40">
-          <div className="mono-eyebrow mb-4">Founder story</div>
-          <h3 className="font-display font-bold tracking-tighter leading-[1.02] text-display-md text-cream max-w-3xl text-balance">
-            Not a corporate timeline — a sequence of decisions.
-          </h3>
+                    <h3 className="mt-5 font-display font-bold text-4xl md:text-6xl tracking-tighter leading-[0.95] text-text-inverse">
+                      {c.name}
+                    </h3>
 
-          <div className="mt-16 relative">
-            {/* The connecting line */}
-            <div className="absolute left-0 md:left-32 top-0 bottom-0 w-px bg-cream-100/15" aria-hidden />
+                    <p className="mt-5 text-text-inverseMuted text-lg max-w-md text-pretty">
+                      {c.summary}
+                    </p>
 
-            <div className="space-y-12 md:space-y-16">
-              {founderTimeline.map((step, i) => (
-                <motion.div
-                  key={step.year}
-                  initial={{ y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.7, delay: i * 0.05 }}
-                  className="relative grid grid-cols-12 gap-6 group"
-                >
-                  {/* Dot */}
-                  <div className="absolute left-0 md:left-32 top-2 -translate-x-1/2 h-3 w-3 rounded-full bg-ink-900 border-2 border-electric" aria-hidden />
-
-                  {/* Year */}
-                  <div className="col-span-12 md:col-span-3 md:col-start-1 md:pl-0 pl-8">
-                    <div className="font-mono text-xs uppercase tracking-[0.22em] text-electric-bright">
-                      {step.year}
+                    {/* Inline image of the product if we have one */}
+                    <div className="mt-8 relative aspect-[4/3] rounded-xl overflow-hidden bg-ink-800">
+                      <Image
+                        src={
+                          isVoxx
+                            ? suhayl.files.portraits.workspace
+                            : suhayl.files.portraits.suitFull
+                        }
+                        alt={c.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                        className="object-cover opacity-90"
+                      />
                     </div>
                   </div>
 
-                  {/* Body */}
-                  <div className="col-span-12 md:col-span-8 pl-8 md:pl-0">
-                    <h4 className="font-display font-semibold text-2xl md:text-3xl tracking-tight text-cream">
+                  {/* Right — what it does + CTAs */}
+                  <div className="col-span-12 md:col-span-6 md:col-start-7 flex flex-col">
+                    <div className="font-mono text-[10px] uppercase tracking-monoWide text-blue mb-4">
+                      What it does
+                    </div>
+
+                    <ul className="space-y-3 max-w-lg">
+                      {c.body.map((b, j) => (
+                        <li
+                          key={j}
+                          className="text-base md:text-lg text-text-inverse leading-relaxed flex gap-3"
+                        >
+                          <span
+                            className="font-mono text-xs text-blue mt-1.5 shrink-0"
+                            style={{ fontVariantNumeric: "tabular-nums" }}
+                          >
+                            0{j + 1}
+                          </span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-10 flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
+                      {c.tech.slice(0, 5).map((t) => (
+                        <span key={t} className="text-text-inverseMuted">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-auto pt-10 flex flex-wrap items-center gap-4">
+                      <Link
+                        href={c.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="arrow-link-light"
+                      >
+                        Visit {c.name}
+                        <ArrowUpRight className="h-3.5 w-3.5 arrow" />
+                      </Link>
+                      {c.id === "voxxhire" && (
+                        <span className="text-text-inverseMuted/30">/</span>
+                      )}
+                      {c.id === "voxxhire" && (
+                        <Link
+                          href="/projects/voxxhire"
+                          className="arrow-link-light"
+                        >
+                          Case study
+                          <ArrowUpRight className="h-3.5 w-3.5 arrow" />
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Bottom — short founder commentary */}
+        <div className="mt-20 md:mt-28 grid grid-cols-12 gap-6 md:gap-10">
+          <div className="col-span-12 md:col-span-5">
+            <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted mb-4">
+              The arc
+            </div>
+            <h3 className="font-display font-bold text-3xl md:text-4xl tracking-tighter leading-[1.05] text-text-inverse text-balance">
+              Not a corporate timeline. A sequence of decisions.
+            </h3>
+          </div>
+          <div className="col-span-12 md:col-span-6 md:col-start-7">
+            <div className="space-y-0 border-t border-ink-500">
+              {[
+                {
+                  year: "2019",
+                  title: "First taste of enterprise",
+                  body: "SAP IT Summer Intern — early exposure to system configuration, virtualization, and infrastructure uptime.",
+                },
+                {
+                  year: "2020",
+                  title: "The Tutoring Center",
+                  body: "System Specialist — supporting IT rollouts, documentation, daily ops. Where process clarity started.",
+                },
+                {
+                  year: "2021",
+                  title: "Chicking",
+                  body: "Digital Marketing — 40% engagement lift, +18% CTR via Reels and community. The creative muscle wakes up.",
+                },
+                {
+                  year: "2022",
+                  title: "University of Birmingham",
+                  body: "AI & Computer Science. Chancellor's Academic Merit Scholarship. The technical foundation gets formalized.",
+                },
+                {
+                  year: "2024",
+                  title: "RelphaCare + Halliday",
+                  body: "A/B testing drops CPA 12%. AI document-flow automator cuts QA cycles 40%. Real systems, real metrics.",
+                },
+                {
+                  year: "2025",
+                  title: "Loop Media · SM Stratagem",
+                  body: "Seven 1M+ view videos. Founder mode begins. SM Stratagem formalizes the studio; VoxxHire becomes a product.",
+                },
+                {
+                  year: "Now",
+                  title: "Building, learning, selling, shipping.",
+                  body: "AI product engineering, founder of two companies, and creator partnerships that respect the audience.",
+                },
+                {
+                  year: "Next",
+                  title: "→",
+                  body: "Intentionally open. More products. Sharper systems. Larger collaborations.",
+                },
+              ].map((step, i) => (
+                <motion.div
+                  key={step.year}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: i * 0.04,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="grid grid-cols-12 gap-4 py-5 border-b border-ink-500"
+                >
+                  <div
+                    className="col-span-3 md:col-span-2 font-mono text-[10px] uppercase tracking-monoWide text-blue"
+                    style={{ fontVariantNumeric: "tabular-nums" }}
+                  >
+                    {step.year}
+                  </div>
+                  <div className="col-span-9 md:col-span-10">
+                    <h4 className="font-display font-semibold text-lg md:text-xl tracking-tight text-text-inverse">
                       {step.title}
                     </h4>
-                    <p className="mt-2 text-cream/70 max-w-2xl text-pretty">
+                    <p className="mt-1 text-sm md:text-base text-text-inverseMuted max-w-2xl text-pretty">
                       {step.body}
                     </p>
                   </div>
@@ -109,13 +238,13 @@ const FounderSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-24 md:mt-32 flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-cream-100/10 pt-12">
-          <p className="font-display text-2xl md:text-3xl tracking-tight max-w-xl text-cream">
+        <div className="mt-20 md:mt-28 flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-ink-500 pt-10">
+          <p className="font-display text-2xl md:text-3xl tracking-tight text-text-inverse max-w-xl text-balance">
             Want the long-form version? It lives on the founder page.
           </p>
           <Link
             href="/founder"
-            className="inline-flex items-center gap-2 self-start md:self-auto rounded-full bg-cream text-ink-900 font-medium px-5 py-3 text-sm hover:bg-electric-bright hover:text-ink-900 transition-colors"
+            className="inline-flex items-center gap-2 self-start md:self-auto rounded-lg bg-text-inverse text-ink font-medium px-5 py-3 text-sm hover:bg-blue hover:text-text-inverse transition-colors duration-300"
           >
             Read the founder page
             <ArrowUpRight className="h-4 w-4" />
@@ -123,138 +252,6 @@ const FounderSection = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-const CompanyCard = ({
-  company,
-  index,
-}: {
-  company: (typeof founderCompanies)[number];
-  index: number;
-}) => {
-  const isVoxx = company.id === "voxxhire";
-  return (
-    <motion.div
-      initial={{ y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="h-full"
-    >
-      <div
-        className="group relative h-full overflow-hidden rounded-3xl border border-cream-100/10 bg-ink-800 hover:border-electric/30 transition-colors duration-500"
-      >
-        {/* Background mark */}
-        <div
-          className={cn(
-            "absolute -right-12 -top-12 opacity-10 transition-opacity duration-700 group-hover:opacity-25"
-          )}
-          aria-hidden
-        >
-          {isVoxx ? (
-            <svg width="320" height="320" viewBox="0 0 64 64" fill="none">
-              {[0.95, 0.78, 0.58, 0.40, 0.28, 0.40, 0.58, 0.78, 0.95].map(
-                (h, i) => {
-                  const barH = h * 56;
-                  const y = 32 - barH / 2;
-                  const x = i * 7.5;
-                  return (
-                    <rect
-                      key={i}
-                      x={x}
-                      y={y}
-                      width={5.5}
-                      height={barH}
-                      rx={2.75}
-                      fill={i === 4 ? "#FF6B5B" : "#FBF7F1"}
-                    />
-                  );
-                }
-              )}
-            </svg>
-          ) : (
-            <svg width="320" height="320" viewBox="0 0 200 200" fill="none">
-              <circle cx="100" cy="100" r="96" fill="none" stroke="#2D6CF6" strokeWidth="0.7" />
-              <circle cx="100" cy="100" r="78" fill="none" stroke="#2D6CF6" strokeWidth="0.7" />
-              <circle cx="100" cy="100" r="20" fill="#2D6CF6" />
-              <circle cx="100" cy="22" r="2.5" fill="#2D6CF6" />
-              <circle cx="178" cy="100" r="2.5" fill="#2D6CF6" />
-              <circle cx="100" cy="178" r="2.5" fill="#2D6CF6" />
-              <circle cx="22" cy="100" r="2.5" fill="#2D6CF6" />
-            </svg>
-          )}
-        </div>
-
-        <div className="relative p-8 md:p-12 flex flex-col h-full">
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-cream/55">
-            <span>0{index + 1}</span>
-            <span className="h-px w-8 bg-cream/20" />
-            <span>{company.year}</span>
-          </div>
-
-          <h3 className="mt-6 font-display font-bold tracking-tightest text-display-md text-cream">
-            {company.name}
-          </h3>
-
-          <p className="mt-4 text-cream/70 max-w-md text-pretty">
-            {company.summary}
-          </p>
-
-          <ul className="mt-6 space-y-2 max-w-md">
-            {company.body.map((b, j) => (
-              <li
-                key={j}
-                className="text-sm text-cream/65 leading-relaxed flex gap-3"
-              >
-                <span className="text-electric-bright mt-1.5">·</span>
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {company.tech.map((t) => (
-              <span
-                key={t}
-                className="font-mono text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 rounded-full border border-cream-100/15 text-cream/65"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-
-          {/* Spacer pushes the footer to the bottom so cards align */}
-          <div className="flex-1 min-h-[1.5rem]" />
-
-          <div className="mt-8 pt-6 border-t border-cream-100/10 flex items-center justify-between gap-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-electric-bright">
-              {company.metric}
-            </span>
-            <div className="flex items-center gap-3">
-              {company.id === "voxxhire" && (
-                <Link
-                  href="/projects/voxxhire"
-                  className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-cream hover:text-electric-bright transition-colors"
-                >
-                  Case study
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-              )}
-              <Link
-                href={company.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-cream group-hover:text-electric-bright transition-colors"
-              >
-                Visit
-                <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:rotate-45" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
   );
 };
 

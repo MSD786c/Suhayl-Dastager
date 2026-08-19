@@ -167,6 +167,8 @@ export const ugcPackages = [
   {
     id: "starter",
     name: "UGC Starter",
+    tagline: "One organic-ready video to get a brand live.",
+    description: "A single, organic-ready short-form video to get a brand live.",
     best: "A single, organic-ready short-form video to get a brand live",
     deliverables: [
       "1 short-form video",
@@ -181,6 +183,8 @@ export const ugcPackages = [
   {
     id: "performance",
     name: "UGC Performance",
+    tagline: "Paid ad creative engineered for CTR.",
+    description: "Paid ad creative engineered for CTR with hook and CTA variants.",
     best: "Paid ad creative engineered for CTR with hook and CTA variants",
     deliverables: [
       "1 ad-focused video",
@@ -196,6 +200,8 @@ export const ugcPackages = [
   {
     id: "sprint",
     name: "Content Sprint",
+    tagline: "A coordinated batch of three distinct videos.",
+    description: "A coordinated batch of three distinct short-form videos.",
     best: "A coordinated batch of three distinct short-form videos",
     deliverables: [
       "3 short-form videos",
@@ -211,6 +217,8 @@ export const ugcPackages = [
   {
     id: "retainer",
     name: "Monthly Creator",
+    tagline: "Recurring production for brands that ship weekly.",
+    description: "Recurring monthly production for brands that ship weekly.",
     best: "Recurring monthly production for brands that ship weekly",
     deliverables: [
       "6 short-form videos per month",

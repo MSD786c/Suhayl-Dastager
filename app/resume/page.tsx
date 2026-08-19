@@ -31,18 +31,18 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="min-h-screen bg-canvas-warm text-ink-900">
+    <main className="min-h-screen bg-canvas text-ink">
       <Nav />
 
       <section className="pt-36 md:pt-44 pb-16">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-navy-900/10 pb-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border pb-10">
             <div>
               <div className="eyebrow mb-3">Résumé</div>
-              <h1 className="font-display font-bold tracking-tightest text-display-md text-ink-900 text-balance">
+              <h1 className="font-display font-bold tracking-tightest text-display-md text-ink text-balance">
                 Suhayl Dastager
               </h1>
-              <p className="mt-2 text-ink-900/65 text-lg">
+              <p className="mt-2 text-ink/65 text-lg">
                 AI Product Engineer · Founder · Tech Creator · Dubai, UAE
               </p>
             </div>
@@ -59,7 +59,7 @@ export default function ResumePage() {
           <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-10">
             <div className="md:col-span-8 space-y-10">
               <Block title="Summary">
-                <p className="text-ink-900/75 text-pretty">
+                <p className="text-ink/75 text-pretty">
                   AI & Computer Science graduate building the intersection of
                   products, companies, and content. Two-time founder (SM
                   Stratagem, VoxxHire), former data automation lead at Halliday
@@ -76,28 +76,28 @@ export default function ResumePage() {
                       className="grid grid-cols-12 gap-4"
                     >
                       <div className="col-span-12 md:col-span-4">
-                        <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500">
+                        <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted">
                           {e.duration}
                         </div>
-                        <div className="mt-1 font-display font-semibold text-lg text-ink-900">
+                        <div className="mt-1 font-display font-semibold text-lg text-ink">
                           {e.company}
                         </div>
                       </div>
                       <div className="col-span-12 md:col-span-8">
-                        <div className="font-display font-semibold text-lg text-ink-900">
+                        <div className="font-display font-semibold text-lg text-ink">
                           {e.role}
                         </div>
-                        <div className="text-sm text-navy-500">{e.location}</div>
-                        <p className="mt-2 text-ink-900/75 text-pretty">
+                        <div className="text-sm text-text-muted">{e.location}</div>
+                        <p className="mt-2 text-ink/75 text-pretty">
                           {e.summary}
                         </p>
                         <ul className="mt-3 space-y-1.5">
                           {e.bullets.map((b, i) => (
                             <li
                               key={i}
-                              className="text-sm text-ink-900/70 flex gap-3"
+                              className="text-sm text-ink/70 flex gap-3"
                             >
-                              <span className="mt-2 h-1 w-1 rounded-full bg-electric flex-shrink-0" />
+                              <span className="mt-2 h-1 w-1 rounded-full bg-blue flex-shrink-0" />
                               <span>{b}</span>
                             </li>
                           ))}
@@ -120,7 +120,7 @@ export default function ResumePage() {
                   ].map((a) => (
                     <li
                       key={a}
-                      className="rounded-2xl border border-navy-900/10 bg-white p-4 text-sm text-ink-900/80"
+                      className="rounded-2xl border border-border bg-white p-4 text-sm text-ink/80"
                     >
                       {a}
                     </li>
@@ -133,13 +133,13 @@ export default function ResumePage() {
               <Block title="Education">
                 {education.map((e, i) => (
                   <div key={i} className="mb-4 last:mb-0">
-                    <div className="font-display font-semibold text-ink-900">
+                    <div className="font-display font-semibold text-ink">
                       {e.degree}
                     </div>
-                    <div className="text-sm text-navy-500">
+                    <div className="text-sm text-text-muted">
                       {e.institution}
                     </div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500 mt-1">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted mt-1">
                       {e.duration}
                     </div>
                   </div>
@@ -151,12 +151,12 @@ export default function ResumePage() {
                   {certifications.map((c) => (
                     <li
                       key={c.name}
-                      className="rounded-xl border border-navy-900/10 bg-white p-3"
+                      className="rounded-xl border border-border bg-white p-3"
                     >
-                      <div className="text-sm font-semibold text-ink-900">
+                      <div className="text-sm font-semibold text-ink">
                         {c.name}
                       </div>
-                      <div className="text-xs text-navy-500">
+                      <div className="text-xs text-text-muted">
                         {c.issuer} · {c.date}
                       </div>
                     </li>
@@ -169,7 +169,7 @@ export default function ResumePage() {
                   {fullStack.map((s) => (
                     <span
                       key={s}
-                      className="font-mono text-[10px] uppercase tracking-[0.14em] px-2 py-1 rounded-full border border-navy-900/10 text-navy-500"
+                      className="font-mono text-[10px] uppercase tracking-[0.14em] px-2 py-1 rounded-full border border-border text-text-muted"
                     >
                       {s}
                     </span>
@@ -178,11 +178,11 @@ export default function ResumePage() {
               </Block>
 
               <Block title="Get in touch">
-                <ul className="space-y-2 text-sm text-ink-900/80">
+                <ul className="space-y-2 text-sm text-ink/80">
                   <li>
                     <Link
                       href={`mailto:${suhayl.email}`}
-                      className="hover:text-electric"
+                      className="hover:text-blue"
                     >
                       {suhayl.email}
                     </Link>
@@ -192,7 +192,7 @@ export default function ResumePage() {
                       href={suhayl.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 hover:text-electric"
+                      className="inline-flex items-center gap-1.5 hover:text-blue"
                     >
                       LinkedIn
                       <ArrowUpRight className="h-3 w-3" />
@@ -203,7 +203,7 @@ export default function ResumePage() {
                       href={suhayl.social.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 hover:text-electric"
+                      className="inline-flex items-center gap-1.5 hover:text-blue"
                     >
                       GitHub
                       <ArrowUpRight className="h-3 w-3" />
@@ -229,7 +229,7 @@ const Block = ({
   children: React.ReactNode;
 }) => (
   <section>
-    <h2 className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500 mb-4">
+    <h2 className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted mb-4">
       {title}
     </h2>
     {children}

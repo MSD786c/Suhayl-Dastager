@@ -2,30 +2,34 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowLeft } from "lucide-react";
-import { ugcPackages, ugcCaseStudies, suhayl } from "@/lib/data";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, ArrowLeft, Plus } from "lucide-react";
+import { ugcPackages, ugcCaseStudies } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 const UGCDetail = () => {
+  const [openPackage, setOpenPackage] = React.useState<string | null>(
+    ugcPackages[0]?.id ?? null
+  );
+
   return (
     <>
-      <section className="relative pt-36 md:pt-44 pb-16 md:pb-24 bg-canvas-warm">
+      <section className="relative pt-36 md:pt-44 pb-16 md:pb-24 bg-canvas">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-navy-500 hover:text-ink-900 transition-colors mb-6"
+            className="inline-flex items-center gap-2 arrow-link mb-6"
           >
-            <ArrowLeft className="h-3 w-3" />
+            <ArrowLeft className="h-3.5 w-3.5 arrow" />
             Suhayl Dastager
           </Link>
-          <div className="chapter mb-6">Creator · 01 / Create</div>
-          <h1 className="font-display font-bold tracking-tightest leading-[0.94] text-display-xl text-ink-900 text-balance">
+          <div className="eyebrow mb-6">Creator · 01 / Create</div>
+          <h1 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-ink text-balance">
             Tech content that
             <br />
-            <span className="text-coral quote-mark">doesn&apos;t feel like an ad.</span>
+            <span className="text-coral">doesn&apos;t feel like an ad.</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-xl text-ink-900/70 text-pretty">
+          <p className="mt-8 max-w-2xl text-xl text-text-secondary text-pretty">
             I create at the intersection of cars, technology, and founder life.
             The differentiator is simple: I don&apos;t just talk about software —
             I build it.
@@ -33,10 +37,10 @@ const UGCDetail = () => {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="py-12 md:py-16 border-y border-navy-900/10 bg-white">
+      {/* Categories — clean editorial row, not card grid */}
+      <section className="py-10 md:py-14 border-y border-border bg-canvas">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-y-4">
             {[
               "Software",
               "Automotive",
@@ -44,15 +48,15 @@ const UGCDetail = () => {
               "Consumer Tech",
               "Founder Content",
               "Brand Work",
-            ].map((cat) => (
-              <div
-                key={cat}
-                className="rounded-2xl border border-navy-900/10 p-4 text-center"
-              >
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500">
-                  Category
+            ].map((cat, i) => (
+              <div key={cat}>
+                <div
+                  className="font-mono text-[10px] uppercase tracking-monoWide text-text-muted"
+                  style={{ fontVariantNumeric: "tabular-nums" }}
+                >
+                  0{i + 1}
                 </div>
-                <div className="mt-2 font-display font-semibold text-ink-900">
+                <div className="mt-1 font-display font-semibold text-lg text-ink">
                   {cat}
                 </div>
               </div>
@@ -61,71 +65,83 @@ const UGCDetail = () => {
         </div>
       </section>
 
-      {/* Case studies */}
-      <section className="py-20 md:py-32 bg-canvas-warm">
+      {/* Case studies — editorial rows */}
+      <section className="py-20 md:py-32 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">
             <div className="col-span-12 md:col-span-7">
-              <div className="eyebrow mb-3">Selected work</div>
-              <h2 className="font-display font-bold tracking-tightest text-display-md text-ink-900 text-balance">
+              <div className="eyebrow mb-5">Selected work</div>
+              <h2 className="font-display font-bold tracking-tighter text-display-md text-ink text-balance">
                 Brand work, with receipts.
               </h2>
             </div>
           </div>
 
-          <div className="space-y-12">
-            {ugcCaseStudies.map((cs) => (
-              <article
+          <div className="border-t border-border">
+            {ugcCaseStudies.map((cs, i) => (
+              <motion.article
                 key={cs.slug}
-                className="rounded-3xl border border-navy-900/10 bg-white p-8 md:p-10"
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="border-b border-border"
               >
-                <div className="grid grid-cols-12 gap-6">
+                <div className="grid grid-cols-12 gap-6 py-8 md:py-10">
                   <div className="col-span-12 md:col-span-4">
-                    <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500">
+                    <div
+                      className="font-mono text-[10px] uppercase tracking-monoWide text-coral"
+                      style={{ fontVariantNumeric: "tabular-nums" }}
+                    >
+                      0{i + 1} · {cs.year}
+                    </div>
+                    <div className="mt-1 font-mono text-[10px] uppercase tracking-monoWide text-text-muted">
                       {cs.client} · {cs.industry}
                     </div>
-                    <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500/60">
-                      {cs.year}
-                    </div>
-                    <h3 className="mt-4 font-display font-bold text-2xl tracking-tight text-ink-900">
+                    <h3 className="mt-4 font-display font-bold text-2xl md:text-3xl tracking-tighter leading-[1.05] text-ink text-balance">
                       {cs.brief}
                     </h3>
-                    <p className="mt-3 text-sm text-navy-500">{cs.role}</p>
+                    <p className="mt-2 text-sm text-text-muted">{cs.role}</p>
                   </div>
                   <div className="col-span-12 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500 mb-2">
+                      <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-muted mb-2">
                         Concept
                       </div>
-                      <p className="text-ink-900/75 text-pretty">
+                      <p className="text-text-secondary text-pretty">
                         {cs.concept}
                       </p>
                     </div>
                     <div>
-                      <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500 mb-2">
+                      <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-muted mb-2">
                         Deliverables
                       </div>
                       <ul className="space-y-1.5">
-                        {cs.deliverables.map((d, i) => (
+                        {cs.deliverables.map((d, idx) => (
                           <li
-                            key={i}
-                            className="text-sm text-ink-900/75 flex gap-2"
+                            key={idx}
+                            className="text-sm text-text-secondary flex gap-2"
                           >
-                            <span className="mt-2 h-1 w-1 rounded-full bg-coral flex-shrink-0" />
+                            <span
+                              className="font-mono text-[10px] text-coral mt-1.5 shrink-0"
+                              style={{ fontVariantNumeric: "tabular-nums" }}
+                            >
+                              ·
+                            </span>
                             {d}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500 mb-2">
+                      <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-muted mb-2">
                         Results
                       </div>
                       <ul className="space-y-1.5">
-                        {cs.results.map((r, i) => (
+                        {cs.results.map((r, idx) => (
                           <li
-                            key={i}
-                            className="text-sm text-ink-900 font-medium"
+                            key={idx}
+                            className="text-sm text-ink font-medium"
                           >
                             {r}
                           </li>
@@ -133,66 +149,123 @@ const UGCDetail = () => {
                       </ul>
                     </div>
                     <div>
-                      <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500 mb-2">
+                      <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-muted mb-2">
                         Usage
                       </div>
-                      <p className="text-ink-900/75">{cs.usage}</p>
+                      <p className="text-text-secondary">{cs.usage}</p>
                     </div>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Packages */}
-      <section className="py-20 md:py-32 bg-white">
+      {/* Packages — editorial rows, accordion */}
+      <section className="py-20 md:py-32 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">
             <div className="col-span-12 md:col-span-7">
-              <div className="eyebrow mb-3">Packages</div>
-              <h2 className="font-display font-bold tracking-tightest text-display-md text-ink-900 text-balance">
+              <div className="eyebrow mb-5">Packages</div>
+              <h2 className="font-display font-bold tracking-tighter text-display-md text-ink text-balance">
                 Pick a shape, scope against the brief.
               </h2>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {ugcPackages.map((p, i) => (
-              <div
-                key={p.id}
-                className="rounded-2xl border border-navy-900/10 p-6 md:p-8 hover:border-coral/40 hover:shadow-[0_30px_60px_-30px_rgba(255,107,91,0.4)] transition-all duration-500"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500">
-                    Package 0{i + 1}
-                  </div>
+          <div className="border-t border-border">
+            {ugcPackages.map((pkg, i) => {
+              const isOpen = openPackage === pkg.id;
+              return (
+                <div key={pkg.id} className="border-b border-border">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setOpenPackage((cur) =>
+                        cur === pkg.id ? null : pkg.id
+                      )
+                    }
+                    aria-expanded={isOpen}
+                    className="w-full text-left py-6 md:py-8 group"
+                  >
+                    <div className="grid grid-cols-12 gap-4 items-baseline">
+                      <div
+                        className="col-span-2 md:col-span-1 font-mono text-[10px] uppercase tracking-monoWide text-coral"
+                        style={{ fontVariantNumeric: "tabular-nums" }}
+                      >
+                        0{i + 1}
+                      </div>
+                      <div className="col-span-10 md:col-span-5">
+                        <h3 className="font-display font-bold text-2xl md:text-3xl tracking-tighter leading-[1.05] text-ink group-hover:translate-x-1 transition-transform duration-500 ease-editorial">
+                          {pkg.name}
+                        </h3>
+                        <div className="mt-1 font-mono text-[10px] uppercase tracking-monoWide text-text-muted">
+                          {pkg.tagline}
+                        </div>
+                      </div>
+                      <div className="hidden md:block md:col-span-4 text-text-secondary text-pretty">
+                        {pkg.best}
+                      </div>
+                      <div className="col-span-12 md:col-span-2 flex md:justify-end items-center gap-2 font-mono text-[11px] uppercase tracking-monoWide">
+                        <span className="text-ink">
+                          {pkg.deliverables.length} deliverables
+                        </span>
+                        <Plus
+                          className={cn(
+                            "h-3.5 w-3.5 transition-transform duration-300",
+                            isOpen ? "rotate-45" : ""
+                          )}
+                        />
+                      </div>
+                    </div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="grid grid-cols-12 gap-4 pb-6 md:pb-8">
+                          <div className="col-span-12 md:col-span-6 md:col-start-3">
+                            <ul className="space-y-2">
+                              {pkg.deliverables.map((d) => (
+                                <li
+                                  key={d}
+                                  className="text-text-secondary text-pretty flex gap-3 leading-relaxed"
+                                >
+                                  <span
+                                    className="font-mono text-[10px] text-coral mt-1.5 shrink-0"
+                                    style={{ fontVariantNumeric: "tabular-nums" }}
+                                  >
+                                    ·
+                                  </span>
+                                  <span>{d}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="col-span-12 md:col-span-3 md:col-start-9 flex md:justify-end">
+                            <Link
+                              href={`/contact?type=ugc&package=${pkg.id}`}
+                              className="inline-flex items-center gap-2 self-start md:self-end rounded-lg bg-ink text-text-inverse font-medium px-5 py-3 text-sm hover:bg-coral transition-colors duration-300"
+                            >
+                              {pkg.cta}
+                              <ArrowUpRight className="h-4 w-4" />
+                            </Link>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-                <h3 className="font-display font-bold text-2xl tracking-tight text-ink-900">
-                  {p.name}
-                </h3>
-                <p className="mt-2 text-sm text-ink-900/65">{p.best}</p>
-                <ul className="mt-5 space-y-1.5">
-                  {p.deliverables.map((d) => (
-                    <li
-                      key={d}
-                      className="text-sm text-ink-900/75 flex gap-2"
-                    >
-                      <span className="mt-2 h-1 w-1 rounded-full bg-coral flex-shrink-0" />
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={`/contact?type=ugc&package=${p.id}`}
-                  className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-coral hover:gap-3 transition-all"
-                >
-                  {p.cta}
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

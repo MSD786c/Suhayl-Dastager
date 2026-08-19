@@ -51,31 +51,31 @@ export default async function UGCCaseStudy({
   if (!cs) return notFound();
 
   return (
-    <main className="min-h-screen bg-canvas-warm text-ink-900">
+    <main className="min-h-screen bg-canvas text-ink">
       <Nav />
 
       <article className="pt-36 md:pt-44 pb-24">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <Link
             href="/ugc"
-            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-navy-500 hover:text-ink-900 transition-colors mb-6"
+            className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted hover:text-ink transition-colors mb-6"
           >
             <ArrowLeft className="h-3 w-3" />
             UGC
           </Link>
 
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] mb-4 text-navy-500">
+          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] mb-4 text-text-muted">
             <span>{cs.client}</span>
-            <span className="text-navy-500/40">·</span>
+            <span className="text-text-muted/40">·</span>
             <span>{cs.industry}</span>
-            <span className="text-navy-500/40">·</span>
+            <span className="text-text-muted/40">·</span>
             <span>{cs.year}</span>
           </div>
 
           <h1 className="font-display font-bold tracking-tightest leading-[0.96] text-display-lg text-balance">
             {cs.brief}
           </h1>
-          <p className="mt-6 text-xl text-ink-900/70 max-w-2xl text-pretty">
+          <p className="mt-6 text-xl text-ink/70 max-w-2xl text-pretty">
             {cs.role}
           </p>
         </div>
@@ -105,7 +105,7 @@ export default async function UGCCaseStudy({
                   {cs.results.map((r, i) => (
                     <li
                       key={i}
-                      className="font-display font-semibold text-lg text-ink-900"
+                      className="font-display font-semibold text-lg text-ink"
                     >
                       {r}
                     </li>
@@ -117,9 +117,9 @@ export default async function UGCCaseStudy({
         </div>
 
         <div className="mt-32 mx-auto max-w-[1100px] px-6 sm:px-8">
-          <div className="border-t border-navy-900/10 pt-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="border-t border-border pt-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500">
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted">
                 Up next
               </div>
               <div className="mt-2 font-display font-bold text-2xl tracking-tight">
@@ -150,10 +150,10 @@ const Meta = ({
   body: string;
 }) => (
   <div>
-    <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500">
+    <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted">
       {label}
     </div>
-    <div className="mt-1.5 text-base text-ink-900">{body}</div>
+    <div className="mt-1.5 text-base text-ink">{body}</div>
   </div>
 );
 
@@ -165,10 +165,10 @@ const Section = ({
   children: React.ReactNode;
 }) => (
   <section>
-    <h2 className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500 mb-3">
+    <h2 className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted mb-3">
       {title}
     </h2>
-    <div className="text-lg leading-relaxed text-ink-900/80 text-pretty">
+    <div className="text-lg leading-relaxed text-ink/80 text-pretty">
       {children}
     </div>
   </section>

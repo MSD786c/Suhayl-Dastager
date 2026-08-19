@@ -150,7 +150,7 @@ const ContactExperience = () => {
   return (
     <section
       id="contact"
-      className="relative py-28 md:py-40 bg-canvas-warm"
+      className="relative py-28 md:py-40 bg-canvas"
       aria-label="Get in touch"
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
@@ -158,22 +158,22 @@ const ContactExperience = () => {
         <div className="grid grid-cols-12 gap-6 mb-12 md:mb-20">
           <div className="col-span-12 md:col-span-7">
             <div className="eyebrow mb-4">What can we create together?</div>
-            <h2 className="font-display font-bold tracking-tightest leading-[0.95] text-display-lg text-ink-900 text-balance">
+            <h2 className="font-display font-bold tracking-tightest leading-[0.95] text-display-lg text-ink text-balance">
               The faster you tell me
               <br />
-              <span className="text-electric">why you&apos;re here,</span> the
+              <span className="text-blue">why you&apos;re here,</span> the
               tighter my reply.
             </h2>
           </div>
           <div className="col-span-12 md:col-span-4 md:col-start-9 self-end">
-            <p className="text-ink-900/70 text-pretty">
+            <p className="text-ink/70 text-pretty">
               Pick the path that matches your intent. The form adapts.
             </p>
-            <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-navy-500">
+            <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">
               Or email{" "}
               <Link
                 href={`mailto:${suhayl.email}`}
-                className="text-ink-900 hover:text-electric transition-colors"
+                className="text-ink hover:text-blue transition-colors"
               >
                 {suhayl.email}
               </Link>
@@ -183,7 +183,7 @@ const ContactExperience = () => {
 
         {/* Step 1 — type */}
         <div className="mb-12">
-          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500 mb-4">
+          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted mb-4">
             01 — What brings you here?
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -194,16 +194,16 @@ const ContactExperience = () => {
                 className={cn(
                   "text-left rounded-2xl border p-4 transition-all duration-300",
                   enquiryType === t.id
-                    ? "bg-ink-900 text-cream border-ink-900"
-                    : "bg-white border-navy-900/10 hover:border-ink-900/30"
+                    ? "bg-ink text-text-inverse border-ink-900"
+                    : "bg-white border-border hover:border-ink-900/30"
                 )}
               >
                 <div
                   className={cn(
                     "grid place-items-center h-8 w-8 rounded-full mb-3",
                     enquiryType === t.id
-                      ? "bg-cream/15 text-cream"
-                      : "bg-navy-900/8 text-navy-500"
+                      ? "bg-canvas/15 text-text-inverse"
+                      : "bg-ink/8 text-text-muted"
                   )}
                 >
                   {t.icon}
@@ -214,7 +214,7 @@ const ContactExperience = () => {
                 <div
                   className={cn(
                     "mt-1.5 text-[11px] leading-snug",
-                    enquiryType === t.id ? "text-cream/65" : "text-navy-500"
+                    enquiryType === t.id ? "text-text-inverse/65" : "text-text-muted"
                   )}
                 >
                   {t.description}
@@ -236,7 +236,7 @@ const ContactExperience = () => {
               onSubmit={onSubmit}
               className="grid grid-cols-1 md:grid-cols-12 gap-4"
             >
-              <div className="md:col-span-12 mb-2 font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500">
+              <div className="md:col-span-12 mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted">
                 02 — The details
               </div>
 
@@ -270,8 +270,8 @@ const ContactExperience = () => {
                 </div>
               )}
 
-              <div className="md:col-span-12 mt-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-navy-900/10 pt-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500/70">
+              <div className="md:col-span-12 mt-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-border pt-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted/70">
                   Replies usually within 24–48h.
                 </p>
                 <button
@@ -298,9 +298,9 @@ const ContactExperience = () => {
               key="empty"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="rounded-3xl border border-dashed border-navy-900/15 bg-white/40 p-12 text-center"
+              className="rounded-3xl border border-dashed border-border bg-white/40 p-12 text-center"
             >
-              <p className="text-ink-900/60">
+              <p className="text-ink/60">
                 Pick a category above to unlock the right form.
               </p>
             </motion.div>
@@ -591,7 +591,7 @@ const Field = ({
     <div className="flex flex-col gap-2">
       <label
         htmlFor={id}
-        className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500"
+        className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted"
       >
         {label}
         {required ? <span className="text-coral"> *</span> : null}
@@ -605,7 +605,7 @@ const Field = ({
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           rows={5}
-          className="w-full rounded-2xl border border-navy-900/10 bg-white px-4 py-3 text-base text-ink-900 placeholder:text-navy-500/50 focus:border-electric focus:ring-2 focus:ring-electric/15 outline-none transition-colors"
+          className="w-full rounded-2xl border border-border bg-white px-4 py-3 text-base text-ink placeholder:text-text-muted/50 focus:border-blue focus:ring-2 focus:ring-blue/15 outline-none transition-colors"
         />
       ) : (
         <input
@@ -616,7 +616,7 @@ const Field = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className="w-full rounded-full border border-navy-900/10 bg-white px-5 py-3 text-base text-ink-900 placeholder:text-navy-500/50 focus:border-electric focus:ring-2 focus:ring-electric/15 outline-none transition-colors"
+          className="w-full rounded-full border border-border bg-white px-5 py-3 text-base text-ink placeholder:text-text-muted/50 focus:border-blue focus:ring-2 focus:ring-blue/15 outline-none transition-colors"
         />
       )}
     </div>
@@ -639,7 +639,7 @@ const Select = ({
     <div className="flex flex-col gap-2">
       <label
         htmlFor={id}
-        className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-500"
+        className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted"
       >
         {label}
       </label>
@@ -647,7 +647,7 @@ const Select = ({
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-full border border-navy-900/10 bg-white px-5 py-3 text-base text-ink-900 focus:border-electric focus:ring-2 focus:ring-electric/15 outline-none transition-colors appearance-none"
+        className="w-full rounded-full border border-border bg-white px-5 py-3 text-base text-ink focus:border-blue focus:ring-2 focus:ring-blue/15 outline-none transition-colors appearance-none"
       >
         <option value="">Choose…</option>
         {options.map((o) => (
@@ -664,7 +664,7 @@ const SuccessState = () => {
   return (
     <section
       id="contact"
-      className="relative py-28 md:py-40 bg-canvas-warm"
+      className="relative py-28 md:py-40 bg-canvas"
       aria-label="Message received"
     >
       <div className="mx-auto max-w-3xl px-6 sm:px-8 text-center">
@@ -672,7 +672,7 @@ const SuccessState = () => {
           initial={{ scale: 0, rotate: -45 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: "spring", duration: 0.8, bounce: 0.4 }}
-          className="mx-auto grid place-items-center h-20 w-20 rounded-full bg-electric text-white"
+          className="mx-auto grid place-items-center h-20 w-20 rounded-full bg-blue text-white"
         >
           <CheckCircle2 className="h-9 w-9" />
         </motion.div>
@@ -680,7 +680,7 @@ const SuccessState = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mt-10 font-display font-bold tracking-tightest text-display-md text-ink-900"
+          className="mt-10 font-display font-bold tracking-tightest text-display-md text-ink"
         >
           Message received.
         </motion.h2>
@@ -688,7 +688,7 @@ const SuccessState = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="mt-4 text-lg text-ink-900/70 text-pretty"
+          className="mt-4 text-lg text-ink/70 text-pretty"
         >
           I&apos;ll be in touch. In the meantime, see what I&apos;m building.
         </motion.p>

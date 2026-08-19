@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function ContactRoute() {
   return (
-    <main className="min-h-screen bg-canvas-warm text-ink-900">
+    <main className="min-h-screen bg-canvas text-ink">
       <Nav />
       <ContactExperience />
       <Footer />

@@ -5,8 +5,8 @@ export const suhayl = {
   fullName: "Suhayl Dastager",
   preferredName: "Suhayl",
   initials: "SD",
-  positioning: "AI Product Engineer. Founder. Tech Creator.",
-  statement: "I build technology, companies, and content around both.",
+  positioning: "Founder. AI Product Engineer. Tech Creator.",
+  statement: "I build technology, companies & content around both.",
   roles: ["AI Product Engineer", "Founder", "Tech Creator"],
   location: "Dubai, United Arab Emirates",
   email: "dastagersuhayl@gmail.com",
@@ -27,9 +27,9 @@ export const suhayl = {
     url: "https://suhayl-dastager.me",
     name: "Suhayl Dastager",
     title:
-      "Suhayl Dastager — AI Product Engineer, Founder & Tech Creator",
+      "Suhayl Dastager — Founder, AI Product Engineer & Tech Creator",
     description:
-      "Dubai-based AI product engineer, founder of SM Stratagem and VoxxHire, and technology creator. Explore my products, engineering work, creator portfolio, and collaborations.",
+      "Dubai-based founder, AI product engineer and technology creator. Explore what Suhayl is building, his professional work, creator portfolio and collaborations.",
     ogImage: "/og/suhayl-og.svg",
   },
 
@@ -65,42 +65,45 @@ export const suhayl = {
 } as const;
 
 export const identity = {
-  concept: "Three Sides. One Person.",
+  concept: "Three doors. One person.",
   pillars: [
-    {
-      id: "create",
-      label: "Create",
-      number: "01",
-      tagline: "Tech content that doesn't feel like an ad.",
-      description:
-        "UGC at the intersection of cars, technology, and founder life. I don't just talk about software — I build it.",
-      focus: ["Automotive", "Software", "AI", "Consumer Tech", "Founder Life"],
-      href: "/ugc",
-      cta: "Creator Portfolio",
-      imageKey: "driver",
-    },
     {
       id: "build",
       label: "Build",
-      number: "02",
-      tagline: "Building products from Dubai.",
+      number: "01",
+      tagline: "What I'm building",
       description:
-        "Founder of SM Stratagem. Co-built VoxxHire, an AI recruitment platform for graduates and recruiters.",
+        "SM Stratagem, VoxxHire and the products I'm working on.",
       focus: ["SM Stratagem", "VoxxHire", "Applied AI", "Custom Software"],
       href: "/founder",
-      cta: "Founder Journey",
+      cta: "Founder Story",
+      accent: "blue",
       imageKey: "workspace",
     },
     {
-      id: "ship",
-      label: "Ship",
-      number: "03",
-      tagline: "Engineering that connects to business.",
+      id: "create",
+      label: "Create",
+      number: "02",
+      tagline: "UGC & content",
       description:
-        "AI · Product · Automation · Engineering · Data. I scope, design, build, and ship systems that move metrics.",
+        "Cars, technology, software and content that doesn't feel like an ad.",
+      focus: ["Automotive", "Software", "AI", "Consumer Tech", "Founder Life"],
+      href: "/ugc",
+      cta: "Creator Portfolio",
+      accent: "coral",
+      imageKey: "driver",
+    },
+    {
+      id: "work",
+      label: "Work",
+      number: "03",
+      tagline: "Why hire me",
+      description:
+        "AI, product engineering, automation, analytics and execution.",
       focus: ["AI", "Product Engineering", "Automation", "Data", "Strategy"],
       href: "/work",
       cta: "See Why",
+      accent: "blue",
       imageKey: "headshot",
     },
   ],
@@ -299,22 +302,22 @@ export const certifications = [
 export const careerProgression = [
   {
     label: "Marketing",
-    body: "Attention. The art of getting someone to stop scrolling.",
+    body: "Learning what gets attention.",
   },
   {
-    label: "Analytics",
-    body: "Understanding behaviour. Why did that work?",
+    label: "Data",
+    body: "Learning how to measure it.",
   },
   {
     label: "Automation",
-    body: "Removing friction. Systems that run themselves.",
+    body: "Removing repetitive work.",
   },
   {
     label: "AI + Product",
-    body: "Building systems that think, predict, and inform.",
+    body: "Building the system.",
   },
   {
     label: "Founder",
-    body: "Owning the entire problem — not just the slice you were hired for.",
+    body: "Owning the whole problem.",
   },
 ] as const;

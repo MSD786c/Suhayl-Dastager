@@ -1,6 +1,5 @@
 import Nav from "@/components/navigation";
 import Hero from "@/components/hero";
-import { HeroMetrics } from "@/components/hero-metrics";
 import ThreeDoors from "@/components/three-doors";
 import UGCSection from "@/components/ugc-section";
 import FounderSection from "@/components/founder-section";
@@ -13,10 +12,9 @@ import Footer from "@/components/footer";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-canvas-warm text-ink-900">
+    <main className="min-h-screen bg-canvas text-ink">
       <Nav />
       <Hero />
-      <HeroMetrics />
       <ThreeDoors />
       <UGCSection />
       <FounderSection />
