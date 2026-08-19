@@ -35,6 +35,26 @@ const FounderDeepDive = () => {
                 Both built from Dubai. Both solving real problems I&apos;ve
                 personally seen fail. Neither is a side project.
               </p>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <a
+                  href={suhayl.social.smStratagem}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-lg bg-blue text-text-inverse font-medium px-5 py-2.5 text-sm hover:bg-blue-deep transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950"
+                >
+                  Visit SM Stratagem
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+                <a
+                  href={suhayl.social.voxxhire}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-lg bg-coral text-text-inverse font-medium px-5 py-2.5 text-sm hover:bg-coral-deep transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950"
+                >
+                  Visit VoxxHire
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              </div>
             </div>
             <div className="col-span-12 md:col-span-7">
               <motion.div
