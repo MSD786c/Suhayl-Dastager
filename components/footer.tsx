@@ -6,6 +6,10 @@ import Image from "next/image";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { suhayl } from "@/lib/personal-brand";
+import {
+  TextHoverEffect,
+  FooterBackgroundGradient,
+} from "@/components/ui/hover-footer";
 
 const CYCLING_VERBS = [
   "FOUNDS.",
@@ -182,8 +186,21 @@ const Footer = () => {
       </section>
 
       {/* ── FOOTER GRID ────────────────────────────────────────────────── */}
-      <div className="border-t border-ink-500/60">
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-12 md:py-14 grid grid-cols-2 md:grid-cols-12 gap-8">
+      <div className="relative border-t border-ink-500/60 overflow-hidden isolate">
+        <FooterBackgroundGradient />
+        {/* Big editorial "SUHAYL" hover-effect watermark on the right,
+            sitting behind the grid content. Same 16:9 viewBox as the source
+            component, scaled to ~40% of the section's right side. */}
+        <div
+          aria-hidden
+          className="pointer-events-auto absolute inset-y-0 right-0 hidden lg:flex items-center justify-end w-[58%]"
+        >
+          <TextHoverEffect
+            text="SUHAYL"
+            className="h-full w-full opacity-90"
+          />
+        </div>
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 sm:px-8 py-12 md:py-14 grid grid-cols-2 md:grid-cols-12 gap-8">
           <div className="col-span-2 md:col-span-4">
             <div className="font-display font-bold text-xl tracking-tighter">
               Suhayl Dastager
