@@ -75,7 +75,12 @@ const FounderSection = () => {
                     </p>
 
                     {/* Inline image of the product if we have one — logo for SM Stratagem, portrait for VoxxHire */}
-                    <div className="mt-6 relative aspect-[4/3] rounded-xl overflow-hidden bg-ink-800">
+                    <div
+                      className={cn(
+                        "mt-6 relative rounded-xl overflow-hidden bg-ink-800",
+                        isVoxx ? "aspect-[4/3]" : "aspect-square"
+                      )}
+                    >
                       <Image
                         src={
                           isVoxx

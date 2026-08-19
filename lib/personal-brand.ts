@@ -50,8 +50,9 @@ export const suhayl = {
     },
     // Brand logos (premium, used in editorial contexts)
     brands: {
-      smStratagem: "/brand/sm-stratagem-logo.svg",
+      smStratagem: "/portfolio/sm-stratagem-logo.png",
       documentFlowAutomator: "/brand/document-flow-automator.svg",
+      ugcHero: "/portfolio/ugc-hero.png",
     },
   },
 

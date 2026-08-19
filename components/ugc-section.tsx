@@ -225,6 +225,19 @@ const UGCSection = () => {
   );
 };
 
+// Map reel.client → brand logo path. Falls back to null for unknown clients.
+const getBrandLogo = (client: string): string | null => {
+  const map: Record<string, string> = {
+    Parfumix: "/ugc/parfumix-logo.png",
+    "Al Amoudi Auto Spare Parts": "/ugc/alamoudi-logo.png",
+    Wrapsters: "/ugc/wrapsters-logo.png",
+    "Milano Italy SRL": "/ugc/milano-logo.png",
+    "Milano by Danube": "/ugc/milano-logo.png",
+    VoxxHire: "/ugc/voxxhire-logo.png",
+  };
+  return map[client] ?? null;
+};
+
 const ReelCard = ({
   reel,
   index,
@@ -238,6 +251,8 @@ const ReelCard = ({
   const [iframeFailed, setIframeFailed] = React.useState(false);
   const ref = React.useRef<HTMLButtonElement>(null);
   const embedUrl = toEmbedUrl(reel.url, reel.platform);
+  const logoSrc = getBrandLogo(reel.client);
+  const clientInitial = (reel.client?.[0] ?? "?").toUpperCase();
 
   React.useEffect(() => {
     if (!ref.current || typeof IntersectionObserver === "undefined") {
@@ -266,7 +281,7 @@ const ReelCard = ({
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-ink-900 ring-1 ring-border hover:ring-coral/50 block text-left w-full cursor-pointer transition-all duration-500"
+      className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-ink-900 ring-1 ring-border hover:ring-2 hover:ring-coral block text-left w-full cursor-pointer transition-all duration-300"
       aria-label={`Open ${reel.client} reel — ${reel.title}`}
     >
       {inView && embedUrl && !iframeFailed && (
@@ -299,14 +314,41 @@ const ReelCard = ({
         aria-hidden
       />
 
-      <div className="absolute top-2 left-2 right-2 z-[3] flex items-center justify-between pointer-events-none">
-        <span className="font-mono text-[8px] uppercase tracking-monoWide px-1.5 py-0.5 rounded-full bg-black/65 text-text-inverse backdrop-blur-md font-bold">
-          {reel.client}
-        </span>
-        <span className="font-mono text-[9px] uppercase tracking-monoWide rounded-full px-1.5 py-0.5 bg-black/65 text-text-inverse backdrop-blur-md flex items-center gap-0.5">
-          <Eye className="h-2.5 w-2.5" />
-          {formatViews(reel.views)}
-        </span>
+      {/* Top bar: brand logo (left) + prominent view count (right) */}
+      <div className="absolute top-2 left-2 right-2 z-[3] flex items-start justify-between gap-2 pointer-events-none">
+        {/* Brand logo pill */}
+        <div className="grid place-items-center h-8 w-8 md:h-9 md:w-9 rounded-full bg-white/90 backdrop-blur-md ring-1 ring-black/10 shadow-sm overflow-hidden shrink-0">
+          {logoSrc ? (
+            <Image
+              src={logoSrc}
+              alt={`${reel.client} logo`}
+              width={32}
+              height={32}
+              className="h-5 w-5 md:h-6 md:w-6 object-contain"
+            />
+          ) : (
+            <span className="font-display font-bold text-[11px] md:text-xs text-ink leading-none">
+              {clientInitial}
+            </span>
+          )}
+        </div>
+
+        {/* View count — big, bold, focal */}
+        <div className="flex flex-col items-end leading-none">
+          <span
+            className="flex items-center gap-1 font-display font-bold text-2xl md:text-3xl tracking-tighter text-text-inverse"
+            style={{
+              fontVariantNumeric: "tabular-nums",
+              textShadow: "0 1px 6px rgba(0,0,0,0.55)",
+            }}
+          >
+            <Eye className="h-3.5 w-3.5 md:h-4 md:w-4 -mt-0.5" />
+            {formatViews(reel.views)}
+          </span>
+          <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-monoWide text-text-inverse/85 mt-0.5">
+            views
+          </span>
+        </div>
       </div>
 
       {!inView && (

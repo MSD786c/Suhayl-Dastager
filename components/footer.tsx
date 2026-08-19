@@ -3,7 +3,49 @@
 import * as React from "react";
 import Link from "next/link";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { suhayl } from "@/lib/personal-brand";
+
+const CYCLING_VERBS = [
+  "FOUNDS.",
+  "BUILDS.",
+  "ORCHESTRATES.",
+  "CREATES.",
+  "DESIGNS.",
+  "CODES.",
+] as const;
+
+const CyclingVerb = () => {
+  const [index, setIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % CYCLING_VERBS.length);
+    }, 1200);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span
+      aria-hidden="true"
+      className="relative inline-grid whitespace-nowrap align-baseline"
+      style={{ minWidth: "12ch" }}
+    >
+      <AnimatePresence initial={false}>
+        <motion.span
+          key={CYCLING_VERBS[index]}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 8 }}
+          transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+          className="col-start-1 row-start-1 text-coral"
+        >
+          {CYCLING_VERBS[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+};
 
 const Footer = () => {
   return (
@@ -12,7 +54,9 @@ const Footer = () => {
         {/* Mega editorial line */}
         <div className="mx-auto max-w-[1440px] px-6 sm:px-8 pt-24 md:pt-32 pb-6 md:pb-8">
           <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-text-inverse text-balance">
-            Suhayl Dastager.
+            Suhayl Dastager
+            <br />
+            <CyclingVerb />
           </h2>
           <p className="mt-6 max-w-md text-text-inverseMuted text-lg text-pretty">
             Founder, creator, engineer. Three equal ways to understand the work.

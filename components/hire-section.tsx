@@ -94,7 +94,7 @@ const HireSection = () => {
           </div>
         </div>
 
-        {/* Career arc — large editorial text, per brief */}
+        {/* Career arc — compact horizontal 5-column row */}
         <div className="mt-10 md:mt-14">
           <div className="grid grid-cols-12 gap-4 md:gap-6 mb-6 md:mb-8">
             <div className="md:col-span-4">
@@ -105,28 +105,30 @@ const HireSection = () => {
             </div>
           </div>
 
-          <div className="border-t border-border">
+          <div className="grid grid-cols-1 md:grid-cols-5 border-t border-border">
             {careerProgression.map((c, i) => (
               <motion.div
                 key={c.label}
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                className="grid grid-cols-12 gap-4 py-6 md:py-8 border-b border-border"
+                transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className={cn(
+                  "py-8 md:py-12 px-4 md:px-5",
+                  "border-b border-border last:border-b-0",
+                  "md:border-b-0 md:border-r md:last:border-r-0 md:border-border"
+                )}
               >
                 <div
-                  className="col-span-2 md:col-span-1 font-mono text-[10px] uppercase tracking-monoWide text-blue"
+                  className="font-mono text-[10px] uppercase tracking-monoWide text-blue mb-4 md:mb-6"
                   style={{ fontVariantNumeric: "tabular-nums" }}
                 >
                   0{i + 1}
                 </div>
-                <div className="col-span-10 md:col-span-4">
-                  <div className="font-display font-bold text-2xl md:text-3xl tracking-tighter leading-[1.05] text-ink uppercase">
-                    {c.label}
-                  </div>
+                <div className="font-display font-bold tracking-tighter text-xl md:text-2xl leading-[1.05] text-ink uppercase mb-3 md:mb-4 text-balance">
+                  {c.label}
                 </div>
-                <div className="col-span-12 md:col-span-7 text-text-secondary text-lg md:text-xl text-pretty">
+                <div className="text-sm md:text-base text-text-secondary leading-snug text-pretty">
                   {c.body}
                 </div>
               </motion.div>

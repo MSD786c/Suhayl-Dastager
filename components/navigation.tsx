@@ -42,6 +42,12 @@ const Nav = () => {
     return pathname?.startsWith(href);
   };
 
+  const isDarkPage =
+    pathname?.startsWith("/founder") ||
+    pathname?.startsWith("/ugc") ||
+    pathname?.startsWith("/about") ||
+    pathname?.startsWith("/work");
+
   return (
     <>
       <motion.header
@@ -68,7 +74,10 @@ const Nav = () => {
           >
             <span
               className={cn(
-                "transition-all duration-500",
+                "transition-colors duration-300",
+                isDarkPage
+                  ? "text-coral hover:text-text-inverse"
+                  : "text-ink hover:text-coral",
                 scrolled ? "text-base" : "text-lg"
               )}
             >
@@ -76,7 +85,10 @@ const Nav = () => {
             </span>
             <span
               className={cn(
-                "text-text-muted transition-all duration-500",
+                "transition-colors duration-300",
+                isDarkPage
+                  ? "text-coral hover:text-text-inverse"
+                  : "text-ink hover:text-coral",
                 scrolled ? "text-[10px]" : "text-[11px]"
               )}
               style={{ fontFamily: "var(--font-mono)" }}
