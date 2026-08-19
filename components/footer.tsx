@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { suhayl } from "@/lib/personal-brand";
@@ -51,168 +52,261 @@ const CyclingVerb = () => {
 const Footer = () => {
   return (
     <footer className="relative bg-ink-950 text-text-inverse overflow-hidden">
-      {/* Cinematic video background — loops muted, plays inline, hidden on reduce-motion + small viewports */}
-      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
+      {/* ── FILM HERO ────────────────────────────────────────────────────
+          Curated personal-brand film. 9:16 source video, displayed
+          inside a 16:9 editorial frame. Only the center vertical slice
+          of the source is visible — which is exactly where the face lives.
+      ─────────────────────────────────────────────────────────────── */}
+      <section className="relative w-full aspect-[16/9] max-h-[78vh] overflow-hidden bg-ink-950">
+        {/* Video layer */}
         <video
           src="/footer/footer-hero.mp4"
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster="/portfolio/work-hero.png"
-          className="absolute inset-0 h-full w-full object-cover opacity-60 hidden md:block motion-reduce:hidden"
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover object-top motion-reduce:hidden"
         />
-        {/* Cinematic dark gradient — keeps the editorial text legible over the footage */}
+        {/* Image fallback for prefers-reduced-motion or autoplay-blocked contexts */}
+        <ImageFallback />
+
+        {/* Cinematic dark gradient — bottom-weighted so the typography at the
+            bottom reads cleanly, top stays closer to the source lighting */}
         <div
+          aria-hidden
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(9,11,15,0.55) 0%, rgba(9,11,15,0.65) 35%, rgba(9,11,15,0.85) 100%)",
+              "linear-gradient(180deg, rgba(9,11,15,0.30) 0%, rgba(9,11,15,0.35) 40%, rgba(9,11,15,0.78) 80%, rgba(9,11,15,0.92) 100%)",
           }}
         />
-        {/* Subtle film grain via SVG turbulence — depth on the dark surface */}
+
+        {/* Edge blue + coral accent glows — controlled, not overpowering */}
         <div
-          className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 50% at 0% 50%, rgba(39,107,255,0.18) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 100% 50%, rgba(255,107,74,0.15) 0%, transparent 70%)",
+          }}
+        />
+
+        {/* Subtle film grain — true cinema feel, not AI gloss */}
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none"
           style={{
             backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
           }}
         />
-      </div>
 
-      <div className="relative z-10">
-        {/* Mega editorial line */}
-        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 pt-24 md:pt-32 pb-6 md:pb-8">
-          <h2 className="font-display font-bold tracking-tighter leading-[0.95] text-display-xl text-text-inverse text-balance">
-            Suhayl Dastager
-            <br />
-            <CyclingVerb />
-          </h2>
-          <p className="mt-6 max-w-md text-text-inverseMuted text-lg text-pretty">
-            Founder, creator, engineer. Three equal ways to understand the work.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-10 inline-flex items-center gap-2 rounded-lg bg-text-inverse text-ink font-medium px-6 py-3.5 text-sm hover:bg-coral hover:text-white transition-colors duration-300"
-          >
-            Let&apos;s Work Together
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
-
-        {/* Footer grid */}
-        <div className="border-t border-ink-500">
-          <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-12 grid grid-cols-2 md:grid-cols-12 gap-8">
-            <div className="col-span-2 md:col-span-4">
-              <div className="font-display font-bold text-xl tracking-tighter">
-                Suhayl Dastager
+        {/* Curated editorial typography — the film, in type */}
+        <div className="absolute inset-0 flex items-end">
+          <div className="relative w-full mx-auto max-w-[1440px] px-6 sm:px-8 pb-10 md:pb-16">
+            <div className="max-w-4xl">
+              {/* Pre-title — tiny mono, the meta line */}
+              <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted mb-4 md:mb-5 flex items-center gap-3">
+                <span className="h-1 w-1 rounded-full bg-coral" aria-hidden />
+                <span>The reel</span>
+                <span className="text-text-inverseMuted/30">/</span>
+                <span>Dubai · 2026</span>
               </div>
-              <p className="mt-2 text-sm text-text-inverseMuted max-w-xs">
-                Founder. AI Product Engineer. Tech Creator. Dubai, UAE.
+
+              {/* SUHAYL — big, white, anchored left */}
+              <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.86] text-text-inverse text-balance">
+                <span className="block text-[clamp(2.75rem,7.5vw,6.5rem)] font-display font-black">
+                  SUHAYL
+                </span>
+                <span className="block text-[clamp(1.75rem,4.5vw,3.5rem)] font-display font-bold text-text-inverse/80 mt-1">
+                  DASTAGER
+                </span>
+              </h2>
+
+              {/* Role line — small mono, the engineering signature */}
+              <div className="mt-5 md:mt-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-monoWide text-text-inverseMuted flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span>Founder</span>
+                <span className="text-text-inverseMuted/30">·</span>
+                <span>Engineer</span>
+                <span className="text-text-inverseMuted/30">·</span>
+                <span>Creator</span>
+                <span className="text-text-inverseMuted/30">·</span>
+                <span className="text-coral">Now</span>
+              </div>
+
+              {/* Cycling verb — coral, the heartbeat */}
+              <div className="mt-6 md:mt-8 font-display font-bold text-[clamp(1.5rem,3.5vw,2.5rem)] tracking-tighter leading-none">
+                <CyclingVerb />
+              </div>
+
+              {/* Final line — quiet, the long-form statement */}
+              <p className="mt-4 md:mt-5 max-w-xl text-sm md:text-base text-text-inverse/70 leading-relaxed text-pretty">
+                Building technology, companies &amp; content.
               </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+
+              {/* CTA — single, restrained, white pill on the dark stage */}
+              <div className="mt-7 md:mt-9 flex flex-wrap items-center gap-3">
                 <Link
-                  href={suhayl.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="arrow-link-light"
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 rounded-full bg-text-inverse text-ink font-medium px-5 py-2.5 text-sm hover:bg-coral hover:text-text-inverse transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950"
                 >
-                  LinkedIn
-                  <ArrowUpRight className="h-3 w-3 arrow" />
+                  Let&apos;s work together
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>
-                <span className="text-text-inverseMuted/30">/</span>
                 <Link
-                  href={suhayl.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="arrow-link-light"
+                  href="/resume"
+                  download
+                  className="group inline-flex items-center gap-2 rounded-full border border-text-inverse/25 text-text-inverse font-medium px-5 py-2.5 text-sm hover:border-text-inverse hover:bg-text-inverse/10 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950"
                 >
-                  Instagram
-                  <ArrowUpRight className="h-3 w-3 arrow" />
-                </Link>
-                <span className="text-text-inverseMuted/30">/</span>
-                <Link
-                  href={suhayl.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="arrow-link-light"
-                >
-                  GitHub
-                  <ArrowUpRight className="h-3 w-3 arrow" />
+                  Résumé
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>
               </div>
             </div>
-
-            <FooterCol
-              title="Suhayl"
-              items={[
-                { label: "Home", href: "/" },
-                { label: "About", href: "/about" },
-                { label: "Resume", href: "/resume" },
-              ]}
-            />
-            <FooterCol
-              title="Founder"
-              items={[
-                { label: "Founder", href: "/founder" },
-                { label: "Work", href: "/work" },
-                { label: "Archive", href: "/archive" },
-              ]}
-            />
-            <FooterCol
-              title="UGC"
-              items={[
-                { label: "UGC", href: "/ugc" },
-                { label: "Contact", href: "/contact" },
-                { label: "SM Stratagem", href: suhayl.social.smStratagem, external: true },
-                { label: "VoxxHire", href: suhayl.social.voxxhire, external: true },
-              ]}
-            />
-            <FooterCol
-              title="Work"
-              items={[
-                { label: "Experience", href: "/work" },
-                { label: "Projects", href: "/archive" },
-                { label: "Resume", href: "/resume" },
-              ]}
-            />
-            <FooterCol
-              title="Get in touch"
-              items={[
-                { label: suhayl.email, href: `mailto:${suhayl.email}` },
-                { label: "Dubai · UAE", href: undefined },
-              ]}
-            />
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-ink-500">
-          <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
-            <div>
-              © {new Date().getFullYear()} Suhayl Dastager · All rights reserved
+        {/* Top-right — the monogram badge, the mark */}
+        <div className="absolute top-6 right-6 sm:top-8 sm:right-8 hidden md:flex items-center gap-2.5">
+          <div className="grid place-items-center h-10 w-10 rounded-full bg-text-inverse/8 ring-1 ring-text-inverse/20 backdrop-blur-sm">
+            <span className="font-display font-bold text-text-inverse text-sm leading-none">SD</span>
+          </div>
+          <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted leading-tight">
+            <div>Suhayl Dastager</div>
+            <div className="text-text-inverseMuted/60">Personal · Brand · Film</div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOOTER GRID ────────────────────────────────────────────────── */}
+      <div className="border-t border-ink-500/60">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-12 md:py-14 grid grid-cols-2 md:grid-cols-12 gap-8">
+          <div className="col-span-2 md:col-span-4">
+            <div className="font-display font-bold text-xl tracking-tighter">
+              Suhayl Dastager
             </div>
-            <div className="flex items-center gap-4">
-              <Link href="/resume" className="hover:text-text-inverse">
-                Résumé
-              </Link>
-              <button
-                onClick={() =>
-                  window.scrollTo({ top: 0, behavior: "smooth" })
-                }
-                className="inline-flex items-center gap-2 hover:text-text-inverse"
+            <p className="mt-2 text-sm text-text-inverseMuted max-w-xs">
+              Founder. AI Product Engineer. Tech Creator. Dubai, UAE.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Link
+                href={suhayl.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="arrow-link-light"
               >
-                Back to top
-                <ArrowUp className="h-3 w-3" />
-              </button>
+                LinkedIn
+                <ArrowUpRight className="h-3 w-3 arrow" />
+              </Link>
+              <span className="text-text-inverseMuted/30">/</span>
+              <Link
+                href={suhayl.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="arrow-link-light"
+              >
+                Instagram
+                <ArrowUpRight className="h-3 w-3 arrow" />
+              </Link>
+              <span className="text-text-inverseMuted/30">/</span>
+              <Link
+                href={suhayl.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="arrow-link-light"
+              >
+                GitHub
+                <ArrowUpRight className="h-3 w-3 arrow" />
+              </Link>
             </div>
+          </div>
+
+          <FooterCol
+            title="Suhayl"
+            items={[
+              { label: "Home", href: "/" },
+              { label: "About", href: "/about" },
+              { label: "Resume", href: "/resume" },
+            ]}
+          />
+          <FooterCol
+            title="Founder"
+            items={[
+              { label: "Founder", href: "/founder" },
+              { label: "Work", href: "/work" },
+              { label: "Archive", href: "/archive" },
+            ]}
+          />
+          <FooterCol
+            title="UGC"
+            items={[
+              { label: "UGC", href: "/ugc" },
+              { label: "Contact", href: "/contact" },
+              { label: "SM Stratagem", href: suhayl.social.smStratagem, external: true },
+              { label: "VoxxHire", href: suhayl.social.voxxhire, external: true },
+            ]}
+          />
+          <FooterCol
+            title="Work"
+            items={[
+              { label: "Experience", href: "/work" },
+              { label: "Projects", href: "/archive" },
+              { label: "Resume", href: "/resume" },
+            ]}
+          />
+          <FooterCol
+            title="Get in touch"
+            items={[
+              { label: suhayl.email, href: `mailto:${suhayl.email}` },
+              { label: "Dubai · UAE", href: undefined },
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* ── BOTTOM BAR ─────────────────────────────────────────────────── */}
+      <div className="border-t border-ink-500/60">
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
+          <div>
+            © {new Date().getFullYear()} Suhayl Dastager · All rights reserved
+          </div>
+          <div className="flex items-center gap-4">
+            <Link href="/resume" className="hover:text-text-inverse">
+              Résumé
+            </Link>
+            <button
+              onClick={() =>
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }
+              className="inline-flex items-center gap-2 hover:text-text-inverse"
+            >
+              Back to top
+              <ArrowUp className="h-3 w-3" />
+            </button>
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
+const ImageFallback = () => (
+  // Shown when prefers-reduced-motion or autoplay is blocked. The poster
+  // already handles the still case; this just ensures the layered look stays.
+  <div aria-hidden className="absolute inset-0 motion-safe:hidden">
+    <Image
+      src="/portfolio/work-hero.png"
+      alt=""
+      fill
+      priority={false}
+      sizes="100vw"
+      className="object-cover object-top"
+    />
+  </div>
+);
 
 const FooterCol = ({
   title,
