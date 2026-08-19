@@ -1,209 +1,202 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { personalInfo } from '@/lib/data';
-import { Heart, Code, Coffee, Linkedin, Github, Mail, ArrowUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import * as React from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
+import { suhayl } from "@/lib/data";
+
+const verbs = ["builds", "creates", "films", "codes", "executes", "markets", "orchestrates"];
 
 const Footer = () => {
-  const preferredName = personalInfo.preferredName || personalInfo.name.split(' ')[0] || personalInfo.name;
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="relative bg-[#1A2730] text-white overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#E95D2C]/20 rounded-full mix-blend-multiply filter blur-xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#B0CEE2]/20 rounded-full mix-blend-multiply filter blur-xl"></div>
-      </div>
+    <footer className="relative bg-ink-900 text-cream-100 overflow-hidden">
+      <div className="absolute inset-0 grid-overlay opacity-100" aria-hidden />
+      <div
+        className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(45,108,246,0.2) 0%, rgba(45,108,246,0) 70%)",
+        }}
+        aria-hidden
+      />
 
-      <div className="relative z-10">
-        {/* Main Footer Content */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Left Column - Personal Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="text-2xl font-bold mb-4 gradient-text">
-                {preferredName} Dastager
-              </h3>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                AI & Computer Science graduate using automation, analytics, and product intuition to ship systems 
-                that make data useful. Always ready to tackle bold ideas with measurable impact.
+      <div className="relative">
+        {/* Mega headline with cycling verb */}
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 pt-24 md:pt-32 pb-12">
+          <h2 className="font-display font-bold tracking-tightest leading-[0.95] text-[clamp(2.5rem,9vw,8rem)] text-cream text-balance flex flex-wrap items-baseline gap-x-4 md:gap-x-6">
+            <span>Suhayl</span>
+            <span className="text-cream-100/35">·</span>
+            <CyclingVerb />
+          </h2>
+          <p className="mt-6 max-w-md text-cream/65 text-lg">
+            Products. Companies. Systems. Content. Pick the side that brought
+            you in.
+          </p>
+        </div>
+
+        {/* Footer grid */}
+        <div className="border-t border-cream-100/10">
+          <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-12 grid grid-cols-2 md:grid-cols-12 gap-8">
+            <div className="col-span-2 md:col-span-4">
+              <div className="font-display font-bold text-2xl tracking-tight">
+                Suhayl Dastager
+              </div>
+              <p className="mt-2 text-sm text-cream/60 max-w-xs">
+                AI Product Engineer. Founder. Tech Creator. Dubai, UAE.
               </p>
-              <div className="flex space-x-4">
-                <motion.a
-                  href={personalInfo.linkedin}
+              <div className="mt-6 flex gap-3">
+                <Link
+                  href={suhayl.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-[#0077b5] rounded-full hover:bg-[#005885] transition-colors duration-300"
+                  className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/60 hover:text-electric-bright"
                 >
-                  <Linkedin className="h-5 w-5 text-white" />
-                </motion.a>
-                <motion.a
-                  href={personalInfo.github}
+                  LinkedIn
+                </Link>
+                <span className="text-cream/20">·</span>
+                <Link
+                  href={suhayl.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-[#333333] rounded-full hover:bg-[#1a1a1a] dark:bg-[#6e6e6e] dark:hover:bg-[#555555] transition-colors duration-300"
+                  className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/60 hover:text-electric-bright"
                 >
-                  <Github className="h-5 w-5 text-white" />
-                </motion.a>
-                <motion.a
-                  href={`mailto:${personalInfo.email}`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-[#B0CEE2]/30 rounded-full hover:bg-[#B0CEE2]/50 transition-colors duration-300"
+                  Instagram
+                </Link>
+                <span className="text-cream/20">·</span>
+                <Link
+                  href={suhayl.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/60 hover:text-electric-bright"
                 >
-                  <Mail className="h-5 w-5" />
-                </motion.a>
+                  GitHub
+                </Link>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Middle Column - Quick Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-3">
-                {[
-                  { name: 'About', href: '#about' },
-                  { name: 'Skills', href: '#skills' },
-                  { name: 'Experience', href: '#experience' },
-                  { name: 'Projects', href: '#projects' },
-                  { name: 'Education', href: '#education' },
-                  { name: 'Contact', href: '#contact' },
-                ].map((link) => (
-                  <li key={link.name}>
-                    <button
-                      onClick={() => {
-                        const element = document.querySelector(link.href);
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                      className="text-gray-300 hover:text-[#E95D2C] transition-colors duration-300 hover:underline"
-                    >
-                      {link.name}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button
-                  onClick={() => window.open(`mailto:${personalInfo.email}`)}
-                  className="bg-[#0FA5A2] hover:bg-[#0c7c7a] text-white font-semibold"
-                >
-                  Email Me
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="border-[#1A2730] text-[#1A2730] hover:bg-[#1A2730]/10 dark:border-white/40 dark:text-white dark:hover:bg-white/10"
-                >
-                  View Contact
-                </Button>
-              </div>
-            </motion.div>
-
-            {/* Right Column - Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <h4 className="text-xl font-semibold mb-4">Get In Touch</h4>
-              <div className="space-y-3 text-gray-300">
-                <p className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-[#E95D2C]" />
-                  {personalInfo.email}
-                </p>
-                <p className="flex items-center gap-2">
-                  <span className="w-4 h-4 text-[#E95D2C]">📍</span>
-                  {personalInfo.location}
-                </p>
-              </div>
-              
-              {/* Back to Top Button */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                className="mt-6"
-              >
-                <Button
-                  onClick={scrollToTop}
-                  variant="outline"
-                  className="bg-transparent border-[#E95D2C] text-[#E95D2C] hover:bg-[#E95D2C] hover:text-white transition-all duration-300"
-                >
-                  <ArrowUp className="h-4 w-4 mr-2" />
-                  Back to Top
-                </Button>
-              </motion.div>
-            </motion.div>
+            <FooterCol
+              title="Suhayl"
+              items={[
+                { label: "Home", href: "/" },
+                { label: "About", href: "/about" },
+                { label: "Resume", href: "/resume" },
+              ]}
+            />
+            <FooterCol
+              title="Build"
+              items={[
+                { label: "Founder", href: "/founder" },
+                { label: "Work", href: "/work" },
+                { label: "Archive", href: "/archive" },
+              ]}
+            />
+            <FooterCol
+              title="Create"
+              items={[
+                { label: "UGC", href: "/ugc" },
+                { label: "Contact", href: "/contact" },
+                { label: "SM Stratagem", href: suhayl.social.smStratagem, external: true },
+                { label: "VoxxHire", href: suhayl.social.voxxhire, external: true },
+              ]}
+            />
+            <FooterCol
+              title="Get in touch"
+              items={[
+                { label: suhayl.email, href: `mailto:${suhayl.email}` },
+                { label: "Dubai · UAE", href: undefined },
+              ]}
+            />
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col md:flex-row justify-between items-center gap-4"
-            >
-              <div className="flex items-center gap-2 text-gray-400">
-                <span>© {currentYear} {personalInfo.name}. Made with</span>
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-                >
-                  <Heart className="h-4 w-4 text-red-500 fill-current" />
-                </motion.div>
-                <span>and</span>
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                >
-                  <Code className="h-4 w-4 text-[#B0CEE2]" />
-                </motion.div>
-              </div>
-              
-              <div className="flex items-center gap-2 text-gray-400">
-                <span>Powered by caffeine</span>
-                <motion.div
-                  animate={{ y: [0, -2, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-                >
-                  <Coffee className="h-4 w-4 text-[#E95D2C]" />
-                </motion.div>
-                <span>& passion</span>
-              </div>
-            </motion.div>
+        {/* Bottom bar */}
+        <div className="border-t border-cream-100/10">
+          <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45">
+            <div>© {new Date().getFullYear()} Suhayl Dastager · All rights reserved</div>
+            <div className="flex items-center gap-4">
+              <Link href="/resume" className="hover:text-electric-bright">
+                Résumé
+              </Link>
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="inline-flex items-center gap-2 hover:text-electric-bright"
+              >
+                Back to top
+                <ArrowUp className="h-3 w-3" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </footer>
+  );
+};
+
+const FooterCol = ({
+  title,
+  items,
+}: {
+  title: string;
+  items: { label: string; href?: string; external?: boolean }[];
+}) => (
+  <div className="col-span-1 md:col-span-2">
+    <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45 mb-4">
+      {title}
+    </div>
+    <ul className="space-y-2">
+      {items.map((it, i) =>
+        it.href ? (
+          <li key={i}>
+            <Link
+              href={it.href}
+              target={it.external ? "_blank" : undefined}
+              rel={it.external ? "noopener noreferrer" : undefined}
+              className="group inline-flex items-center gap-1.5 text-sm text-cream/80 hover:text-electric-bright transition-colors"
+            >
+              {it.label}
+              {it.external && (
+                <ArrowUpRight className="h-3 w-3 opacity-50 group-hover:opacity-100" />
+              )}
+            </Link>
+          </li>
+        ) : (
+          <li
+            key={i}
+            className="text-sm text-cream/55"
+          >
+            {it.label}
+          </li>
+        )
+      )}
+    </ul>
+  </div>
+);
+
+const CyclingVerb = () => {
+  const [i, setI] = React.useState(0);
+  React.useEffect(() => {
+    const t = setInterval(() => setI((v) => (v + 1) % verbs.length), 2400);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <span
+      className="relative inline-block text-electric-bright"
+      style={{ minWidth: "5.5ch" }}
+    >
+      <AnimatePresence mode="popLayout">
+        <motion.span
+          key={verbs[i]}
+          initial={{ y: "60%", opacity: 0, filter: "blur(8px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          exit={{ y: "-60%", opacity: 0, filter: "blur(8px)" }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="inline-block"
+        >
+          {verbs[i]}.
+        </motion.span>
+      </AnimatePresence>
+    </span>
   );
 };
 

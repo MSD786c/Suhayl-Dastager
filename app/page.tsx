@@ -1,33 +1,31 @@
-"use client";
-
-import React from 'react';
-import Navigation from '@/components/navigation';
-import HeroSection from '@/components/hero-section';
-import AboutSection from '@/components/about-section';
-import SkillsSection from '@/components/skills-section';
-import ExperienceSection from '@/components/experience-section';
-import ProjectsSection from '@/components/projects-section';
-import EducationSection from '@/components/education-section';
-import ContactSection from '@/components/contact-section';
-import Footer from '@/components/footer';
-import SectionDivider from '@/components/section-divider';
-import FloatingCTA from '@/components/floating-cta';
+import Nav from "@/components/navigation";
+import Hero from "@/components/hero";
+import { HeroMetrics } from "@/components/hero-metrics";
+import ThreeDoors from "@/components/three-doors";
+import UGCSection from "@/components/ugc-section";
+import FounderSection from "@/components/founder-section";
+import SelectedWork from "@/components/selected-work";
+import HireSection from "@/components/hire-section";
+import AboutStrip from "@/components/about-strip";
+import QuickAnswers from "@/components/quick-answers";
+import ContactExperience from "@/components/contact-experience";
+import Footer from "@/components/footer";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
-      <Navigation />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <SectionDivider variant="teal" />
-      <ProjectsSection />
-      <SectionDivider variant="coral" flip />
-      <EducationSection />
-      <ContactSection />
+    <main className="min-h-screen bg-canvas-warm text-ink-900">
+      <Nav />
+      <Hero />
+      <HeroMetrics />
+      <ThreeDoors />
+      <UGCSection />
+      <FounderSection />
+      <SelectedWork />
+      <HireSection />
+      <AboutStrip />
+      <QuickAnswers />
+      <ContactExperience />
       <Footer />
-      <FloatingCTA />
     </main>
   );
 }

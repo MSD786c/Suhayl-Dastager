@@ -54,5 +54,8 @@ build/
 tmp/
 temp/
 
+# Local preview screenshots (regenerate with `npm run preview`)
+docs/preview/
+
 # macOS
 .DS_Store

@@ -4,170 +4,245 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    --background: 47 38% 96%;
+    --foreground: 240 6% 4%;
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
-    --primary: 215 27% 32%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 210 11% 93%;
-    --secondary-foreground: 215 25% 27%;
-    --muted: 210 11% 93%;
-    --muted-foreground: 215 14% 52%;
-    --accent: 210 11% 93%;
-    --accent-foreground: 215 25% 27%;
+    --card-foreground: 240 6% 4%;
+    --popover: 47 38% 96%;
+    --popover-foreground: 240 6% 4%;
+    --primary: 217 64% 14%;
+    --primary-foreground: 47 38% 96%;
+    --secondary: 47 38% 96%;
+    --secondary-foreground: 217 64% 14%;
+    --muted: 40 25% 92%;
+    --muted-foreground: 218 18% 47%;
+    --accent: 221 93% 57%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 215 12% 84%;
-    --input: 215 12% 84%;
-    --ring: 215 27% 32%;
-    --radius: 0.5rem;
+    --border: 217 30% 88%;
+    --input: 217 30% 88%;
+    --ring: 221 93% 57%;
+    --radius: 0.625rem;
+
+    --navy: 217 64% 14%;
+    --indigo: 229 53% 23%;
+    --electric: 221 93% 57%;
+    --coral: 6 100% 68%;
+    --cream: 38 53% 95%;
   }
 
   .dark {
-    --background: 215 28% 17%;
-    --foreground: 213 31% 91%;
-    --card: 215 28% 17%;
-    --card-foreground: 213 31% 91%;
-    --popover: 215 28% 17%;
-    --popover-foreground: 213 31% 91%;
-    --primary: 213 31% 91%;
-    --primary-foreground: 215 28% 17%;
-    --secondary: 215 25% 27%;
-    --secondary-foreground: 213 31% 91%;
-    --muted: 215 25% 27%;
-    --muted-foreground: 217 10% 64%;
-    --accent: 215 25% 27%;
-    --accent-foreground: 213 31% 91%;
+    --background: 240 6% 4%;
+    --foreground: 47 38% 96%;
+    --card: 240 5% 7%;
+    --card-foreground: 47 38% 96%;
+    --popover: 240 5% 7%;
+    --popover-foreground: 47 38% 96%;
+    --primary: 47 38% 96%;
+    --primary-foreground: 240 6% 4%;
+    --secondary: 240 4% 12%;
+    --secondary-foreground: 47 38% 96%;
+    --muted: 240 4% 12%;
+    --muted-foreground: 218 12% 64%;
+    --accent: 221 93% 57%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 63% 31%;
-    --destructive-foreground: 213 31% 91%;
-    --border: 215 25% 27%;
-    --input: 215 25% 27%;
-    --ring: 213 31% 91%;
+    --destructive-foreground: 47 38% 96%;
+    --border: 240 4% 14%;
+    --input: 240 4% 14%;
+    --ring: 221 93% 57%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-canvas-warm text-ink-900 antialiased font-sans;
+    font-feature-settings: "ss01", "ss02", "cv11";
+  }
+
+  ::selection {
+    background: hsl(var(--electric) / 0.18);
+    color: hsl(var(--primary));
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-navy-200 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-navy-300;
   }
 }
 
-/* Custom styles */
-.gradient-bg {
-  background: linear-gradient(135deg, #1A2730 0%, #45586C 100%);
-}
-
-.dark .gradient-bg {
-  background: linear-gradient(135deg, #424048 0%, #1A2730 100%);
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #e95d2c 0%, #e95d2c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.dark .gradient-text {
-  background: linear-gradient(135deg, #e95d2c 0%, #e95d2c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.glass-effect {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.dark .glass-effect {
-  background: rgba(51, 65, 85, 0.25);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(100, 116, 139, 0.18);
-}
-
-.tech-marquee {
-  animation: marquee 32s linear infinite;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-slate-100 dark:bg-slate-800;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-slate-400 dark:bg-slate-600 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-slate-500 dark:bg-slate-500;
-}
-
-/* Additional animations */
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
+@layer components {
+  /* Editorial display utilities */
+  .text-display {
+    font-family: var(--font-display, "Plus Jakarta Sans"), system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
   }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
+
+  /* Editorial eyebrow — small mono label used above section titles */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-navy-500;
   }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
+
+  .eyebrow-light {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-cream-100/70;
   }
-  100% {
-    transform: translate(0px, 0px) scale(1);
+
+  /* The hairline rule used everywhere as a divider */
+  .hairline {
+    @apply h-px w-full bg-navy-900/10;
+  }
+
+  .hairline-dark {
+    @apply h-px w-full bg-cream-100/10;
+  }
+
+  /* The signature pill button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink-900 px-6 py-3.5 text-sm font-medium text-cream transition-all duration-300 hover:bg-electric hover:text-white hover:shadow-[0_18px_40px_-12px_rgba(45,108,246,0.55)] active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy-900/15 bg-transparent px-6 py-3.5 text-sm font-medium text-ink-900 transition-all duration-300 hover:border-electric hover:text-electric;
+  }
+
+  .btn-coral {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-coral px-6 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-coral-deep hover:shadow-[0_18px_40px_-12px_rgba(255,107,91,0.55)] active:scale-[0.98];
+  }
+
+  /* Card surfaces */
+  .surface-card {
+    @apply rounded-2xl border border-navy-900/8 bg-white shadow-[0_2px_0_rgba(11,31,58,0.04),0_30px_60px_-30px_rgba(11,31,58,0.18)];
+  }
+
+  .surface-ink {
+    @apply rounded-2xl border border-cream-100/10 bg-ink-900 text-cream-100;
+  }
+
+  /* The sm-mono eyebrow used on dark surfaces */
+  .mono-eyebrow {
+    @apply font-mono text-[10px] uppercase tracking-[0.28em] text-cream-100/55;
+  }
+
+  /* Magnetic CTA wrapper */
+  .magnetic {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Numbered section title */
+  .section-number {
+    @apply font-mono text-[11px] tracking-[0.22em] text-electric;
+  }
+
+  /* The grid texture used on dark surfaces */
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(169, 199, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(169, 199, 255, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .grid-overlay-light {
+    background-image:
+      linear-gradient(rgba(11, 31, 58, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 31, 58, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Editorial pull-quote */
+  .quote-mark {
+    font-family: var(--font-editorial, "Fraunces"), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Soft glow for hero/feature imagery */
+  .soft-glow {
+    box-shadow: 0 30px 80px -20px rgba(11, 31, 58, 0.35), 0 0 0 1px rgba(11, 31, 58, 0.04);
+  }
+
+  /* The horizontal section label, used as a chapter marker */
+  .chapter {
+    @apply flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-navy-500;
+  }
+  .chapter::before {
+    content: "";
+    @apply h-px w-8 bg-navy-500/40;
+  }
+
+  /* Reusable border for video cards */
+  .video-frame {
+    @apply relative overflow-hidden rounded-2xl bg-ink-900 ring-1 ring-white/10;
   }
 }
 
-.animate-blob {
-  animation: blob 16s ease-in-out infinite;
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Disable text selection on hero photo frames */
+  .no-select {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  /* GPU-friendly will-change helper */
+  .gpu {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+
+  /* The "rule below" used on editorial titles */
+  .rule-line {
+    @apply relative inline-block;
+  }
+  .rule-line::after {
+    content: "";
+    @apply absolute -bottom-2 left-0 h-px w-12 bg-electric;
+  }
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-/* Line clamp utility */
-.line-clamp-3 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
-/* Gradient borders */
-.gradient-border {
-  background: linear-gradient(white, white) padding-box,
-              linear-gradient(135deg, #667eea 0%, #764ba2 100%) border-box;
-  border: 2px solid transparent;
-}
-
-/* Hover effects */
-.card-hover {
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+/* Reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

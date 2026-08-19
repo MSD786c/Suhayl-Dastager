@@ -1,0 +1,320 @@
+// Suhayl Dastager — Personal Brand Data Layer
+// Source of truth for every section, route, and content surface.
+
+export const suhayl = {
+  fullName: "Suhayl Dastager",
+  preferredName: "Suhayl",
+  initials: "SD",
+  positioning: "AI Product Engineer. Founder. Tech Creator.",
+  statement: "I build technology, companies, and content around both.",
+  roles: ["AI Product Engineer", "Founder", "Tech Creator"],
+  location: "Dubai, United Arab Emirates",
+  email: "dastagersuhayl@gmail.com",
+  emailPublic: "dastagersuhayl@gmail.com",
+  phone: undefined as string | undefined,
+
+  // External profiles
+  social: {
+    linkedin: "https://www.linkedin.com/in/suhayl-dastager/",
+    instagram: "https://www.instagram.com/suhayl.sm",
+    github: "https://github.com/MSD786c",
+    voxxhire: "https://voxxhire.com",
+    smStratagem: "https://sm-stratagem.com",
+  },
+
+  // Canonical site URL
+  site: {
+    url: "https://suhayl-dastager.me",
+    name: "Suhayl Dastager",
+    title:
+      "Suhayl Dastager — AI Product Engineer, Founder & Tech Creator",
+    description:
+      "Dubai-based AI product engineer, founder of SM Stratagem and VoxxHire, and technology creator. Explore my products, engineering work, creator portfolio, and collaborations.",
+    ogImage: "/og/suhayl-og.svg",
+  },
+
+  // Files served from /public
+  files: {
+    resume: "/Suhayl_Dastager_Resume.pdf",
+    // The supplied portrait set
+    portraits: {
+      face: "/portrait/face-square.jpg",
+      suitFull: "/portrait/suit-full.jpg",
+      headshot: "/portrait/headshot.jpg",
+      aerial: "/portrait/aerial.jpg",
+      vSign: "/portrait/v-sign.jpg",
+      driver: "/portrait/driver.jpg",
+      suv: "/portrait/suv.jpg",
+      suvSeated: "/portrait/suv-seated.jpg",
+      workspace: "/portrait/workspace.jpg",
+    },
+  },
+
+  // SEO keywords
+  keywords: [
+    "Suhayl Dastager",
+    "AI Product Engineer Dubai",
+    "Founder SM Stratagem",
+    "VoxxHire founder",
+    "Tech creator Dubai",
+    "UGC automotive technology",
+    "AI engineer UAE",
+    "data automation consultant",
+    "Next.js engineer Dubai",
+  ],
+} as const;
+
+export const identity = {
+  concept: "Three Sides. One Person.",
+  pillars: [
+    {
+      id: "create",
+      label: "Create",
+      number: "01",
+      tagline: "Tech content that doesn't feel like an ad.",
+      description:
+        "UGC at the intersection of cars, technology, and founder life. I don't just talk about software — I build it.",
+      focus: ["Automotive", "Software", "AI", "Consumer Tech", "Founder Life"],
+      href: "/ugc",
+      cta: "Creator Portfolio",
+      imageKey: "driver",
+    },
+    {
+      id: "build",
+      label: "Build",
+      number: "02",
+      tagline: "Building products from Dubai.",
+      description:
+        "Founder of SM Stratagem. Co-built VoxxHire, an AI recruitment platform for graduates and recruiters.",
+      focus: ["SM Stratagem", "VoxxHire", "Applied AI", "Custom Software"],
+      href: "/founder",
+      cta: "Founder Journey",
+      imageKey: "workspace",
+    },
+    {
+      id: "ship",
+      label: "Ship",
+      number: "03",
+      tagline: "Engineering that connects to business.",
+      description:
+        "AI · Product · Automation · Engineering · Data. I scope, design, build, and ship systems that move metrics.",
+      focus: ["AI", "Product Engineering", "Automation", "Data", "Strategy"],
+      href: "/work",
+      cta: "See Why",
+      imageKey: "headshot",
+    },
+  ],
+} as const;
+
+// Editorial founder timeline — open-ended by design.
+export const founderTimeline = [
+  {
+    year: "2019",
+    title: "First taste of enterprise",
+    body: "SAP IT Summer Intern — early exposure to system configuration, virtualization, and infrastructure uptime.",
+  },
+  {
+    year: "2020",
+    title: "The Tutoring Center",
+    body: "System Specialist — supporting IT rollouts, documentation, and daily ops. Where the discipline of process clarity started.",
+  },
+  {
+    year: "2021",
+    title: "Chicking",
+    body: "Digital Marketing Specialist — 40% engagement lift, +18% CTR via Reels, TikToks, and community. The creative muscle wakes up.",
+  },
+  {
+    year: "2022",
+    title: "University of Birmingham",
+    body: "AI & Computer Science. Chancellor's Academic Merit Scholarship. The technical foundation gets formalized.",
+  },
+  {
+    year: "2024",
+    title: "RelphaCare + Halliday",
+    body: "A/B testing drops CPA 12%, AI document-flow automator cuts QA cycles 40%. Real systems, real metrics.",
+  },
+  {
+    year: "2025",
+    title: "Loop Media · SM Stratagem",
+    body: "Seven 1M+ view videos. Founder mode begins. SM Stratagem formalizes the studio; VoxxHire goes from idea to product.",
+  },
+  {
+    year: "Now",
+    title: "Building, learning, selling, shipping.",
+    body: "AI product engineering, founder of two companies, and creator partnerships with brands that want real signal.",
+  },
+  {
+    year: "Next",
+    title: "→",
+    body: "Intentionally open. More products. Sharper systems. Larger collaborations.",
+  },
+] as const;
+
+export const skillGroups = [
+  {
+    title: "Applied AI",
+    items: [
+      "LLMs",
+      "RAG",
+      "AI workflows",
+      "Model integration",
+      "Realtime AI",
+      "Evaluation",
+      "Automation",
+    ],
+  },
+  {
+    title: "Product Engineering",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Node",
+      "Flask",
+      "FastAPI",
+      "APIs",
+      "Databases",
+    ],
+  },
+  {
+    title: "Data & Automation",
+    items: [
+      "Python",
+      "SQL",
+      "Analytics",
+      "ETL",
+      "BI",
+      "Workflow automation",
+      "n8n",
+      "Zoho",
+    ],
+  },
+  {
+    title: "Product & Strategy",
+    items: [
+      "Product architecture",
+      "Experimentation",
+      "Stakeholder management",
+      "Discovery",
+      "Process design",
+      "Execution",
+    ],
+  },
+] as const;
+
+export const fullStack = [
+  "Python",
+  "SQL",
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Flutter",
+  "Flask",
+  "FastAPI",
+  "Supabase",
+  "Firebase",
+  "PostgreSQL",
+  "Power BI",
+  "Tableau",
+  "TensorFlow",
+  "scikit-learn",
+  "XGBoost",
+  "LLMs (GPT-4, Gemini, Claude)",
+  "LangChain",
+  "Docker",
+  "CI/CD",
+  "n8n",
+  "Twilio",
+  "Zoho",
+  "Oracle Cloud",
+  "Azure",
+  "Data storytelling",
+  "CapCut",
+  "Premiere Pro",
+];
+
+export const whyHireStatements = [
+  "I understand the user.",
+  "I understand the business.",
+  "I can analyse the data.",
+  "I can design the system.",
+  "I can build it.",
+  "I can explain it.",
+  "And I can ship it.",
+] as const;
+
+export const education = [
+  {
+    degree: "BSc (Hons) Artificial Intelligence & Computer Science",
+    institution: "University of Birmingham Dubai",
+    duration: "Sep 2022 – Jul 2025",
+    status: "Completed",
+    highlights: [
+      "Chancellor's Academic Merit Scholarship",
+      "The Birmingham Award",
+    ],
+  },
+  {
+    degree: "Engineering & Physical Sciences Foundation",
+    institution: "University of Birmingham",
+    duration: "Sep 2021 – May 2022",
+    status: "Completed",
+  },
+] as const;
+
+export const certifications = [
+  {
+    name: "Oracle Cloud Infrastructure Data Science Professional",
+    issuer: "Oracle",
+    date: "2025",
+  },
+  {
+    name: "Microsoft Azure AI Fundamentals",
+    issuer: "Microsoft",
+    date: "2025",
+  },
+  {
+    name: "NVIDIA Deep Learning",
+    issuer: "NVIDIA",
+    date: "2024",
+  },
+  {
+    name: "SAP LLM Fundamentals",
+    issuer: "SAP",
+    date: "2024",
+  },
+  {
+    name: "Kaggle Badges: Python · Pandas · Advanced SQL · Visualization",
+    issuer: "Kaggle",
+    date: "2025",
+  },
+  {
+    name: "Dubai Police Cybersecurity Workshop",
+    issuer: "Dubai Police",
+    date: "2025",
+  },
+] as const;
+
+// Career narrative used in the Hire section
+export const careerProgression = [
+  {
+    label: "Marketing",
+    body: "Attention. The art of getting someone to stop scrolling.",
+  },
+  {
+    label: "Analytics",
+    body: "Understanding behaviour. Why did that work?",
+  },
+  {
+    label: "Automation",
+    body: "Removing friction. Systems that run themselves.",
+  },
+  {
+    label: "AI + Product",
+    body: "Building systems that think, predict, and inform.",
+  },
+  {
+    label: "Founder",
+    body: "Owning the entire problem — not just the slice you were hired for.",
+  },
+] as const;
