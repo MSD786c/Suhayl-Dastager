@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 // Brands that appear in the marquee below the reel rail. The order is the
 // display order in the scrolling strip. SM Stratagem is the user's own
-// studio — included so the strip reads as "brands I've shipped for" rather
+// studio - included so the strip reads as "brands I've shipped for" rather
 // than "brands I've only edited for".
 const marqueeBrands: { name: string; logo: string }[] = [
   { name: "Parfumix", logo: "/ugc/parfumix-logo.webp" },
@@ -36,7 +36,7 @@ const UGCDetail = () => {
 
   return (
     <>
-      {/* Hero — full-bleed dark with coral glow */}
+      {/* Hero - full-bleed dark with coral glow */}
       <section className="relative pt-20 md:pt-24 pb-6 md:pb-8 bg-ink-950 text-text-inverse overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
         <div
@@ -58,7 +58,7 @@ const UGCDetail = () => {
               <p className="mt-4 md:mt-5 text-base text-text-inverseMuted max-w-md text-pretty">
                 I create at the intersection of cars, technology, and founder
                 life. The differentiator is simple: I don&apos;t just talk about
-                software — I build it.
+                software - I build it.
               </p>
             </div>
             <div className="col-span-12 md:col-span-7">
@@ -70,7 +70,7 @@ const UGCDetail = () => {
               >
                 <Image
                   src={suhayl.files.hero.ugc}
-                  alt="UGC hero — phones and sunglasses marketing shot"
+                  alt="UGC hero - phones and sunglasses marketing shot"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 60vw"
@@ -78,7 +78,7 @@ const UGCDetail = () => {
                 />
               </motion.div>
               <div className="mt-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
-                Image — UGC still · Dubai · 2026
+                Image - UGC still · Dubai · 2026
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ const UGCDetail = () => {
             Examples, not placeholders.
           </h2>
 
-          {/* Horizontal snap rail — reels scroll horizontally instead of
+          {/* Horizontal snap rail - reels scroll horizontally instead of
               collapsing into a 6-up grid. The wrapper is negative-margined
               to the section's edge so the first card aligns to the page
               gutter while still allowing full-bleed scroll. */}
@@ -116,7 +116,7 @@ const UGCDetail = () => {
             </div>
           </div>
 
-          {/* Brands marquee — pure CSS, scrolls continuously and never
+          {/* Brands marquee - pure CSS, scrolls continuously and never
               pauses on hover. The two-strip duplication makes the -50%
               keyframe loop seamlessly. The decorative track is
               aria-hidden; the names are exposed to screen readers in a
@@ -161,7 +161,7 @@ const UGCDetail = () => {
         <VideoLightbox reel={openReel} onClose={() => setOpenReel(null)} />
       </section>
 
-      {/* Categories — clean editorial row, not card grid */}
+      {/* Categories - clean editorial row, not card grid */}
       <section className="py-10 md:py-14 border-y border-border bg-canvas">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-2 md:grid-cols-6 gap-y-4">
@@ -189,7 +189,7 @@ const UGCDetail = () => {
         </div>
       </section>
 
-      {/* Case studies — editorial rows */}
+      {/* Case studies - editorial rows */}
       <section className="py-8 md:py-12 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">
@@ -286,7 +286,7 @@ const UGCDetail = () => {
         </div>
       </section>
 
-      {/* Packages — editorial rows, accordion */}
+      {/* Packages - editorial rows, accordion */}
       <section className="py-8 md:py-12 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">

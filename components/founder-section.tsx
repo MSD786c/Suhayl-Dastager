@@ -13,7 +13,7 @@ const FounderSection = () => {
     <section
       id="founder"
       className="relative bg-ink-950 text-text-inverse"
-      aria-label="Founder — what am I building?"
+      aria-label="Founder - what am I building?"
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-10 md:py-14">
         {/* Top eyebrow + headline */}
@@ -36,7 +36,7 @@ const FounderSection = () => {
           </div>
         </div>
 
-        {/* Companies — editorial split layout, no decorative SVGs, no fake metrics */}
+        {/* Companies - editorial split layout, no decorative SVGs, no fake metrics */}
         <div className="border-t border-ink-500">
           {founderCompanies.map((c, i) => {
             const isVoxx = c.id === "voxxhire";
@@ -54,7 +54,7 @@ const FounderSection = () => {
                 className="border-b border-ink-500"
               >
                 <div className="grid grid-cols-12 gap-4 md:gap-6 py-12 md:py-16">
-                  {/* Left — meta + visual */}
+                  {/* Left - meta + visual */}
                   <div className="col-span-12 md:col-span-5">
                     <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
                       <span style={{ fontVariantNumeric: "tabular-nums" }}>
@@ -74,7 +74,7 @@ const FounderSection = () => {
                       {c.summary}
                     </p>
 
-                    {/* Inline image of the product if we have one — logo for SM Stratagem, portrait for VoxxHire */}
+                    {/* Inline image of the product if we have one - logo for SM Stratagem, portrait for VoxxHire */}
                     <div
                       className={cn(
                         "mt-6 relative rounded-xl overflow-hidden bg-ink-800",
@@ -95,7 +95,7 @@ const FounderSection = () => {
                     </div>
                   </div>
 
-                  {/* Right — what it does + CTAs */}
+                  {/* Right - what it does + CTAs */}
                   <div className="col-span-12 md:col-span-6 md:col-start-7 flex flex-col">
                     <div className="font-mono text-[10px] uppercase tracking-monoWide text-blue mb-4">
                       What it does
@@ -156,7 +156,7 @@ const FounderSection = () => {
           })}
         </div>
 
-        {/* Bottom — short founder commentary */}
+        {/* Bottom - short founder commentary */}
         <div className="mt-8 md:mt-12 grid grid-cols-12 gap-4 md:gap-6">
           <div className="col-span-12 md:col-span-5">
             <div className="font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted mb-4">
@@ -172,17 +172,17 @@ const FounderSection = () => {
                 {
                   year: "2019",
                   title: "First taste of enterprise",
-                  body: "SAP IT Summer Intern — early exposure to system configuration, virtualization, and infrastructure uptime.",
+                  body: "SAP IT Summer Intern - early exposure to system configuration, virtualization, and infrastructure uptime.",
                 },
                 {
                   year: "2020",
                   title: "The Tutoring Center",
-                  body: "System Specialist — supporting IT rollouts, documentation, daily ops. Where process clarity started.",
+                  body: "System Specialist - supporting IT rollouts, documentation, daily ops. Where process clarity started.",
                 },
                 {
                   year: "2021",
                   title: "Chicking",
-                  body: "Digital Marketing — 40% engagement lift, +18% CTR via Reels and community. The creative muscle wakes up.",
+                  body: "Digital Marketing - 40% engagement lift, +18% CTR via Reels and community. The creative muscle wakes up.",
                 },
                 {
                   year: "2022",

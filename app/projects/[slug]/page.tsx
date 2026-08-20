@@ -23,12 +23,12 @@ export async function generateMetadata({
   const project = projects.find((p) => p.slug === slug);
   if (!project) return { title: "Project" };
   return {
-    title: `${project.name} — case study`,
+    title: `${project.name} - case study`,
     description: project.description,
     alternates: { canonical: `${suhayl.site.url}/projects/${project.slug}` },
     openGraph: {
       type: "article",
-      title: `${project.name} — case study · Suhayl Dastager`,
+      title: `${project.name} - case study · Suhayl Dastager`,
       description: project.description,
       url: `${suhayl.site.url}/projects/${project.slug}`,
       images: project.image
@@ -37,14 +37,14 @@ export async function generateMetadata({
               url: project.image,
               width: 1200,
               height: 630,
-              alt: `${project.name} — Suhayl Dastager case study`,
+              alt: `${project.name} - Suhayl Dastager case study`,
             },
           ]
         : [{ url: suhayl.site.ogImage, width: 1200, height: 630, alt: suhayl.fullName }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.name} — case study · Suhayl Dastager`,
+      title: `${project.name} - case study · Suhayl Dastager`,
       description: project.description,
       images: project.image ? [project.image] : [suhayl.site.ogImage],
     },

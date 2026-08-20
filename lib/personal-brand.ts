@@ -1,4 +1,4 @@
-// Suhayl Dastager — Personal Brand Data Layer
+// Suhayl Dastager - Personal Brand Data Layer
 // Source of truth for every section, route, and content surface.
 
 export const suhayl = {
@@ -27,7 +27,7 @@ export const suhayl = {
     url: "https://suhayl-dastager.me",
     name: "Suhayl Dastager",
     title:
-      "Suhayl Dastager — Founder, AI Product Engineer & Tech Creator",
+      "Suhayl Dastager - Founder, AI Product Engineer & Tech Creator",
     description:
       "Dubai-based founder, AI product engineer and technology creator. Explore what Suhayl is building, his professional work, creator portfolio and collaborations.",
     ogImage: "/og/suhayl-og.svg",
@@ -121,22 +121,22 @@ export const identity = {
   ],
 } as const;
 
-// Editorial founder timeline — open-ended by design.
+// Editorial founder timeline - open-ended by design.
 export const founderTimeline = [
   {
     year: "2019",
     title: "First taste of enterprise",
-    body: "SAP IT Summer Intern — early exposure to system configuration, virtualization, and infrastructure uptime.",
+    body: "SAP IT Summer Intern - early exposure to system configuration, virtualization, and infrastructure uptime.",
   },
   {
     year: "2020",
     title: "The Tutoring Center",
-    body: "System Specialist — supporting IT rollouts, documentation, and daily ops. Where the discipline of process clarity started.",
+    body: "System Specialist - supporting IT rollouts, documentation, and daily ops. Where the discipline of process clarity started.",
   },
   {
     year: "2021",
     title: "Chicking",
-    body: "Digital Marketing Specialist — 40% engagement lift, +18% CTR via Reels, TikToks, and community. The creative muscle wakes up.",
+    body: "Digital Marketing Specialist - 40% engagement lift, +18% CTR via Reels, TikToks, and community. The creative muscle wakes up.",
   },
   {
     year: "2022",

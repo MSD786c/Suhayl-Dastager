@@ -181,10 +181,10 @@ const ContactExperience = () => {
           </div>
         </div>
 
-        {/* Step 1 — type */}
+        {/* Step 1 - type */}
         <div className="mb-12">
           <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted mb-4">
-            01 — What brings you here?
+            01 - What brings you here?
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {enquiryTypes.map((t) => (
@@ -224,7 +224,7 @@ const ContactExperience = () => {
           </div>
         </div>
 
-        {/* Step 2 — form */}
+        {/* Step 2 - form */}
         <AnimatePresence mode="wait">
           {enquiryType ? (
             <motion.form
@@ -237,7 +237,7 @@ const ContactExperience = () => {
               className="grid grid-cols-1 md:grid-cols-12 gap-4"
             >
               <div className="md:col-span-12 mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted">
-                02 — The details
+                02 - The details
               </div>
 
               {/* Honeypot */}

@@ -11,7 +11,7 @@ import { suhayl } from "@/lib/personal-brand";
 const WorkPage = () => {
   return (
     <>
-      {/* Hero — full-bleed dark with blue glow */}
+      {/* Hero - full-bleed dark with blue glow */}
       <section className="relative pt-8 md:pt-10 pb-2 md:pb-2 bg-ink-950 text-text-inverse overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
         <div
@@ -69,14 +69,14 @@ const WorkPage = () => {
                 />
               </motion.div>
               <div className="mt-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
-                Image — Suhayl · Studio · Dubai · 2026
+                Image - Suhayl · Studio · Dubai · 2026
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Experience — editorial rows */}
+      {/* Experience - editorial rows */}
       <section id="experience" className="py-8 md:py-12 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">
@@ -148,7 +148,7 @@ const WorkPage = () => {
         </div>
       </section>
 
-      {/* Selected projects — editorial rows */}
+      {/* Selected projects - editorial rows */}
       <section className="py-8 md:py-12 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-12">

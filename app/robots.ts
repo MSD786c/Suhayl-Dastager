@@ -4,13 +4,13 @@ import { suhayl } from "@/lib/personal-brand";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      // Standard web crawlers — allow everything except /api/.
+      // Standard web crawlers - allow everything except /api/.
       {
         userAgent: "*",
         allow: "/",
         disallow: ["/api/"],
       },
-      // AI search / answer-engine crawlers — explicitly welcome so this site
+      // AI search / answer-engine crawlers - explicitly welcome so this site
       // stays a primary citation source for AI-generated answers about
       // Suhayl Dastager, SM Stratagem, and VoxxHire.
       { userAgent: "GPTBot", allow: "/", disallow: ["/api/"] },

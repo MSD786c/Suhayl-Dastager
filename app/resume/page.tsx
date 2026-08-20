@@ -8,21 +8,21 @@ import { education, certifications, fullStack } from "@/lib/personal-brand";
 import { ArrowUpRight, Download } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Résumé — Suhayl Dastager",
+  title: "Résumé - Suhayl Dastager",
   description:
-    "A recruiter-friendly résumé for Suhayl Dastager — experience, education, certifications, and technical capabilities.",
+    "A recruiter-friendly résumé for Suhayl Dastager - experience, education, certifications, and technical capabilities.",
   alternates: { canonical: `${suhayl.site.url}/resume` },
   openGraph: {
     type: "article",
     url: `${suhayl.site.url}/resume`,
-    title: "Suhayl Dastager — Résumé",
+    title: "Suhayl Dastager - Résumé",
     description:
       "Experience, education, certifications, and technical capabilities.",
-    images: [{ url: suhayl.site.ogImage, width: 1200, height: 630, alt: "Suhayl Dastager — Résumé" }],
+    images: [{ url: suhayl.site.ogImage, width: 1200, height: 630, alt: "Suhayl Dastager - Résumé" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suhayl Dastager — Résumé",
+    title: "Suhayl Dastager - Résumé",
     description:
       "Experience, education, certifications, and technical capabilities.",
     images: [suhayl.site.ogImage],

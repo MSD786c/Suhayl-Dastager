@@ -45,7 +45,7 @@ const HireSection = () => {
           </div>
         </div>
 
-        {/* Proof — typography row, not card grid */}
+        {/* Proof - typography row, not card grid */}
         <div className="border-y border-border">
           {hireProof.map((m, i) => (
             <motion.div
@@ -72,7 +72,7 @@ const HireSection = () => {
           ))}
         </div>
 
-        {/* Why hire — large editorial reveal */}
+        {/* Why hire - large editorial reveal */}
         <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
           <div className="md:col-span-5">
             <div className="eyebrow mb-5">Why hire me</div>
@@ -94,13 +94,13 @@ const HireSection = () => {
           </div>
         </div>
 
-        {/* Career arc — compact horizontal 5-column row */}
+        {/* Career arc - compact horizontal 5-column row */}
         <div className="mt-10 md:mt-14">
           <div className="grid grid-cols-12 gap-4 md:gap-6 mb-6 md:mb-8">
             <div className="md:col-span-4">
               <div className="eyebrow mb-5">The arc</div>
               <h3 className="font-display font-bold text-3xl md:text-4xl tracking-tighter leading-[1.02] text-ink text-balance">
-                One role at a time — every chapter built on the last.
+                One role at a time - every chapter built on the last.
               </h3>
             </div>
           </div>
@@ -138,7 +138,7 @@ const HireSection = () => {
           </div>
         </div>
 
-        {/* Skills — grouped, no percentages, no pill cloud */}
+        {/* Skills - grouped, no percentages, no pill cloud */}
         <div className="mt-10 md:mt-14">
           <div className="grid grid-cols-12 gap-4 md:gap-6 mb-12">
             <div className="md:col-span-4">

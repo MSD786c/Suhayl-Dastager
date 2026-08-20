@@ -23,7 +23,7 @@ const practiceCards: PracticeCard[] = [
     label: "Founder",
     href: "/founder",
     src: suhayl.files.portraits.driver,
-    alt: "Suhayl behind the wheel — building from the driver's seat",
+    alt: "Suhayl behind the wheel - building from the driver's seat",
     dotClass: "bg-blue",
   },
   {
@@ -53,10 +53,10 @@ const Hero = () => {
   return (
     <section
       className="relative overflow-hidden bg-canvas-hero pt-20 md:pt-24 pb-8 md:pb-10"
-      aria-label="Suhayl Dastager — personal brand introduction"
+      aria-label="Suhayl Dastager - personal brand introduction"
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
-        {/* Eyebrow — mono, full-width, sits above the row */}
+        {/* Eyebrow - mono, full-width, sits above the row */}
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ const Hero = () => {
 
         {/* Main row: type on the left, photo + 2 practice cards on the right */}
         <div className="mt-5 md:mt-7 grid grid-cols-12 gap-4 md:gap-6 items-end">
-          {/* LEFT — massive editorial type */}
+          {/* LEFT - massive editorial type */}
           <div className="col-span-12 lg:col-span-6">
             <h1 className="font-display font-bold tracking-tighter leading-[0.94] text-ink text-balance">
               <span className="block overflow-hidden">
@@ -108,7 +108,7 @@ const Hero = () => {
               transition={{ duration: mDur ?? 0.6, delay: reduceMotion ? 0 : 0.55, ease: EASE }}
               className="mt-2 font-mono text-[10.5px] uppercase tracking-monoWide text-text-muted"
             >
-              Founder · AI Product Engineer · Tech Creator — Dubai
+              Founder · AI Product Engineer · Tech Creator - Dubai
             </motion.div>
 
             <motion.div
@@ -128,10 +128,10 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* RIGHT — one big photo + 2 small practice cards stacked on the right of it */}
+          {/* RIGHT - one big photo + 2 small practice cards stacked on the right of it */}
           <div className="col-span-12 lg:col-span-6">
             <div className="grid grid-cols-5 gap-3 md:gap-4">
-              {/* Big portrait — headshot, 3/5 of the right column */}
+              {/* Big portrait - headshot, 3/5 of the right column */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -142,7 +142,7 @@ const Hero = () => {
               >
                 <Image
                   src={suhayl.files.portraits.headshot}
-                  alt="Suhayl Dastager — Founder, AI Product Engineer, Tech Creator"
+                  alt="Suhayl Dastager - Founder, AI Product Engineer, Tech Creator"
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 40vw"
@@ -158,7 +158,7 @@ const Hero = () => {
                 </div>
               </motion.div>
 
-              {/* Stack of 2 practice cards — 2/5 of the right column, stacked vertically */}
+              {/* Stack of 2 practice cards - 2/5 of the right column, stacked vertically */}
               <div className="col-span-2 flex flex-col gap-3 md:gap-4">
                 {practiceCards.map((p, i) => (
                   <motion.div
@@ -195,7 +195,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Bottom strip — hairline divider + tight 3-col metric strip with smaller numbers */}
+        {/* Bottom strip - hairline divider + tight 3-col metric strip with smaller numbers */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

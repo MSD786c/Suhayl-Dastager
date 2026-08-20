@@ -28,12 +28,12 @@ const ThreeDoors = () => {
           <div className="col-span-12 md:col-span-5 md:col-start-8 self-end">
             <p className="text-lg text-text-secondary max-w-md text-pretty">
               One person. Three entry points. Pick the side that brought you
-              in — the rest of the site will still be here.
+              in - the rest of the site will still be here.
             </p>
           </div>
         </div>
 
-        {/* Doors — editorial text-led rows */}
+        {/* Doors - editorial text-led rows */}
         <div className="border-t border-border">
           {identity.pillars.map((pillar, i) => {
             const isCoral = pillar.accent === "coral";
@@ -63,7 +63,7 @@ const ThreeDoors = () => {
                       >
                         {pillar.number}
                       </span>
-                      {/* Accent dot — brief: "small coral or blue indicator" */}
+                      {/* Accent dot - brief: "small coral or blue indicator" */}
                       <span
                         aria-hidden
                         className={cn(

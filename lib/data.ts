@@ -1,4 +1,4 @@
-// Suhayl Dastager — Content data layer.
+// Suhayl Dastager - Content data layer.
 // Single source of truth for experiences, projects, UGC work, and packages.
 
 import { suhayl } from "./personal-brand";
@@ -19,8 +19,8 @@ export const experiences = [
     summary:
       "Combined creative direction with data engineering to ship short-form content that the algorithm actually rewarded.",
     bullets: [
-      "Engineered trend-detection pipelines and analytics dashboards to identify viral opportunities within 24 hours — driving 7 videos >1M views and a 60% share-rate increase across TikTok & Instagram.",
-      "Improved average video view rate by 50% via data-driven pacing, hook, and posting-window optimization — outperforming platform benchmarks by 2.3×.",
+      "Engineered trend-detection pipelines and analytics dashboards to identify viral opportunities within 24 hours - driving 7 videos >1M views and a 60% share-rate increase across TikTok & Instagram.",
+      "Improved average video view rate by 50% via data-driven pacing, hook, and posting-window optimization - outperforming platform benchmarks by 2.3×.",
       "Increased combined follower base by 30% in 90 days through automated calendar scheduling and engagement analysis (Python · Google Analytics · Tableau).",
     ],
     metrics: ["7 videos >1M views", "50% view-rate lift", "30% follower growth", "60% share-rate increase"],
@@ -36,7 +36,7 @@ export const experiences = [
       "Led the build of AI-native onboarding and reporting systems that became the daily backbone of ops.",
     bullets: [
       "Automated Zoho–Twilio workflows using n8n + Flask, cutting manual reporting time by 35%.",
-      "Built Document-Flow Automator, an AI onboarding system (Flask · Gemini · GPT-4) for document validation & summary generation — 40% faster reviews and zero QA backlog.",
+      "Built Document-Flow Automator, an AI onboarding system (Flask · Gemini · GPT-4) for document validation & summary generation - 40% faster reviews and zero QA backlog.",
       "Unified financial data across departments with REST APIs + PostgreSQL, improving reporting latency and cross-team accuracy by 25%.",
     ],
     metrics: ["35% faster reporting", "40% quicker reviews", "25% reporting accuracy"],
@@ -67,7 +67,7 @@ export const experiences = [
     summary:
       "Ran A/B tests and built dashboards that shortened reporting cycles and improved targeting.",
     bullets: [
-      "Designed A/B tests across digital campaigns to optimize spend — 12% CPA reduction and 20% lift in impressions.",
+      "Designed A/B tests across digital campaigns to optimize spend - 12% CPA reduction and 20% lift in impressions.",
       "Automated weekly funnel & performance dashboards (Excel), shortening reporting cycles from 2 days → 2 hours.",
       "Partnered with marketing and product teams to translate data into actionable recommendations that improved audience targeting.",
     ],
@@ -97,7 +97,7 @@ export const experiences = [
     location: "Dubai, UAE",
     tag: "IT · Ops",
     summary:
-      "Early IT systems exposure — documentation, reliability, and the discipline of process clarity.",
+      "Early IT systems exposure - documentation, reliability, and the discipline of process clarity.",
     bullets: [
       "Supported rollout & documentation of IT system configurations, enhancing reliability and process clarity.",
       "Maintained databases and internal systems, resolving technical issues and ensuring smooth daily operations.",
@@ -112,7 +112,7 @@ export const experiences = [
     location: "Dubai, UAE",
     tag: "Enterprise IT",
     summary:
-      "First exposure to enterprise software — virtualization, configuration, secure data management.",
+      "First exposure to enterprise software - virtualization, configuration, secure data management.",
     bullets: [
       "Assisted IT teams with system configuration, virtualization setup, and user support, improving infrastructure uptime and efficiency.",
       "Gained early exposure to enterprise software environments and secure data management workflows.",
@@ -234,7 +234,7 @@ export const ugcPackages = [
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────
-// UGC REELS — data-driven; ready for the 10 social videos.
+// UGC REELS - data-driven; ready for the 10 social videos.
 // To add a new video: append to this array, drop the .mp4 at
 // public/ugc/{id}.mp4, and place a poster at public/ugc/{id}.jpg
 // ─────────────────────────────────────────────────────────────────
@@ -264,7 +264,7 @@ export type UgcReel = {
   tone: "dark" | "light";
 };
 
-// Brand visuals — campaign-style images generated for each brand. They
+// Brand visuals - campaign-style images generated for each brand. They
 // double as poster images for the video embeds and as standalone cards
 // in the brand strip.
 export const brandVisuals: Record<string, { card: string; wide: string }> = {
@@ -296,7 +296,7 @@ export const brandVisuals: Record<string, { card: string; wide: string }> = {
 export const ugcReels: UgcReel[] = [
   {
     id: "perfume-brand-3-3m",
-    title: "Parfumix hero — 3.3M view piece",
+    title: "Parfumix hero - 3.3M view piece",
     category: "Brand Work",
     client: "Parfumix",
     brandCategory: "Perfumes",
@@ -305,7 +305,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: "/ugc/visual-parfumix-wide.jpg",
     videoSrc: "/ugc/parfumix-3-3m.mp4",
     description:
-      "Hero performance piece for Parfumix. Hooked the algorithm, held the frame, closed with intent — the flagship brand video of the showreel.",
+      "Hero performance piece for Parfumix. Hooked the algorithm, held the frame, closed with intent - the flagship brand video of the showreel.",
     platform: "TikTok",
     url: "https://www.tiktok.com/@parfumixofficial/video/7434949332173884680",
     views: 3_300_000,
@@ -315,7 +315,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "al-amoudi-14-1k",
-    title: "Al Amoudi Spare Parts — 14.1K views",
+    title: "Al Amoudi Spare Parts - 14.1K views",
     category: "Automotive",
     client: "Al Amoudi Auto Spare Parts",
     brandCategory: "Automotive",
@@ -334,7 +334,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "al-amoudi-10-5k",
-    title: "Al Amoudi Spare Parts — 10.5K views",
+    title: "Al Amoudi Spare Parts - 10.5K views",
     category: "Automotive",
     client: "Al Amoudi Auto Spare Parts",
     brandCategory: "Automotive",
@@ -343,7 +343,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals["Al Amoudi Auto Spare Parts"].wide,
     videoSrc: "/ugc/alamoudi-10-5k.mp4",
     description:
-      "Second Al Amoudi piece — detail shots of inventory + A-roll, cut for the parts-shop audience in the UAE.",
+      "Second Al Amoudi piece - detail shots of inventory + A-roll, cut for the parts-shop audience in the UAE.",
     platform: "TikTok",
     url: "https://www.tiktok.com/@al.amoudi.spare.parts/video/7487658719782669575",
     views: 10_500,
@@ -353,7 +353,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "parfumix-21-5k",
-    title: "Parfumix — 21.5K views",
+    title: "Parfumix - 21.5K views",
     category: "Brand Work",
     client: "Parfumix",
     brandCategory: "Perfumes",
@@ -362,7 +362,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals.Parfumix.wide,
     videoSrc: "/ugc/parfumix-21-5k.mp4",
     description:
-      "Second Parfumix piece — product-led with a fragrance-note hook. Clean CTA at the close.",
+      "Second Parfumix piece - product-led with a fragrance-note hook. Clean CTA at the close.",
     platform: "TikTok",
     url: "https://www.tiktok.com/@parfumixofficial/video/7497638622372400402",
     views: 21_500,
@@ -372,7 +372,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "wrapsters-15-2k",
-    title: "Wrapsters edit — 15.2K views",
+    title: "Wrapsters edit - 15.2K views",
     category: "Automotive",
     client: "Wrapsters",
     brandCategory: "Automotive",
@@ -391,7 +391,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "voxxhire-ugc-7k",
-    title: "VoxxHire UGC — 7K views",
+    title: "VoxxHire UGC - 7K views",
     category: "Software",
     client: "VoxxHire",
     brandCategory: "Software",
@@ -400,7 +400,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals.VoxxHire.wide,
     videoSrc: "/ugc/voxxhire-7k.mp4",
     description:
-      "VoxxHire UGC — founder-led walkthrough of the recruiter dashboard, hook on enterprise signal.",
+      "VoxxHire UGC - founder-led walkthrough of the recruiter dashboard, hook on enterprise signal.",
     platform: "Instagram",
     url: "https://www.instagram.com/reel/DbqRz2yNBWE/?hl=en",
     views: 7_000,
@@ -410,7 +410,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "parfumix-7-5k",
-    title: "Parfumix — 7.5K views",
+    title: "Parfumix - 7.5K views",
     category: "Brand Work",
     client: "Parfumix",
     brandCategory: "Perfumes",
@@ -419,7 +419,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals.Parfumix.wide,
     videoSrc: "/ugc/parfumix-7-5k.mp4",
     description:
-      "Third Parfumix piece — scent-of-the-day carousel cut into a vertical short.",
+      "Third Parfumix piece - scent-of-the-day carousel cut into a vertical short.",
     platform: "TikTok",
     url: "https://www.tiktok.com/@parfumixofficial/video/7505074578704682247",
     views: 7_500,
@@ -429,7 +429,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "milano-8-2k",
-    title: "Milano Italy — 8.2K views",
+    title: "Milano Italy - 8.2K views",
     category: "Brand Work",
     client: "Milano Italy SRL",
     brandCategory: "Home",
@@ -438,7 +438,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals["Milano Italy SRL"].wide,
     videoSrc: "/ugc/milano-8-2k.mp4",
     description:
-      "Milano Italy SRL — wholesale supplier content. A-roll + product showcase for the UAE distributor audience.",
+      "Milano Italy SRL - wholesale supplier content. A-roll + product showcase for the UAE distributor audience.",
     platform: "TikTok",
     url: "https://www.tiktok.com/@milanoitalysrl/video/7529861645598756103",
     views: 8_272,
@@ -448,7 +448,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "milano-7-5k",
-    title: "Milano Italy — 7.5K views",
+    title: "Milano Italy - 7.5K views",
     category: "Brand Work",
     client: "Milano Italy SRL",
     brandCategory: "Home",
@@ -457,7 +457,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals["Milano Italy SRL"].wide,
     videoSrc: "/ugc/milano-7-5k.mp4",
     description:
-      "Second Milano piece — fleet B-roll with founder-led hook on wholesale availability.",
+      "Second Milano piece - fleet B-roll with founder-led hook on wholesale availability.",
     platform: "TikTok",
     url: "https://www.tiktok.com/@milanoitalysrl/video/7519937261069176082",
     views: 7_523,
@@ -467,7 +467,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "voxxhire-ugc-2-2k",
-    title: "VoxxHire UGC — 2.2K views",
+    title: "VoxxHire UGC - 2.2K views",
     category: "Software",
     client: "VoxxHire",
     brandCategory: "Software",
@@ -476,7 +476,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals.VoxxHire.wide,
     videoSrc: "/ugc/voxxhire-2-2k.mp4",
     description:
-      "Second VoxxHire UGC reel — graduate-side POV, hook on the interview format.",
+      "Second VoxxHire UGC reel - graduate-side POV, hook on the interview format.",
     platform: "Instagram",
     url: "https://www.instagram.com/reel/DcBurxkxoml/?hl=en",
     views: 2_200,
@@ -486,7 +486,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "wrapsters-3-3k",
-    title: "Wrapsters — 3.3K views",
+    title: "Wrapsters - 3.3K views",
     category: "Automotive",
     client: "Wrapsters",
     brandCategory: "Automotive",
@@ -495,7 +495,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals.Wrapsters.wide,
     videoSrc: "/ugc/wrapsters-3-3k.mp4",
     description:
-      "Second Wrapsters piece — wrap process B-roll with a fast-cut hook on colour-shift reveal.",
+      "Second Wrapsters piece - wrap process B-roll with a fast-cut hook on colour-shift reveal.",
     platform: "TikTok",
     url: "https://www.tiktok.com/@wrapsters.ae/video/7510603170440088840",
     views: 3_363,
@@ -505,7 +505,7 @@ export const ugcReels: UgcReel[] = [
   },
   {
     id: "milano-2-3k",
-    title: "Milano Italy — 2.3K views",
+    title: "Milano Italy - 2.3K views",
     category: "Brand Work",
     client: "Milano Italy SRL",
     brandCategory: "Home",
@@ -514,7 +514,7 @@ export const ugcReels: UgcReel[] = [
     imageSrc: brandVisuals["Milano Italy SRL"].wide,
     videoSrc: "/ugc/milano-2-3k.mp4",
     description:
-      "Third Milano piece — product detail shots with overlay copy on stock and shipping.",
+      "Third Milano piece - product detail shots with overlay copy on stock and shipping.",
     platform: "TikTok",
     url: "https://www.tiktok.com/@milanoitalysrl/video/7465320234841345298",
     views: 2_357,
@@ -535,7 +535,7 @@ export const ugcReelCategories = [
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────
-// UGC CASE STUDIES — use manual data; add new entries here.
+// UGC CASE STUDIES - use manual data; add new entries here.
 // ─────────────────────────────────────────────────────────────────
 
 export const ugcCaseStudies = [
@@ -545,7 +545,7 @@ export const ugcCaseStudies = [
     industry: "Creator-Led Media",
     year: "2025",
     role: "Content Management Specialist (Freelance)",
-    brief: "Engineer content that the algorithm and audience reward — at scale, weekly.",
+    brief: "Engineer content that the algorithm and audience reward - at scale, weekly.",
     concept:
       "Treat every short-form video like a small product: hook, pacing, posting window, and analytics loop.",
     deliverables: [
@@ -589,7 +589,7 @@ export const ugcCaseStudies = [
 ] as const;
 
 // ─────────────────────────────────────────────────────────────────
-// FOUNDER / PROJECTS — flagship + archive split.
+// FOUNDER / PROJECTS - flagship + archive split.
 // ─────────────────────────────────────────────────────────────────
 
 export type Project = {
@@ -627,7 +627,7 @@ export const projects: Project[] = [
     description:
       "AI interview platform that helps graduates land roles and gives recruiters enterprise-grade signal.",
     longDescription:
-      "VoxxHire turns the broken graduate-hire funnel into a structured, AI-mediated conversation — voice-to-text, structured rubrics, and a recruiter dashboard that surfaces real signal instead of resume noise.",
+      "VoxxHire turns the broken graduate-hire funnel into a structured, AI-mediated conversation - voice-to-text, structured rubrics, and a recruiter dashboard that surfaces real signal instead of resume noise.",
     category: "Founder",
     year: "2024 – Present",
     role: "Co-founder · Product & Engineering",
@@ -636,7 +636,7 @@ export const projects: Project[] = [
     architecture:
       "Next.js frontend · Flask API · PostgreSQL · LLM evaluation pipeline · voice transcription · structured rubric engine · recruiter analytics dashboard.",
     decisions: [
-      "AI scoring with a transparent rubric — every score is auditable.",
+      "AI scoring with a transparent rubric - every score is auditable.",
       "Voice-first candidate experience to capture how someone actually thinks.",
       "Recruiter dashboard that ranks by structured signal, not self-reported claims.",
     ],
@@ -644,7 +644,7 @@ export const projects: Project[] = [
     outcome:
       "Live beta with graduates and recruiters in active feedback loops.",
     learning:
-      "The hardest part of AI products is trust — every model output needs to be explainable to a non-technical stakeholder.",
+      "The hardest part of AI products is trust - every model output needs to be explainable to a non-technical stakeholder.",
     next: "Pilot programmes with UAE universities and enterprise recruiters.",
     tech: ["Next.js", "TypeScript", "Flask", "PostgreSQL", "LLMs"],
     impact: "Live beta · structured interview AI · UAE market",
@@ -657,26 +657,26 @@ export const projects: Project[] = [
     slug: "document-flow-automator",
     name: "Document-Flow Automator",
     description:
-      "AI onboarding platform for financial ops — document validation and summary generation.",
+      "AI onboarding platform for financial ops - document validation and summary generation.",
     longDescription:
       "Built for Halliday Forfaiting Services to turn a manual, multi-team onboarding workflow into a self-serve, AI-validated system.",
     category: "AI & Automation",
     year: "2025",
     role: "Builder (internal)",
     problem:
-      "Multi-team document onboarding was a manual bottleneck — slow reviews, no QA backlog visibility, and inconsistent handoffs.",
+      "Multi-team document onboarding was a manual bottleneck - slow reviews, no QA backlog visibility, and inconsistent handoffs.",
     architecture:
       "Flask backend · n8n orchestration · GPT-4 + Gemini for validation and summary · Zoho + Twilio integration · PostgreSQL audit log.",
     decisions: [
       "Pair LLM summarization with rule-based validation so the system never blindly trusts an AI output.",
-      "Build the audit log first — compliance was a hard requirement, not an afterthought.",
+      "Build the audit log first - compliance was a hard requirement, not an afterthought.",
       "Make the human handoff explicit instead of hiding it behind the AI.",
     ],
     stack: ["Flask", "Python", "n8n", "GPT-4", "Gemini", "PostgreSQL", "Twilio", "Zoho"],
     outcome:
       "40% faster reviews · zero QA backlog · 35% less manual reporting time.",
     learning:
-      "AI workflows land or die based on the seams between model and human — get the seams right first.",
+      "AI workflows land or die based on the seams between model and human - get the seams right first.",
     next: "Template the system for adjacent onboarding flows.",
     tech: ["Flask", "GPT-4", "Gemini", "n8n", "Zoho"],
     impact: "40% faster reviews · 35% less manual reporting",
@@ -698,7 +698,7 @@ export const projects: Project[] = [
     architecture:
       "React frontend · Flask API · Supabase auth + DB · Vercel · Railway · analytics event pipeline.",
     decisions: [
-      "Behavioural analytics as a first-class product surface — not a marketing add-on.",
+      "Behavioural analytics as a first-class product surface - not a marketing add-on.",
       "Smarter ad targeting tied to behavioural cohorts, not demographics.",
       "Lightweight listing flow tuned for UAE mobile usage patterns.",
     ],
@@ -728,7 +728,7 @@ export const projects: Project[] = [
     architecture:
       "React · TypeScript · Tailwind · Vercel.",
     decisions: [
-      "Mobile-first by default — the audience is on phones.",
+      "Mobile-first by default - the audience is on phones.",
       "Lead capture first, design polish second.",
     ],
     stack: ["React", "TypeScript", "Tailwind", "Vercel"],
@@ -758,7 +758,7 @@ export const projects: Project[] = [
     architecture:
       "Python · Streamlit · SQLite · yfinance · Alt.me API · concurrent ETL · data quality checks.",
     decisions: [
-      "Concurrent ETL from the start — sequential jobs would have died under load.",
+      "Concurrent ETL from the start - sequential jobs would have died under load.",
       "ACL-grade audit layer because regulated stakeholders would eventually ask.",
       "Streamlit for the dashboard because the data scientists owned the iteration loop.",
     ],
@@ -818,7 +818,7 @@ export const projects: Project[] = [
     problem: "Strategy firm needed a credible digital presence to win mid-market leads.",
     architecture: "Next.js 14 · TypeScript · Tailwind · Framer Motion · Lucide · Vercel.",
     decisions: [
-      "Production-grade patterns over novel interaction — credibility matters more than novelty.",
+      "Production-grade patterns over novel interaction - credibility matters more than novelty.",
     ],
     stack: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
     outcome: "Shipped a production-grade digital presence with lead-ready CTAs.",
@@ -914,7 +914,7 @@ export const projects: Project[] = [
     role: "Builder",
     problem: "Academic QA experiments needed high-recall semantic retrieval.",
     architecture: "Python · TensorFlow · vector search.",
-    decisions: ["Pre-LLM era — semantic embeddings were the right primitive."],
+    decisions: ["Pre-LLM era - semantic embeddings were the right primitive."],
     stack: ["Python", "TensorFlow"],
     outcome: "High-recall knowledge lookups for academic QA.",
     learning: "Embeddings are still the right hammer for many nails.",

@@ -186,7 +186,7 @@ const personSchema = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Suhayl Dastager — services",
+    name: "Suhayl Dastager - services",
     itemListElement: [
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Product Engineering" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Founder Advisory" } },
@@ -217,7 +217,7 @@ const websiteSchema = {
   },
 };
 
-// Site-wide ProfilePage for the home route — gives AI crawlers a single
+// Site-wide ProfilePage for the home route - gives AI crawlers a single
 // canonical "this is who Suhayl is" entry, and surfaces in Google's
 // knowledge panel signals.
 const profilePageSchema = {
@@ -235,7 +235,7 @@ const profilePageSchema = {
   dateModified: new Date().toISOString().slice(0, 10),
 };
 
-// Site navigation as schema — exposes the primary nav to AI crawlers
+// Site navigation as schema - exposes the primary nav to AI crawlers
 // and to Google's sitelinks generator.
 const siteNavigationSchema = {
   "@context": "https://schema.org",
@@ -251,7 +251,7 @@ const siteNavigationSchema = {
   ],
 };
 
-// BreadcrumbList for the home — keeps breadcrumb-rich-results eligibility.
+// BreadcrumbList for the home - keeps breadcrumb-rich-results eligibility.
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -319,7 +319,7 @@ const voxxhireSchema = {
   ],
 };
 
-// VideoObject schema for each live UGC reel — surfaces videos in
+// VideoObject schema for each live UGC reel - surfaces videos in
 // Google video search, Bing video tab, and AI-citation contexts.
 const videoObjects = {
   "@context": "https://schema.org",
@@ -346,7 +346,7 @@ const videoObjects = {
     })),
 };
 
-// FAQPage schema — surfaces the Quick Answers in Google's
+// FAQPage schema - surfaces the Quick Answers in Google's
 // "People also ask" / FAQ rich results.
 const faqSchema = {
   "@context": "https://schema.org",

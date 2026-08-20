@@ -1,6 +1,6 @@
-# Suhayl Dastager — Personal Website
+# Suhayl Dastager - Personal Website
 
-A world-class personal-brand website that unifies Suhayl's three identities — **Creator** (UGC), **Builder** (Founder), **Shipper** (Hiring). Built with Next.js 16, TypeScript, Tailwind, and framer-motion.
+A world-class personal-brand website that unifies Suhayl's three identities - **Creator** (UGC), **Builder** (Founder), **Shipper** (Hiring). Built with Next.js 16, TypeScript, Tailwind, and framer-motion.
 
 > The design system is a synthesis of **SM Stratagem** (navy + electric blue + Geist family) and **VoxxHire** (indigo + coral + Plus Jakarta Sans). Together they form a single Suhayl system: warm cream surfaces, navy depth, electric-blue primary, coral warmth.
 

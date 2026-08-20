@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Project case studies — these are the primary deep links for AEO/GEO
+  // Project case studies - these are the primary deep links for AEO/GEO
   // citation in "what did Suhayl build" answers. Image fields make the
   // entries eligible for Google image sitemap behaviour.
   const projectRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
@@ -71,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     images: p.image ? [`${base}${p.image}`] : undefined,
   }));
 
-  // UGC case studies — these carry brand-name keyword weight and live
+  // UGC case studies - these carry brand-name keyword weight and live
   // showreel data, so they get a slightly higher weight than project archive.
   const ugcRoutes: MetadataRoute.Sitemap = ugcCaseStudies.map((c) => ({
     url: `${base}/ugc/${c.slug}`,

@@ -23,7 +23,7 @@ const ugcMetrics = [
   { label: "Platforms", value: 3, color: "blue" as const },
 ];
 
-// Brands I've worked with — logo strip
+// Brands I've worked with - logo strip
 const workedWithBrands = [
   { name: "Parfumix", logo: "/ugc/parfumix-logo.webp" },
   { name: "Al Amoudi", logo: "/ugc/alamoudi-logo.png" },
@@ -65,7 +65,7 @@ const UGCSection = () => {
           </div>
         </div>
 
-        {/* Brands I've worked with — logo strip */}
+        {/* Brands I've worked with - logo strip */}
         <div className="mb-6 md:mb-8">
           <div className="eyebrow mb-3">Brands I&apos;ve worked with</div>
           <div className="grid grid-cols-5 gap-2 md:gap-3">
@@ -92,7 +92,7 @@ const UGCSection = () => {
           </div>
         </div>
 
-        {/* Metrics — typography row, not card grid */}
+        {/* Metrics - typography row, not card grid */}
         <div className="border-y border-border mb-6 md:mb-8">
           {ugcMetrics.map((m, i) => (
             <motion.div
@@ -130,7 +130,7 @@ const UGCSection = () => {
           ))}
         </div>
 
-        {/* Top reels — 3 horizontal 9:16 frames */}
+        {/* Top reels - 3 horizontal 9:16 frames */}
         <div className="mb-4 flex items-end justify-between gap-3">
           <h3 className="font-display font-bold text-xl md:text-2xl tracking-tighter text-ink text-balance">
             Top performers
@@ -155,7 +155,7 @@ const UGCSection = () => {
           ))}
         </div>
 
-        {/* Work With Me — flow state CTA, replaces the packages section */}
+        {/* Work With Me - flow state CTA, replaces the packages section */}
         <div className="mt-8 md:mt-10 relative overflow-hidden rounded-2xl border border-border bg-ink-950 text-text-inverse">
           <div className="relative grid grid-cols-12 gap-4 md:gap-6 p-6 md:p-8">
             <div className="col-span-12 md:col-span-7">
@@ -166,7 +166,7 @@ const UGCSection = () => {
                 Want me on your next campaign?
               </h3>
               <p className="mt-2 text-sm text-text-inverseMuted max-w-md text-pretty">
-                Brief, deliverables, usage, dates — share what you have, get a tight quote.
+                Brief, deliverables, usage, dates - share what you have, get a tight quote.
               </p>
             </div>
             <div className="col-span-12 md:col-span-5 flex md:items-center md:justify-end">

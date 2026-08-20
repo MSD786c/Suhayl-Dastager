@@ -11,7 +11,7 @@ import { brandVisuals } from "@/lib/data";
 const AboutPage = () => {
   return (
     <>
-      {/* Hero — striking, full-bleed dark */}
+      {/* Hero - striking, full-bleed dark */}
       <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 bg-ink-950 text-text-inverse overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-50" aria-hidden />
         <div
@@ -63,7 +63,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Editorial photo feature — single tall hero shot */}
+      {/* Editorial photo feature - single tall hero shot */}
       <section className="py-6 md:py-10 bg-canvas">
         <div className="mx-auto max-w-[1440px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-3 md:gap-4">
@@ -147,7 +147,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* The story — compact */}
+      {/* The story - compact */}
       <section className="py-10 md:py-14 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6">
@@ -159,7 +159,7 @@ const AboutPage = () => {
             </div>
             <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-4 text-base text-text-secondary leading-relaxed text-pretty">
               <p>
-                I started in content — Reels, TikToks, community management —
+                I started in content - Reels, TikToks, community management -
                 the short-form muscle that teaches you what attention actually
                 looks like in 2026. Then I went to study AI &amp; Computer
                 Science because the content I wanted to make required me to
@@ -183,7 +183,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Off-screen — life outside the laptop */}
+      {/* Off-screen - life outside the laptop */}
       <section className="py-10 md:py-14 bg-canvas border-t border-border">
         <div className="mx-auto max-w-[1100px] px-6 sm:px-8">
           <div className="grid grid-cols-12 gap-6 mb-6">

@@ -1,4 +1,4 @@
-// Zoho SMTP contact form — server-side only.
+// Zoho SMTP contact form - server-side only.
 // NEVER expose credentials to the client. Use env vars:
 //   ZOHO_SMTP_HOST, ZOHO_SMTP_PORT, ZOHO_SMTP_USER, ZOHO_SMTP_PASSWORD,
 //   CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL (optional)
@@ -26,7 +26,7 @@ function rateLimit(ip: string) {
   return { ok: true, remaining: MAX_REQ - b.count };
 }
 
-// Basic sanitisation — strip HTML and trim.
+// Basic sanitisation - strip HTML and trim.
 function clean(v: unknown) {
   if (typeof v !== "string") return "";
   return v
@@ -111,7 +111,7 @@ function buildConfirmation(name: string) {
       I received your message and will get back to you as soon as possible.
     </div>
     <div style="padding:18px 24px;background:#F5F8FC;font:400 11px/1.4 Inter,system-ui,sans-serif;color:#5A6B84;">
-      — Suhayl · Dubai, UAE
+      - Suhayl · Dubai, UAE
     </div>
   </div>
 </body></html>`;
@@ -261,7 +261,7 @@ export async function POST(req: NextRequest) {
       `Suhayl Dastager Website <noreply@${
         suhayl.site.url.replace(/^https?:\/\//, "").split("/")[0]
       }>`;
-    const subject = `[Suhayl Website] ${enquiryLabels[enquiryType]} — ${
+    const subject = `[Suhayl Website] ${enquiryLabels[enquiryType]} - ${
       body.company || body.brand || body.name || "Anonymous"
     }`;
 
@@ -271,7 +271,7 @@ export async function POST(req: NextRequest) {
       !process.env.ZOHO_SMTP_PASSWORD
     ) {
       console.warn(
-        "[contact] ZOHO_SMTP_USER/PASSWORD not set — logging payload instead."
+        "[contact] ZOHO_SMTP_USER/PASSWORD not set - logging payload instead."
       );
       console.log("[contact] subject:", subject);
       console.log("[contact] body:", body);
@@ -300,7 +300,7 @@ export async function POST(req: NextRequest) {
         await sendViaZoho({
           to: body.email,
           from,
-          subject: "Thanks — I received your message",
+          subject: "Thanks - I received your message",
           html: buildConfirmation(body.name?.split(" ")[0] || ""),
         });
       } catch (err) {

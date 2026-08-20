@@ -95,12 +95,12 @@ export const ReelCard = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
       className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-ink-900 ring-1 ring-border hover:ring-2 hover:ring-coral focus-visible:ring-2 focus-visible:ring-blue focus-visible:outline-none block text-left w-full cursor-pointer transition-all duration-300"
-      aria-label={`Open ${reel.client} reel — ${reel.title}`}
+      aria-label={`Open ${reel.client} reel - ${reel.title}`}
     >
       {inView && embedUrl && !iframeFailed && (
         <iframe
           src={embedUrl}
-          title={`${reel.client} — ${reel.title}`}
+          title={`${reel.client} - ${reel.title}`}
           allow="autoplay; encrypted-media; picture-in-picture; web-share"
           allowFullScreen
           loading="lazy"
@@ -234,7 +234,7 @@ export const VideoLightbox = ({
               {embedUrl ? (
                 <iframe
                   src={embedUrl}
-                  title={`${reel.client} — ${reel.title}`}
+                  title={`${reel.client} - ${reel.title}`}
                   allow="autoplay; encrypted-media; picture-in-picture; web-share"
                   allowFullScreen
                   className="w-full h-full"

@@ -1,4 +1,4 @@
-# Assets Needed — Suhayl Dastager Personal Site
+# Assets Needed - Suhayl Dastager Personal Site
 
 The site is built and running. To get it from "great looking" to "production-grade and personalized," here's exactly what to send and where it goes.
 
@@ -6,7 +6,7 @@ Send to: <dastagersuhayl@gmail.com> (or just drop into the conversation here). F
 
 ---
 
-## 🎬 1. UGC Reels (10 videos) — **highest priority**
+## 🎬 1. UGC Reels (10 videos) - **highest priority**
 
 You mentioned you have ~10 high-view videos. This is what the showreel grid is built for.
 
@@ -15,7 +15,7 @@ For each video, send:
 | Field | What to send | Example |
 |---|---|---|
 | `.mp4` file | The actual video | `voxxhire-teaser.mp4` |
-| Title | One-line title | "VoxxHire — interview signal" |
+| Title | One-line title | "VoxxHire - interview signal" |
 | Category | Software / Automotive / AI / Consumer Tech / Founder Content / Brand Work | Software |
 | Client | Whose product/service it was for | VoxxHire |
 | Platform | TikTok / Instagram / YouTube Shorts / LinkedIn | Instagram |
@@ -41,7 +41,7 @@ Edit `lib/data.ts` → `ugcReels` array. The shape is:
 ```ts
 {
   id: "voxxhire-teaser",        // matches the file name
-  title: "VoxxHire — interview signal",
+  title: "VoxxHire - interview signal",
   category: "Software",
   client: "VoxxHire",
   durationSec: 34,
@@ -75,12 +75,12 @@ Each flagship project gets a hero image. Drop these at `public/project-pictures/
 
 | Project | Ideal hero image |
 |---|---|
-| VoxxHire | App screenshot — recruiter dashboard, candidate interface |
-| Document-Flow Automator | Screenshot — Zoho integration, the n8n workflow, GPT summary output |
-| DPH Classifieds | App screenshot — listing page, car detail page |
-| Workora | The current site (it's already linked — workora.ae) |
-| Crypto Command Center | Screenshot — Streamlit dashboard with charts |
-| MoneyMentor | App screenshot — chat with Gemini, budget dashboard |
+| VoxxHire | App screenshot - recruiter dashboard, candidate interface |
+| Document-Flow Automator | Screenshot - Zoho integration, the n8n workflow, GPT summary output |
+| DPH Classifieds | App screenshot - listing page, car detail page |
+| Workora | The current site (it's already linked - workora.ae) |
+| Crypto Command Center | Screenshot - Streamlit dashboard with charts |
+| MoneyMentor | App screenshot - chat with Gemini, budget dashboard |
 
 The image should be ~1920x1080px, JPG or WebP, ≤ 200KB. Optimize at [tinypng.com](https://tinypng.com) or similar before sending.
 
@@ -90,9 +90,9 @@ The image should be ~1920x1080px, JPG or WebP, ≤ 200KB. Optimize at [tinypng.c
 
 The case studies currently use project screenshots as the only visual. To make each case study feel like a real essay, I can generate:
 
-- **Architecture diagrams** — generated from the actual stack (Next.js → Flask → PostgreSQL → LLMs)
-- **Before/after dashboards** — the metric before vs. after
-- **System flow illustrations** — for AI workflows especially
+- **Architecture diagrams** - generated from the actual stack (Next.js → Flask → PostgreSQL → LLMs)
+- **Before/after dashboards** - the metric before vs. after
+- **System flow illustrations** - for AI workflows especially
 
 **Send me 1–2 sentence descriptions of what you'd want visualized per project** and I'll generate them. I can also just generate them as opinionated graphics if you prefer.
 
@@ -108,9 +108,9 @@ For the VoxxHire case study to be a true flagship, I need:
 
 - 1–2 dashboard screenshots (recruiter view, candidate view)
 - 1 product photo / hero image
-- Live URL (currently set to voxxhire.com — confirm this is the real domain or send the correct one)
+- Live URL (currently set to voxxhire.com - confirm this is the real domain or send the correct one)
 - Number of users / companies on the platform (if safe to share)
-- 1 short testimonial quote (recruiter, candidate, or hiring manager) — with permission
+- 1 short testimonial quote (recruiter, candidate, or hiring manager) - with permission
 
 ---
 
@@ -148,11 +148,11 @@ Until these are set, the form still works in dev mode (it logs the payload and r
 
 ## ✅ What to send in priority order
 
-1. **The 10 UGC videos** (mp4 + post URLs + view counts) — biggest impact
+1. **The 10 UGC videos** (mp4 + post URLs + view counts) - biggest impact
 2. **1–2 project screenshots** (VoxxHire dashboard is the highest leverage)
-3. **Zoho credentials** — so you can actually receive leads
-4. **Confirm the site URL** — so SEO is correct
-5. **More photos** — if you have any workshop / speaking shots, send them
-6. **Custom graphics brief** — even a one-liner per project works
+3. **Zoho credentials** - so you can actually receive leads
+4. **Confirm the site URL** - so SEO is correct
+5. **More photos** - if you have any workshop / speaking shots, send them
+6. **Custom graphics brief** - even a one-liner per project works
 
-Everything else is a "nice to have" — the site is production-ready today without any of this. The items above turn it from production-ready to production-grade.
+Everything else is a "nice to have" - the site is production-ready today without any of this. The items above turn it from production-ready to production-grade.

@@ -22,19 +22,19 @@ export async function generateMetadata({
   const cs = ugcCaseStudies.find((c) => c.slug === slug);
   if (!cs) return { title: "UGC case study" };
   return {
-    title: `${cs.client} — UGC case study`,
+    title: `${cs.client} - UGC case study`,
     description: cs.brief,
     alternates: { canonical: `${suhayl.site.url}/ugc/${cs.slug}` },
     openGraph: {
       type: "article",
-      title: `${cs.client} — UGC case study · Suhayl Dastager`,
+      title: `${cs.client} - UGC case study · Suhayl Dastager`,
       description: cs.brief,
       url: `${suhayl.site.url}/ugc/${cs.slug}`,
       images: [{ url: suhayl.site.ogImage, width: 1200, height: 630, alt: `${cs.client} UGC case study` }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cs.client} — UGC case study · Suhayl Dastager`,
+      title: `${cs.client} - UGC case study · Suhayl Dastager`,
       description: cs.brief,
       images: [suhayl.site.ogImage],
     },

@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const FounderDeepDive = () => {
   return (
     <>
-      {/* Hero — full-bleed dark with blue glow */}
+      {/* Hero - full-bleed dark with blue glow */}
       <section className="relative pt-20 md:pt-24 pb-6 md:pb-8 bg-ink-950 text-text-inverse overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
         <div
@@ -73,7 +73,7 @@ const FounderDeepDive = () => {
                 />
               </motion.div>
               <div className="mt-3 font-mono text-[10px] uppercase tracking-monoWide text-text-inverseMuted">
-                Image — Suhayl · Dubai · 2026
+                Image - Suhayl · Dubai · 2026
               </div>
             </div>
           </div>

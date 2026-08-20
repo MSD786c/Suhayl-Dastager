@@ -1,4 +1,4 @@
-# Testing Suhayl Dastager — Personal Website
+# Testing Suhayl Dastager - Personal Website
 
 How to run, test, and ship the site.
 
@@ -10,7 +10,7 @@ How to run, test, and ship the site.
 # 1. Install dependencies
 npm install
 
-# 2. Copy the env template (optional — site works without it in dev)
+# 2. Copy the env template (optional - site works without it in dev)
 cp .env.example .env.local
 
 # 3. Start the dev server
@@ -36,7 +36,7 @@ The dev server uses Turbopack. It is ready in ~400ms after the first compile.
 | `/projects/document-flow-automator` | Light case-study template |
 | `/ugc/loop-media-creator-analytics` | UGC case-study template |
 | `/about` | "Outside the laptop" photo essay |
-| `/contact` | Adaptive form — pick each of the 6 types and see the fields change |
+| `/contact` | Adaptive form - pick each of the 6 types and see the fields change |
 | `/resume` | Recruiter-friendly CV page |
 | `/archive` | Older/smaller projects |
 | `/sitemap.xml` | All 23 routes |
@@ -44,7 +44,7 @@ The dev server uses Turbopack. It is ready in ~400ms after the first compile.
 
 ### Contact form (no Zoho required)
 
-Without SMTP env vars, the form still works — the server logs the payload and returns `{ok: true, dev: true}`. The success state ("Message received.") renders.
+Without SMTP env vars, the form still works - the server logs the payload and returns `{ok: true, dev: true}`. The success state ("Message received.") renders.
 
 To test the form end-to-end:
 
@@ -64,14 +64,14 @@ To clear the rate limit during testing, restart the dev server (`Ctrl+C` and re-
 
 ### SEO
 
-- View source on `/` — you should see a `<title>` of `Suhayl Dastager — AI Product Engineer, Founder & Tech Creator`
+- View source on `/` - you should see a `<title>` of `Suhayl Dastager - AI Product Engineer, Founder & Tech Creator`
 - Meta description, OG tags, Twitter card meta, and the `application/ld+json` Person schema are all in the `<head>`
 - `https://yourdomain.com/sitemap.xml` should list all 23 routes
 - `https://yourdomain.com/robots.txt` should `Disallow: /api/`
 
 ### Performance
 
-The site is built on Next.js 16 with Turbopack. Run a Lighthouse check from the browser's dev tools — target is 90+ on all four categories.
+The site is built on Next.js 16 with Turbopack. Run a Lighthouse check from the browser's dev tools - target is 90+ on all four categories.
 
 To test image optimization, open the homepage and check:
 - Hero photos load with `loading="eager"` (priority)
@@ -80,7 +80,7 @@ To test image optimization, open the homepage and check:
 
 ### Accessibility
 
-- Tab through the page — focus rings should be visible on every interactive element
+- Tab through the page - focus rings should be visible on every interactive element
 - All images have descriptive `alt` text
 - The hero respects `prefers-reduced-motion` (animations reduce to ~0ms)
 - All buttons and links are real `<button>` / `<a>` elements
@@ -150,15 +150,15 @@ npx vercel env add CONTACT_TO_EMAIL
 npx vercel --prod
 ```
 
-The site is configured for Vercel out of the box. Other platforms (Netlify, Cloudflare Pages) work too — the only server requirement is Node.js for the `/api/contact` route.
+The site is configured for Vercel out of the box. Other platforms (Netlify, Cloudflare Pages) work too - the only server requirement is Node.js for the `/api/contact` route.
 
 ### 4. Test the contact form in production
 
 After deploy:
 1. Submit a test enquiry
-2. Check your Zoho inbox — you should receive a branded HTML email
-3. Check the sender's inbox — they should receive a confirmation
-4. Check spam if it doesn't arrive — make sure your Zoho account is verified
+2. Check your Zoho inbox - you should receive a branded HTML email
+3. Check the sender's inbox - they should receive a confirmation
+4. Check spam if it doesn't arrive - make sure your Zoho account is verified
 
 ---
 
@@ -289,12 +289,12 @@ docs/
 
 ## Common issues
 
-**"The dev server won't start"** — check that port 3000 isn't in use. Try `PORT=3001 npm run dev`.
+**"The dev server won't start"** - check that port 3000 isn't in use. Try `PORT=3001 npm run dev`.
 
-**"The form returns a 429"** — you've hit the 10-minute rate limit. Restart the dev server to reset.
+**"The form returns a 429"** - you've hit the 10-minute rate limit. Restart the dev server to reset.
 
-**"The dark VoxxHire case study has invisible text"** — fixed in the latest build. Make sure you pull all the changes.
+**"The dark VoxxHire case study has invisible text"** - fixed in the latest build. Make sure you pull all the changes.
 
-**"Photos in the hero don't move"** — cursor parallax is desktop-only and respects `prefers-reduced-motion`. Mobile gets a static curated strip instead.
+**"Photos in the hero don't move"** - cursor parallax is desktop-only and respects `prefers-reduced-motion`. Mobile gets a static curated strip instead.
 
-**"Sections look blank when I screenshot"** — fixed. Content is now visible by default and animates in as a slide-up. `npm run preview` to capture fresh screenshots that scroll the page first.
+**"Sections look blank when I screenshot"** - fixed. Content is now visible by default and animates in as a slide-up. `npm run preview` to capture fresh screenshots that scroll the page first.

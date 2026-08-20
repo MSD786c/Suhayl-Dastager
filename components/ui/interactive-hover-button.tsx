@@ -39,16 +39,14 @@ const InteractiveHoverButton = React.forwardRef<
 >(({ text = "Button", className, href, download, variant = "primary", ...props }, ref) => {
   const v = VARIANT_STYLES[variant];
 
-  // The animation: a tiny dot sits in the middle of the button.
-  // On hover it scales up and grows to fill the entire button (the
-  // "animated border" effect), while the text slides out and an
-  // arrow appears. The dot color matches the variant.
+  // The dot grows into the fill while the whole control makes one small,
+  // intentional leftward acknowledgement on hover/press.
   const inner = (
     <>
-      <span className="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+      <span className="inline-block transition-all duration-300 group-hover:translate-x-10 group-hover:opacity-0">
         {text}
       </span>
-      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-ink opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+      <div className="absolute top-0 z-10 flex h-full w-full translate-x-10 items-center justify-center gap-2 text-ink opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
         <span>{text}</span>
         <ArrowRight className="h-4 w-4" />
       </div>
@@ -63,7 +61,7 @@ const InteractiveHoverButton = React.forwardRef<
   );
 
   const shared = cn(
-    "group relative min-w-[12rem] cursor-pointer overflow-hidden rounded-full border bg-transparent px-5 py-2.5 text-center font-medium text-sm text-text-inverse transition-transform duration-300 will-change-transform group-hover:-translate-x-2",
+    "group relative min-w-[12rem] cursor-pointer overflow-hidden rounded-full border bg-transparent px-5 py-2.5 text-center font-medium text-sm text-text-inverse transition-transform duration-300 will-change-transform group-hover:-translate-x-1 active:-translate-x-2",
     v.border,
     className,
   );

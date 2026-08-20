@@ -117,9 +117,9 @@ const Footer = () => {
                 <span>Dubai · 2026</span>
               </div>
 
-              {/* SUHAYL DASTAGER + cycling verb inline on the same row */}
+              {/* Name holds the left edge; the changing verb owns the right edge. */}
               <h2 className="font-display font-bold tracking-[-0.045em] leading-[0.9] text-text-inverse">
-                <span className="flex flex-wrap items-baseline gap-x-4 gap-y-0">
+                <span className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
                   {/* Name block */}
                   <span className="inline-flex flex-col">
                     <span className="text-[clamp(2.5rem,6.5vw,5.5rem)] font-black leading-[0.9]">
@@ -143,8 +143,8 @@ const Footer = () => {
                       ))}
                     </span>
                   </span>
-                  {/* Cycling verb — same baseline as SUHAYL */}
-                  <span className="font-black leading-[0.9] tracking-tighter text-coral text-[clamp(2.25rem,5.5vw,4.5rem)] self-end">
+                  {/* Cycling verb aligns to the base of the full name block. */}
+                  <span className="font-black leading-[0.9] tracking-tighter text-coral text-[clamp(2.25rem,5.5vw,4.5rem)] sm:mb-[0.02em]">
                     <CyclingVerb />
                   </span>
                 </span>

@@ -9,7 +9,7 @@ import { flagshipProjects, suhayl } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 const SelectedWork = () => {
-  // Show 5 flagship — the rest live in /archive per brief.
+  // Show 5 flagship - the rest live in /archive per brief.
   const featured = flagshipProjects.slice(0, 5);
   const [hero, ...rest] = featured;
 
@@ -32,7 +32,7 @@ const SelectedWork = () => {
           </div>
           <div className="col-span-12 md:col-span-4 md:col-start-9 self-end">
             <p className="text-text-secondary text-pretty">
-              Everything else lives in the archive — still real, just not the
+              Everything else lives in the archive - still real, just not the
               point anymore.
             </p>
             <Link href="/archive" className="arrow-link mt-5">
@@ -45,7 +45,7 @@ const SelectedWork = () => {
         {/* Hero project */}
         <FeaturedHero project={hero} />
 
-        {/* 4 medium projects — 2x2 grid */}
+        {/* 4 medium projects - 2x2 grid */}
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
           {rest.map((p, i) => (
             <FeaturedCard key={p.slug} project={p} index={i} />

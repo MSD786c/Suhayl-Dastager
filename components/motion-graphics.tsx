@@ -2,7 +2,7 @@
 
 /**
  * Reusable animated SVG motion graphics.
- * Pure CSS keyframe animations + SVG — no canvas, no libraries.
+ * Pure CSS keyframe animations + SVG - no canvas, no libraries.
  * Each component is tuned to be subtle at rest and expressive on hover.
  */
 
@@ -10,7 +10,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 // ──────────────────────────────────────────────────────────────
-// 1. FlowField — animated dotted grid that subtly drifts
+// 1. FlowField - animated dotted grid that subtly drifts
 // ──────────────────────────────────────────────────────────────
 
 export const FlowField = ({
@@ -59,7 +59,7 @@ export const FlowField = ({
 );
 
 // ──────────────────────────────────────────────────────────────
-// 2. GradientFlow — slow-shifting linear gradient
+// 2. GradientFlow - slow-shifting linear gradient
 // ──────────────────────────────────────────────────────────────
 
 export const GradientFlow = ({
@@ -92,7 +92,7 @@ export const GradientFlow = ({
 );
 
 // ──────────────────────────────────────────────────────────────
-// 3. CountUp — animates a number from 0 → target on view
+// 3. CountUp - animates a number from 0 → target on view
 // ──────────────────────────────────────────────────────────────
 
 export const CountUp = ({
@@ -160,7 +160,7 @@ export const formatViewsLong = (n: number) => {
 };
 
 // ──────────────────────────────────────────────────────────────
-// 5. ViralBadge — pulsing badge for high-performing content
+// 5. ViralBadge - pulsing badge for high-performing content
 // ──────────────────────────────────────────────────────────────
 
 export const ViralBadge = ({ className }: { className?: string }) => (
@@ -185,7 +185,7 @@ export const ViralBadge = ({ className }: { className?: string }) => (
 );
 
 // ──────────────────────────────────────────────────────────────
-// 6. CategoryIcons — animated SVG icons for each UGC category
+// 6. CategoryIcons - animated SVG icons for each UGC category
 // ──────────────────────────────────────────────────────────────
 
 export const CategoryIcon = ({
@@ -296,7 +296,7 @@ export const CategoryIcon = ({
 };
 
 // ──────────────────────────────────────────────────────────────
-// 7. Marquee — for ticker strips (used in metrics bar / footer)
+// 7. Marquee - for ticker strips (used in metrics bar / footer)
 // ──────────────────────────────────────────────────────────────
 
 export const Marquee = ({

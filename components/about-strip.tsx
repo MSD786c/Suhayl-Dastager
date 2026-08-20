@@ -15,7 +15,7 @@ const AboutStrip = () => {
     >
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8 py-10 md:py-14">
         <div className="grid grid-cols-12 gap-4 md:gap-6">
-          {/* Left — short conversational text */}
+          {/* Left - short conversational text */}
           <div className="col-span-12 md:col-span-7">
             <div className="eyebrow mb-5">About</div>
             <h2 className="font-display font-bold tracking-tighter leading-[0.98] text-display-lg text-ink text-balance">
@@ -25,7 +25,7 @@ const AboutStrip = () => {
             <div className="mt-8 space-y-5 max-w-2xl text-lg text-text-secondary leading-relaxed text-pretty">
               <p>
                 Most of my work starts with wondering why something is
-                unnecessarily difficult. Then I try to fix it — sometimes for
+                unnecessarily difficult. Then I try to fix it - sometimes for
                 myself, sometimes for a company, sometimes for strangers on the
                 internet.
               </p>
@@ -67,7 +67,7 @@ const AboutStrip = () => {
             </div>
           </div>
 
-          {/* Right — two editorial photos, stacked */}
+          {/* Right - two editorial photos, stacked */}
           <div className="col-span-12 md:col-span-5 grid grid-cols-2 gap-3 md:gap-4">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
