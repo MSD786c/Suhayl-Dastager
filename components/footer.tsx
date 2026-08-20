@@ -126,7 +126,7 @@ const Footer = () => {
                       {Array.from("SUHAYL").map((char, i) => (
                         <span
                           key={`s-${i}`}
-                          className="inline-block transition-colors duration-200 hover:text-coral cursor-default"
+                          className="inline-block transition-colors duration-200 hover:text-blue cursor-default"
                         >
                           {char}
                         </span>
@@ -136,7 +136,7 @@ const Footer = () => {
                       {Array.from("DASTAGER").map((char, i) => (
                         <span
                           key={`d-${i}`}
-                          className="inline-block transition-colors duration-200 hover:text-coral cursor-default"
+                          className="inline-block transition-colors duration-200 hover:text-blue cursor-default"
                         >
                           {char}
                         </span>
