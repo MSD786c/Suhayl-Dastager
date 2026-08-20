@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 /**
  * TextHoverEffect
  *
- * A quiet outlined watermark that becomes an animated coral border when
- * hovered. The interaction is legible without filling the letters, so it
- * remains a watermark rather than competing with the footer navigation.
+ * A quiet outlined watermark with a coral reveal that follows the pointer.
+ * The active colour is deliberately local, keeping it a watermark instead
+ * of turning the entire word into a competing footer heading.
  */
 export const TextHoverEffect = ({
   text,
@@ -22,6 +22,16 @@ export const TextHoverEffect = ({
   className?: string;
 }) => {
   const [hovered, setHovered] = useState(false);
+  const [pointer, setPointer] = useState({ x: 150, y: 50 });
+  const maskId = useId().replace(/:/g, "");
+
+  const updatePointer = (event: React.MouseEvent<SVGSVGElement>) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    setPointer({
+      x: ((event.clientX - bounds.left) / bounds.width) * 300,
+      y: ((event.clientY - bounds.top) / bounds.height) * 100,
+    });
+  };
 
   return (
     <svg
@@ -30,13 +40,17 @@ export const TextHoverEffect = ({
       viewBox="0 0 300 100"
       preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
-      onMouseEnter={() => setHovered(true)}
+      onMouseEnter={(event) => {
+        setHovered(true);
+        updatePointer(event);
+      }}
+      onMouseMove={updatePointer}
       onMouseLeave={() => setHovered(false)}
       style={{ pointerEvents: "auto" }}
       className={cn("select-none uppercase cursor-pointer", className)}
     >
       <defs>
-        {/* A restrained glow keeps the animated outline visible on ink. */}
+        {/* A restrained glow keeps the cursor reveal visible on ink. */}
         <filter
           id="coralGlow"
           x="-25%"
@@ -54,6 +68,18 @@ export const TextHoverEffect = ({
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
+        <mask id={maskId}>
+          <rect width="300" height="100" fill="black" />
+          <motion.circle
+            cx={pointer.x}
+            cy={pointer.y}
+            r="22"
+            fill="white"
+            initial={false}
+            animate={{ opacity: hovered ? 1 : 0, cx: pointer.x, cy: pointer.y }}
+            transition={{ duration: 0.12, ease: "easeOut" }}
+          />
+        </mask>
       </defs>
 
       {/* Quiet, always-visible outline. */}
@@ -69,20 +95,19 @@ export const TextHoverEffect = ({
         {text}
       </text>
 
-      {/* Animated coral border; no letter fill, so the effect reads as a highlight. */}
+      {/* Coral only appears beneath the cursor, like a light passing over ink. */}
       <motion.text
         x="50%"
         y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        stroke="#FF6B4A"
-        strokeWidth="0.95"
+        fill="#FF6B4A"
         filter="url(#coralGlow)"
-        className="fill-transparent font-[helvetica] text-7xl font-bold"
+        mask={`url(#${maskId})`}
+        className="font-[helvetica] text-7xl font-bold"
         initial={false}
-        animate={hovered ? { opacity: 1, strokeDashoffset: [0, -30] } : { opacity: 0, strokeDashoffset: 0 }}
-        transition={hovered ? { opacity: { duration: 0.18 }, strokeDashoffset: { duration: duration ?? 1.2, ease: "linear", repeat: Infinity } } : { opacity: { duration: 0.18 } }}
-        strokeDasharray="7 3"
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: duration ?? 0.18 }}
       >
         {text}
       </motion.text>

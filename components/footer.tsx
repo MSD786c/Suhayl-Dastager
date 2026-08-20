@@ -45,7 +45,7 @@ const CyclingVerb = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
           transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.4, 0, 0.2, 1] }}
-          className="col-start-1 row-start-1 text-coral"
+          className="col-start-1 row-start-1 -translate-y-[5px] text-coral"
         >
           {CYCLING_VERBS[index]}
         </motion.span>
@@ -206,7 +206,7 @@ const Footer = () => {
             radial mask inside the SVG can actually fire on hover. */}
         <div
           aria-hidden
-          className="pointer-events-auto absolute inset-x-0 bottom-0 hidden lg:flex items-end justify-center"
+          className="pointer-events-auto absolute inset-x-0 bottom-0 z-20 hidden lg:flex items-end justify-center"
         >
           <div className="relative w-full max-w-[1200px] h-[220px] -mb-4 pointer-events-auto">
             <TextHoverEffect
